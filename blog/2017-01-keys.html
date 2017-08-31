@@ -1,0 +1,431 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Linux Quick Tip: Adding GitHub Keys as Authorized Keys</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2017_01_keys">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-12-vagrant-lamp.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Wrapping a LAMP project into Vagrant with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-02-vault.html">
+    Using Vault to Secure Your Deployment Secrets
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Jan 04, 2017
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/field-notes.html">field notes</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/tip.html">tip</a>,
+      
+    
+      
+      <a href="tag/devops.html">devops</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="linux-quick-tip-adding-github-keys-as-authorized-keys">
+<h1>Linux Quick Tip: Adding GitHub Keys as Authorized Keys<a class="headerlink" href="#linux-quick-tip-adding-github-keys-as-authorized-keys" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>As a software developer, I constantly work with a bunch of virtual
+environments used for testing.</p>
+<p>The first step I do —Switch from password ssh authorization to
+authorization by public key. Let me share with you a handy batch that
+will add all of your GitHub keys as authorized keys.</p>
+<div class="section" id="batch">
+<h3>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>USERNAME=yourgithubusername
+
+mkdir -p ~/.ssh
+
+if ! [[ -f ~/.ssh/authorized_keys ]]; then
+  echo &quot;Creating new ~/.ssh/authorized_keys&quot;
+  touch ~/.ssh/authorized_keys
+fi
+
+keys=`curl https://api.github.com/users/$USERNAME/keys | grep -o -E &quot;ssh-\w+\s+[^\&quot;]+&quot;`
+
+for key in $keys; do
+  echo $key
+  grep -q &quot;$key&quot; ~/.ssh/authorized_keys || echo &quot;$key&quot; &amp;gt;&amp;gt; ~/.ssh/authorized_keys
+done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Usually I run it as</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">bit</span><span class="o">.</span><span class="n">ly</span><span class="o">/</span><span class="n">easytoremembershortcut</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>This approach has already saved me a lot of time!</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-12-vagrant-lamp.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Wrapping a LAMP project into Vagrant with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-02-vault.html">
+    Using Vault to Secure Your Deployment Secrets
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

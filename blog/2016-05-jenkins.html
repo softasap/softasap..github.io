@@ -1,0 +1,816 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Setup &amp; Configure Jenkins for Your Team</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_05_jenkins">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-04-deploying-ruby.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Deploying a Ruby Application with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-06-amazon-vpc-1.html">
+    Automating Network Mastering Scenarios for Amazon VPC with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    May 14, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/java.html">java</a>,
+      
+    
+      
+      <a href="tag/jenkins.html">jenkins</a>,
+      
+    
+      
+      <a href="tag/deployment.html">deployment</a>,
+      
+    
+      
+      <a href="tag/devops.html">devops</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="setup-configure-jenkins-for-your-team">
+<h1>Setup &amp; Configure Jenkins for Your Team<a class="headerlink" href="#setup-configure-jenkins-for-your-team" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Nowadays, continuous integration is an important part of the agile
+software development life-cycle. There is a number of tools on the
+market: Atlassian Bamboo, Jenkins, Jetbrains TeamCity.</p>
+<p>In my opinion, <a class="reference external" href="https://jenkins-ci.org/">Jenkins</a> has the most
+optimal product community and set of really useful plugins that suits
+most of your software projects: you can build software, deploy software,
+websites, portals to various places (e.g including AWS, DigitalOcean,
+bare metal servers) or to run unit tests. It can be integrated with
+communication tools of your choice, like Slack, HipChat or email.</p>
+<p>If you haven&#8217;t had a chance to try Jenkins earlier, feel free to use the
+tutorial below to get started.</p>
+</div>
+<div class="section" id="manual-installation">
+<h2>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h2>
+<p>In order to install Jenkins, we will need: - Unix system. I would
+recommend a Debian-based machine, like Ubuntu server LTS - Java runtime
+environment installed. I usually use Java 8 - Get base Jenkins setup -
+Install necessary plugins - Put everything behind your web server.</p>
+<div class="section" id="install-java">
+<h3>Install Java<a class="headerlink" href="#install-java" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to install Java is through the <code class="docutils literal"><span class="pre">apt-get</span></code> package
+manager:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">software</span><span class="o">-</span><span class="n">properties</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">webupd8team</span><span class="o">/</span><span class="n">java</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+</pre></div>
+</div>
+<p>Once you added <code class="docutils literal"><span class="pre">ppa</span></code> above, you can install java with the following
+command:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">oracle</span><span class="o">-</span><span class="n">java8</span><span class="o">-</span><span class="n">installer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-base-jenkins-setup">
+<h3>Get base Jenkins Setup<a class="headerlink" href="#get-base-jenkins-setup" title="Permalink to this headline">¶</a></h3>
+<p>You will need to execute a series of the following commands, namely: add
+the Jenkins signing key, register Jenkins apt sources, update package
+lists, and install Jenkins package.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pkg</span><span class="o">.</span><span class="n">jenkins</span><span class="o">-</span><span class="n">ci</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">debian</span><span class="o">/</span><span class="n">jenkins</span><span class="o">-</span><span class="n">ci</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">key</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="o">-</span>
+<span class="n">sudo</span> <span class="n">echo</span> <span class="n">deb</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pkg</span><span class="o">.</span><span class="n">jenkins</span><span class="o">-</span><span class="n">ci</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">debian</span> <span class="n">binary</span><span class="o">/</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">jenkins</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">jenkins</span>
+</pre></div>
+</div>
+<p>By default, it will install the base Jenkins setup, which is insecure.
+You will need to go to the host where your Jenkins is installed, for
+example: <code class="docutils literal"><span class="pre">http://jenkins-host:8080/</span></code>.</p>
+<p>Navigate to Manage Jenkins (on the left) and choose the &#8220;Configure
+Global Security&#8221; item on the page loaded. <img alt="enable security" src="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/enable_security.png" /></p>
+<p>Now look below on the Matrix-based security (select it, if it is not
+selected previously), and make sure Anonymous only has the &#8220;Read&#8221; right
+under the View group.</p>
+<p>Click <strong>Save</strong> at the bottom of the page. After the page reloads, you&#8217;ll
+see a login form, but simply ignore that and go to the home page (like,
+for example, <a class="reference external" href="http://jenkins-host:8080/">http://jenkins-host:8080/</a>). You&#8217;ll see this signup form,
+and the first signed up account will be the administrator.</p>
+</div>
+<div class="section" id="the-power-of-plugins">
+<h3>The Power of Plugins<a class="headerlink" href="#the-power-of-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Jenkins would not be so powerful without plugins. Usually, I install
+these plugins by default:</p>
+<ul>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">Bitbucket</span></code>: The <a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin">BitBucket
+plugin</a>
+is designed to offer integration between BitBucket and Jenkins.
+BitBucket offers a Jenkins hook, but this one just triggers a build
+for a specific job on commit, nothing more. The BitBucket plugin,
+like the GitHub plugin, uses the POST hook payload to check which
+job has to get triggered based on the changed repository/branch.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">bitbucket-pullrequest-builder</span></code>: This plugin builds pull requests
+from Bitbucket.org. This is a must-have plugin if you perform QA
+deploy for each submitted pull request.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Bitbucket+pullrequest+builder+plugin">https://wiki.jenkins-ci.org/display/JENKINS/Bitbucket+pullrequest+builder+plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">build-pipeline-plugin</span></code>: This plugin provides a Build Pipeline
+View of upstream and downstream connected jobs that typically form
+a build pipeline. In addition, it offers the ability to define
+manual triggers for jobs that require intervention prior to
+execution, e.g. an approval process outside of Jenkins. Provides
+nice visualization of the paths &amp; flows.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">copyartifact</span></code>: Adds a build step to copy artifacts from another
+project. The plugin lets you specify which build to copy artifacts
+from (e.g. the last successful/stable build, by build number, or by
+a build parameter). You can also control the copying process by
+filtering the files being copied, specifying a destination
+directory within the target project, etc.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">credentials</span></code>: Adds a build step to copy artifacts from another
+project. The plugin lets you specify which build to copy artifacts
+from (e.g. the last successful/stable build, by build number, or by
+a build parameter). You can also control the copying process by
+filtering the files being copied, specifying a destination
+directory within the target project, etc.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">delivery-pipeline-plugin</span></code>: Visualisation of Delivery/Build
+Pipelines, renders pipelines based on upstream/downstream jobs.
+When using Jenkins as a build server it is now possible with the
+Delivery Pipeline Plugin to visualise one or more Delivery
+Pipelines in the same view even in full screen.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">environment-script</span></code>: <a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin">Environment Script
+Plugin</a>
+allows you to have a script run after SCM checkout, before the
+build. If the script fails (exit code isn&#8217;t zero), the build is
+marked as failed. Any output on standard out is parsed as
+environment variables that are applied to the build. It supports
+&#8220;override syntax&#8221; to append paths to PATH-like variables.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin</a></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">git</span></code>: Supports popular git version control system</p>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">ghprb</span></code>: This plugin builds pull requests in GitHub. It&#8217;s another
+must-have plugin if your software development life cycle includes
+deploying pull requests to PR environment to test.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">greenballs</span></code>: The funniest plugin - changes Jenkins to use green
+balls instead of blue for successful builds.</div>
+<div class="line">Plugin URL: <a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">hipchat</span></code>: This plugin allows your team to setup build
+notifications to be sent to HipChat rooms.To enable notifications,
+add &#8220;HipChat Notifications&#8221; as a post-build step.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">junit</span></code>: Allows JUnit-format test results to be published. Note:
+number of tools, including Karma, PhpUNIT &amp; other tools allow to
+publish test results in a JUnit format. Thus, this is a must-have
+plugin for unit test flows.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">matrix-auth</span></code>: Offers matrix-based security authorization
+strategies (global and per-project). This is quite handy if you
+have shared build server across several teams.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">parameterized-trigger</span></code>: This plugin lets you trigger new builds
+when your build has completed, with various ways of specifying
+parameters for the new build.</div>
+<div class="line">You can add multiple configurations: each has a list of projects to
+trigger, a condition for when to trigger them (based on the result
+of the current build), and a parameters section.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">rebuild</span></code>: This plays nice with the parameterized-trigger plugin.
+The plug-in allows the user to rebuild a parametrized build without
+entering the parameters again.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">ssh</span></code>: You can use the SSH Plugin to run shell commands on a
+remote machine via ssh.</div>
+<div class="line">Plugin URL: <a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin">https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">s3</span></code>: Allows uploading artifacts to S3 with multiple options.</div>
+<div class="line">Plugin URL: <a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line"><code class="docutils literal"><span class="pre">throttle-concurrents</span></code>: This plugin allows for throttling the
+number of concurrent builds of a project running per node or
+globally.</div>
+<div class="line">Unfortunately, this is also a must-have plugin for Node (0.10-0.12)
+projects with NPM - two concurrent npm installs often fail.</div>
+<div class="line">Plugin URL:
+<a class="reference external" href="https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin</a></div>
+</div>
+</li>
+</ul>
+<p>Plugins are installed using Plugin manager on a Manage Jenkins Section.
+<img alt="Plugins manager" src="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/enable_security.png" /></p>
+</div>
+<div class="section" id="putting-jenkins-behind-a-web-server">
+<h3>Putting Jenkins Behind a Web Server<a class="headerlink" href="#putting-jenkins-behind-a-web-server" title="Permalink to this headline">¶</a></h3>
+<p>Usually I hide Jenkins behind nginx. A typical configuration looks like
+the one below:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>server {
+  listen 443 ssl;
+  server_name jenkins.vagrant.dev;
+
+  ssl_certificate /etc/nginx/jenkins_selfsigned.crt;
+  ssl_certificate_key /etc/nginx/jenkins_selfsigned.key;
+
+  location / {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_redirect off;
+
+    proxy_connect_timeout 150;
+    proxy_send_timeout 100;
+    proxy_read_timeout 100;
+  }
+  ...
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="automated-installation">
+<h2>Automated installation<a class="headerlink" href="#automated-installation" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Do I install Jenkins manually each time? Of course not, I do it often
+for my customers.</div>
+<div class="line">With ansible, and sa-box-jenkins role new Jenkins installation can be
+deployed while you drink your coffee.</div>
+</div>
+<div class="line-block">
+<div class="line">Let&#8217;s prepare a basic bootstrap project that can be used by you in the
+future.</div>
+<div class="line">It includes following files:</div>
+</div>
+<ul class="simple">
+<li><em>bootstrap.sh</em> - installs ansible alongside with dependencies.</li>
+<li><em>init.sh</em> - initializes 3rd party dependencies</li>
+<li><em>.projmodules</em> - fully compatible with <code class="docutils literal"><span class="pre">.gitmodules</span></code> git syntax,
+specifies list of the dependencies that will be used by the playbook.
+In particular, it includes ansible- by default developer_recipes
+(repository with set of handy deployment recipes) and ansible role
+called <em>sa-box-bootstrap</em> responsible for box securing steps
+(assuming you plan to put Jenkins on remote hosts).</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;public/ansible_developer_recipes&quot;</span><span class="p">]</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">public</span><span class="o">/</span><span class="n">ansible_developer_recipes</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">Voronenko</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">developer_recipes</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-box-bootstrap&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-box-jenkins&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">jenkins</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">jenkins</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><em>hosts</em> - list here the initial box credentials that were provided to
+you for the server. Note: jenkins-bootstrap assumes you have the
+fresh box with root access only. If your box already secured, adjust
+credentials appropriately</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">jenkins</span><span class="o">-</span><span class="n">bootstrap</span><span class="p">]</span>
+<span class="n">jenkins_bootstrap</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.17</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">yourrootuser</span> <span class="n">ansible_ssh_pass</span><span class="o">=</span><span class="n">yourpassword</span>
+<span class="p">[</span><span class="n">jenkins</span><span class="p">]</span>
+<span class="n">jenkins</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.17</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">jenkins</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>jenkins_vars.yml</em> - set here specific environment overrides, like
+your preferred deploy user name and keys.</p>
+</li>
+<li><p class="first"><em>jenkins_bootstrap.yml</em> - First step - box securing. Creates jenkins
+user, and secures the box using sa-box-bootstrap role. <a class="reference external" href="https://github.com/softasap/sa-box-bootstrap">See more
+details</a> about the
+sa-box-bootstrap role In order, to override params for
+<em>sa-box-bootstrap</em> - pass the parameters like in the example below:</p>
+</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="nb">all</span>
+
+  <span class="n">vars_files</span><span class="p">:</span>
+    <span class="o">-</span> <span class="o">./</span><span class="n">jenkins_vars</span><span class="o">.</span><span class="n">yml</span>
+  <span class="n">roles</span><span class="p">:</span>
+     <span class="o">-</span> <span class="p">{</span>
+         <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-box-bootstrap&quot;</span><span class="p">,</span>
+         <span class="n">root_dir</span><span class="p">:</span> <span class="s2">&quot;{{playbook_dir}}/public/ansible_developer_recipes&quot;</span><span class="p">,</span>
+         <span class="n">deploy_user</span><span class="p">:</span> <span class="s2">&quot;{{jenkins_user}}&quot;</span><span class="p">,</span>
+         <span class="n">deploy_user_keys</span><span class="p">:</span> <span class="s2">&quot;{{jenkins_authorized_keys}}&quot;</span>
+       <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><em>jenkins.yml</em> provisioning script that configures jenkins with set of
+plugins and users.</li>
+<li><em>jenkins_vars.yml</em> configuration options for jenkins deployment.</li>
+<li><em>setup_jenkins.sh</em> shell script that invokes deployment in two
+steps: initial box bootstraping &amp; jenkins setup</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">jenkins_bootstrap</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">limit</span> <span class="n">jenkins_bootstrap</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">jenkins</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">limit</span> <span class="n">jenkins</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-options-for-automated-installation">
+<h2>Configuration Options for Automated Installation<a class="headerlink" href="#configuration-options-for-automated-installation" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">You need to override:</div>
+<div class="line">- <code class="docutils literal"><span class="pre">jenkins_authorized_keys</span></code> (this is list of the keys, that allow
+you to login to Jenkins box under Jenkins) - <code class="docutils literal"><span class="pre">jenkins_domain</span></code> - your
+agency domain - <code class="docutils literal"><span class="pre">jenkins_host</span></code> - name of the Jenkins host (Site will
+be bound to jenkins_host.jenkins_domain) - <code class="docutils literal"><span class="pre">java_version</span></code> - your
+Java choice (6,7,8 supported)</div>
+</div>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins_user</span><span class="p">:</span> <span class="n">jenkins</span>
+<span class="n">jenkins_authorized_keys</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;{{playbook_dir}}/components/files/ssh/vyacheslav.pub&quot;</span>
+
+<span class="n">jenkins_domain</span><span class="p">:</span> <span class="s2">&quot;vagrant.dev&quot;</span>
+<span class="n">jenkins_host</span><span class="p">:</span> <span class="s2">&quot;jenkins&quot;</span>
+
+<span class="n">java_version</span><span class="p">:</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">-<code class="docutils literal"><span class="pre">jenkins_users</span></code> list of users with passwords to create. Admin and
+deploy are required users.</div>
+<div class="line">Admin is used to manage instance, deploy is used to access the
+artifacts via deployment scripts.</div>
+<div class="line">If you won&#8217;t override passwords, the default one will be used (per
+role), which is not the best, for public deployments.</div>
+</div>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins_users</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Admin&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;AAAdmin&quot;</span><span class="p">,</span>
+    <span class="n">email</span><span class="p">:</span> <span class="s2">&quot;no-reply@localhost&quot;</span>
+    <span class="p">}</span>
+  <span class="o">-</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;deploy&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;DeDeDeDeploy&quot;</span><span class="p">,</span>
+    <span class="n">email</span><span class="p">:</span> <span class="s2">&quot;no-reply@localhost&quot;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">jenkins_plugins</span></code> Your choice of plugins to install. By default:</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins_plugins</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">bitbucket</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin</span>
+  <span class="o">-</span> <span class="n">bitbucket</span><span class="o">-</span><span class="n">pullrequest</span><span class="o">-</span><span class="n">builder</span>
+  <span class="o">-</span> <span class="n">build</span><span class="o">-</span><span class="n">pipeline</span><span class="o">-</span><span class="n">plugin</span>
+  <span class="o">-</span> <span class="n">copyartifact</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin</span>
+  <span class="o">-</span> <span class="n">credentials</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin</span>
+  <span class="o">-</span> <span class="n">delivery</span><span class="o">-</span><span class="n">pipeline</span><span class="o">-</span><span class="n">plugin</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</span>
+  <span class="o">-</span> <span class="n">environment</span><span class="o">-</span><span class="n">script</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin</span>
+  <span class="o">-</span> <span class="n">git</span>
+  <span class="o">-</span> <span class="n">ghprb</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin</span>
+  <span class="o">-</span> <span class="n">greenballs</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</span>
+  <span class="o">-</span> <span class="n">hipchat</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin</span>
+  <span class="o">-</span> <span class="n">junit</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin</span>
+  <span class="o">-</span> <span class="n">matrix</span><span class="o">-</span><span class="n">auth</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin</span>
+  <span class="o">-</span> <span class="n">matrix</span><span class="o">-</span><span class="n">project</span> <span class="c1">#https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin</span>
+  <span class="o">-</span> <span class="n">parameterized</span><span class="o">-</span><span class="n">trigger</span> <span class="c1">#https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin</span>
+  <span class="o">-</span> <span class="n">rebuild</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin</span>
+  <span class="o">-</span> <span class="n">ssh</span>
+  <span class="o">-</span> <span class="n">s3</span> <span class="c1"># https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin</span>
+  <span class="o">-</span> <span class="n">throttle</span><span class="o">-</span><span class="n">concurrents</span> <span class="c1">#https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-code-in-action">
+<h2>The Code in Action<a class="headerlink" href="#the-code-in-action" title="Permalink to this headline">¶</a></h2>
+<p>You can download this template code from <a class="reference external" href="https://github.com/Voronenko/devops-jenkins-box-template">this
+repository</a>.
+In order to use it - fork it, adjust parameters to your needs, and use.</p>
+<p>Running is as simple as</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">setup_jenkins</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Welcome to the world of continuous integration &amp; deployment!</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-04-deploying-ruby.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Deploying a Ruby Application with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-06-amazon-vpc-1.html">
+    Automating Network Mastering Scenarios for Amazon VPC with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+/* your styles go here */
+.parallax-image1 {
+  background: url('../img/parallax.jpg') center center no-repeat;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.block-padded {
+  padding-top: 100px;
+}
+
+.block-text {
+  text-align: left;
+}
+
+.postlist {
+      position: relative;
+      margin-right: 200px;
+      margin-left: 70px;
+      border-radius: 5px;
+      border: solid 1px #E5E5E5;
+      min-height: 300px;
+      margin-bottom: 62px;
+      padding: 20px;
+      padding-top: 100px;
+      background-color: #fff;
+}
+
+.post_container {
+  margin-left: 70px;
+}
+
+.post {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  border-bottom: dotted #ccc 1px;
+}
+
+.post_title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.post_date {
+  position: absolute;
+  right: 100%;
+  top: 0%;
+  width: 50px;
+  padding: 5px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px 0 0 5px;
+  background-color: #5091da;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 10px;
+  text-align: center;
+  transition: background-color .2s linear;
+}
+
+.post_date_day {
+    display: block;
+    font-size: 18px;
+}
+
+.post_date_day_delim {
+    display: none;
+}
+
+
+.post_header {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.post_content {
+  min-height: 3em;
+  line-height: 1.5;
+}
+
+.post_content p {
+    margin: 1em 0;
+}
+
+
+.__index .section {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.section__top {
+  padding-top: 150px;
+}
+
+/* ablog related */
+
+ul.ablog-cloud {list-style: none; overflow: auto;}
+ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+li.ablog-cloud-1{font-size: 80%;}
+li.ablog-cloud-2{font-size: 95%;}
+li.ablog-cloud-3{font-size: 110%;}
+li.ablog-cloud-4{font-size: 125%;}
+li.ablog-cloud-5{font-size: 140%;}

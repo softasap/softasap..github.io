@@ -1,0 +1,732 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Preparing &amp; Securing Your Ubuntu Box for Deployment</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_11_box_bootstrap">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-10-workplace.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Getting a Development Environment Set Up Before You Finish Your Coffee
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-12-vagrant-lamp.html">
+    Wrapping a LAMP project into Vagrant with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Nov 17, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/deployment.html">deployment</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="preparing-securing-your-ubuntu-box-for-deployment">
+<h1>Preparing &amp; Securing Your Ubuntu Box for Deployment<a class="headerlink" href="#preparing-securing-your-ubuntu-box-for-deployment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Nowadays deployments have moved from bare-metal servers to virtual
+machines that are quicker to start, e.g. the one provided by Amazon,
+Digital Ocean, and OpenStack-based providers. Thus, developers are no
+longer required to go through manual administration steps when
+configuring an Ubuntu box.</p>
+<p>One of the ways you can get started is to use a ready-to-use
+pre-configured box images.</p>
+<p>Another approach is to do an initial system restart and provision it
+according to your project needs with some provisioner tool like Ansible,
+Chef or Puppet.</p>
+<p>If you decide to proceed with custom provisioning, your first step would
+be to perform basic box securing, as in some cases you are given with if
+you have a freshly-installed box with a root password.</p>
+<p>Let me share with you quick recipe on initial box securing, which should
+be good for most of web deployments.</p>
+</div>
+<div class="section" id="challenges-to-address">
+<h2>Challenges to Address<a class="headerlink" href="#challenges-to-address" title="Permalink to this headline">¶</a></h2>
+<p>At the end of the article, we should be able secure an Ubuntu 14.04 LTS
+virtual server</p>
+<ul class="simple">
+<li>configure firewall, allow only 22, 443 and 80 in.</li>
+<li>register your public key(s) for deploy user</li>
+<li>secure ssh to allow only authorization by keys.</li>
+<li>put automatic process in play to ban open ssh port lovers from the
+internet.</li>
+</ul>
+</div>
+<div class="section" id="bootstrap-box-role">
+<h2>Bootstrap Box Role<a class="headerlink" href="#bootstrap-box-role" title="Permalink to this headline">¶</a></h2>
+<p>Ansible comes with a nice concept of reusing deployment snippets, called
+roles. So let&#8217;s take a look, what <em>sa-box-bootstrap</em> role does:</p>
+<div class="section" id="configuration-options">
+<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Permalink to this headline">¶</a></h3>
+<p>Following variables might be overwritten: - root_dir - required,
+<a class="reference external" href="https://github.com/Voronenko/ansible-developer_recipes">Ansible developer
+recipes</a>
+repository - option_enforce_ssh_keys_login (true|false) - whenever
+to enforce ssh security - ufw_rules_default - default firewall policy.
+In most cases is not touched - ufw_rules_allow - set of inbound rules
+to be configured - sshd_config_lines - needed changes in SSHD config
+to secure the box. - option_file2ban - when true, file2ban package will
+additionally introduced - whitelistedips - set of ips that are
+considered safe - your office gateway, build server etc; To prevent you
+being accidentaly blocked</p>
+</div>
+<div class="section" id="step-1-set-up-a-firewall">
+<h3>Step 1 : Set up a Firewall<a class="headerlink" href="#step-1-set-up-a-firewall" title="Permalink to this headline">¶</a></h3>
+<p>1-st step install and configure ufw firewall:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_ufw.yml&quot;</span>
+</pre></div>
+</div>
+<p>by default, following firewall rules apply (outgoing any, http https &amp;
+ssh are allowed inside):</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">ufw_rules_default</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">policy</span><span class="p">:</span> <span class="n">deny</span><span class="p">,</span>
+      <span class="n">direction</span><span class="p">:</span> <span class="n">incoming</span>
+    <span class="p">}</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">policy</span><span class="p">:</span> <span class="n">allow</span><span class="p">,</span>
+      <span class="n">direction</span><span class="p">:</span> <span class="n">outgoing</span>
+    <span class="p">}</span>
+
+<span class="n">ufw_rules_allow</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">port</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+      <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+     <span class="p">}</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">port</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+      <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+    <span class="p">}</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">port</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+<p>You can override these variables to match your needs.</p>
+</div>
+<div class="section" id="step-2-create-deploy-user">
+<h3>Step 2: Create Deploy User<a class="headerlink" href="#step-2-create-deploy-user" title="Permalink to this headline">¶</a></h3>
+<p>If you intend to work &amp; provision this box, you most likely won&#8217;t want
+to do it under the root. Thus, your second step would be to create a
+<code class="docutils literal"><span class="pre">deploy_user</span></code> that is authorized by a set of provided SSH keys and
+allowed to become sudoer without a password (this is the base
+requirement for automated provisioning)</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/use/__create_deploy_user.yml user={{deploy_user}} group={{deploy_user}} home=/home/{{deploy_user}}&quot;</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">deploy_user</span> <span class="ow">is</span> <span class="n">defined</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">SSH</span> <span class="o">|</span> <span class="n">Authorize</span> <span class="n">keys</span>
+  <span class="n">authorized_key</span><span class="p">:</span> <span class="n">user</span><span class="o">=</span><span class="p">{{</span><span class="n">deploy_user</span><span class="p">}}</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;{{ lookup(&#39;file&#39;, item) }}&quot;</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">deploy_user_keys</span> <span class="ow">is</span> <span class="n">defined</span>
+  <span class="n">with_items</span><span class="p">:</span> <span class="s2">&quot;{{deploy_user_keys}}&quot;</span>
+  <span class="n">sudo</span><span class="p">:</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p>You might define the user in your playbook, for example, in this way:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins_user</span><span class="p">:</span> <span class="n">jenkins</span>
+<span class="n">jenkins_authorized_keys</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;{{playbook_dir}}/components/files/ssh/vyacheslav.pub&quot;</span>
+</pre></div>
+</div>
+<p>and later pass this as a parameter to a role:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+   <span class="o">-</span> <span class="p">{</span>
+       <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-box-bootstrap&quot;</span><span class="p">,</span>
+       <span class="n">root_dir</span><span class="p">:</span> <span class="s2">&quot;{{playbook_dir}}/public/ansible_developer_recipes&quot;</span><span class="p">,</span>
+       <span class="n">deploy_user</span><span class="p">:</span> <span class="s2">&quot;{{jenkins_user}}&quot;</span><span class="p">,</span>
+       <span class="n">deploy_user_keys</span><span class="p">:</span> <span class="s2">&quot;{{jenkins_authorized_keys}}&quot;</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-secure-the-ssh-optional">
+<h3>Step 3: Secure the SSH (optional)<a class="headerlink" href="#step-3-secure-the-ssh-optional" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">SSH</span> <span class="o">|</span> <span class="n">Enforce</span> <span class="n">SSH</span> <span class="n">keys</span> <span class="n">security</span>
+  <span class="n">lineinfile</span><span class="p">:</span> <span class="n">dest</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span> <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;{{item.regexp}}&quot;</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;{{item.line}}&quot;</span>
+  <span class="n">with_items</span><span class="p">:</span> <span class="n">sshd_config_lines</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">option_enforce_ssh_keys_login</span>
+  <span class="n">sudo</span><span class="p">:</span> <span class="n">yes</span>
+  <span class="n">tags</span><span class="p">:</span> <span class="n">ssh</span>
+</pre></div>
+</div>
+<p>If var <code class="docutils literal"><span class="pre">option_enforce_ssh_keys_login</span></code> is set to true, sshd config
+will be modified according to <code class="docutils literal"><span class="pre">sshd_config_lines</span></code> rules. By default,
+it will use the v2 protocol, prohibit root login, and prohibit password
+authenticaton.</p>
+</div>
+<div class="section" id="step-4-ban-suspicious-users-from-guessing-your-ssh-user-access">
+<h3>Step 4: Ban Suspicious Users from Guessing Your SSH User Access<a class="headerlink" href="#step-4-ban-suspicious-users-from-guessing-your-ssh-user-access" title="Permalink to this headline">¶</a></h3>
+<p>If <code class="docutils literal"><span class="pre">var</span> <span class="pre">option_fail2ban</span></code> is set to true and the special tool fail2ban
+is installed, it will watch out for failure SSH logging attempts and ban
+intruders. To prevent yourself from being accidentally blocked, it will
+be a good idea to whitelist your IPs. Both single IPs and network masks
+are supported, for example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">whitelistedips</span><span class="p">:</span>
+ <span class="o">-</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+ <span class="o">-</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-your-own-box-bootstrap-project">
+<h2>Creating Your Own Box Bootstrap Project<a class="headerlink" href="#creating-your-own-box-bootstrap-project" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s prepare a basic bootstrap project that can be used in the future.
+It includes following files:</p>
+<ul class="simple">
+<li><em>bootstrap.sh</em> - installs ansible alongside with dependences.</li>
+<li><em>init.sh</em> - initializes</li>
+<li><em>.projmodules</em> - fully compatible with <code class="docutils literal"><span class="pre">.gitmodules</span></code> git syntax and
+specifies a list of the dependencies that will be used by the
+playbook. In particular, it includes ansible&#8211;by default
+developer_recipes (repository with set of handy deployment
+recipes)&#8211; and an ansible role called <em>sa-box-bootstrap</em> responsible
+for box securing steps.</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;public/ansible_developer_recipes&quot;</span><span class="p">]</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">public</span><span class="o">/</span><span class="n">ansible_developer_recipes</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">Voronenko</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">developer_recipes</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-box-bootstrap&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><em>hosts</em> - here&#8217;s a list of the initial box credentials that were
+provided to you for the server</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bootstrap</span><span class="p">]</span>
+<span class="n">box_bootstrap</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.17</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">your_user</span> <span class="n">ansible_ssh_pass</span><span class="o">=</span><span class="n">your_password</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>box_vars.yml</em> - set here specific environment overrides, like your
+preffered deploy user name and keys.</p>
+</li>
+<li><p class="first"><em>box_bootstrap.yml</em> - here you put your box provisioning steps. Box
+securing is only the first step. In order, to override params for
+<em>sa-box-bootstrap</em> - pass the parameters like in example below.</p>
+</li>
+</ul>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="nb">all</span>
+
+  <span class="n">vars_files</span><span class="p">:</span>
+    <span class="o">-</span> <span class="o">./</span><span class="n">box_vars</span><span class="o">.</span><span class="n">yml</span>
+  <span class="n">roles</span><span class="p">:</span>
+     <span class="o">-</span> <span class="p">{</span>
+         <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-box-bootstrap&quot;</span><span class="p">,</span>
+         <span class="n">root_dir</span><span class="p">:</span> <span class="s2">&quot;{{playbook_dir}}/public/ansible_developer_recipes&quot;</span><span class="p">,</span>
+         <span class="n">deploy_user</span><span class="p">:</span> <span class="s2">&quot;{{my_deploy_user}}&quot;</span><span class="p">,</span>
+         <span class="n">deploy_user_keys</span><span class="p">:</span> <span class="s2">&quot;{{my_deploy_authorized_keys}}&quot;</span>
+       <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-code-in-action">
+<h2>The Code in Action<a class="headerlink" href="#the-code-in-action" title="Permalink to this headline">¶</a></h2>
+<p>The code I&#8217;m using can be downloaded from the repository
+<a class="reference external" href="https://github.com/Voronenko/devops-bootstrap-box-template">https://github.com/Voronenko/devops-bootstrap-box-template</a> Fork it,
+adjust parameters to your needs, and use. Adjustments include: creation
+of a <code class="docutils literal"><span class="pre">box_vars.yml</span></code> file. You can override any of the above-mentioned
+variables. The minimal required set is <code class="docutils literal"><span class="pre">deploy_user</span></code> and your public
+keys.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">box_deploy_user</span><span class="p">:</span> <span class="n">jenkins</span>
+<span class="n">box_deploy_authorized_keys</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;{{playbook_dir}}/components/files/ssh/vyacheslav.pub&quot;</span>
+</pre></div>
+</div>
+<p>Ensure you have ansible (<code class="docutils literal"><span class="pre">bootstrap.sh</span></code> to install) and cloned roles
+directories (init.sh), then run setup.sh. If everything is configured
+correctly, you will see something like:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">PLAY</span> <span class="p">[</span><span class="nb">all</span><span class="p">]</span> <span class="o">********************************************************************</span>
+
+<span class="n">GATHERING</span> <span class="n">FACTS</span> <span class="o">***************************************************************</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Sets</span> <span class="n">correctly</span> <span class="n">hostname</span><span class="p">]</span> <span class="o">****************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">debug</span> <span class="n">var</span><span class="o">=</span><span class="s2">&quot;ufw_rules_allow&quot;</span><span class="p">]</span> <span class="o">************************</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s2">&quot;var&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ufw_rules_allow&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+                <span class="s2">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+                <span class="s2">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+                <span class="s2">&quot;proto&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">UFW</span> <span class="o">|</span> <span class="n">Reset</span> <span class="n">it</span><span class="p">]</span> <span class="o">*************************************</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">UFW</span> <span class="o">|</span> <span class="n">Configure</span> <span class="n">incoming</span><span class="o">/</span><span class="n">outgoing</span> <span class="n">defaults</span><span class="p">]</span> <span class="o">*********</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;deny&#39;</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;incoming&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;allow&#39;</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;outgoing&#39;</span><span class="p">})</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">UFW</span> <span class="o">|</span> <span class="n">Configure</span> <span class="n">rules</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">incoming</span> <span class="n">traffic</span><span class="p">]</span> <span class="o">****</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;proto&#39;</span><span class="p">:</span> <span class="s1">&#39;tcp&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">&#39;proto&#39;</span><span class="p">:</span> <span class="s1">&#39;tcp&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;proto&#39;</span><span class="p">:</span> <span class="s1">&#39;tcp&#39;</span><span class="p">})</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">UFW</span> <span class="o">|</span> <span class="n">Configure</span> <span class="n">rules</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">incoming</span> <span class="n">traffic</span> <span class="kn">from</span> <span class="nn">specific</span> <span class="n">hosts</span><span class="p">]</span> <span class="o">***</span>
+<span class="n">skipping</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">ufw_rules_allow_from_hosts</span><span class="p">)</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">UFW</span> <span class="o">|</span> <span class="n">Enable</span> <span class="n">it</span><span class="p">]</span> <span class="o">************************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Monit</span> <span class="o">|</span> <span class="n">Check</span> <span class="k">if</span> <span class="ow">is</span> <span class="n">installed</span><span class="p">]</span> <span class="o">**********************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Monit</span> <span class="o">|</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">dependency</span><span class="p">]</span> <span class="o">**********************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Monit</span> <span class="o">|</span> <span class="n">Download</span><span class="p">]</span> <span class="o">***********************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Monit</span> <span class="o">|</span> <span class="n">Install</span><span class="p">]</span> <span class="o">************************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">debug</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Creating deploy user {{my_deploy_user}}:{{my_deploy_user}} with home directory /home/{{my_deploy_user}}&quot;</span><span class="p">]</span> <span class="o">***</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Creating deploy user jenkins:jenkins with home directory /home/jenkins&quot;</span>
+<span class="p">}</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Creating</span> <span class="n">group</span><span class="p">]</span> <span class="o">***********************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Creating</span> <span class="n">user</span><span class="p">]</span> <span class="o">************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Check</span> <span class="n">key</span> <span class="n">presence</span><span class="p">]</span> <span class="o">*******************</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Copy</span> <span class="n">authorized_keys</span> <span class="kn">from</span> <span class="p">{{</span><span class="n">ansible_user_id</span><span class="p">}}]</span> <span class="o">***</span>
+<span class="n">skipping</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Set</span> <span class="n">permission</span> <span class="n">on</span> <span class="n">authorized_keys</span><span class="p">]</span> <span class="o">****</span>
+<span class="n">skipping</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">User</span> <span class="o">|</span> <span class="n">Ensuring</span> <span class="n">sudoers</span> <span class="n">no</span> <span class="n">pwd</span> <span class="n">prompting</span><span class="p">]</span> <span class="o">****</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">SSH</span> <span class="o">|</span> <span class="n">Authorize</span> <span class="n">keys</span><span class="p">]</span> <span class="o">*******************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">slavko</span><span class="o">/</span><span class="n">labs</span><span class="o">/</span><span class="n">devops</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">vyacheslav</span><span class="o">.</span><span class="n">pub</span><span class="p">)</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">SSH</span> <span class="o">|</span> <span class="n">Enforce</span> <span class="n">SSH</span> <span class="n">keys</span> <span class="n">security</span><span class="p">]</span> <span class="o">********************</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^Protocol.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;Protocol 2&#39;</span><span class="p">})</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^PermitRootLogin.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;PermitRootLogin no&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^RSAAuthentication.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;RSAAuthentication yes&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^PubkeyAuthentication.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;PubkeyAuthentication yes&#39;</span><span class="p">})</span>
+<span class="n">ok</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^ChallengeResponseAuthentication.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;ChallengeResponseAuthentication no&#39;</span><span class="p">})</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^PasswordAuthentication.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;PasswordAuthentication no&#39;</span><span class="p">})</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;regexp&#39;</span><span class="p">:</span> <span class="s1">&#39;^MaxAuthTries.*&#39;</span><span class="p">,</span> <span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="s1">&#39;MaxAuthTries 3&#39;</span><span class="p">})</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">SSH</span> <span class="o">|</span> <span class="n">Restart</span> <span class="n">SSHD</span><span class="p">]</span> <span class="o">*********************************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span>
+
+<span class="n">TASK</span><span class="p">:</span> <span class="p">[</span><span class="n">sa</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">bootstrap</span> <span class="o">|</span> <span class="n">Install</span> <span class="n">base</span> <span class="n">Ubuntu</span> <span class="n">packages</span><span class="p">]</span> <span class="o">***********************</span>
+<span class="n">changed</span><span class="p">:</span> <span class="p">[</span><span class="n">box_bootstrap</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">unzip</span><span class="p">,</span><span class="n">mc</span><span class="p">)</span>
+
+<span class="n">PLAY</span> <span class="n">RECAP</span> <span class="o">********************************************************************</span>
+<span class="n">box_bootstrap</span>              <span class="p">:</span> <span class="n">ok</span><span class="o">=</span><span class="mi">21</span>   <span class="n">changed</span><span class="o">=</span><span class="mi">13</span>   <span class="n">unreachable</span><span class="o">=</span><span class="mi">0</span>    <span class="n">failed</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Finally, you&#8217;ll have a secured box with the sudoer (deployed user) you
+specified, which is allowed to authorize only with keys you set. Root is
+not allowed to login. Only some inbound ports are allowed according to
+your rules.</p>
+<p>Check with NMap and try to login:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>ssh  192.168.0.17
+Permission denied (publickey).
+
+ssh -ldeploy_user 192.168.0.17
+Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-32-generic x86_64)
+deploy_user@LABBOX17:~$
+</pre></div>
+</div>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>You can reuse this playbook to create your own box bootstrapping
+projects, and reuse the role to configure your environments in a quicker
+and more secure way with ansible</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-10-workplace.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Getting a Development Environment Set Up Before You Finish Your Coffee
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-12-vagrant-lamp.html">
+    Wrapping a LAMP project into Vagrant with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

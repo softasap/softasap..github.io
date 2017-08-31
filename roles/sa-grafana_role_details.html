@@ -1,0 +1,238 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>&lt;no title&gt;</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__roles_sa_grafana_role_details">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
+<h1>sa-grafana</h1>
+<p><a href="https://travis-ci.org/softasap/sa-grafana"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-grafana.svg?branch=master" /></a></p>
+<h1>Usage:</h1>
+<p>Simple:</p>
+<pre><code>
+- {
+    role: &quot;sa-grafana&quot;,
+    grafana_admin_user: grafana,
+    grafana_admin_password: GrAfAnA!
+
+  }
+
+
+</code></pre>
+
+<p>Advanced:</p>
+<pre><code>
+vars:
+
+  grafana_custom_properties:
+    - {regexp: &quot;^;allow_sign_up =(.*)&quot;, line: &quot;allow_sign_up=false&quot;}
+
+
+roles:
+  - {
+      role: &quot;sa-grafana&quot;,
+      grafana_admin_user: grafana,
+      grafana_admin_password: GrAfAnA!,
+
+      grafana_properties: &quot;{{grafana_custom_properties}}&quot;
+
+    }
+
+
+</code></pre>
+
+<h1>Installing on Debian / Ubuntu</h1>
+<h1>Install Stable</h1>
+<pre><code>$ wget https://grafanarel.s3.amazonaws.com/builds/grafana_3.1.1-1470047149_amd64.deb
+$ sudo apt-get install -y adduser libfontconfig
+$ sudo dpkg -i grafana_3.1.1-1470047149_amd64.deb
+</code></pre>
+
+<h1>APT Repository</h1>
+<p>Add the following line to your /etc/apt/sources.list file.</p>
+<pre><code>deb https://packagecloud.io/grafana/stable/debian/ wheezy main
+</code></pre>
+
+<p>Use the above line even if you are on Ubuntu or another Debian version. There is also a testing repository if you want beta or release candidates.</p>
+<pre><code>deb https://packagecloud.io/grafana/testing/debian/ wheezy main
+</code></pre>
+
+<p>Then add the Package Cloud key. This allows you to install signed packages.</p>
+<pre><code>$ curl https://packagecloud.io/gpg.key | sudo apt-key add -
+</code></pre>
+
+<p>Update your Apt repositories and install Grafana</p>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install grafana
+</code></pre>
+
+<p>On some older versions of Ubuntu and Debian you may need to install the apt-transport-https package which is needed to fetch packages over HTTPS.</p>
+<pre><code>$ sudo apt-get install -y apt-transport-https
+</code></pre>
+
+<h1>Package details</h1>
+<p>Installs binary to /usr/sbin/grafana-server
+Installs Init.d script to /etc/init.d/grafana-server
+Creates default file (environment vars) to /etc/default/grafana-server
+Installs configuration file to /etc/grafana/grafana.ini
+Installs systemd service (if systemd is available) name grafana-server.service
+The default configuration sets the log file at /var/log/grafana/grafana.log
+The default configuration specifies an sqlite3 db at /var/lib/grafana/grafana.db
+Start the server (init.d service)
+Start Grafana by running:</p>
+<pre><code>$ sudo service grafana-server start
+</code></pre>
+
+<p>This will start the grafana-server process as the grafana user, which was created during the package installation. The default HTTP port is 3000 and default user and group is admin.</p>
+<p>To configure the Grafana server to start at boot time:</p>
+<pre><code>$ sudo update-rc.d grafana-server defaults 95 10
+</code></pre>
+
+<h1>Start the server (via systemd)</h1>
+<p>To start the service using systemd:</p>
+<pre><code>$ systemctl daemon-reload
+$ systemctl start grafana-server
+$ systemctl status grafana-server
+</code></pre>
+
+<p>Enable the systemd service so that Grafana starts at boot.</p>
+<pre><code>sudo systemctl enable grafana-server.service
+</code></pre>
+
+<h1>Environment file</h1>
+<p>The systemd service file and init.d script both use the file located at /etc/default/grafana-server for environment variables used when starting the back-end. Here you can override log directory, data directory and other variables.</p>
+<h1>Logging</h1>
+<p>By default Grafana will log to /var/log/grafana</p>
+<h1>Database</h1>
+<p>The default configuration specifies a sqlite3 database located at /var/lib/grafana/grafana.db. Please backup this database before upgrades. You can also use MySQL or Postgres as the Grafana database, as detailed on the configuration page.</p>
+<h1>Configuration</h1>
+<p>The configuration file is located at /etc/grafana/grafana.ini. Go the Configuration page for details on all those options.</p></div>
+
+
+
+
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,767 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Automating Network Mastering Scenarios for Amazon VPC with Ansible</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_06_amazon_vpc_1">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-05-jenkins.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Setup & Configure Jenkins for Your Team
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-07-jumpbox.html">
+    Secure Jumpbox to Access your Network Infrastructure from Remote Locations
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Jun 19, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/cloud.html">cloud</a>,
+      
+    
+      
+      <a href="tag/aws.html">aws</a>,
+      
+    
+      
+      <a href="tag/vpc.html">vpc</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="automating-network-mastering-scenarios-for-amazon-vpc-with-ansible">
+<h1>Automating Network Mastering Scenarios for Amazon VPC with Ansible<a class="headerlink" href="#automating-network-mastering-scenarios-for-amazon-vpc-with-ansible" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>For a long time, Amazon Web Services has been one of the most often used
+platforms to deploy and run new projects. For more complex projects, you
+usually start with mastering your network infrastructure. Fortunately,
+Amazon provides a definitive guide to most-used network topologies. You
+can review some at
+<a class="reference external" href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html">http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html</a>.</p>
+<p>For some reason, in most of cases I&#8217;ve seen, a customer always
+configures the setup manually, and then document steps with screenshots
+in a project wiki. Then, after some time, the original knowledge gets
+lost and moving or deploying application again leads to careful manual
+steps.</p>
+<p>In this article, I will demonstrate how I automate network creation with
+Ansible for applications according to project requirements, and store
+the network creation logic alongside a project. This way, your project
+infrastructure evolves and releases together with your application
+releases.</p>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>For the demo, let&#8217;s choose a more complex setup, as described here <a class="reference external" href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html">VPC
+with Public and Private Subnets
+(NAT)</a>.</p>
+<p>Let&#8217;s take a look at the definition, and network topology picture:</p>
+<div class="figure" id="id1">
+<img alt="network topology" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/98-nat-gateway-diagram.png" />
+<p class="caption"><span class="caption-text">network topology</span></p>
+</div>
+<p>The configuration for this scenario includes a virtual private cloud
+(VPC) with a public subnet and a private subnet. We recommend this
+scenario if you want to run a public-facing web application, while
+maintaining back-end servers that aren&#8217;t publicly accessible. A common
+example is a multi-tier website, with the web servers in a public subnet
+and the database servers in a private subnet. You can set up security
+and routing so that the web servers can communicate with the database
+servers.</p>
+<p>The instances in the public subnet can receive inbound traffic directly
+from the Internet, whereas the instances in the private subnet can&#8217;t.
+The instances in the public subnet can send outbound traffic directly to
+the Internet, whereas the instances in the private subnet can&#8217;t.
+Instead, the instances in the private subnet can access the Internet by
+using a network address translation (NAT) gateway that resides in the
+public subnet. The database servers can connect to the Internet for
+software updates using the NAT gateway, but the Internet cannot initiate
+connections to the database servers.</p>
+<p>Let&#8217;s implement a bit more sophisticated example than what was
+described: make an application highly available by placing the app
+servers in multiple subnets. Thus, in the public subnet we will have an
+Elastic Load Balancer that would be linked to several subnets we create.</p>
+<p>In our scenario, we will use both functions from Ansible AWS module, and
+direct <code class="docutils literal"><span class="pre">awscli</span></code> commands, where Ansible does not yet support.</p>
+<p>At the beginning, we would have no VPC in our account:</p>
+<div class="figure">
+<img alt="" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/00-initial_state.png" />
+</div>
+</div>
+<div class="section" id="define-vpc">
+<h2>Define VPC<a class="headerlink" href="#define-vpc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="presequities">
+<h3>Presequities<a class="headerlink" href="#presequities" title="Permalink to this headline">¶</a></h3>
+<p>As regions have difference in availablility zones sets, let&#8217;s create two
+constants to fix available AZ zones names for provisioning + provide
+some reasonable name for the environment.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+  <span class="n">vpc_availability_zone_t1</span><span class="p">:</span> <span class="n">b</span>
+  <span class="n">vpc_availability_zone_t2</span><span class="p">:</span> <span class="n">c</span>
+
+  <span class="n">readable_env_name</span><span class="p">:</span> <span class="s2">&quot;app-{{env}}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s define VPC according to the Scenario 2 picture. To be as close to
+the Amazon example as possible, I would make 0.0 &amp; 2.0 subnets public,
+and 1.0 and 3.0 private; As you can see in VPC configurations, we
+already provide handy readable naming and tags. For two public networks,
+we specify default routing table.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">vpc_cidr_block</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span>
+<span class="n">vpc_subnets</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">cidr</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">24</span>
+    <span class="n">az</span><span class="p">:</span> <span class="s2">&quot;{{aws_region}}{{vpc_availability_zone_t1}}&quot;</span>
+    <span class="n">resource_tags</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-sb-pub-{{aws_region}}-{{vpc_availability_zone_t1}}&quot;</span><span class="p">,</span>  <span class="s2">&quot;Environment&quot;</span><span class="p">:</span><span class="s2">&quot;{{readable_env_name}}&quot;</span><span class="p">,</span> <span class="s2">&quot;AZ&quot;</span> <span class="p">:</span> <span class="s2">&quot;{{vpc_availability_zone_t1}}&quot;</span> <span class="p">}</span>
+  <span class="o">-</span> <span class="n">cidr</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span>
+    <span class="n">az</span><span class="p">:</span> <span class="s2">&quot;{{aws_region}}{{vpc_availability_zone_t2}}&quot;</span>
+    <span class="n">resource_tags</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-sb-pub-{{aws_region}}-{{vpc_availability_zone_t2}}&quot;</span><span class="p">,</span> <span class="s2">&quot;Environment&quot;</span><span class="p">:</span><span class="s2">&quot;{{readable_env_name}}&quot;</span><span class="p">,</span> <span class="s2">&quot;AZ&quot;</span> <span class="p">:</span> <span class="s2">&quot;{{vpc_availability_zone_t2}}&quot;</span> <span class="p">}</span>
+  <span class="o">-</span> <span class="n">cidr</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span>
+    <span class="n">az</span><span class="p">:</span> <span class="s2">&quot;{{aws_region}}{{vpc_availability_zone_t1}}&quot;</span>
+    <span class="n">resource_tags</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-sb-priv-{{aws_region}}-{{vpc_availability_zone_t1}}&quot;</span><span class="p">,</span>  <span class="s2">&quot;Environment&quot;</span><span class="p">:</span><span class="s2">&quot;{{readable_env_name}}&quot;</span><span class="p">,</span> <span class="s2">&quot;AZ&quot;</span> <span class="p">:</span> <span class="s2">&quot;{{vpc_availability_zone_t1}}&quot;</span> <span class="p">}</span>
+  <span class="o">-</span> <span class="n">cidr</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">3.0</span><span class="o">/</span><span class="mi">24</span>
+    <span class="n">az</span><span class="p">:</span> <span class="s2">&quot;{{aws_region}}{{vpc_availability_zone_t2}}&quot;</span>
+    <span class="n">resource_tags</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-sb-priv-{{aws_region}}-{{vpc_availability_zone_t2}}&quot;</span><span class="p">,</span> <span class="s2">&quot;Environment&quot;</span><span class="p">:</span><span class="s2">&quot;{{readable_env_name}}&quot;</span><span class="p">,</span> <span class="s2">&quot;AZ&quot;</span> <span class="p">:</span> <span class="s2">&quot;{{vpc_availability_zone_t2}}&quot;</span> <span class="p">}</span>
+
+<span class="n">vpc_internet_gateway</span><span class="p">:</span> <span class="s2">&quot;yes&quot;</span>
+<span class="n">vpc_route_tables_public</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">subnets</span><span class="p">:</span>
+       <span class="o">-</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">24</span>
+       <span class="o">-</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span>
+      <span class="n">routes</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">dest</span><span class="p">:</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span>
+         <span class="n">gw</span><span class="p">:</span> <span class="n">igw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-the-vpc">
+<h2>Creating the VPC<a class="headerlink" href="#creating-the-vpc" title="Permalink to this headline">¶</a></h2>
+<p>To create the VPC, we use already available Ansible module, <code class="docutils literal"><span class="pre">ec2_vpc</span></code>;
+On run we provide parameters to it using setup above.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">Create</span> <span class="n">the</span> <span class="n">VPC</span>
+  <span class="n">ec2_vpc</span><span class="p">:</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
+    <span class="n">region</span><span class="p">:</span> <span class="s2">&quot;{{ aws_region }}&quot;</span>
+    <span class="n">resource_tags</span><span class="p">:</span>
+        <span class="n">Environment</span><span class="p">:</span> <span class="s2">&quot;{{ readable_env_name }}&quot;</span>
+        <span class="n">Name</span><span class="p">:</span> <span class="s2">&quot;{{ readable_env_name }}-vpc-{{aws_region}}&quot;</span>
+    <span class="n">cidr_block</span><span class="p">:</span> <span class="s2">&quot;{{ vpc_cidr_block }}&quot;</span>
+    <span class="n">subnets</span><span class="p">:</span> <span class="s2">&quot;{{ vpc_subnets }}&quot;</span>
+    <span class="n">dns_support</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">dns_hostnames</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">internet_gateway</span><span class="p">:</span> <span class="s2">&quot;{{ vpc_internet_gateway|string }}&quot;</span>
+    <span class="n">route_tables</span><span class="p">:</span> <span class="s2">&quot;{{ vpc_route_tables_public }}&quot;</span>
+    <span class="n">wait</span><span class="p">:</span> <span class="n">yes</span>
+  <span class="n">register</span><span class="p">:</span> <span class="n">vpc</span>
+</pre></div>
+</div>
+<p>Upon this part&#8217;s execution, we will have VPC created alongside with
+subnets:</p>
+<div class="figure" id="id2">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/02-vpc.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<div class="figure" id="id3">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/03-subnets.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Take a look on Nat gateways created - as you see, we have 1 Nat gateway
+per public subnet.</p>
+<div class="figure" id="id4">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/08-nat_gateways.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Take a look at the route table created. As you see - public subnets have
+internet gateway set,</p>
+<div class="figure" id="id5">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/04-routetable_public.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>while a private subnet has a route entry that forwards outgoing requests
+through NAT.</p>
+<div class="figure" id="id6">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/05-routetable-private.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+</div>
+<div class="section" id="nat-instances-magic">
+<h2>NAT instances magic<a class="headerlink" href="#nat-instances-magic" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Nowadays, Amazon recommends creating NAT gateways rather then NAT
+instances.</div>
+<div class="line">To master NAT gateway, we need to</div>
+</div>
+<ul class="simple">
+<li>allocate elastic IP</li>
+<li>create a NAT gateway and associate the NAT gateway with subnet</li>
+<li>wait for the NAT gateway to be partially available to create a Route
+table for the private subnet.</li>
+<li>create a route table for private subnet &amp; set NAT gateway for
+outgoing traffic</li>
+</ul>
+<div class="line-block">
+<div class="line">To allocate elastic IP, we would use an existing module from ansible:,
+<code class="docutils literal"><span class="pre">ec2_eip</span></code>.</div>
+<div class="line">Please note that by default, each account is limited to 5 elastic IPs
+per region.</div>
+</div>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">allocate</span> <span class="n">a</span> <span class="n">new</span> <span class="n">elastic</span> <span class="n">IP</span> <span class="n">without</span> <span class="n">associating</span> <span class="n">it</span> <span class="n">to</span> <span class="n">anything</span> <span class="o">-</span> <span class="mi">1</span>
+  <span class="n">ec2_eip</span><span class="p">:</span> <span class="n">in_vpc</span><span class="o">=</span><span class="n">yes</span> <span class="n">reuse_existing_ip_allowed</span><span class="o">=</span><span class="n">yes</span> <span class="n">state</span><span class="o">=</span><span class="n">present</span> <span class="n">region</span><span class="o">=</span><span class="s2">&quot;{{aws_region}}&quot;</span>
+</pre></div>
+</div>
+<div class="figure" id="id7">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/07-eip.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>In order to create a NAT gateway, in Ansible v1 we have to use
+<code class="docutils literal"><span class="pre">awscli</span></code>:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">Create</span> <span class="n">NAT</span> <span class="n">instance</span> <span class="k">for</span> <span class="n">subnet</span> <span class="mi">1</span>
+  <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;aws ec2 create-nat-gateway --region {{aws_region}} --subnet-id {{aws_vpc_pubsubnet1_runtime}} --allocation-id {{aws_vpc_privsubnet1_allocation}}&quot;</span>
+</pre></div>
+</div>
+<p>Here little hack: if you need immediately use NAT gateway, for example,
+to create a custom routing table. Give AWS time to partially initialize
+and register it:</p>
+<div class="figure" id="id8">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/99-misc-natinstances.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Now we can create custom route tables:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">Create</span> <span class="n">new</span> <span class="n">route</span> <span class="n">table</span> <span class="k">for</span> <span class="n">the</span> <span class="n">private</span> <span class="n">subnet</span> <span class="mi">1</span>
+  <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;aws ec2 create-route-table --region {{aws_region}} --vpc-id {{aws_vpc_id_runtime}}&quot;</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">Associate</span> <span class="n">route</span> <span class="n">table</span> <span class="k">with</span> <span class="n">private</span> <span class="n">subnet</span> <span class="mi">1</span>
+  <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;aws ec2 associate-route-table --region {{aws_region}} --route-table-id {{routetable_private_1}} --subnet-id {{aws_vpc_privsubnet1_runtime}}&quot;</span>
+
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">NETWORK</span> <span class="o">|</span> <span class="n">Create</span> <span class="n">NAT</span> <span class="n">route</span> <span class="n">record</span> <span class="k">for</span>  <span class="n">private</span> <span class="n">subnet</span> <span class="mi">1</span>
+  <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;aws ec2 create-route --region {{aws_region}} --route-table-id {{routetable_private_1}} --destination-cidr-block &#39;0.0.0.0/0&#39; --nat-gateway-id {{nat_instance1}}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="security-groups">
+<h2>Security groups<a class="headerlink" href="#security-groups" title="Permalink to this headline">¶</a></h2>
+<p>We can define requirements for security groups alongside with firewall
+rules. Pay attention to the examples below, especially how you can
+create rule both for CIDR block and for specific security group(s)</p>
+<p>In this example, I want to have four security groups.</p>
+<ol class="arabic simple">
+<li>For the load balancer, which accepts <code class="docutils literal"><span class="pre">http</span></code> and <code class="docutils literal"><span class="pre">https</span></code>.</li>
+<li>For the jump box in a public subnet, so I can <code class="docutils literal"><span class="pre">ssh</span></code> to that box,
+and <code class="docutils literal"><span class="pre">ping</span></code>, <code class="docutils literal"><span class="pre">login</span></code>, and <code class="docutils literal"><span class="pre">troubleshoot</span></code> my application
+instances. Thus I need to open SSH and ICMP on app servers from that
+box.</li>
+<li>For the Jump box itself, as I want to limit access to the Jump box
+from my office IP only (assuming your gateway has the public ip
+address 1.2.3.4)</li>
+<li>For my database box, usually RDS. Assuming we use MySQL - I need to
+open 3306 port from APP servers.</li>
+</ol>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">vpc_security_groups</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-LOADBALANCER&quot;</span>
+    <span class="n">desc</span><span class="p">:</span> <span class="s2">&quot;security group for public access&quot;</span>
+    <span class="n">rules</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">80</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">80</span>
+        <span class="n">cidr_ip</span><span class="p">:</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">443</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">443</span>
+        <span class="n">cidr_ip</span><span class="p">:</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span>
+
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-JUMPBOX&quot;</span>
+    <span class="n">desc</span><span class="p">:</span> <span class="s2">&quot;security group that allows access from dedicated jump box in public network to internal resources&quot;</span>
+    <span class="n">rules</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">22</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">22</span>
+        <span class="n">cidr_ip</span><span class="p">:</span> <span class="s2">&quot;1.2.3.4/32&quot;</span> <span class="c1">#Your office private ip</span>
+
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-private-APP&quot;</span>
+    <span class="n">desc</span><span class="p">:</span> <span class="s2">&quot;Network for internal app servers&quot;</span>
+    <span class="n">rules</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">22</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">22</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-JUMPBOX&quot;</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">80</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">80</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-LOADBALANCER&quot;</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">443</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">443</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-LOADBALANCER&quot;</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">icmp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># icmp type, -1 = any type</span>
+        <span class="n">to_port</span><span class="p">:</span>  <span class="o">-</span><span class="mi">1</span> <span class="c1"># icmp subtype, -1 = any subtype</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-public-JUMPBOX&quot;</span>
+
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-private-DATABASE&quot;</span>
+    <span class="n">desc</span><span class="p">:</span> <span class="s2">&quot;resources that are private&quot;</span>
+    <span class="n">rules</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="n">from_port</span><span class="p">:</span> <span class="mi">3306</span>  <span class="c1"># MYSQL</span>
+        <span class="n">to_port</span><span class="p">:</span> <span class="mi">3306</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="s2">&quot;{{readable_env_name}}-private-APP&quot;</span>
+</pre></div>
+</div>
+<p>Don&#8217;t you find setup readable from definition? I do.</p>
+<p>Let&#8217;s check setup created:</p>
+<p>List of security groups created:</p>
+<div class="figure" id="id9">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/09-sg.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Public security group with inbound rules:</p>
+<div class="figure" id="id10">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/10-sg_public.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Private app servers group with inbound rules:</p>
+<div class="figure" id="id11">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/11_sg_app.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Database access security group with inbound rules:</p>
+<div class="figure" id="id12">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/12_sg_rds.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+<p>Jump box security group with inbound rules:</p>
+<div class="figure" id="id13">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/14_sg_jumpbox.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+</div>
+<div class="section" id="running-the-provisioning">
+<h2>Running the Provisioning<a class="headerlink" href="#running-the-provisioning" title="Permalink to this headline">¶</a></h2>
+<p>Running Ansible provisioning is as easy as executing the shell file of
+the structure below.</p>
+<p>As you see, we specify an environment name (demo), desired region to
+create VPC in (us-east-1), and set your secure AWS credentials as
+environment variables for provisioning.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+# Static parameters
+WORKSPACE=$PWD
+BOX_PLAYBOOK=$WORKSPACE/bin/network_create.yml
+BOX_NAME=awsnetwork
+
+echo $BOX_NAME
+
+prudentia local &amp;lt;&amp;lt;EOF
+unregister $BOX_NAME
+register
+$BOX_PLAYBOOK
+$BOX_NAME
+
+verbose 4
+
+set env demo
+set aws_region us-east-1
+
+envset AWS_ACCESS_KEY_ID THISISVERYSECUREKEYID
+envset AWS_SECRET_ACCESS_KEY ANDTHISISTHISISVERYSECUREKEYACCESSKEY
+
+provision $BOX_NAME
+
+unregister $BOX_NAME
+EOF
+</pre></div>
+</div>
+<p>Wondering how long it will take? Less then 1 minute. Compare to manual
+setup ....</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">PLAY</span> <span class="n">RECAP</span> <span class="o">********************************************************************</span>
+<span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>                  <span class="p">:</span> <span class="n">ok</span><span class="o">=</span><span class="mi">42</span>   <span class="n">changed</span><span class="o">=</span><span class="mi">12</span>   <span class="n">unreachable</span><span class="o">=</span><span class="mi">0</span>    <span class="n">failed</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>In the end, you will have all the information about the network you
+created, so you can store it, or template it to some configuration file:</p>
+<div class="figure" id="id14">
+<img alt="photo" src="https://raw.githubusercontent.com/Voronenko/ansible_vpc_ppsubnet_wnat/master/v1/images/01-provisioning.png" />
+<p class="caption"><span class="caption-text">photo</span></p>
+</div>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of Interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>I recommend to store and evolve deployment and provisioning recipes with
+your application code. Believe me, when you know that you can set your
+environment up from scratch in 10-40 minutes, your customer will be less
+nervous :)</p>
+<p>If you use that approach to implement different cases of network setups,
+I would be grateful if you shared your experience. If you need to
+implement continuous integration to your project - you are welcome.</p>
+<p>Mentioned samples for use with Ansible v1 (1.9.4) could be seen on or
+forked from
+<a class="reference external" href="https://github.com/Voronenko/ansible_vpc_ppsubnet_wnat/tree/master/v1">GitHub</a>.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-05-jenkins.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Setup & Configure Jenkins for Your Team
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-07-jumpbox.html">
+    Secure Jumpbox to Access your Network Infrastructure from Remote Locations
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,695 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Wrapping a LAMP project into Vagrant with Ansible</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_12_vagrant_lamp">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-11-box-bootstrap.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Preparing & Securing Your Ubuntu Box for Deployment
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-01-keys.html">
+    Linux Quick Tip: Adding GitHub Keys as Authorized Keys
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Dec 20, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/field-notes.html">field notes</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/vagrant.html">vagrant</a>,
+      
+    
+      
+      <a href="tag/lamp.html">lamp</a>,
+      
+    
+      
+      <a href="tag/development.html">development</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="wrapping-a-lamp-project-into-vagrant-with-ansible">
+<h1>Wrapping a LAMP project into Vagrant with Ansible<a class="headerlink" href="#wrapping-a-lamp-project-into-vagrant-with-ansible" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>As a contractor software developer, I am asked from time to time to
+perform an audit of LAMP projects. As project configuration is
+different, I use a so-called &#8220;umbrella repository environment&#8221;, which
+allows me to wrap such projects into a reusable vagrant environment
+without the need to amend an audited project&#8217;s codebase itself.</p>
+<p>Let me share this approach with you.</p>
+<p>The tools are simple: Oracle Virtual Box, Vagrant with several
+additional plugins, Git, &#8220;Ansible Developer recipes&#8221; items collection.
+Windows is supported, if you have Git For Windows (ex MSysGit)
+installed.</p>
+<p>Vagrant box is provisioned with Ansible, as this provision tool has
+minimal dependencies to run.</p>
+</div>
+<div class="section" id="challenges-to-address">
+<h2>Challenges to Address<a class="headerlink" href="#challenges-to-address" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Configure vagrant environment on the local box</li>
+<li>Configure guest OS (I usually work with Ubuntu 14.04 LTS
+distribution) with LAMP stack</li>
+<li>Check out guest projects into workplace &amp; map them into vagrant</li>
+<li>Provision guest OS according to guest projects&#8217; requirements</li>
+<li>Ensure guest projects are accessible from local box</li>
+<li>Do your work</li>
+</ul>
+</div>
+<div class="section" id="preparing-the-vagrant-environment">
+<h2>Preparing the Vagrant Environment<a class="headerlink" href="#preparing-the-vagrant-environment" title="Permalink to this headline">¶</a></h2>
+<p>There are tons of Vagrant plugins. Some of them are quite handy.
+Usually, I am using three plugins with Vagrant:</p>
+<ul class="simple">
+<li><strong>vagrant-vbguest</strong>: Synchronizes guest additional versions inside
+the image with the master Oracle VirtualBox version. This helps to
+prevent random issues with shared folders.</li>
+<li><strong>vagrant-hostsupdater</strong>: Automatically updates host files with side
+dev aliases used. Important: this plugin will ask you for privileged
+access to write into /etc/hosts.</li>
+<li><strong>vagrant-auto_network</strong>: This plugin registers an internal address
+range and assigns unique IP addresses for each successive request so
+that network configuration is entirely hands off. It&#8217;s much lighter
+than running a DNS server and masks the underlying work of manually
+assigning addresses.</li>
+</ul>
+<p>With plugins above, my Vagrantfile usually contains: aliases for dev
+websites to be added to /etc/hosts + I prefer all Vagrant boxes to have
+the same IP address subnetwork.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;www.local.dev&quot;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">hostsupdater</span><span class="o">.</span><span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;alias.local.dev&quot;</span><span class="p">,</span> <span class="s2">&quot;alias2.local.dev&quot;</span><span class="p">]</span>
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="p">:</span><span class="n">private_network</span><span class="p">,</span> <span class="p">:</span><span class="n">auto_network</span> <span class="o">=&gt;</span> <span class="n">true</span>
+
+<span class="c1"># My favorite:  to stick to 33.* subnetwork</span>
+<span class="n">AutoNetwork</span><span class="o">.</span><span class="n">default_pool</span> <span class="o">=</span> <span class="s1">&#39;192.168.33.0/24&#39;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">init_vagrant.sh</span></code> provided within repository installs the
+above-mentioned plugins.</p>
+</div>
+<div class="section" id="getting-lamp-on-vagrant">
+<h2>Getting LAMP on Vagrant<a class="headerlink" href="#getting-lamp-on-vagrant" title="Permalink to this headline">¶</a></h2>
+<p>In order to configure LAMP stack on vagrant, I use Ansible provisioner
+and set of provisioning recipes.</p>
+<p>Let&#8217;s take a look on deployment/vagrant.yml parts:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="nb">vars</span><span class="p">:</span>
+  <span class="o">...</span>
+  <span class="n">mysql_root_user</span><span class="p">:</span> <span class="n">root</span>
+  <span class="n">mysql_root_password</span><span class="p">:</span> <span class="n">devroot</span>
+  <span class="n">apache_mode</span><span class="p">:</span> <span class="n">prefork</span> <span class="c1"># use prefork or worker variables</span>
+  <span class="n">java_version</span><span class="p">:</span> <span class="mi">8</span>
+  <span class="n">mailhog_version</span><span class="p">:</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">6</span>
+  <span class="n">mongo_version</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="n">nodejs_version</span><span class="p">:</span> <span class="s2">&quot;0.12&quot;</span> <span class="c1"># 0.10 0.12</span>
+  <span class="n">php_family</span><span class="p">:</span> <span class="n">default</span> <span class="c1"># 5.4 | 5.5 | 5.6 | default</span>
+  <span class="n">php_xdebug_version</span><span class="p">:</span> <span class="mf">2.3</span><span class="o">.</span><span class="mi">3</span>
+  <span class="o">...</span>
+
+  <span class="n">php_extensions</span><span class="p">:</span>
+    <span class="o">-</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;php5-curl&quot;</span> <span class="p">}</span>
+    <span class="o">-</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;php5-xsl&quot;</span> <span class="p">}</span>
+    <span class="o">-</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;php5-memcache&quot;</span> <span class="p">}</span>
+    <span class="o">-</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;php5-memcached&quot;</span> <span class="p">}</span>
+
+ <span class="o">...</span>
+
+  <span class="n">tasks</span><span class="p">:</span>
+       <span class="c1"># MySQL 5.5</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_mysql.yml&quot;</span>
+       <span class="c1"># apache prefork|worker</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_apache.yml&quot;</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_php_apt_switchversion.yml&quot;</span>
+     <span class="c1"># php 5.5 for apache</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_php_apache.yml&quot;</span>
+     <span class="c1"># node 0.12.*</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_nodejs.yml&quot;</span>
+     <span class="c1"># installs memcached service</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/tasks_memcached.yml&quot;</span>
+     <span class="c1"># Installs custom php extensions</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;./tasks_phpextensions.yml&quot;</span>
+     <span class="c1"># (re)imports databases from db folder</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/vagrant/tasks_vagrant_import_mysqldb_databag.yml&quot;</span>
+     <span class="c1"># register apache websites on vagrant</span>
+     <span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/vagrant/tasks_vagrant_apache2_devsites.yml&quot;</span>
+</pre></div>
+</div>
+<p>This installs the typical LAMP stack: Apache 2.4 with PHP 5.5 (or 5.4 or
+5.6 , depending on php_family set). In addition, composer and bower
+tools are installed. Gulp and grunt are also available. If I need a more
+specific setup on versions, I tune it here.</p>
+<div class="section" id="getting-guest-projects-into-vagrant">
+<h3>Getting Guest Projects into Vagrant<a class="headerlink" href="#getting-guest-projects-into-vagrant" title="Permalink to this headline">¶</a></h3>
+<p>In order to get projects inside vagrant, let&#8217;s checkout them into public
+folder. Public folder is than mapped as /vagrant/public inside vagrant
+box. Due to some permissions limitations, we map folders with 777 access
+rights and files with 666.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;/vagrant&quot;</span><span class="p">,</span> <span class="n">mount_options</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dmode=777&#39;</span><span class="p">,</span><span class="s1">&#39;fmode=666&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Usually guest projects are hosted in their own repositories. To speed up
+checkout for such case, special file was introduced, called
+.projmodules. Format is compatible with gitmodules file format,
+typically looks like series of the project definitions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;public/ansible_developer_recipes&quot;</span><span class="p">]</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">public</span><span class="o">/</span><span class="n">ansible_developer_recipes</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">Voronenko</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">developer_recipes</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Each sub project will be cloned into <em>path</em> using repository address
+<em>url</em></p>
+<p>init.sh provided withing repository installs or reinstalls guest
+projects.</p>
+</div>
+<div class="section" id="overriding-guest-projects-configuration-for-vagrant">
+<h3>Overriding Guest Projects Configuration for Vagrant<a class="headerlink" href="#overriding-guest-projects-configuration-for-vagrant" title="Permalink to this headline">¶</a></h3>
+<p>This could be really tricky. Mine recommendation, is to keep under
+local/ subfolder files that needs to be overwritten for working with
+vagrant. For example, if guest project has config in
+public/proj1/config/ , we can have overrides in
+local/proj1/config/local_config_file_adjusted_for_vagrant.php ; In
+this case adjusting codebase to work under vagrant is as easy as copying
+contents of the local folder over the public. If guest project
+architecture allows environment or development based configuration
+that&#8217;s the best scenario.</p>
+<p>For example, usually I have vagrant-tools project, which contains small
+php helpers to examine vagrant box state (like Adminer, memcache.php
+tools.)</p>
+</div>
+<div class="section" id="making-guest-projects-accessible-from-local-box">
+<h3>Making Guest Projects Accessible from Local Box<a class="headerlink" href="#making-guest-projects-accessible-from-local-box" title="Permalink to this headline">¶</a></h3>
+<p>Take a look on the following section from vagrant.yml:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">vagrant_lvh_sites</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span> <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;web&quot;</span><span class="p">,</span>                                                                 <span class="c1"># WSGI &amp; LAMP sites supported</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;tools&quot;</span><span class="p">,</span>                                                               <span class="c1"># Name of the dev website</span>
+      <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/vagrant/public/vagrant-tools&quot;</span><span class="p">,</span>                                       <span class="c1"># Path to site home folder</span>
+<span class="c1">#          template: &quot;{{playbook_dir}}/files/apache2/website.yml&quot;,                     # Provide custom template, if builtin is not good</span>
+      <span class="n">aliases</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;tools.vagrant.dev&quot;</span> <span class="p">]</span>                                             <span class="c1"># These will be additional aliases to &lt;&lt;name&gt;&gt;.lvh.me</span>
+      <span class="n">vhost_overrides</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SetEnv no-gzip 1&quot;</span><span class="p">,</span> <span class="s2">&quot;RequestHeader unset Accept-Encoding&quot;</span><span class="p">]</span> <span class="c1"># These lines will be added to website configuration file.</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Configuration variable <em>vagrant_lvh_sites</em> contains list of sites,that
+needs to be configured withing Vagrant. Let me guide through parameters:
+- type: can be either web or wsgi - specifies what vhost template is
+used. &#8216;web&#8217; is suitable for most of the lamp projects. - name: unique
+alpha-numeric site&#8217;s name. Site will be available under name .lvh.me -
+path: path to the site repository root folder - dest: optional, if
+repository root folder is not the website root. Specify relative path to
+web root here. - template: optional, if default apache virtual host
+template does not suit your needs, you can override it here. - aliases:
+optiona, array of domain names. Will be used as virtual host aliases.
+Suitable, if you plan to access vagrant on .dev domain -
+vhost_overrides: optional, array of strings, list of Apache
+configurations that will be injected into the Apache vhost template.</p>
+<p>.lvh.me trick: *.lvh.me always resolves to 127.0.0.1 ; This allows
+developer to use the same domain name both inside vagrant and
+developer&#8217;s local box. Bonus - port forwarding works like a charm. You
+can achieve effect: by navigating to website.lvh.me you access website
+hosted and configured on vagrant.</p>
+</div>
+</div>
+<div class="section" id="importing-mysql-database-dumps">
+<h2>Importing MySQL Database Dumps<a class="headerlink" href="#importing-mysql-database-dumps" title="Permalink to this headline">¶</a></h2>
+<p>There are two approaches: - Option A : Vagrant connects to the MySQL
+running on your local computer/network. (This is the easiest approach,
+as in this case it is not necessary to install MySQL under Vagrant.)</p>
+<ul class="simple">
+<li>Option B: MySQL is installed inside Vagrant, and we need a way to
+import databases.</li>
+</ul>
+<p>For the purposes of the running MySQL under Vagrant: put your SQL dumps
+under <code class="docutils literal"><span class="pre">databag/db/&lt;database</span> <span class="pre">name&gt;/&lt;database</span> <span class="pre">dump&gt;.sql</span></code>; For example,
+<code class="docutils literal"><span class="pre">databag/db/website/dump.sql</span></code></p>
+<p>Provisioning recipe will import each of the available database dumps as
+a new database, assuming the folder name equals database name. If
+<code class="docutils literal"><span class="pre">.nodbs</span></code> flag file is found in the databag/db root, import is skipped
+to prevent accidental DB overwriting.</p>
+<p>The ccript below does the trick:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+HOMEDIR=${PWD}
+
+if [ -f .nodbs ] ; then
+    echo &quot;.nodbs flag present, db import skipped&quot;;
+    exit 0
+fi
+
+for d in */ ; do
+    DBNAME=&quot;$(echo $d | cut -d &#39;=&#39; -f 2 | sed &#39;s/\/$//&#39;)&quot;
+    echo &quot;IMPORTING DB: $DBNAME&quot;
+    cd &quot;$HOMEDIR/$DBNAME&quot;
+    mysql -u{{mysql_root_user}}  -p{{mysql_root_password}} -e &quot;drop database if exists $DBNAME&quot;
+    mysql -u{{mysql_root_user}}  -p{{mysql_root_password}} -e &quot;create database if not exists $DBNAME CHARACTER SET utf8 COLLATE utf8_general_ci&quot;
+    last_dump=$(find ./*.sql -type f -exec stat -c &quot;%n&quot; {} + | sort -r | head -n1)
+    mysql -u{{mysql_root_user}} -p{{mysql_root_password}} $DBNAME&lt; $last_dump
+done
+
+touch &quot;$HOMEDIR/.nodbs&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting-emails">
+<h2>Troubleshooting Emails<a class="headerlink" href="#troubleshooting-emails" title="Permalink to this headline">¶</a></h2>
+<p>Usually sites send mails. In order to debug this part, I usually use
+<a class="reference external" href="https://github.com/mailhog/MailHog">Mailhog</a>. This is an SMTP
+debugging tool with a WebUI interface, making it also suitable for
+automatic testing.</p>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>For some reason, this most often causes difficulties. XDebug is
+installed inside a LAMP box. It is configured to poll back originating
+host, so in most cases you will need just to listen for incoming debug
+connections (green phone in PHPstorm). In addition, you will need either
+some bookmarklet or extension like <a class="reference external" href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc">XDebug
+Helper</a>
+to turn the debugging session on.</p>
+<p>Sites inside Vagrant are available:</p>
+<ul class="simple">
+<li>On lvh.me domain on port 9080 (if you are on windows, or privileged
+user - you can map even 80 to 80) <img alt="lvh.me" src="https://raw.githubusercontent.com/Voronenko/lamp-box/master/docs/tools_lvh.jpg" /></li>
+<li>On vagrant.dev domain on port 80 <img alt="vagrant.dev" src="https://raw.githubusercontent.com/Voronenko/lamp-box/master/docs/tools_dev.jpg" /></li>
+</ul>
+<p>Typical steps to debug using phpstorm include:</p>
+<ul class="simple">
+<li>Configuring interpreter (you can use either local or remote one).
+PHPStorm 9.0.2 will automatically detect vagrant, btw. <img alt="remote intepreter" src="https://raw.githubusercontent.com/Voronenko/lamp-box/master/docs/debug_process_example.jpg" /></li>
+<li>Turning on listen for debug connections (phpstorm) + ensuring setting
+debug session in browser <img alt="remote intepreter 1" src="https://raw.githubusercontent.com/Voronenko/lamp-box/master/docs/phpstorm_remoteinterpreter.jpg" /></li>
+<li>Putting breakpoint inside your code and actually debug. Note: root of
+the lamp-box repository is mapped to /vagrant/ <img alt="remote intepreter 2" src="https://raw.githubusercontent.com/Voronenko/lamp-box/master/docs/phpstorm_debug_on.jpg" /></li>
+</ul>
+</div>
+<div class="section" id="the-code-in-action">
+<h2>The Code in Action<a class="headerlink" href="#the-code-in-action" title="Permalink to this headline">¶</a></h2>
+<p>Code can be downloaded from the repository
+<a class="reference external" href="https://github.com/Voronenko/lamp-box">https://github.com/Voronenko/lamp-box</a></p>
+<div class="section" id="prepare">
+<h3>Prepare<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h3>
+<p>Check out or fork the repository. Run <code class="docutils literal"><span class="pre">./init_vagrant.sh</span></code> to install
+Vagrant plugins if you do not have them already.</p>
+<p>Adjust <code class="docutils literal"><span class="pre">.projmodules</span></code> to include project repositories you are going to
+wrap. If necessary, implement the ansible recipe to configure some
+specific project environment which go beyond installing PHP extensions.</p>
+<p>Run <code class="docutils literal"><span class="pre">./init.sh</span></code> to clone necessary project repositories. Do not remove
+the &#8220;public/ansible_developer_recipes&#8221; project, because it is required
+for your environment setup.</p>
+<p>Review <code class="docutils literal"><span class="pre">deployment/vagrant.yml</span></code> to ensure it includes everything you
+planned to install.</p>
+</div>
+<div class="section" id="provision-environment">
+<h3>Provision Environment<a class="headerlink" href="#provision-environment" title="Permalink to this headline">¶</a></h3>
+<p>Run <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">up</span></code> and be patient. You are configuring a new box, so it
+may take a while. Speed depends on your internet connectivity. In rare
+cases, provision might be interrupted. In such a case, repeat
+provisioning manually using <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">provision</span></code> command.</p>
+<p>Finally you should see something like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PLAY</span> <span class="n">RECAP</span> <span class="o">********************************************************************</span>
+<span class="n">default</span>                    <span class="p">:</span> <span class="n">ok</span><span class="o">=</span><span class="mi">46</span>   <span class="n">changed</span><span class="o">=</span><span class="mi">16</span>   <span class="n">unreachable</span><span class="o">=</span><span class="mi">0</span>    <span class="n">failed</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>At this moment you have additional helpers: - Mailhog web UI interface
+at <a class="reference external" href="http://localhost:9025/">http://localhost:9025/</a> or at <a class="reference external" href="http://tools.vagrant.dev:8025/">http://tools.vagrant.dev:8025/</a> -
+PHPMyAdmin web UI: under each site in <strong>/phpmyadmin/</strong> subfolder. Use
+root / devroot to login. (As you recall, your project DBs are imported
+automatically at initial provision) - WebGrind profiler: under each site
+in the <strong>/webgrind/</strong> subfolder. - Configured debugger.</p>
+</div>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>Everyone has his/her own recipes of how to build best web development
+environment in the world. The best one is one that suits your needs. I
+prefer to have only a minimal set of software on my work PC, so I widely
+adopt virtualization with Vagrant and ESXi. The goal is to have a robust
+way to run multiple projects on my host without interference. With ESZXi
+and Vagrant, I can successfully accomplish that goal.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-11-box-bootstrap.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Preparing & Securing Your Ubuntu Box for Deployment
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-01-keys.html">
+    Linux Quick Tip: Adding GitHub Keys as Authorized Keys
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

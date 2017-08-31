@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">softasap Blog</title>
+  <id>True/blog/atom.xml</id>
+  <updated>2017-03-31T00:00:00Z</updated>
+  <link href="True" />
+  <link href="True/blog/atom.xml" rel="self" />
+  <generator uri="http://ablog.readthedocs.org" version="0.8.4">ABlog</generator>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Documentation as a project</title>
+    <id>True/blog/2017-03-projectdocs.html</id>
+    <updated>2017-03-31T00:00:00Z</updated>
+    <published>2017-03-31T00:00:00Z</published>
+    <link href="True/blog/2017-03-projectdocs.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;This article, based on my experience, demonstrates approach of
+organizing documentation in your project aiming following:&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Using Vault to Secure Your Deployment Secrets</title>
+    <id>True/blog/2017-02-vault.html</id>
+    <updated>2017-02-11T00:00:00Z</updated>
+    <published>2017-02-11T00:00:00Z</published>
+    <link href="True/blog/2017-02-vault.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;em&gt;&amp;#8220;Don’t Check Passwords into Source Control or Hard-Code Them in Your
+Application Operations staff will remove your eyes with a spoon if they
+catch you doing this. Don’t give them the pleasure.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Linux Quick Tip: Adding GitHub Keys as Authorized Keys</title>
+    <id>True/blog/2017-01-keys.html</id>
+    <updated>2017-01-04T00:00:00Z</updated>
+    <published>2017-01-04T00:00:00Z</published>
+    <link href="True/blog/2017-01-keys.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;As a software developer, I constantly work with a bunch of virtual
+environments used for testing.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Wrapping a LAMP project into Vagrant with Ansible</title>
+    <id>True/blog/2016-12-vagrant-lamp.html</id>
+    <updated>2016-12-20T00:00:00Z</updated>
+    <published>2016-12-20T00:00:00Z</published>
+    <link href="True/blog/2016-12-vagrant-lamp.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;As a contractor software developer, I am asked from time to time to
+perform an audit of LAMP projects. As project configuration is
+different, I use a so-called &amp;#8220;umbrella repository environment&amp;#8221;, which
+allows me to wrap such projects into a reusable vagrant environment
+without the need to amend an audited project&amp;#8217;s codebase itself.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Preparing &amp; Securing Your Ubuntu Box for Deployment</title>
+    <id>True/blog/2016-11-box-bootstrap.html</id>
+    <updated>2016-11-17T00:00:00Z</updated>
+    <published>2016-11-17T00:00:00Z</published>
+    <link href="True/blog/2016-11-box-bootstrap.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;Nowadays deployments have moved from bare-metal servers to virtual
+machines that are quicker to start, e.g. the one provided by Amazon,
+Digital Ocean, and OpenStack-based providers. Thus, developers are no
+longer required to go through manual administration steps when
+configuring an Ubuntu box.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Getting a Development Environment Set Up Before You Finish Your Coffee</title>
+    <id>True/blog/2016-10-workplace.html</id>
+    <updated>2016-10-09T00:00:00Z</updated>
+    <published>2016-10-09T00:00:00Z</published>
+    <link href="True/blog/2016-10-workplace.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;As a contractor - software developer, I remaster my work environment
+often, depending on the project requirements. Also, depending on the
+NDA, sometimes I work remotely on the boxes provided by my client. All
+in all, it is important for me to get a typical set of work tools
+quickly. So, let me share here how I get my new environment up and
+running while I am drinking coffee.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible</title>
+    <id>True/blog/2016-09-ansible-letsencrypt.html</id>
+    <updated>2016-09-01T00:00:00Z</updated>
+    <published>2016-09-01T00:00:00Z</published>
+    <link href="True/blog/2016-09-ansible-letsencrypt.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;http://www.letsencrypt.org/&quot;&gt;Let&amp;#8217;s Encrypt&lt;/a&gt; is probably one of the
+most well-known authority supplying free green seal certificates. In
+this article, I will share how I make use of &lt;code class=&quot;docutils literal&quot;&gt;&lt;span class=&quot;pre&quot;&gt;letsencrypt&lt;/span&gt;&lt;/code&gt; as part of
+a server&amp;#8217;s provisioning process.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Enable virtualization inside ESXi virtual machine</title>
+    <id>True/blog/2016-08-esxi.html</id>
+    <updated>2016-08-28T00:00:00Z</updated>
+    <published>2016-08-28T00:00:00Z</published>
+    <link href="True/blog/2016-08-esxi.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;One day I got a task to implement a Vagrant-based scenario for my
+client. For quite a long time, I&amp;#8217;ve been using free VMWare ESX-i
+hypervisor for my experiments, as it allows up to 4 virtual boxes to be
+run in parallel for my labs experience.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Secure Jumpbox to Access your Network Infrastructure from Remote Locations</title>
+    <id>True/blog/2016-07-jumpbox.html</id>
+    <updated>2016-07-23T00:00:00Z</updated>
+    <published>2016-07-23T00:00:00Z</published>
+    <link href="True/blog/2016-07-jumpbox.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;A jump server &lt;a class=&quot;reference external&quot; href=&quot;https://en.wikipedia.org/wiki/Jump_server&quot;&gt;https://en.wikipedia.org/wiki/Jump_server&lt;/a&gt; or jump
+host or jumpbox is a (special-purpose) computer on a network typically
+used to access devices in a separate security zone. The most common
+example is managing a host in a DMZ from trusted networks or computers.
+This could be accessing your home network from remote location. Access
+internet from your mobile device in public locations via VPN and so on.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Automating Network Mastering Scenarios for Amazon VPC with Ansible</title>
+    <id>True/blog/2016-06-amazon-vpc-1.html</id>
+    <updated>2016-06-19T00:00:00Z</updated>
+    <published>2016-06-19T00:00:00Z</published>
+    <link href="True/blog/2016-06-amazon-vpc-1.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;For a long time, Amazon Web Services has been one of the most often used
+platforms to deploy and run new projects. For more complex projects, you
+usually start with mastering your network infrastructure. Fortunately,
+Amazon provides a definitive guide to most-used network topologies. You
+can review some at
+&lt;a class=&quot;reference external&quot; href=&quot;http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html&quot;&gt;http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Setup &amp; Configure Jenkins for Your Team</title>
+    <id>True/blog/2016-05-jenkins.html</id>
+    <updated>2016-05-14T00:00:00Z</updated>
+    <published>2016-05-14T00:00:00Z</published>
+    <link href="True/blog/2016-05-jenkins.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;Nowadays, continuous integration is an important part of the agile
+software development life-cycle. There is a number of tools on the
+market: Atlassian Bamboo, Jenkins, Jetbrains TeamCity.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Deploying a Ruby Application with Ansible</title>
+    <id>True/blog/2016-04-deploying-ruby.html</id>
+    <updated>2016-04-10T00:00:00Z</updated>
+    <published>2016-04-10T00:00:00Z</published>
+    <link href="True/blog/2016-04-deploying-ruby.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;Nowadays, you can get your own dedicated server up and running in
+seconds. Once you get it up, do you really need to spend several hours
+on configuring it for your application&amp;#8217;s needs? Do you really want to
+repeat the same steps with each new server? In this article, I will give
+you an idea about automated installation with Ansible, a Simple IT
+Automation toolkit, and Ubuntu 14.04 LTS server as your box OS.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="True/blog/atom.xml">
+    <title type="text">Implementing git-flow Releasing Model in Continuous Integration Process</title>
+    <id>True/blog/2016-03-gitflow.html</id>
+    <updated>2016-03-03T00:00:00Z</updated>
+    <published>2016-03-03T00:00:00Z</published>
+    <link href="True/blog/2016-03-gitflow.html" />
+    <author>
+      <name>Vyacheslav</name>
+    </author>
+    <content type="html">&lt;p&gt;Perhaps most developers are familiar with the git-flow model that makes
+the release process controlled. In this article, I will demonstrate one
+of approaches to introduce git-flow releasing into your project, and
+this git-flow can be integrated with the continuous integration tool of
+your choice. In this article, I will be using Atlassian Bamboo as an
+example.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

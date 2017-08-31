@@ -1,0 +1,545 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_09_ansible_letsencrypt">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-08-esxi.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Enable virtualization inside ESXi virtual machine
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-10-workplace.html">
+    Getting a Development Environment Set Up Before You Finish Your Coffee
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Sep 01, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/letsencrypt.html">letsencrypt</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>,
+      
+    
+      
+      <a href="tag/deployment.html">deployment</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="automating-ssl-encryption-for-your-servers-with-letsencrypt-and-ansible">
+<h1>Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible<a class="headerlink" href="#automating-ssl-encryption-for-your-servers-with-letsencrypt-and-ansible" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.letsencrypt.org/">Let&#8217;s Encrypt</a> is probably one of the
+most well-known authority supplying free green seal certificates. In
+this article, I will share how I make use of <code class="docutils literal"><span class="pre">letsencrypt</span></code> as part of
+a server&#8217;s provisioning process.</p>
+<p>I have tried out a wide range of clients for Let&#8217;s Encrypt:
+certbot-auto, letsencrypt-cli, simple_le, and few other from <a class="reference external" href="https://letsencrypt.org/docs/client-options/">Let&#8217;s
+Encrypt</a>&#8216;s client list.</p>
+<p>However, my number one choice, at least for now, is:
+<a class="reference external" href="https://github.com/lukas2511/letsencrypt.sh">https://github.com/lukas2511/letsencrypt.sh</a>. If I were to describe tge
+client in a few words, it&#8217;d simply be: “it just works.”</p>
+<p>I use <a class="reference external" href="https://www.ansible.com/">Ansible</a> for my automation scenarios
+and have wrapped letsencrypt.sh into a role play at
+<a class="reference external" href="https://github.com/softasap/sa-lets-encrypt">https://github.com/softasap/sa-lets-encrypt</a></p>
+<p>Here&#8217;s an example of using existing installations, assuming you have
+existing website — you specify what domain names you plan to use and the
+path to the <code class="docutils literal"><span class="pre">nginx</span> <span class="pre">config</span></code>:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">dev</span>
+
+  <span class="nb">vars</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">root_dir</span><span class="p">:</span> <span class="s2">&quot;{{playbook_dir}}&quot;</span>
+    <span class="o">-</span> <span class="n">my_domains</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">{</span>
+        <span class="n">names</span><span class="p">:</span> <span class="s2">&quot;voronenko.net www.voronenko.net&quot;</span><span class="p">,</span>
+        <span class="n">nginx_config</span><span class="p">:</span> <span class="s2">&quot;/etc/nginx/sites-available/voronenko_net&quot;</span>
+        <span class="p">}</span>
+
+  <span class="n">pre_tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">debug</span><span class="p">:</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Pre tasks section&quot;</span>
+
+  <span class="n">roles</span><span class="p">:</span>
+
+    <span class="o">-</span> <span class="p">{</span>
+        <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-lets-encrypt&quot;</span><span class="p">,</span>
+        <span class="n">le_domains</span><span class="p">:</span> <span class="s2">&quot;{{my_domains}}&quot;</span><span class="p">,</span>
+        <span class="n">option_run_once</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="n">option_setup_cron</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">}</span>
+
+  <span class="n">tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">debug</span><span class="p">:</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Tasks section&quot;</span>
+</pre></div>
+</div>
+<p>This is longer example of a new installation — you install nginx,
+configure your website, and apply letsencrypt play.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">www</span>
+  <span class="nb">vars</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">root_dir</span><span class="p">:</span> <span class="s2">&quot;{{playbook_dir}}&quot;</span>
+    <span class="o">-</span> <span class="n">my_domains</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">{</span>
+        <span class="n">names</span><span class="p">:</span> <span class="s2">&quot;voronenko.net www.voronenko.net&quot;</span><span class="p">,</span>
+        <span class="n">nginx_config</span><span class="p">:</span> <span class="s2">&quot;/etc/nginx/sites-available/voronenko_net&quot;</span>
+        <span class="p">}</span>
+
+  <span class="n">pre_tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">debug</span><span class="p">:</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Pre tasks section&quot;</span>
+
+  <span class="n">roles</span><span class="p">:</span>
+
+    <span class="o">-</span> <span class="p">{</span>
+        <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-nginx&quot;</span>
+      <span class="p">}</span>
+    <span class="o">-</span> <span class="p">{</span>
+        <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-include&quot;</span><span class="p">,</span>
+        <span class="n">include_file</span><span class="p">:</span> <span class="s2">&quot;{{root_dir}}/demosite.yml&quot;</span>
+      <span class="p">}</span>
+    <span class="o">-</span> <span class="p">{</span>
+        <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-lets-encrypt&quot;</span><span class="p">,</span>
+        <span class="n">le_domains</span><span class="p">:</span> <span class="s2">&quot;{{my_domains}}&quot;</span><span class="p">,</span>
+<span class="c1">#        le_ca: &quot;https://acme-staging.api.letsencrypt.org/directory&quot;,</span>
+        <span class="n">option_run_once</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="n">option_setup_cron</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">}</span>
+
+  <span class="n">tasks</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">debug</span><span class="p">:</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Tasks section&quot;</span>
+</pre></div>
+</div>
+<p>Refer to the standalone example in the
+<a class="reference external" href="https://github.com/softasap/sa-lets-encrypt/tree/master/box-example">box-example</a>
+folder.</p>
+<div class="section" id="digital-ocean">
+<h2>Digital Ocean<a class="headerlink" href="#digital-ocean" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s what the result will look like for an example in DigitalOcean —
+you get the clean OS:</p>
+<div class="figure" id="id1">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*MESReWaYed4kuLnT." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+<p>Once the droplet is ready, configure the DNS for it.</p>
+<div class="figure" id="id2">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*NNIM_Q_xIuuirGES." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+</div>
+<div class="section" id="godaddy">
+<h2>GoDaddy<a class="headerlink" href="#godaddy" title="Permalink to this headline">¶</a></h2>
+<p>See the example below for GoDaddy:</p>
+<div class="figure" id="id3">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*h-Imv-pbGM5PaHSj." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+<p>Ping the host to ensure that the DNS was successfully propagated.</p>
+<div class="figure" id="id4">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*93chM0U5Qb7TChzt." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+<p>Adjust play to specify box address.</p>
+<div class="figure">
+<img alt="" src="https://cdn-images-1.medium.com/max/800/0*cwFazsAiG96uatgs." />
+</div>
+<p>Wait for provisioning to complete.</p>
+<div class="figure" id="id5">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*giD07irWcFUKgl9Y." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+</div>
+<div class="section" id="how-letsencrypt-sh-works">
+<h2>How letsencrypt.sh works<a class="headerlink" href="#how-letsencrypt-sh-works" title="Permalink to this headline">¶</a></h2>
+<p>Take a look at how letsencrypt.sh works.</p>
+<p>It creates links to the current certificates so you can safely refer
+them from the <code class="docutils literal"><span class="pre">nginx</span> <span class="pre">config</span></code>. Role installs cron job to ensure that
+the certificate is updated before it expires. However, you would need to
+reload your webserver in case the underlying certificate has been
+updated.</p>
+<div class="figure" id="id6">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*DhOgRa9uiChoxAdj." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+<p>Now you can safely refer to the SSL certificates in your web config.</p>
+<div class="figure" id="id7">
+<img alt="ssl encryption" src="https://cdn-images-1.medium.com/max/800/0*uCqhR_R-AVFovpFs." />
+<p class="caption"><span class="caption-text">ssl encryption</span></p>
+</div>
+</div>
+<div class="section" id="check-the-seal">
+<h2>Check the Seal<a class="headerlink" href="#check-the-seal" title="Permalink to this headline">¶</a></h2>
+<p>Last step — check for the green sealed certificate in the browser.</p>
+<div class="figure" id="id8">
+<img alt="SSL encryption" src="https://cdn-images-1.medium.com/max/800/0*coS_FQsN5ROG2TyZ." />
+<p class="caption"><span class="caption-text">SSL encryption</span></p>
+</div>
+<p>That&#8217;s it!</p>
+<p>If you&#8217;re using other web servers, your PRs and comments are always
+welcomed.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-08-esxi.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Enable virtualization inside ESXi virtual machine
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-10-workplace.html">
+    Getting a Development Environment Set Up Before You Finish Your Coffee
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Enable virtualization inside ESXi virtual machine</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_08_esxi">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-07-jumpbox.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Secure Jumpbox to Access your Network Infrastructure from Remote Locations
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-09-ansible-letsencrypt.html">
+    Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Aug 28, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/field-notes.html">field notes</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/esxi.html">esxi</a>,
+      
+    
+      
+      <a href="tag/tip.html">tip</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="enable-virtualization-inside-esxi-virtual-machine">
+<h1>Enable virtualization inside ESXi virtual machine<a class="headerlink" href="#enable-virtualization-inside-esxi-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>One day I got a task to implement a Vagrant-based scenario for my
+client. For quite a long time, I&#8217;ve been using free VMWare ESX-i
+hypervisor for my experiments, as it allows up to 4 virtual boxes to be
+run in parallel for my labs experience.</p>
+<p>The first issue I spotted, once I installed Oracle Virtual Box &amp; Vagrant
+on my ESXi box, is its inability to start a Vagrant-controlled image due
+to the lack of virtualization support. There were no options to turn it
+on via the ESXi GUI client, so I have started to look for a solution</p>
+</div>
+<div class="section" id="enabling-the-ssh-access-on-your-esxi-host">
+<h2>Enabling the ssh access on your ESXi host<a class="headerlink" href="#enabling-the-ssh-access-on-your-esxi-host" title="Permalink to this headline">¶</a></h2>
+<p>Please follow the steps below in succession:</p>
+<ol class="loweralpha simple">
+<li>Start the vSphere client</li>
+<li>Select ESXi&#8217;s host configuration tab</li>
+<li>Select security profile from the list on a left</li>
+<li>Click properties on the upper right corner, and you will get the a
+popup with all the services on this ESXi box. Select the SSH service
+and press the Options button.</li>
+<li>Start the SSH service - you are now prepared for the most important
+step</li>
+</ol>
+</div>
+<div class="section" id="enabling-vt-x-amd-v-virtualization-inside-esxi-virtual-machine">
+<h2>Enabling VT-x / AMD-V virtualization inside ESXi virtual machine<a class="headerlink" href="#enabling-vt-x-amd-v-virtualization-inside-esxi-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>The most tricky part. Make sure to check your steps</p>
+<ol class="loweralpha simple">
+<li>Shutdown your virtual machine inside ESXi</li>
+<li>SSH to your ESXi:</li>
+</ol>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">lroot</span> <span class="n">your</span><span class="o">.</span><span class="n">esxi</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">address</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="3">
+<li>Run df - to locate the address of your mounted drive with VMs</li>
+</ol>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span> <span class="n">df</span>
+<span class="n">Filesystem</span>        <span class="n">Bytes</span>         <span class="n">Used</span>    <span class="n">Available</span> <span class="n">Use</span><span class="o">%</span> <span class="n">Mounted</span> <span class="n">on</span>
+<span class="n">VMFS</span><span class="o">-</span><span class="mi">5</span>     <span class="mi">999922073600</span> <span class="mi">539996717056</span> <span class="mi">459925356544</span>  <span class="mi">54</span><span class="o">%</span> <span class="o">/</span><span class="n">vmfs</span><span class="o">/</span><span class="n">volumes</span><span class="o">/</span><span class="n">WDC1TB</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="4">
+<li>Locate the location of your&#8217;s vmx</li>
+</ol>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="n">name</span> <span class="o">*.</span><span class="n">vmx</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">HUM</span>
+<span class="o">/</span><span class="n">vmfs</span><span class="o">/</span><span class="n">volumes</span><span class="o">/</span><span class="mi">54183927</span><span class="o">-</span><span class="mi">04</span><span class="n">f91918</span><span class="o">-</span><span class="n">a72a</span><span class="o">-</span><span class="mi">6805</span><span class="n">ca147c55</span><span class="o">/</span><span class="n">W</span><span class="o">-</span><span class="n">NodeBox</span><span class="o">-</span><span class="n">HUM</span><span class="o">/</span><span class="n">W</span><span class="o">-</span><span class="n">NodeBox</span><span class="o">-</span><span class="n">HUM</span><span class="o">.</span><span class="n">vmx</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="5">
+<li>Put <code class="docutils literal"><span class="pre">setting</span> <span class="pre">vhv.enable=TRUE</span></code> at the bottom of your box&#8217;s vmx file</li>
+</ol>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span> <span class="n">echo</span> <span class="s1">&#39;vhv.enable = &quot;TRUE&quot;&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">vmfs</span><span class="o">/</span><span class="n">volumes</span><span class="o">/</span><span class="mi">54183927</span><span class="o">-</span><span class="mi">04</span><span class="n">f91918</span><span class="o">-</span><span class="n">a72a</span><span class="o">-</span><span class="mi">6805</span><span class="n">ca147c55</span><span class="o">/</span><span class="n">W</span><span class="o">-</span><span class="n">NodeBox</span><span class="o">-</span><span class="n">HUM</span><span class="o">/</span>
+<span class="n">W</span><span class="o">-</span><span class="n">NodeBox</span><span class="o">-</span><span class="n">HUM</span><span class="o">.</span><span class="n">vmx</span>
+</pre></div>
+</div>
+<p>You are done! Start your machine normally and enjoy the possibility to
+run vagrant&amp;virtual-box controlled boxes inside your ESXi host.
+(Hopefully you need it as me just to test the vagrant setup)</p>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of Interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>This tip allows you to enable virtualization inside nested virtual
+machines under ESXi hypervisor.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-07-jumpbox.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Secure Jumpbox to Access your Network Infrastructure from Remote Locations
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-09-ansible-letsencrypt.html">
+    Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Implementing git-flow Releasing Model in Continuous Integration Process</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_03_gitflow">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-04-deploying-ruby.html">
+    Deploying a Ruby Application with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Mar 03, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/knowledge-sharing.html">knowledge sharing</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/continuous-delivery.html">continuous-delivery</a>,
+      
+    
+      
+      <a href="tag/devops.html">devops</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="implementing-git-flow-releasing-model-in-continuous-integration-process">
+<h1>Implementing git-flow Releasing Model in Continuous Integration Process<a class="headerlink" href="#implementing-git-flow-releasing-model-in-continuous-integration-process" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps most developers are familiar with the git-flow model that makes
+the release process controlled. In this article, I will demonstrate one
+of approaches to introduce git-flow releasing into your project, and
+this git-flow can be integrated with the continuous integration tool of
+your choice. In this article, I will be using Atlassian Bamboo as an
+example.</p>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>If you never heard about git-flow previously, I suggest you study the
+classic post (<a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>) &amp;
+how Atlassian interprets the same idea
+(<a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a>).</p>
+<p>For those who already know git-flow, let me remind you of this
+well-known diagram:</p>
+<div class="figure" id="id1">
+<img alt="diagram" src="https://raw.githubusercontent.com/Voronenko/gitflow-release/master/images/git-workflow-release-cycle-4maintenance.png" />
+<p class="caption"><span class="caption-text">diagram</span></p>
+</div>
+</div>
+<div class="section" id="implementation-tools">
+<h2>Implementation - tools<a class="headerlink" href="#implementation-tools" title="Permalink to this headline">¶</a></h2>
+<p>Usually I introduce an approach with a set of file-helpers that migrate
+&amp; evolve with each subsequent project. I support the idea that code
+infrastructure should be stored alongside the project code. Thus, I
+usually have a deployment folder where devops scenarios live (usually I
+use an Ansible tool, although I had experience with CHEF deployments
+too), and suppose that developers will provide me with build logic that
+outputs target artifact files under buiild/folder. As a result, typical
+devops magic structure looks like:</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>|-- build
+|-- deployment
+|   |-- release_finish.sh
+|   |-- release_finish_bamboo.sh
+|   |-- release_start.sh
+|   `-- release_start_bamboo.sh
+|-- bump-version-drynext.sh
+|-- bump-version.sh
+|-- package.sh
+|-- unpackage.sh
+`-- version.txt
+</pre></div>
+</div>
+<p>Let&#8217;s take a look at the files&#8217; contents &amp; purposes.</p>
+<div class="section" id="version-txt">
+<h3>version.txt<a class="headerlink" href="#version-txt" title="Permalink to this headline">¶</a></h3>
+<p>Simple text file, containing current project version. I like idea with
+git tags in git-flow, but really would prefer to have the possibility to
+control versioning on my own. Typical version example is x.y.z:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bump-version-drynext-sh">
+<h3>bump-version-drynext.sh<a class="headerlink" href="#bump-version-drynext-sh" title="Permalink to this headline">¶</a></h3>
+<p>In most scenarios of continuous integration, subsequent releases changes
+only the minor version. Thanks to the handy bash script credited in
+source, we can get the value of the next minor version via</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>➜  releasing  ./bump-version-drynext.sh
+0.0.2
+</pre></div>
+</div>
+<p>The logic is simple enough - we read the current version from
+version.txt &amp; apply shell magic to get next value.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
+
+# credits: http://stackoverflow.com/questions/8653126/how-to-increment-version-number-in-a-shell-script
+
+increment_version ()
+{
+  declare -a part=( ${1//\./ } )
+  declare    new
+  declare -i carry=1
+
+  for (( CNTR=${#part[@]}-1; CNTR&gt;=0; CNTR-=1 )); do
+    len=${#part[CNTR]}
+    new=$((part[CNTR]+carry))
+    [ ${#new} -gt $len ] &amp;&amp; carry=1 || carry=0
+    [ $CNTR -gt 0 ] &amp;&amp; part[CNTR]=${new: -len} || part[CNTR]=${new}
+  done
+  new=&quot;${part[*]}&quot;
+  echo -e &quot;${new// /.}&quot;
+}
+
+
+VERSION=`cat version.txt`
+
+increment_version $VERSION
+</pre></div>
+</div>
+</div>
+<div class="section" id="bump-version-sh">
+<h3>bump-version.sh<a class="headerlink" href="#bump-version-sh" title="Permalink to this headline">¶</a></h3>
+<p>This is a very important file. Usually I prefer an app version in my
+project files (like <code class="docutils literal"><span class="pre">bower.json</span></code>,<code class="docutils literal"><span class="pre">package.json</span></code>) to match the
+current project version. This is the place where patching could be
+implemented.</p>
+<p>What the code does - it applies a version parameter to files, and writes
+a new one into version.txt</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
+
+set -e
+
+CURRENT_DIR=`pwd`
+VERSION=$1
+
+echo $VERSION &gt; version.txt
+
+#Optionally - Update your app version in app files, like package.json, bower.json , etc
+# Example for nodejs package.json:
+
+#sed -i.bak &quot;s/[[:space:]]*\&quot;version\&quot;[[:space:]]*:[[:space:]]*\&quot;.*\&quot;,/  \&quot;version\&quot;:\&quot;$VERSION\&quot;,/g&quot; $CURRENT_DIR/package.json
+#rm $CURRENT_DIR/package.json.bak || true
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-sh">
+<h3>package.sh<a class="headerlink" href="#package-sh" title="Permalink to this headline">¶</a></h3>
+<p>This logic allows to create tgz-ipped artifact file either in the form
+<strong>project-name-version.tgz</strong> or in the form
+<strong>project-name-version-buildnumber.tgz</strong>; The latter case could be
+important if you need to store artifacts history for every build.</p>
+<p>Your file can be adjusted by changing the PROJECT variable to match your
+project name. In addition, if you ever wanted to know more information
+about artifact, it packs version.txt file, which contains all
+information about the <code class="docutils literal"><span class="pre">major_version</span></code>, <code class="docutils literal"><span class="pre">minor_version</span></code>,
+<code class="docutils literal"><span class="pre">git_hash</span></code>, and <code class="docutils literal"><span class="pre">built</span> <span class="pre">date</span></code>. With this info, you can identify the
+commit that was used to produce the build.</p>
+<p>In addition, such files can be easily read by build servers like bamboo
+or Jenkins &amp; transformed into internal variables.</p>
+<p>The resulting files will be placed in build/ and packed.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+if [ -z &quot;$1&quot; ]
+then
+  SUFFIX=&quot;&quot;
+else
+  SUFFIX=&quot;-$1&quot;
+fi
+
+PROJECT=project-name
+
+rm -rf ./build || true
+rm ${PROJECT}-*.tgz || true
+mkdir -p ./build || true
+
+VERSION=`cat version.txt`
+GITCOMMIT=`git rev-parse --short HEAD`
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+# do build here, that produces necessary files for artifact under build/ folder
+
+echo &quot;major_version=$VERSION&quot; &gt; build/version.txt
+echo &quot;minor_version=$1&quot; &gt;&gt; build/version.txt
+echo &quot;git_hash=$GITCOMMIT&quot; &gt;&gt; build/version.txt
+echo &quot;built=$DATE&quot; &gt;&gt; build/version.txt
+
+echo PRODUCING ARTIFACT $PROJECT-$VERSION$SUFFIX.tgz  in build/
+tar cfz  $PROJECT-$VERSION$SUFFIX.tgz build
+</pre></div>
+</div>
+</div>
+<div class="section" id="unpackage-sh">
+<h3>Unpackage.sh<a class="headerlink" href="#unpackage-sh" title="Permalink to this headline">¶</a></h3>
+<p>This file is usually executed in the next step during your build
+process, where an artifact was previously packed by the build step, and
+now you need to do something with the content, for example initiate
+deployment. In 100% scenarios I would expect only one artifact file, but
+if there are several versions, I pick only the most recent one.</p>
+<p>In a result, you will get unpacked artifact in build folder.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+PROJECT=project-name
+rm -rf ./build || true
+current_artefact=$(find ./${PROJECT}*.tgz -type f -exec stat -c &quot;%n&quot; {} + | sort -r | head -n1)
+echo Working with artefact: $current_artefact
+tar xvzf $current_artefact
+echo artefact unpacked: $current_artefact
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployment-release-start-sh">
+<h3>deployment/release_start.sh<a class="headerlink" href="#deployment-release-start-sh" title="Permalink to this headline">¶</a></h3>
+<p>This creates the release, and pushes the release branch to server so the
+continious integration tool can pick it up and build it.</p>
+<p>I have to say that some portion of holy war is present here: when to
+bump a version.</p>
+<p>I had two types of the customers: customer-BEGIN insists that
+version.txt contains the version he is going to release, thus once I
+start release process, I should immediate bump the version up in
+develop, as all new features there will belong to the next release.</p>
+<p>From other hand, customer-END usually does not care about version.txt,
+and per his understanding, bumping the version is the final step in the
+release - i.e., after that push, everything that was commited previously
+was 0.0.1 ongoing development and now we have released 0.0.2.</p>
+<p>I would prefer to bump version at the end. As you see both approaches
+are supported with litle commenting.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>This batch implements release start by either providing new release version as a parameter, or getting the one from version.txt
+
+#!/bin/sh
+
+cd ${PWD}/../
+VERSION=$1
+if [ -z $1 ]
+then
+  VERSION=`cat version.txt`
+fi
+
+#Initialize gitflow
+git flow init -f -d
+
+# ensure you are on latest develop  &amp; master
+git checkout develop
+git pull origin develop
+git checkout -
+
+git checkout master
+git pull origin master
+git checkout develop
+
+git flow release start $VERSION
+
+# bump released version to server
+git push
+
+git checkout develop
+
+# COMMENT LINES BELOW IF YOU BUMP VERSION AT THE END
+NEXTVERSION=`./bump-version-drynext.sh`
+./bump-version.sh $NEXTVERSION
+git commit -am &quot;Bumps version to $NEXTVERSION&quot;
+git push origin develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployment-release-finish-sh">
+<h3>deployment/release_finish.sh<a class="headerlink" href="#deployment-release-finish-sh" title="Permalink to this headline">¶</a></h3>
+<p>Fortunately, this step does not require any external parameters. The
+current release version is detected from the branch name (release/0.0.2)
+and rest of the steps are clear. Again here, if you follow the classic
+bump-the-version approach - you would need to uncomment
+<code class="docutils literal"><span class="pre">./bump-version.sh</span> <span class="pre">$RELEASETAG</span></code></p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+cd ${PWD}/../
+
+# PREVENT INTERACTIVE MERGE MESSAGE PROMPT AT A FINAL STEP
+GIT_MERGE_AUTOEDIT=no
+export GIT_MERGE_AUTOEDIT
+
+GITBRANCHFULL=`git rev-parse --abbrev-ref HEAD`
+GITBRANCH=`echo &quot;$GITBRANCHFULL&quot; | cut -d &quot;/&quot; -f 1`
+RELEASETAG=`echo &quot;$GITBRANCHFULL&quot; | cut -d &quot;/&quot; -f 2`
+
+echo $GITBRANCH
+echo $RELEASETAG
+
+if [ $GITBRANCH != &quot;release&quot; ] ; then
+   echo &quot;Release can be finished only on release branch!&quot;
+   return 1
+fi
+
+if [ -z $RELEASETAG ]
+then
+  echo We expect gitflow to be followed, make sure release branch called release/x.x.x
+  exit 1
+fi
+
+#Initialize gitflow
+git flow init -f -d
+
+# ensure you are on latest develop  &amp; master and return back
+git checkout develop
+git pull origin develop
+git checkout -
+
+git checkout master
+git pull origin master
+git checkout -
+
+# UNCOMMENT THESE TWO LINES IF YOU BUMP VERSION AT THE END
+#./bump-version.sh $RELEASETAG
+#git commit -am &quot;Bumps version to $RELEASETAG&quot;
+
+git flow release finish -m &quot;release $RELEASETAG&quot; $RELEASETAG
+
+git push origin develop &amp;&amp; git push origin master --tags
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linking-to-the-build-server">
+<h2>Linking to the Build Server<a class="headerlink" href="#linking-to-the-build-server" title="Permalink to this headline">¶</a></h2>
+<p>All popular build servers support branch detecting and building. For
+example, Atlassian Bamboo has this easily configurable via the UI,
+while, for example, in Jenkins you will need to play more.</p>
+<div class="figure">
+<img alt="" src="https://raw.githubusercontent.com/Voronenko/gitflow-release/master/images/bamboo_release_branch.png" />
+</div>
+<p>Process on a build server could be implemented in a way that allows you
+to initiate a release from the develop branch using the optional build
+step:</p>
+<div class="figure">
+<img alt="" src="https://raw.githubusercontent.com/Voronenko/gitflow-release/master/images/bamboo_release_start.png" />
+</div>
+<p>And introduce the possiblility to finalize a release as an optional step
+on a release branch:</p>
+<div class="figure">
+<img alt="" src="https://raw.githubusercontent.com/Voronenko/gitflow-release/master/images/bamboo_release_finish.png" />
+</div>
+<p>If you try to use recipes without adjustments, you will get into
+trouble. Almost any build server for speed and size advantages does not
+checkout complete repository history, thus steps will fail.</p>
+<p>For bamboo, the following &#8220;hack&#8221; might be introduced: We are manually
+setting the new remote, with the command
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">central</span> <span class="pre">&quot;$GIT_REMOTE&quot;</span></code>, and all subsequent operations
+implement with custom remote.</p>
+<div class="section" id="deployment-release-start-bamboo-sh">
+<h3>deployment/release_start_bamboo.sh<a class="headerlink" href="#deployment-release-start-bamboo-sh" title="Permalink to this headline">¶</a></h3>
+<p>Please find below a slightly modified release_start for bamboo:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+cd ${PWD}/../
+
+VERSION=$1
+if [ -z $1 ]
+then
+  VERSION=`cat version.txt`
+fi
+
+# PREVENT INTERACTIVE MERGE MESSAGE PROMPT
+GIT_MERGE_AUTOEDIT=no
+export GIT_MERGE_AUTOEDIT
+GIT_REMOTE=git@github.com:Voronenko/gitflow-release.git
+
+# add remote due to bamboo git cache shit
+git remote add central &quot;$GIT_REMOTE&quot;
+
+#Initialize gitflow
+git flow init -f -d
+
+# ensure you are on latest develop  &amp; master
+git checkout develop
+git pull central develop
+git checkout -
+
+git checkout master
+git pull central master
+git checkout develop
+
+git flow release start $VERSION
+
+# bump released version to server
+git push central release/$VERSION
+
+git checkout develop
+
+# COMMENT LINES BELOW IF YOU BUMP VERSION AT THE END
+NEXTVERSION=`./bump-version-drynext.sh`
+./bump-version.sh $NEXTVERSION
+git commit -am &quot;Bumps version to $NEXTVERSION&quot;
+git push central develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployment-release-finish-bamboo-sh">
+<h3>deployment/release_finish_bamboo.sh<a class="headerlink" href="#deployment-release-finish-bamboo-sh" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+# IMPORTANT - THIS FILE IS INTENDED TO BE EXECUTED ONLY IN BAMBOO ENVIRONMENT
+
+cd ${PWD}/../
+
+# PREVENT INTERACTIVE MERGE MESSAGE PROMPT AT A FINAL STEP
+GIT_MERGE_AUTOEDIT=no
+export GIT_MERGE_AUTOEDIT
+
+GITBRANCHFULL=`git rev-parse --abbrev-ref HEAD`
+GITBRANCH=`echo &quot;$GITBRANCHFULL&quot; | cut -d &quot;/&quot; -f 1`
+RELEASETAG=`echo &quot;$GITBRANCHFULL&quot; | cut -d &quot;/&quot; -f 2`
+GIT_REMOTE=git@github.com:Voronenko/gitflow-release.git
+
+echo $GITBRANCH
+echo $RELEASETAG
+
+if [ $GITBRANCH != &quot;release&quot; ] ; then
+   echo &quot;Release can be finished only on release branch!&quot;
+   return 1
+fi
+
+if [ -z $RELEASETAG ]
+then
+  echo We expect gitflow to be followed, make sure release branch called release/x.x.x.x
+  exit 1
+fi
+
+# add remote due to bamboo git cache shit
+git remote add central &quot;$GIT_REMOTE&quot;
+
+#Initialize gitflow
+git flow init -f -d
+
+# ensure you are on latest develop  &amp; master and return back
+git checkout develop
+git pull central develop
+git checkout -
+
+git checkout master
+git pull central master
+git checkout -
+
+# UNCOMMENT THESE TWO LINES IF YOU BUMP VERSION AT THE END
+#./bump-version.sh $RELEASETAG
+#git commit -am &quot;Bumps version to $RELEASETAG&quot;
+
+git flow release finish -m &quot;release $RELEASETAG&quot; $RELEASETAG
+
+git push central develop &amp;&amp; git push central master --tags
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of Interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>Potentially, you can reuse this approach in your own projects with
+minimal adaptation. If you&#8217;ve used that approach with a different build
+server, I would be grateful if you shared your experience. If you need
+to implement continious integration on your project - you are welcome.</p>
+<p>Mentioned samples could be seen or forked from
+<a class="reference external" href="https://github.com/Voronenko/gitflow-release">https://github.com/Voronenko/gitflow-release</a></p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-04-deploying-ruby.html">
+    Deploying a Ruby Application with Ansible
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

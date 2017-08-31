@@ -1,0 +1,698 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Secure Jumpbox to Access your Network Infrastructure from Remote Locations</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2016_07_jumpbox">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-06-amazon-vpc-1.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Automating Network Mastering Scenarios for Amazon VPC with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-08-esxi.html">
+    Enable virtualization inside ESXi virtual machine
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Jul 23, 2016
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/jumpbox.html">jumpbox</a>,
+      
+    
+      
+      <a href="tag/deployment.html">deployment</a>,
+      
+    
+      
+      <a href="tag/devops.html">devops</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="secure-jumpbox-to-access-your-network-infrastructure-from-remote-locations">
+<h1>Secure Jumpbox to Access your Network Infrastructure from Remote Locations<a class="headerlink" href="#secure-jumpbox-to-access-your-network-infrastructure-from-remote-locations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>A jump server <a class="reference external" href="https://en.wikipedia.org/wiki/Jump_server">https://en.wikipedia.org/wiki/Jump_server</a> or jump
+host or jumpbox is a (special-purpose) computer on a network typically
+used to access devices in a separate security zone. The most common
+example is managing a host in a DMZ from trusted networks or computers.
+This could be accessing your home network from remote location. Access
+internet from your mobile device in public locations via VPN and so on.</p>
+<p>In this article, I will demonstrate some devops mashup — how to combine
+four ansible roles to build such jump box based on Ubuntu box.</p>
+</div>
+<div class="section" id="what-we-want-to-achieve">
+<h2>What we want to achieve<a class="headerlink" href="#what-we-want-to-achieve" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s briefly state our goal:</p>
+<ul class="simple">
+<li>Perform base box securing (i.e. firewall, key only login, ban failed
+ssh attempts, preparation for further provisioning)</li>
+<li>Optional install of the PPTP VPN service</li>
+<li>Optional install of the OpenVPN VPN service</li>
+<li>Optional install of the SoftEther VPN as an alternative to OpenVPN
+VPN service.</li>
+<li>If you want to be even more secure, you can add an additional level
+of security via port knocking. This will make it harder for
+portscanners to detect services on your box, although it would be
+more tricky to get in.</li>
+</ul>
+<div class="section" id="base-box-securing">
+<h3>Base box securing<a class="headerlink" href="#base-box-securing" title="Permalink to this headline">¶</a></h3>
+<p>Nowadays, deployments moved from bare-metal servers to a quickly started
+virtual machines, like the ones provided by Amazon, Digital Ocean,
+OpenStack, or other cloud-based providers. Thus, configuring the box no
+longer requires manual administration steps.</p>
+<p>One of the options is ready to use pre-configured box images. Another
+approach is to start from the initial system restart and provision it
+according to the project needs with some provisioner like Ansible or
+Chef.</p>
+<p>The first step to proceed with custom provisioning is to perform basic
+box securing. And in some cases, you are given with freshly installed
+box with the root password.</p>
+<p>Let me share some quick tips on initial box securing, which should be
+good for most web deployments.</p>
+<p>What I usually do is I strictly prohibit SSH log in using password, as
+well as making sure than only strong keys are used. If I expose the SSH
+port to public, I would recommend installing tools like file2ban — a
+daemon to ban hosts that cause multiple authentication errors. On my
+home jump box, the ban list is longer than 100k hosts for a few years,
+thus, I even had to compress the list by banning larger networks to
+shorten it.</p>
+<p>As for the jump box, it is important to have services up. I also
+recommend installing a monit tool for lightweight, proactive monitoring
+of Unix systems, network, and cloud services.</p>
+<p>Thus, the first component in our mashup is an sa-box-bootstrap role,
+which can be found at
+<a class="reference external" href="https://galaxy.ansible.com/softasap/sa-box-bootstrap/">https://galaxy.ansible.com/softasap/sa-box-bootstrap/</a></p>
+<p>You would need to amend the following parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">deploy_user</span></code> (the user named different from root, that will be
+used for box accessing/provisioning). Hardly guessed user improves
+the strength of your box.</li>
+<li>Depending on services you plan to run on your jump box, you can also
+pre-configure a few firewall rules. For example, we will use 22 SSH ;
+500/4500 - Softether with IPSec ; 1194 - OpenVPN; 1723 - PPTP;</li>
+</ul>
+<p>More configuration options are available in role itself, but are out of
+scope for current the example.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">my_deploy_user</span><span class="p">:</span> <span class="n">slavko</span>
+<span class="n">my_deploy_authorized_keys</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span>
+
+  <span class="c1"># revise port list for your use , consider securing by  custom_ufw_rules_allow_from_hosts</span>
+   <span class="n">custom_ports_allow</span><span class="p">:</span>
+      <span class="o">-</span> <span class="p">{</span>
+          <span class="n">port</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+          <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="p">}</span>
+      <span class="o">-</span> <span class="p">{</span>
+          <span class="n">port</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+          <span class="n">proto</span><span class="p">:</span> <span class="n">udp</span>
+        <span class="p">}</span>
+      <span class="o">-</span> <span class="p">{</span>
+          <span class="n">port</span><span class="p">:</span> <span class="mi">4500</span><span class="p">,</span>
+          <span class="n">proto</span><span class="p">:</span> <span class="n">udp</span>
+        <span class="p">}</span>
+      <span class="o">-</span> <span class="p">{</span>
+          <span class="n">port</span><span class="p">:</span> <span class="mi">1194</span><span class="p">,</span>
+          <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="p">}</span>
+      <span class="o">-</span> <span class="p">{</span>
+          <span class="n">port</span><span class="p">:</span> <span class="mi">1723</span><span class="p">,</span>
+          <span class="n">proto</span><span class="p">:</span> <span class="n">tcp</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Thus, our bootstrapping part will be:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+   <span class="o">-</span> <span class="p">{</span>
+       <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-box-bootstrap&quot;</span><span class="p">,</span>
+       <span class="n">deploy_user</span><span class="p">:</span> <span class="s2">&quot;{{my_deploy_user}}&quot;</span><span class="p">,</span>
+       <span class="n">deploy_user_authorized_keys</span><span class="p">:</span> <span class="s2">&quot;{{my_deploy_authorized_keys}}&quot;</span><span class="p">,</span>
+       <span class="n">ufw_rules_allow</span><span class="p">:</span> <span class="s2">&quot;{{custom_ports_allow}}&quot;</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+<p>Once this play is executed, we would have a UFW up, file2ban ready to
+guard, and a monit ready to monitor. And your deploy user is configured
+for further provisioning with ansible.</p>
+</div>
+<div class="section" id="optional-pptp-vpn">
+<h3>Optional PPTP VPN<a class="headerlink" href="#optional-pptp-vpn" title="Permalink to this headline">¶</a></h3>
+<p>Even if PPTP is considered a weak VPN protocol, it is easiest to
+configure by unexperienced users. Thus, I usually enable it for my
+clients, but enforce stricter policies for regular passwords rotation +
+password strength itself. For home use, I just set long enough random
+password + additionally protect with port knocking.</p>
+<p>For PPTP, we would use in our mashup a sa-vpn-pptp role, which could be
+found at <a class="reference external" href="https://galaxy.ansible.com/softasap/sa-vpn-pptp/">https://galaxy.ansible.com/softasap/sa-vpn-pptp/</a></p>
+<p>To configure the role, we only need to pass a list of the users to
+create and know the type of firewall used. (IPTables or UFW are
+supported at a moment)</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">custom_pptp_vpn_users</span><span class="p">:</span>
+ <span class="o">-</span> <span class="p">{</span>
+     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_user&quot;</span><span class="p">,</span>
+     <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;my_password&quot;</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>Our PPTP VPN setup part would be:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+   <span class="o">-</span> <span class="p">{</span>
+      <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-vpn-pptp&quot;</span><span class="p">,</span>
+      <span class="n">pptp_vpn_users</span><span class="p">:</span> <span class="s2">&quot;{{custom_pptp_vpn_users}}&quot;</span><span class="p">,</span>
+      <span class="n">firewall_used</span><span class="p">:</span> <span class="s2">&quot;ufw&quot;</span><span class="p">,</span>
+      <span class="n">when</span><span class="p">:</span> <span class="n">option_jumpbox_pptp</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+<p>At the end of the role play, we would have our PPTP server up.</p>
+</div>
+<div class="section" id="optional-openvpn-vpn">
+<h3>Optional OpenVPN VPN<a class="headerlink" href="#optional-openvpn-vpn" title="Permalink to this headline">¶</a></h3>
+<p>OpenVPN is considered a way stronger than PPTP, and considered to be
+secure for enterprise deployments. For OpenVPN we would use in our
+mashup an sa-vpn-openvpn role, which can be found at
+<a class="reference external" href="https://galaxy.ansible.com/softasap/sa-vpn-openvpn/">https://galaxy.ansible.com/softasap/sa-vpn-openvpn/</a></p>
+<p>To configure the role, we only need to pass a list of the users to
+create and know the type of firewall used. (IPTables or UFW are
+supported at a moment).</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">custom_openvpn_vpn_users</span><span class="p">:</span>
+ <span class="o">-</span> <span class="p">{</span>
+     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_user&quot;</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>If you specify a password in the configuration above, it will be set for
+the key and asked each time when accessed.</p>
+<p>Our OpenVPN setup part would be:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+     <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-vpn-openvpn&quot;</span><span class="p">,</span>
+     <span class="n">openvpn_vpn_users</span><span class="p">:</span> <span class="s2">&quot;{{custom_openvpn_vpn_users}}&quot;</span><span class="p">,</span>
+     <span class="n">firewall_used</span><span class="p">:</span> <span class="s2">&quot;ufw&quot;</span><span class="p">,</span>
+     <span class="n">when</span><span class="p">:</span> <span class="n">option_jumpbox_openvpn</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>At the end of the play, playbook will download the OpenVPN configuration
+files for each user you request. Now it is your responsibility to
+distribute your keys. If you create a jump box for personal use, most
+likely, you will only need one key.</p>
+<p>More specifics about using OpenVPN might be found at the role Github
+repository.</p>
+</div>
+<div class="section" id="optional-softether-vpn">
+<h3>Optional SoftEther VPN<a class="headerlink" href="#optional-softether-vpn" title="Permalink to this headline">¶</a></h3>
+<p>SoftEther VPN (&#8220;SoftEther&#8221; means &#8220;Software Ethernet&#8221;) is one of the
+world&#8217;s most powerful and easy-to-use multi-protocol VPN software. It
+runs on Windows, Linux, Mac. SoftEther VPN is open source. You can use
+SoftEther for any personal or commercial use for free.</p>
+<p>It is believed to be able to work behind NAT by using project
+infrastructure, and it can sometimes be easier to connect to it from
+Windows boxes.</p>
+<p>The number of supported VPN protocols is higher:</p>
+<ul class="simple">
+<li>SoftEther VPN Protocol (Ethernet over HTTPS)</li>
+<li>OpenVPN (L3-mode and L2-mode)</li>
+<li>L2TP/IPsec</li>
+<li>MS-SSTP (Microsoft Secure Socket Tunneling Protocol)</li>
+<li>L2TPv3/IPsec</li>
+<li>EtherIP/IPsec.</li>
+</ul>
+<p>Note, that if you have your Windows computer behind NAT, you will need
+additional registry tuning to get the ability to connect to IPSec VPN
+(I.e. if you go with SoftEther, you can connect your jump box into
+higher number of ways. Also, if you select SoftEther, you should not use
+a sa-vpn-openvpn play).</p>
+<p>For SoftEther, we would use in our mashup a sa-vpn-softether role, which
+could be found at <a class="reference external" href="https://galaxy.ansible.com/softasap/sa-vpn-softether/">https://galaxy.ansible.com/softasap/sa-vpn-softether/</a></p>
+<p>Role is configurable by your own SoftEther setup script, but by default
+it configures OpenVPN and IPSec parts.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">custom_softether_vpn_users</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_user&quot;</span><span class="p">,</span>
+      <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;my_password&quot;</span>
+    <span class="p">}</span>
+
+<span class="n">custom_softether_ipsec_presharedkey</span><span class="p">:</span> <span class="s2">&quot;[1KH;+r-X#cvhpv7Y6=#;[{u&quot;</span>
+</pre></div>
+</div>
+<p>Our SoftEther setup part would be:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-vpn-softether&quot;</span><span class="p">,</span>
+      <span class="n">softether_vpn_users</span><span class="p">:</span> <span class="s2">&quot;{{custom_softether_vpn_users}}&quot;</span><span class="p">,</span>
+      <span class="n">softether_ipsec_presharedkey</span><span class="p">:</span> <span class="s2">&quot;{{custom_softether_ipsec_presharedkey}}&quot;</span><span class="p">,</span>
+      <span class="n">firewall_used</span><span class="p">:</span> <span class="s2">&quot;ufw&quot;</span><span class="p">,</span>
+      <span class="n">when</span><span class="p">:</span> <span class="n">option_jumpbox_softether</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>More specifics about using SoftEther might be found at role Github
+repository and even more on its project documentation.</p>
+<p>Similar to OpenVPN role, you will find the connection details downloaded
+to your local computer for further distribution.</p>
+</div>
+<div class="section" id="optional-port-knocking">
+<h3>Optional port knocking<a class="headerlink" href="#optional-port-knocking" title="Permalink to this headline">¶</a></h3>
+<p>Servers, by definition, are implemented as a means of providing services
+and making applications and resources accessible to users. However, any
+computer connected to the internet is inevitably targeted by malicious
+users and scripts hoping to take advantage of security vulnerabilities.</p>
+<p>Firewalls exist and should be used to block access to ports not being
+utilized by a service, but there is still the question of what to do
+about services that you want access to, but do not want to expose to
+everybody. You want access when you need it, but want it blocked off
+otherwise.</p>
+<p>Port knocking is a stealth method to externally open ports that, by
+default, the firewall keeps closed. It works by requiring connection
+attempts to a series of predefined closed port. From the point of view
+of port scanning, you can make your host be completely silent.</p>
+<p>There are few utilities for port knocking. I find a utility named
+knockd <a class="reference external" href="http://www.zeroflux.org/projects/knock">http://www.zeroflux.org/projects/knock</a> to be robust.</p>
+<p>Thus, for port knock securing, we will use in our mashup a sa-port-knock
+role, which could be found at
+<a class="reference external" href="https://galaxy.ansible.com/softasap/sa-port-knock/">https://galaxy.ansible.com/softasap/sa-port-knock/</a></p>
+<p>To configure port rules, we will need configuration like: &#8220;knock
+sequentially ports 16000, 15000, 17000 in 5 seconds to open ssh port for
+your address for 10 seconds.&#8221;</p>
+<p>You might use more sophisticated rules, like turning off by knock
+password, etc. Just follow the knockd documentation. Your pull
+request to role are highly appreciated.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">custom_knock_ports</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ssh&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="s2">&quot;16000, 15000, 17000&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;seq_timeout&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;tcp&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcpflags&quot;</span><span class="p">:</span> <span class="s2">&quot;syn&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cmd_timeout&quot;</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Our port knock daemon setup part would be:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span>
+  <span class="o">-</span> <span class="p">{</span>
+      <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-port-knock&quot;</span><span class="p">,</span>
+      <span class="n">knock_ports</span><span class="p">:</span> <span class="s2">&quot;{{custom_knock_ports}}&quot;</span><span class="p">,</span>
+      <span class="n">when</span><span class="p">:</span> <span class="n">option_jumpbox_port_knock</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-full-code-in-action">
+<h3>The full code in action<a class="headerlink" href="#the-full-code-in-action" title="Permalink to this headline">¶</a></h3>
+<p>The full code in action can be found on
+Github <a class="reference external" href="https://github.com/Voronenko/jumpbox">https://github.com/Voronenko/jumpbox</a>. It configures the
+jump box with PPTP / OpenVPN / SSH via keys by default, but can be
+adjusted using option switches, to deploy a set of described above
+combinations.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">option_jumpbox_pptp</span><span class="p">:</span> <span class="n">true</span>     <span class="c1"># install classic PPTP server</span>
+
+<span class="n">option_jumpbox_openvpn</span><span class="p">:</span> <span class="n">true</span>  <span class="c1"># install OpenVPN server</span>
+
+<span class="n">option_jumpbox_softether</span><span class="p">:</span> <span class="n">false</span> <span class="c1"># install openvpn SoftEther server (+ few more targeting windows)</span>
+
+<span class="n">option_jumpbox_port_knock</span><span class="p">:</span> <span class="n">false</span> <span class="c1"># configure portknocking</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h3>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h3>
+<p>You can reuse this playbook to create your own jump box for bootstaping
+projects, and reuse the role to configure your environments quicker in a
+secure way with Ansible.</p>
+<p>This is acceptable for home or small team use. For enterprise use, make
+sure you understand what you do. And as for your company, you might need
+to follow different procedures.</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (6)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (3)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2016-06-amazon-vpc-1.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Automating Network Mastering Scenarios for Amazon VPC with Ansible
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2016-08-esxi.html">
+    Enable virtualization inside ESXi virtual machine
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>
