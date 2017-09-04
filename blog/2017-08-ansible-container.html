@@ -1,0 +1,768 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Evaluating ansible-container as a tool for custom docker containers build</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2017_08_ansible_container">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-03-projectdocs.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Documentation as a project
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-09-traefik.html">
+    Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Aug 24, 2017
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="evaluating-ansible-container-as-a-tool-for-custom-docker-containers-build">
+<h1>Evaluating ansible-container as a tool for custom docker containers build<a class="headerlink" href="#evaluating-ansible-container-as-a-tool-for-custom-docker-containers-build" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Even today, approach to creating and managing containers is both manual
+and, in many ways, antiquated. Even for startups that use automation for
+their build processes, implementing containers often means maintaining
+complicated shell scripts to build the containers themselves. At the
+same moment, in classic server provisioning there are bunch of tools
+like Ansible, Chef, Puppet, Salt that efficiently take care on box
+provisioning. At the same moment, trying to apply those tools inside
+containers usually lead to size problem, as well as eliminating garbage
+upon use. That&#8217;s why for now still, if you want minimal image, you
+manage Dockerfile on your own.</p>
+<p><code class="docutils literal"><span class="pre">ansible-container</span></code> project, which is now close to release (0.9.1 as
+of time when this text was written) aims to build application images in
+a way, that from one hand guarantees that image will be as small as your
+play allows from other hand it takes a way from you direct shell
+scripting and allows to reuse bunch of ansible roles and snippets you
+might have from previous projects.</p>
+<p>From readme, everything seems nice per demo found at
+<a class="reference external" href="https://github.com/ansible/ansible-container-demo">https://github.com/ansible/ansible-container-demo</a>. But let&#8217;s check in
+real world if we would be able to do the same with our custom
+application supposed to be running on alpine based image.</p>
+</div>
+<div class="section" id="challenges-to-address">
+<h2>Challenges to address<a class="headerlink" href="#challenges-to-address" title="Permalink to this headline">¶</a></h2>
+<p>As for beginning, in a typical site scenario, we should at least be able</p>
+<ul class="simple">
+<li>setup necessary development environment for ansible-container</li>
+<li>build custom application image using ansible-container</li>
+<li>run application , optionally debug application, stop application</li>
+</ul>
+</div>
+<div class="section" id="necessary-setup-for-building-image-using-ansible-container">
+<h2>Necessary setup for building image using ansible container<a class="headerlink" href="#necessary-setup-for-building-image-using-ansible-container" title="Permalink to this headline">¶</a></h2>
+<p>As tool is under active development it makes sense to use python virtual
+environment to isolate the image building environment.</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="c1"># optional create dedicated python virtual environment</span>
+<span class="n">mkvirtualenv</span> <span class="n">ansible</span><span class="o">-</span><span class="n">container</span>
+<span class="c1"># and/or activate it</span>
+<span class="n">workon</span> <span class="n">ansible</span><span class="o">-</span><span class="n">container</span>
+</pre></div>
+</div>
+<p>Install building dependencies</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ansible</span><span class="o">-</span><span class="n">container</span><span class="p">[</span><span class="n">docker</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>at the moment of article writing versions used are</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">container</span><span class="o">==</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>you are invited to use pip freeze into requirements.txt for your release
+builds, to ensure that versions used are the same between distance
+builds.</p>
+<p>Optionally you may put <code class="docutils literal"><span class="pre">ansible.cfg</span></code> file to configure your project
+specific settings, like role search path.</p>
+<p><code class="docutils literal"><span class="pre">ansible.cfg</span></code> :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Set any ansible.cfg overrides in this file.</span>
+<span class="c1"># See: https://docs.ansible.com/ansible/intro_configuration.html#explanation-of-values-by-section</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prepare-ansible-roles-you-want-to-use-with-image">
+<h2>Prepare ansible roles you want to use with image<a class="headerlink" href="#prepare-ansible-roles-you-want-to-use-with-image" title="Permalink to this headline">¶</a></h2>
+<p>The goal of using ansible-container in your processes - is reusing of
+plays you done earlier.</p>
+<p>Assuming, you want to build custom php based image for your application.
+If you already used ansible before, there are big chances, that you
+already have standalone ansible roles, parts or fragments.</p>
+<p>In our case we will use <code class="docutils literal"><span class="pre">sa-php-container</span></code> ansible role
+<a class="reference external" href="https://github.com/softasap/sa-php-container">https://github.com/softasap/sa-php-container</a> based historically on
+<code class="docutils literal"><span class="pre">sa-lamp</span></code> <a class="reference external" href="https://github.com/softasap/sa-lamp">https://github.com/softasap/sa-lamp</a>.</p>
+<p>In particular, this ansible role allows us to: - have composer enabled
+image (by specifiing <code class="docutils literal"><span class="pre">option_install_composer:</span> <span class="pre">true</span></code>) - in order to
+have ability to build &#8220;staging troubleshoot image&#8221; - provides way to
+have preconfigured xdebug up</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">option_install_xdebug</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">xdebug_version</span><span class="p">:</span> <span class="mf">2.5</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">xdebug_remote_port</span><span class="p">:</span> <span class="mi">9004</span> <span class="c1"># set to 9000, if port is not exposed over the same box</span>
+<span class="n">option_allow_xdebug_workarounds</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">specify image timezone</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">timezone</span><span class="p">:</span> <span class="s2">&quot;Europe/Kiev&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">specify php extensions needed for your application ```</p>
+</li>
+</ul>
+<p>php_extensions: # - &#8220;bcmath&#8221; # ok # - &#8220;bz2&#8221; # ok # - &#8220;ctype&#8221; # ok -
+&#8220;curl&#8221; # ok # - &#8220;dom&#8221; # ok # - &#8220;gd&#8221; # ok # - &#8220;gettext&#8221; #ok # - &#8220;gmp&#8221; #
+ok, but NO AUTO DEPENDENCIES for official base image # - &#8220;iconv&#8221; # ok -
+&#8220;json&#8221; # ok # - &#8220;mcrypt&#8221; # ok # - &#8220;memcache&#8221; # ok, but NO AUTO
+DEPENDENCIES for official base image # - &#8220;mssql&#8221; # ok, but NO AUTO
+DEPENDENCIES for official base image # - &#8220;mysql&#8221; # ok # - &#8220;odbc&#8221; # ok,
+but NO AUTO DEPENDENCIES for official base image # - &#8220;openssl&#8221; # ok, but
+NO AUTO DEPENDENCIES for official base image # - &#8220;pdo&#8221; #ok # -
+&#8220;pdo_dblib&#8221; # ok, but NO AUTO DEPENDENCIES for official base image # -
+&#8220;pdo_mysql&#8221; # ok # - &#8220;pdo_odbc&#8221; # ok, but NO AUTO DEPENDENCIES for
+official base image # - &#8220;pdo_pgsql&#8221; # ok # - &#8220;pdo_sqlite&#8221; # ok -
+&#8220;phar&#8221; # ok # - &#8220;soap&#8221; # ok # - &#8220;sqlite3&#8221; # ok, but NO AUTO DEPENDENCIES
+for official base image # - &#8220;xcache&#8221; # ok, but NO AUTO DEPENDENCIES for
+official base image # - &#8220;xmlreader&#8221; # ok # - &#8220;xmlrpc&#8221; # ok # - &#8220;xsl&#8221; #
+ok # - &#8220;zip&#8221; # ok, but NO AUTO DEPENDENCIES for official base image
+```</p>
+<ul>
+<li><p class="first">specify pecl extensions needed</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">pecl_extensions</span><span class="p">:</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">specify development extensions, if any ```YAML
+php_dev_extensions:</p>
+</li>
+<li><p class="first">xdebug ```</p>
+</li>
+</ul>
+<p>If we have all 3rd party roles used under the <code class="docutils literal"><span class="pre">roles/</span></code> , in that way
+no additional changes needed to be introduced in <code class="docutils literal"><span class="pre">ansible.cfg</span></code></p>
+</div>
+<div class="section" id="configure-container-yml-for-ansible-container-enabled-project">
+<h2>Configure container.yml for ansible-container enabled project<a class="headerlink" href="#configure-container-yml-for-ansible-container-enabled-project" title="Permalink to this headline">¶</a></h2>
+<p>Time to create <code class="docutils literal"><span class="pre">container.yml</span></code>. This is main orchestration document
+for Ansible Container. Good news: it’s much like a docker-compose.yml
+file, defining the services that make up the application, the
+relationships between each, and how they can be accessed from the
+outside world.</p>
+<p>More over: the structure and contents of the file are based on Docker
+Compose, supporting versions 1 and 2. Looking at a container.yml file
+you will recognize it as mostly Compose with a few notable exceptions.
+There are directives that are not supported, because they do not
+translate to the supported clouds, and there are new directives added to
+support multi-environment, and multi-cloud configurations.</p>
+<p>The goal for container.yml is to provide a single definition of the
+application that defines how to build images (minimum), and even how to
+run in development, and how to deploy to a production cloud environment.
+Ideally, you would use the same container.yml definition that works
+throughout the application lifecycle.</p>
+<p>Let&#8217;s take a look on a sample container.yml</p>
+<p>Important setting is: <code class="docutils literal"><span class="pre">conductor_base</span></code> - this is special building
+environment capable to run ansible, which is linked during the build
+stage. It should always be based on the same distributive as your
+ansible-container project. For example, below we are building our php
+container basing on alpine 3.5 , and thus our conductor image also is
+based on alpine 3.5. If your application is based on debian, than
+conductor image also should be from the same family.</p>
+<p>Case when you want to use ansible-container with multiple base images
+for now is not covered, perhaps you would need to separate builds.</p>
+<p>As you see, syntax is very close do docker compose. More settings
+available can be discovered at
+<a class="reference external" href="https://docs.ansible.com/ansible-container/container_yml/reference.html">https://docs.ansible.com/ansible-container/container_yml/reference.html</a></p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+<span class="n">settings</span><span class="p">:</span>
+  <span class="n">conductor_base</span><span class="p">:</span> <span class="n">alpine</span><span class="p">:</span><span class="mf">3.5</span>
+  <span class="c1"># conductor_base: debian:jessie</span>
+
+<span class="n">services</span><span class="p">:</span>
+   <span class="n">nginx</span><span class="p">:</span>
+      <span class="n">from</span><span class="p">:</span> <span class="n">nginx</span><span class="p">:</span><span class="n">alpine</span>
+      <span class="n">container_name</span><span class="p">:</span> <span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">nginx</span>
+      <span class="n">ports</span><span class="p">:</span>
+        <span class="o">-</span> <span class="s2">&quot;8080:80&quot;</span>
+      <span class="n">volumes</span><span class="p">:</span>
+        <span class="o">-</span> <span class="s2">&quot;$PWD/app/nginx/site.conf:/etc/nginx/conf.d/default.conf&quot;</span>
+      <span class="n">volumes_from</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">php</span>
+   <span class="n">php</span><span class="p">:</span>
+     <span class="c1"># from: php:5.6.30-fpm</span>
+     <span class="n">from</span><span class="p">:</span> <span class="n">alpine</span><span class="p">:</span><span class="mf">3.5</span>
+     <span class="n">container_name</span><span class="p">:</span> <span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">app</span>
+     <span class="n">roles</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">softasap</span><span class="o">.</span><span class="n">sa</span><span class="o">-</span><span class="n">php</span><span class="o">-</span><span class="n">container</span>
+     <span class="n">volumes</span><span class="p">:</span>
+         <span class="o">-</span> <span class="s2">&quot;$PWD/app/code:/www&quot;</span>
+     <span class="n">environment</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">XDEBUG</span><span class="o">=</span><span class="mi">1</span>
+     <span class="n">ports</span><span class="p">:</span>
+       <span class="o">-</span> <span class="mi">9000</span><span class="p">:</span><span class="mi">9000</span>
+     <span class="n">dev_overrides</span><span class="p">:</span>
+       <span class="n">environment</span><span class="p">:</span>
+         <span class="o">-</span> <span class="s2">&quot;DEBUG=1&quot;</span>
+<span class="n">registries</span><span class="p">:</span>
+  <span class="n">docker</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hub</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
+    <span class="n">namespace</span><span class="p">:</span> <span class="n">softasap</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="application-image-build">
+<h2>Application Image Build<a class="headerlink" href="#application-image-build" title="Permalink to this headline">¶</a></h2>
+<p>Process is very close to running ansible play over hosts. You specify
+project name, path to the roles, and observing result.</p>
+<p>In our case .project-name contains <code class="docutils literal"><span class="pre">php-otp-microservice</span></code></p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+set -e
+
+GREEN=&quot;$(tput setaf 2)&quot;
+RESET=&quot;$(tput sgr0)&quot;
+
+PROJECT_NAME=`cat .project-name`
+
+# echo &quot;${GREEN} Building conductor image ${RESET}&quot;
+# ansible-container build
+
+echo &quot;${GREEN} Building ${PROJECT_NAME} ${RESET}&quot;
+ansible-container --debug --project-name ${PROJECT_NAME} build --roles-path ./roles/ -- -vvv
+</pre></div>
+</div>
+<p>If everything is Ok, you will see mix of the output that you typicallly
+see from Dockerfile build as well as ansible output when you run ansible
+play. First conductor image is being built, and on later stage your
+application image.</p>
+<p>What is good - ansible container takes care on garbage, so the resulting
+image might be small enough.</p>
+<p>If everything is not ok: well, ansible-container might contain bugs,
+perhaps you spotted one of them.</p>
+<p>Typical troubleshouting:</p>
+<ul>
+<li><p class="first">Check error message - perhaps you would see obvious reason. Example:
+if you see magic</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">status</span><span class="p">:</span> <span class="n">executing</span> <span class="n">libtool</span> <span class="n">commands</span>
+<span class="n">error</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">2</span><span class="p">]</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+
+<span class="o">----------------------------------------</span>
+<span class="n">Command</span> <span class="s2">&quot;/usr/bin/python -u -c &quot;</span><span class="kn">import</span> <span class="nn">setuptools</span><span class="o">,</span> <span class="nn">tokenize</span><span class="p">;</span><span class="vm">__file__</span><span class="o">=</span><span class="s1">&#39;/tmp/pip-build-nVlm3E/pynacl/setup.py&#39;</span><span class="p">;</span><span class="n">f</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">tokenize</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="nb">open</span><span class="p">)(</span><span class="vm">__file__</span><span class="p">);</span><span class="n">code</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">);</span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">();</span><span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">))</span><span class="s2">&quot; install --record /tmp/pip-RGQAEv-record/install-record.txt --single-version-externally-managed --compile&quot;</span> <span class="n">failed</span> <span class="k">with</span> <span class="n">error</span> <span class="n">code</span> <span class="mi">1</span> <span class="ow">in</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pip</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">nVlm3E</span><span class="o">/</span><span class="n">pynacl</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>So you might be lucky enough to understand reasoning. For example
+above, in reality this means, that your base image misses <code class="docutils literal"><span class="pre">make</span></code>
+tool installed, which somehow is supposed by <code class="docutils literal"><span class="pre">ansible-container</span></code> :)</p>
+</li>
+<li><p class="first">Ensure all referenced images exist and are recent, even if tool
+supposes to manage it. In example above:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">alpine</span><span class="p">:</span><span class="mf">3.5</span>
+<span class="n">docker</span> <span class="n">pull</span> <span class="n">nginx</span><span class="p">:</span><span class="n">alpine</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">if previous step still results to failure you might also try to
+install ansible-container python package from develop, perhaps issue
+is already fixed in develop</p>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ansible</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">container</span><span class="o">.</span><span class="n">git</span>
+<span class="c1"># In case of outdated setuptool</span>
+<span class="c1"># pip install --upgrade setuptool</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span><span class="p">[</span><span class="n">docker</span><span class="p">,</span><span class="n">openshift</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>From my experience - I had to implement base image for conductor base
+over Docker images controlled by myself. At least you would be aware
+what is installed and how that can be fixed.</p>
+<p>Mentioned custom image for conductor to fix mentioned missing make tool.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">softasap</span><span class="o">/</span><span class="n">alpine</span><span class="p">:</span><span class="n">python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="n">RUN</span> <span class="n">apk</span> <span class="n">add</span> <span class="o">--</span><span class="n">update</span> <span class="n">make</span> <span class="n">gcc</span> <span class="n">g</span><span class="o">++</span> <span class="n">linux</span><span class="o">-</span><span class="n">headers</span> <span class="n">libgcc</span> <span class="n">libstdc</span><span class="o">++</span> \
+    <span class="o">&amp;&amp;</span> <span class="n">apk</span> <span class="n">add</span> <span class="o">--</span><span class="n">update</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span> <span class="n">musl</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">openssl</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>If process completed successfully, you would see smth like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PLAY</span> <span class="n">RECAP</span> <span class="o">*********************************************************************</span>
+<span class="n">php</span>                        <span class="p">:</span> <span class="n">ok</span><span class="o">=</span><span class="mi">25</span>   <span class="n">changed</span><span class="o">=</span><span class="mi">17</span>   <span class="n">unreachable</span><span class="o">=</span><span class="mi">0</span>    <span class="n">failed</span><span class="o">=</span><span class="mi">0</span>
+<span class="o">...</span>
+<span class="n">Conductor</span> <span class="n">terminated</span><span class="o">.</span> <span class="n">Cleaning</span> <span class="n">up</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Let&#8217;s examine build artifacts - as you see we have compact enough
+application image and a way hugher conductor image used to build one.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">images</span>
+<span class="n">REPOSITORY</span>                                          <span class="n">TAG</span>                   <span class="n">IMAGE</span> <span class="n">ID</span>            <span class="n">CREATED</span>             <span class="n">SIZE</span>
+<span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">php</span>                            <span class="mi">20170902153731</span>        <span class="n">e5e5373a4b1f</span>        <span class="mi">3</span> <span class="n">minutes</span> <span class="n">ago</span>       <span class="mf">45.7</span><span class="n">MB</span>
+<span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">php</span>                            <span class="n">latest</span>                <span class="n">e5e5373a4b1f</span>        <span class="mi">3</span> <span class="n">minutes</span> <span class="n">ago</span>       <span class="mf">45.7</span><span class="n">MB</span>
+<span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">conductor</span>                      <span class="n">latest</span>                <span class="mi">3</span><span class="n">ae8a5261414</span>        <span class="mi">4</span> <span class="n">minutes</span> <span class="n">ago</span>       <span class="mi">463</span><span class="n">MB</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="Build artifacts" src="https://raw.githubusercontent.com/Voronenko/devops-ansible-container-demo/master/docs/images/1_built_app_image.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+</div>
+<div class="section" id="test-run">
+<h2>Test run<a class="headerlink" href="#test-run" title="Permalink to this headline">¶</a></h2>
+<p>ansible-container&#8217;s run command is used to start application locally</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+PROJECT_NAME=`cat .project-name`
+ansible-container --debug --project-name ${PROJECT_NAME} run --roles-path ./roles/ -- -vvv
+</pre></div>
+</div>
+<p>In success scenario, it will execute. But unfortunately situation
+changes rapidly. At a moment of the article writing I get</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Unable to load docker-compose. Try `pip install docker-compose`. Error: cannot import name splitdrive
+</pre></div>
+</div>
+<p>thus workaround to test the build would be to create docker-compose.yml,
+basing on information in play generated into <code class="docutils literal"><span class="pre">ansible-deployment</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">version</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span>
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">nginx</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">nginx</span><span class="p">:</span><span class="n">alpine</span>
+    <span class="n">ports</span><span class="p">:</span>
+    <span class="o">-</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">80</span>
+    <span class="n">volumes</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s2">&quot;$</span><span class="si">{PWD}</span><span class="s2">/app/nginx/site.conf:/etc/nginx/conf.d/default.conf&quot;</span>
+    <span class="n">volumes_from</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">php</span>
+  <span class="n">php</span><span class="p">:</span>
+    <span class="n">command</span><span class="p">:</span> <span class="n">php</span><span class="o">-</span><span class="n">fpm</span>
+    <span class="n">entrypoint</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">docker</span><span class="o">-</span><span class="n">php</span><span class="o">-</span><span class="n">entrypoint</span>
+    <span class="n">environment</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">DEBUG</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">php</span><span class="o">-</span><span class="n">otp</span><span class="o">-</span><span class="n">microservice</span><span class="o">-</span><span class="n">php</span><span class="p">:</span><span class="mi">20170902153731</span>
+    <span class="n">ports</span><span class="p">:</span>
+    <span class="o">-</span> <span class="mi">9000</span><span class="p">:</span><span class="mi">9000</span>
+    <span class="n">volumes</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s2">&quot;$</span><span class="si">{PWD}</span><span class="s2">/app/code:/www&quot;</span>
+    <span class="n">working_dir</span><span class="p">:</span> <span class="s2">&quot;/www&quot;</span>
+</pre></div>
+</div>
+<p>After <code class="docutils literal"><span class="pre">docker-compose</span> <span class="pre">up</span></code> we see</p>
+<div class="figure" id="id2">
+<img alt="Running test build results" src="https://raw.githubusercontent.com/Voronenko/devops-ansible-container-demo/master/docs/images/2_testing_app_run.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+<p>Let&#8217;s check if application is up itself. Navigating to specified ports
+in docker compose and ... yes, we are up</p>
+<div class="figure" id="id3">
+<img alt="We are up" src="https://raw.githubusercontent.com/Voronenko/devops-ansible-container-demo/master/docs/images/3_running_application.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+<p>ansible-container&#8217;s stop command is used to stop running application.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+PROJECT_NAME=`cat .project-name`
+ansible-container --debug --project-name ${PROJECT_NAME} stop
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-in-action">
+<h2>Code in action<a class="headerlink" href="#code-in-action" title="Permalink to this headline">¶</a></h2>
+<p>You can try and experiment on your own by forking
+<a class="reference external" href="https://github.com/Voronenko/devops-ansible-container-demo">https://github.com/Voronenko/devops-ansible-container-demo</a></p>
+<p>Makefile steps are clean initialize build run, but if you are not
+familiar with make, under the docs there are shell files to do the same
+steps, as mentioned in article. Your comments and suggestions are
+welcomed.</p>
+</div>
+<div class="section" id="points-of-interest">
+<h2>Points of Interest<a class="headerlink" href="#points-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>Per investigation tool seems to be useful. In our organization we
+already have 130+ well tested ansible roles, which should allow us to
+reuse number of findings in solutions for building containers. Tool is
+still under active development, not always is easy to troubleshoot, but
+still looks promising. Even in its current state it is already possible
+to use it to build images in your dockerized application ci/cd process.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (8)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (5)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-03-projectdocs.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Documentation as a project
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2017-09-traefik.html">
+    Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

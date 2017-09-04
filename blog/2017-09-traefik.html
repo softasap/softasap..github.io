@@ -1,0 +1,741 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2017_09_traefik">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-08-ansible-container.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Evaluating ansible-container as a tool for custom docker containers build
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Sep 04, 2017
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="traefik-as-an-alternative-reverse-proxy-to-nginx-for-self-hosted-dockerized-applications">
+<h1>Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications<a class="headerlink" href="#traefik-as-an-alternative-reverse-proxy-to-nginx-for-self-hosted-dockerized-applications" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Containers continue to be a buzz word this year too. A lot of teams try
+to implement microservices, dividing application into individual units:
+mini- website contains only presentation layer, REST API (sometimes
+several REST APIs) handling all business logic. Databases are hosted
+externally, in some situations running in containers too.
+Database — sometimes one, sometimes many (depending on business task)</p>
+<p>During development teams also perform testing using Docker. Docker is
+giving them confidence when testing that we are on the same
+“environment” as on production (althouth it is not always true). For
+deployments to shared environments teams usually use docker-compose to
+quickly start up whole environment with all services. This method is
+good  — we define in one file what services to run (images, mapping
+volumes, etc.), what ports to expose from docker container to the host
+system.</p>
+<p>If we are using some docker friendly platform like Openshift,
+Kubernetes, Amazon EC2 Container Service, Mesos etc. But sometimes we
+have some simple project, when using mentioned services is possible, but
+is quite overkilling yet. At that moment, we are launching some VPS,
+installing docker on it and a bit of mess starts when we expose services
+to a web. We want to have some kind of reverse proxy that will accept
+traffic coming to specific sub-domain and route that traffic to its
+appropriate docker environment.</p>
+<p>I wouldn&#8217;t be mistaken , if I say that you must have seen portions of
+configs similar to one below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">upstream</span> <span class="n">demo1</span><span class="o">.</span><span class="n">localhost</span> <span class="p">{</span>
+    <span class="n">server</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.4</span><span class="p">:</span><span class="mi">5000</span><span class="p">;</span>
+    <span class="n">server</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.3</span><span class="p">:</span><span class="mi">5000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">server</span> <span class="p">{</span>
+    <span class="c1">#ssl_certificate /etc/nginx/certs/demo.pem;</span>
+    <span class="c1">#ssl_certificate_key /etc/nginx/certs/demo.key;</span>
+
+    <span class="n">gzip_types</span> <span class="n">text</span><span class="o">/</span><span class="n">plain</span> <span class="n">text</span><span class="o">/</span><span class="n">css</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">javascript</span>
+               <span class="n">text</span><span class="o">/</span><span class="n">xml</span> <span class="n">application</span><span class="o">/</span><span class="n">xml</span> <span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="o">+</span><span class="n">rss</span> <span class="n">text</span><span class="o">/</span><span class="n">javascript</span><span class="p">;</span>
+
+    <span class="n">server_name</span> <span class="n">demo1</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">com</span><span class="p">;</span>
+
+    <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+        <span class="n">proxy_pass</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">localhost</span><span class="p">;</span>
+        <span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">proxy_params</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Reverse proxy can be executed in many ways, we can make custom service,
+we can use Nginx as above, but it would be really nice if for such
+smaller projects there could be easy configurable tool, with dynamic
+discovery of new subdomains, loadbalancing etc. In NodeJS world PM2
+came.</p>
+<p>In docker world - once of the recent options is Traefik (traefik.io),
+written in Go language that promises to help us with that. What is
+good,- project has got big round of investments in 2017
+(<a class="reference external" href="https://www.crunchbase.com/organization/containous#/entity">https://www.crunchbase.com/organization/containous#/entity</a>) which might
+be sign,that project will not be abandoned quick. Anyway you always can
+return back to nginx at any moment</p>
+</div>
+<div class="section" id="setting-up-traefik-as-a-reverse-proxy-alternative-to-nginx-on-a-single-host-environment">
+<h2>Setting up traefik as a reverse proxy alternative to nginx on a single host environment<a class="headerlink" href="#setting-up-traefik-as-a-reverse-proxy-alternative-to-nginx-on-a-single-host-environment" title="Permalink to this headline">¶</a></h2>
+<p>Traefik sets quite ambitious goals: it is positioned as dynamic reverse
+proxy. It has bridges also to many popular deployment platforms (docker,
+openshift, mezos, kubernetes, etc.) and synchronizes information about
+running services (containers). This means, that your project might grow
+or change infrastructure without major downtime or refactoring.</p>
+<p>Traefik is configured by rules that are used to connect “Frontends” with
+“Backends”. In terms of Traefik — “Frontend” is a public end point at
+some internet domain like api.myapp.com. On the other hand “Backend” is
+our deployed web (docker) service. For example,  we can set a rule in
+Traefik that for Host:api.myapp.com traffic should be routed to our api
+service container.</p>
+<p>Let&#8217;s prepare our environment to demonstrate. Manual installation steps
+can be found on <a class="reference external" href="https://docs.traefik.io/">https://docs.traefik.io/</a>. We would use Ansible
+provisioner to get automated approach for our future deployments.</p>
+<p>We would need two ansible roles: sa-docker
+(<a class="reference external" href="https://github.com/softasap/sa-docker">https://github.com/softasap/sa-docker</a> - docker and docker-compose) and
+sa-traefik(<a class="reference external" href="https://github.com/softasap/sa-traefik">https://github.com/softasap/sa-traefik</a> - traefik tool itself)</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">{</span>
+    <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-docker&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;create&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="o">-</span> <span class="p">{</span>
+    <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;sa-traefik&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;create&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>Important notice on setup - sa-traefik tool implements managing of the
+configuration using conf.d configuration pieces. I.e. you don&#8217;t need to
+manage whole configuration file, but instead you can modify only needed
+parts. By default, traefik is installed &#8220;naked&#8221;.</p>
+<p>Let&#8217;s add three critical configuration pieces:
+<code class="docutils literal"><span class="pre">conf.d/entrypoints.toml</span></code> - serve http by default.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">defaultEntryPoints</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;http&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">entryPoints</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">entryPoints</span><span class="o">.</span><span class="n">http</span><span class="p">]</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="s2">&quot;:80&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">conf.d/web_backend.toml</span></code> - administration UI on port 8080 guarded by
+admin/test &amp; test2/test</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">web</span><span class="p">]</span>
+
+<span class="n">address</span> <span class="o">=</span> <span class="s2">&quot;:8080&quot;</span>
+
+<span class="p">[</span><span class="n">web</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">basic</span><span class="p">]</span>
+  <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;admin:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/&quot;</span><span class="p">,</span> <span class="s2">&quot;test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">conf.d/docker.toml</span></code> - instruct traefik to use docker as a
+configuration source.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Enable Docker configuration backend</span>
+<span class="p">[</span><span class="n">docker</span><span class="p">]</span>
+<span class="c1"># Docker server endpoint. Can be a tcp or a unix socket endpoint.</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;unix:///var/run/docker.sock&quot;</span>
+
+<span class="c1"># Default domain used.</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;docker.localhost&quot;</span>
+
+<span class="c1"># Enable watch docker changes</span>
+<span class="n">watch</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="c1"># Expose containers by default in traefik</span>
+<span class="c1"># If set to false, containers that don&#39;t have `traefik.enable=true` will be ignored</span>
+<span class="n">exposedbydefault</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="c1"># Use Swarm Mode services as data provider</span>
+<span class="n">swarmmode</span> <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<p>If everything is ok, you should see traefik configuration backend at
+:8080</p>
+<div class="figure" id="id1">
+<img alt="just launched" src="https://raw.githubusercontent.com/Voronenko/devops-traefik-deploy-template/master/docs/images/traefik_empty.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+</div>
+<div class="section" id="launching-first-application-with-traefik">
+<h2>Launching first application with traefik<a class="headerlink" href="#launching-first-application-with-traefik" title="Permalink to this headline">¶</a></h2>
+<p>What is good, is that you can use tool that you know - docker-compose to
+configure traefik by definition. Let&#8217;s take a look on the following
+example (we will use docker-compose v2 syntax, because at the current
+time Ansible docker_service module does not fully support v3):</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span>
+
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">whoami1</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">emilevauge</span><span class="o">/</span><span class="n">whoami</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">web</span>
+    <span class="n">labels</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.backend=whoami&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.domain=xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.rule=Host:whoami.xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.entryPoints=http&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.enable=true&quot;</span>
+<span class="n">networks</span><span class="p">:</span>
+  <span class="n">web</span><span class="p">:</span>
+    <span class="n">external</span><span class="p">:</span>
+      <span class="n">name</span><span class="p">:</span> <span class="n">traefik_webgateway</span>
+</pre></div>
+</div>
+<p>Pay attention to labels that start with traefik. Namely it means:
+&#8220;Service whoami1 belongs to backend(application) called whoami, it
+serves on public domain xenial.test on port http/80 , responfs to
+hostname whoami.xenial.test and should be handled by traefik reverse
+proxy&#8221;.</p>
+<p>Let&#8217;s do docker-compose up on example above. As you see, traefik was
+immediately notified with changes.</p>
+<div class="figure" id="id2">
+<img alt="first app" src="https://raw.githubusercontent.com/Voronenko/devops-traefik-deploy-template/master/docs/images/traefik_app1.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+<p>Let&#8217;s navigate to website according to rule? It works!</p>
+<div class="figure" id="id3">
+<img alt="first app response" src="https://raw.githubusercontent.com/Voronenko/devops-traefik-deploy-template/master/docs/images/traefik_app1_response.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+<p>Summary - now we are aware how to run and configure our application to
+be served with traefik.</p>
+</div>
+<div class="section" id="loadbalancing-with-traefik">
+<h2>Loadbalancing with traefik<a class="headerlink" href="#loadbalancing-with-traefik" title="Permalink to this headline">¶</a></h2>
+<p>Traefik also supports load balancing. If we amend docker-compose
+definition in a way below</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span>
+
+<span class="n">services</span><span class="p">:</span>
+  <span class="n">whoami1</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">emilevauge</span><span class="o">/</span><span class="n">whoami</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">web</span>
+    <span class="n">labels</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.backend=whoami&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.domain=xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.rule=Host:whoami.xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.entryPoints=http&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.enable=true&quot;</span>
+  <span class="n">whoami2</span><span class="p">:</span>
+    <span class="n">image</span><span class="p">:</span> <span class="n">emilevauge</span><span class="o">/</span><span class="n">whoami</span>
+    <span class="n">networks</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">web</span>
+    <span class="n">labels</span><span class="p">:</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.backend=whoami&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.domain=xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.rule=Host:whoami.xenial.test&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.frontend.entryPoints=http&quot;</span>
+      <span class="o">-</span> <span class="s2">&quot;traefik.enable=true&quot;</span>
+<span class="n">networks</span><span class="p">:</span>
+  <span class="n">web</span><span class="p">:</span>
+    <span class="n">external</span><span class="p">:</span>
+      <span class="n">name</span><span class="p">:</span> <span class="n">traefik_webgateway</span>
+</pre></div>
+</div>
+<p>We will notice a change: now single end point is served by two different
+services.</p>
+<div class="figure" id="id4">
+<img alt="one app two services" src="https://raw.githubusercontent.com/Voronenko/devops-traefik-deploy-template/master/docs/images/traefik_1app_2services.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+<p>More over, even in example 1, if we would use
+<code class="docutils literal"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">--scale</span> <span class="pre">whoami1=2</span></code> (or in older docker-compose
+<code class="docutils literal"><span class="pre">docker-compose</span> <span class="pre">scale</span> <span class="pre">whoami1=2</span></code>), we would notice that also was
+correctly handled.</p>
+<div class="figure" id="id5">
+<img alt="one app scaled services" src="https://raw.githubusercontent.com/Voronenko/devops-traefik-deploy-template/master/docs/images/traefik_1app_scaled_services.png" />
+<p class="caption"><span class="caption-text">alt text</span></p>
+</div>
+</div>
+<div class="section" id="deploying-traefik-enabled-applications">
+<h2>Deploying traefik enabled applications<a class="headerlink" href="#deploying-traefik-enabled-applications" title="Permalink to this headline">¶</a></h2>
+<p>As you see at that moment you are free to decide who will you manage
+your applications. You would definitely like to introduce some rolling
+deployment process. You can use ansible play too for this purposes,
+execute shell batches, or even manually.</p>
+<p>Ansible - template your docker-compose.yml and use docker_service
+module to launch</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  Using templated file and docker_service module</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Application</span> <span class="o">|</span> <span class="n">Template</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span> <span class="k">for</span> <span class="n">app</span> <span class="mi">1</span>
+      <span class="n">template</span><span class="p">:</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;{{playbook_dir}}/templates/docker-compose/application1/docker-compose.yml.j2&quot;</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;{{base_application_dir}}/application1/docker-compose.yml&quot;</span>
+      <span class="n">become</span><span class="p">:</span> <span class="n">yes</span>
+      <span class="n">tags</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">app</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Application</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">using</span> <span class="n">compose</span> <span class="n">file</span>
+      <span class="n">docker_service</span><span class="p">:</span>
+        <span class="n">project_src</span><span class="p">:</span> <span class="s2">&quot;{{base_application_dir}}/application1/&quot;</span>
+        <span class="n">build</span><span class="p">:</span> <span class="n">no</span>
+        <span class="n">restarted</span><span class="p">:</span> <span class="n">true</span>
+      <span class="n">register</span><span class="p">:</span> <span class="n">app1_output</span>
+
+    <span class="o">-</span>  <span class="n">debug</span><span class="p">:</span> <span class="n">var</span><span class="o">=</span><span class="s2">&quot;app1_output&quot;</span>
+
+<span class="c1">#  / Using templated file and docker_service module</span>
+</pre></div>
+</div>
+<p>Ansible - using direct definition (hard to read for myself)</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  Using definition directly in docker_service directive</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Application</span> <span class="o">|</span> <span class="n">Deploy</span> <span class="n">using</span> <span class="n">definition</span> <span class="ow">in</span> <span class="n">docker_service</span>
+      <span class="n">docker_service</span><span class="p">:</span>
+        <span class="n">build</span><span class="p">:</span> <span class="n">no</span>
+        <span class="n">restarted</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">project_name</span><span class="p">:</span> <span class="n">application2_by_def</span>
+        <span class="n">definition</span><span class="p">:</span>
+          <span class="n">version</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span>
+          <span class="n">services</span><span class="p">:</span>
+            <span class="n">whoami1_by_def</span><span class="p">:</span>
+              <span class="n">image</span><span class="p">:</span> <span class="n">emilevauge</span><span class="o">/</span><span class="n">whoami</span>
+              <span class="n">networks</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">web</span>
+              <span class="n">labels</span><span class="p">:</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.backend=whoami_by_def&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.domain=xenial.test&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.frontend.rule=Host:whoami_by_def.xenial.test&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.frontend.entryPoints=http&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.enable=true&quot;</span>
+            <span class="n">whoami2_by_def</span><span class="p">:</span>
+              <span class="n">image</span><span class="p">:</span> <span class="n">emilevauge</span><span class="o">/</span><span class="n">whoami</span>
+              <span class="n">networks</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">web</span>
+              <span class="n">labels</span><span class="p">:</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.backend=whoami_by_def&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.domain=xenial.test&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.frontend.rule=Host:whoami_by_def.xenial.test&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.frontend.entryPoints=http&quot;</span>
+                <span class="o">-</span> <span class="s2">&quot;traefik.enable=true&quot;</span>
+          <span class="n">networks</span><span class="p">:</span>
+            <span class="n">web</span><span class="p">:</span>
+              <span class="n">external</span><span class="p">:</span>
+                <span class="n">name</span><span class="p">:</span> <span class="n">traefik_webgateway</span>
+      <span class="n">register</span><span class="p">:</span> <span class="n">app2_output</span>
+      <span class="n">become</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="o">-</span>  <span class="n">debug</span><span class="p">:</span> <span class="n">var</span><span class="o">=</span><span class="s2">&quot;app1_output&quot;</span>
+
+<span class="c1">#  / Using definition directly</span>
+</pre></div>
+</div>
+<p>Using templated file and invoking console command:</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  Using templated file and invoking console command</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Application</span> <span class="o">|</span> <span class="n">Template</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span> <span class="k">for</span> <span class="n">app</span> <span class="mi">3</span>
+      <span class="n">template</span><span class="p">:</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;{{playbook_dir}}/templates/docker-compose/application3/docker-compose.yml.j2&quot;</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;{{base_application_dir}}/application3/docker-compose.yml&quot;</span>
+      <span class="n">become</span><span class="p">:</span> <span class="n">yes</span>
+      <span class="n">tags</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">app</span>
+
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Application</span> <span class="o">|</span> <span class="n">Put</span> <span class="ow">in</span> <span class="n">action</span> <span class="n">using</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">command</span>
+      <span class="n">shell</span><span class="p">:</span> <span class="s2">&quot;docker-compose up -d&quot;</span>
+      <span class="n">args</span><span class="p">:</span>
+        <span class="n">chdir</span><span class="p">:</span> <span class="s2">&quot;{{base_application_dir}}/application3&quot;</span>
+      <span class="n">become</span><span class="p">:</span> <span class="n">yes</span>
+      <span class="n">tags</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">app</span>
+
+<span class="c1">#  / Using templated file and invoking console command</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-in-action">
+<h2>Code in action<a class="headerlink" href="#code-in-action" title="Permalink to this headline">¶</a></h2>
+<p>You can try by yourself by cloning or forking
+<a class="reference external" href="https://github.com/Voronenko/devops-traefik-deploy-template">https://github.com/Voronenko/devops-traefik-deploy-template</a></p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Traefik is young project, for easy configuration you should pay. And
+payment&#8217;s currency is rps (request per second)</p>
+<p>On a dummy test with 100 concurrent requests using apache benchmark and
+HAproxy and traefik acting as simple loadbalancer between two containers
+(figures by Michael Mueller using test image coreos/example:1.0.0).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">platform</span>                        <span class="n">HAproxy</span>    <span class="n">Traefik</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>    <span class="n">Traefik</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+<span class="mi">50</span><span class="o">%</span> <span class="n">requests</span> <span class="n">completed</span> <span class="p">(</span><span class="n">ms</span><span class="p">)</span>       <span class="mi">21</span>             <span class="mi">91</span>                   <span class="mi">93</span>
+<span class="mi">95</span><span class="o">%</span> <span class="n">requests</span> <span class="n">completed</span> <span class="p">(</span><span class="n">ms</span><span class="p">)</span>       <span class="mi">72</span>            <span class="mi">146</span>                  <span class="mi">147</span>
+<span class="n">request</span> <span class="n">per</span> <span class="n">s</span> <span class="p">(</span><span class="n">mean</span><span class="p">)</span>             <span class="mi">2485</span><span class="p">,</span><span class="mi">11</span>       <span class="mi">1105</span><span class="p">,</span><span class="mi">15</span>              <span class="mi">1072</span><span class="p">,</span><span class="mi">29</span>
+</pre></div>
+</div>
+<p>This is a bit different from figures given on project&#8217;s website -
+<a class="reference external" href="https://docs.traefik.io/benchmarks/">https://docs.traefik.io/benchmarks/</a> , and it is expectable. You would
+anyway stress test your application before live run, wouldn&#8217;t you?</p>
+<p>How it will behave on a real production? Well, you should give it a try.
+At least, for sure, it is good candidate for any project, where high
+load is not expected quick.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (8)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (5)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-08-ansible-container.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Evaluating ansible-container as a tool for custom docker containers build
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>
