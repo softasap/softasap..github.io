@@ -1,0 +1,1098 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Using ansible-container to build your next application base image</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2017_09_sa_container_bootstrap">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#services">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="/#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-09-traefik.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Sep 20, 2017
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>,
+      
+    
+      
+      <a href="tag/ansible-container.html">ansible-container</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="using-ansible-container-to-build-your-next-application-base-image">
+<h1>Using ansible-container to build your next application base image<a class="headerlink" href="#using-ansible-container-to-build-your-next-application-base-image" title="Permalink to this headline">¶</a></h1>
+<p>Most Dockerfiles start from a parent image. Application baseimage is a
+special <a class="reference external" href="https://www.docker.com">Docker</a> image that is configured for
+correct use within Docker containers and aware about your application
+requirements, expectations + set of additional tools.</p>
+<p>Usually those include, but not limited to:</p>
+<ul class="simple">
+<li>Modifications for Docker-friendliness.</li>
+<li>Application specific libraries and frameworks</li>
+<li>Some administration tools, that are especially useful for
+troubleshouting inside docker</li>
+<li>Mechanisms for easily running multiple processes, without violating
+the Docker philosophy</li>
+</ul>
+<p>Perhaps every company or agency dealing with dockerized applications
+have or implemented such one. Until now you could find it in a form of
+complex shell and makefiles, especially if baseimage is released for
+multiple OS-es.</p>
+<p>The closer <code class="docutils literal"><span class="pre">ansible-container</span></code> 1.0.0 release is, the more chances that
+you would give a try to ansible to take care of your next dockerized
+application base image.</p>
+<p>Let’s briefly dive into tools and components you might need to do so.</p>
+<div class="section" id="image-building-boilerplate-with-ansible-container">
+<h2>Image building boilerplate with ansible-container<a class="headerlink" href="#image-building-boilerplate-with-ansible-container" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="folders-and-files-organization">
+<h3>Folders and files organization<a class="headerlink" href="#folders-and-files-organization" title="Permalink to this headline">¶</a></h3>
+<p>You can launch building process using any tool you like. From my
+experience - I&#8217;ve come so far with the following approach:
+<a class="reference external" href="https://github.com/Voronenko/container-image-boilerplate">https://github.com/Voronenko/container-image-boilerplate</a></p>
+<p><code class="docutils literal"><span class="pre">requirements.txt</span></code> - defines any specific py tools &amp; libs you want to
+use together with ansible-container. <code class="docutils literal"><span class="pre">.projmodules</span></code> - list of
+dependencies (roles, deployables, etc) needed to compile base image.
+Format similar to gitmodules, but without direct links to commit.
+Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-nginx-container&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">softasap</span><span class="o">.</span><span class="n">sa</span><span class="o">-</span><span class="n">nginx</span><span class="o">-</span><span class="n">container</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">nginx</span><span class="o">-</span><span class="n">container</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-uwsgi-container&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">softasap</span><span class="o">.</span><span class="n">sa</span><span class="o">-</span><span class="n">uwsgi</span><span class="o">-</span><span class="n">container</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">uwsgi</span><span class="o">-</span><span class="n">container</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;roles/sa-include&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">roles</span><span class="o">/</span><span class="n">softasap</span><span class="o">.</span><span class="n">sa</span><span class="o">-</span><span class="n">include</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">softasap</span><span class="o">/</span><span class="n">sa</span><span class="o">-</span><span class="n">include</span><span class="o">.</span><span class="n">git</span>
+<span class="p">[</span><span class="n">submodule</span> <span class="s2">&quot;deployables/application&quot;</span><span class="p">]</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">deployables</span><span class="o">/</span><span class="n">application</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">voronenko</span><span class="o">-</span><span class="n">p</span><span class="o">/</span><span class="n">django</span><span class="o">-</span><span class="n">sample</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">init.sh</span></code> &amp;&amp; <code class="docutils literal"><span class="pre">init_quick.sh</span></code> - resolve external dependencies under
+specified locations (roles under roles, deployables under deployables,
+etc)</p>
+<p><code class="docutils literal"><span class="pre">ansible.cfg</span></code> - by default empty, but you can adjust parameters for
+your build process according to documentation.</p>
+<p><code class="docutils literal"><span class="pre">version.txt</span></code> - information file gitflow based releasing (x.y.z)</p>
+<p><code class="docutils literal"><span class="pre">image.txt</span></code> - additional information about image constructed for
+tagging and pushing parts.</p>
+<p><code class="docutils literal"><span class="pre">Makefile</span></code> &amp;&amp; <code class="docutils literal"><span class="pre">docker-helper.sh</span></code> - orchestration utilities,
+discussed in the next chapter.</p>
+<p><code class="docutils literal"><span class="pre">docker-compose.yml</span></code> - usually I also provide docker-compose
+configuration, so the image can be immediately tried.</p>
+<p><code class="docutils literal"><span class="pre">container.yml</span></code> - definition of the image you are going to build</p>
+<p>And, of course, <code class="docutils literal"><span class="pre">.gitignore</span></code> - we definitely do not want to commit
+external resources. <code class="docutils literal"><span class="pre">p-env</span></code> - virtual environment created during the
+build, <code class="docutils literal"><span class="pre">ansible-deployment</span></code> - transient output produced by
+ansible-container itself.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="o">/*</span>
+<span class="n">ansible</span><span class="o">-</span><span class="n">deployment</span><span class="o">/*</span>
+<span class="n">p</span><span class="o">-</span><span class="n">env</span><span class="o">/*</span>
+<span class="n">deployables</span><span class="o">/*</span>
+<span class="o">*.</span><span class="n">retry</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-process-orchestration">
+<h3>Build process orchestration<a class="headerlink" href="#build-process-orchestration" title="Permalink to this headline">¶</a></h3>
+<p>Makefile implement following phases: <code class="docutils literal"><span class="pre">initialize</span></code></p>
+<div class="section" id="clean">
+<h4>clean<a class="headerlink" href="#clean" title="Permalink to this headline">¶</a></h4>
+<p>Resets project to initial state by removing all build directories and
+artifacts</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">clean</span><span class="p">:</span>
+        <span class="nd">@rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">.</span><span class="n">Python</span> <span class="n">p</span><span class="o">-</span><span class="n">env</span> <span class="n">roles</span> <span class="n">ansible</span><span class="o">-</span><span class="n">deployment</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize">
+<h4>Initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h4>
+<p>Parses .projmodules and checks out necessary roles and deployables</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">initialize</span><span class="p">:</span>
+        <span class="nd">@init_quick</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="p-env-bin-ansible-container">
+<h4>p-env/bin/ansible-container<a class="headerlink" href="#p-env-bin-ansible-container" title="Permalink to this headline">¶</a></h4>
+<p>Internal task - creates and initializes virtual environment with
+ansible-container under p-env/ directory.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>p-env/bin/ansible-container: p-env/bin/pip
+        @touch $@
+
+p-env/bin/pip: p-env/bin/python
+        p-env/bin/pip install -r requirements.txt
+
+p-env/bin/python:
+        virtualenv -p $(python) --no-site-packages p-env
+        @touch $@
+</pre></div>
+</div>
+</div>
+<div class="section" id="build">
+<h4>build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h4>
+<p>Executes ansible-container for container.yml, providing path to roles.
+Project name influences how produced image will be named.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>build:  p-env/bin/ansible-container
+        @p-env/bin/ansible-container --debug --project-name $(ROLE_NAME) build --roles-path ./roles/ -- -vvv
+        @echo &quot;Application docker image was build&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-and-stop">
+<h4>run and stop<a class="headerlink" href="#run-and-stop" title="Permalink to this headline">¶</a></h4>
+<p>Potentially, ansible-container allows immediatelly to run and stop
+images in a way like docker-compose does. From my experience, that is
+not always working, + container.yml is based on 2nd version of the
+docker-compose spec, while I usually need at least 3.1 in production.
+Anyway steps are provided - they might work in your case. I usually end
+with the separate docker-compose.yml v3.1+ in the directory.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>run:  p-env/bin/ansible-container
+        @echo p-env/bin/ansible-container --debug --project-name $(ROLE_NAME) run --roles-path ./roles/ -- -vvv
+        @p-env/bin/ansible-container --debug --project-name $(ROLE_NAME) run --roles-path ./roles/ -- -vvv
+        @echo &quot;Application environment was started&quot;
+
+stop:   p-env/bin/ansible-container
+        @echo p-env/bin/ansible-container --debug --project-name $(ROLE_NAME) stop
+        @p-env/bin/ansible-container --debug --project-name $(ROLE_NAME) stop
+        @echo &quot;Application environment was stopped&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="tag-and-push">
+<h4>tag and push<a class="headerlink" href="#tag-and-push" title="Permalink to this headline">¶</a></h4>
+<p>Usually as a result of successful build, you want to push artifact to
+some registry. This highly depends on your project, and you most likely
+adjust it for your needs.</p>
+<p>Providing example: properly tags api and nginx images built and pushes
+them to docker hub.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>tag:
+        @docker tag $(ROLE_NAME)-api:latest softasap/sa-container-box-examples:$(ROLE_NAME).api.$(ROLE_VERSION)
+        @docker tag $(ROLE_NAME)-api:latest softasap/sa-container-box-examples:$(ROLE_NAME).api.latest
+        @docker tag $(ROLE_NAME)-nginx:latest softasap/sa-container-box-examples:$(ROLE_NAME).nginx.$(ROLE_VERSION)
+        @docker tag $(ROLE_NAME)-nginx:latest softasap/sa-container-box-examples:$(ROLE_NAME).nginx.latest
+
+push:
+        @docker push softasap/sa-container-box-examples:$(ROLE_NAME).api.$(ROLE_VERSION)
+        @docker push softasap/sa-container-box-examples:$(ROLE_NAME).api.latest
+        @docker push softasap/sa-container-box-examples:$(ROLE_NAME).nginx.$(ROLE_VERSION)
+        @docker push softasap/sa-container-box-examples:$(ROLE_NAME).nginx.latest
+</pre></div>
+</div>
+</div>
+<div class="section" id="compose-helpers">
+<h4>compose helpers<a class="headerlink" href="#compose-helpers" title="Permalink to this headline">¶</a></h4>
+<p>Launching, stoppling and dismounting docker-compose managed containers.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">compose</span><span class="o">-</span><span class="n">up</span><span class="p">:</span>
+        <span class="nd">@docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">recreate</span>
+
+<span class="n">compose</span><span class="o">-</span><span class="n">stop</span><span class="p">:</span>
+        <span class="nd">@docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">stop</span>
+
+<span class="n">compose</span><span class="o">-</span><span class="n">down</span><span class="p">:</span> <span class="n">compose</span><span class="o">-</span><span class="n">stop</span>
+        <span class="nd">@docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">rm</span> <span class="o">--</span><span class="n">force</span>
+</pre></div>
+</div>
+<p>That&#8217;s all. Back to primary target.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="building-base-image-with-ansible-container">
+<h1>Building base image with ansible container.<a class="headerlink" href="#building-base-image-with-ansible-container" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">For base image, I usually want: * agreed folder organization (I do
+not want to guess each time where and how I need to put logic to run),
+* robust init system.</div>
+<div class="line">* optional support for running multiple processes per container (as
+long as container remains single logical unit - it does not contradict
+with Docker philosophy). * Depending on project I want to be able to
+use different base images and do not want to dive into compilation
+specifics each time. * Possibility to run logic under custom users
+inside container and synchronize, if necessary files and folders with
+host system.</div>
+</div>
+<p>And final point: as long as possible I want to keep my code organized
+better, than series of bash command that usually are hard to read and
+hard to adjust in a way we usually do with programs. And this is where
+<code class="docutils literal"><span class="pre">ansible-container</span></code> will help.</p>
+<div class="section" id="why-valid-init-for-containers-is-important">
+<h2>Why valid init for containers is important<a class="headerlink" href="#why-valid-init-for-containers-is-important" title="Permalink to this headline">¶</a></h2>
+<p>Although people say, that proper docker microservice should run single
+dedicated process, it is not always achievable in real world. More
+correct to say, that Docker suggests the philosophy of running a single
+logical service per container. A logical service can consist of multiple
+OS processes. Sometimes you really need to run more than one service in
+a docker container. This is especially true, if you are adapting some
+application that previously was running in standalone vps environment.</p>
+<p>Why init process is important: running processes can be visualized are
+ordered in a tree: each process can spawn child processes, and each
+process has a parent except for the top-most process. This top-most
+process is the init process. It is started when you start your container
+and always has PID 1. This init process is responsible for starting the
+rest of the system, including starting your application. When some
+process terminates, it turns into smth referred as &#8220;defunct process&#8221;,
+also known as a &#8220;zombie process&#8221;
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Zombie_process">https://en.wikipedia.org/wiki/Zombie_process</a>). In simple words, these
+are ones that are terminated but have not (yet) been waited for by their
+parent processes.</p>
+<p>But what if parent process terminates (intentionally, or
+unintentionally)? What happens then to its spawned processes? They no
+longer have a parent process, so they become &#8220;orphaned&#8221;
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Orphan_process">https://en.wikipedia.org/wiki/Orphan_process</a>).</p>
+<p>And this is where the init process kicks in. It becomes new parent
+(adopts) orphaned child processes, even though they were never created
+directly by the init process. The operating system kernel automatically
+handles adoption. Moreover: the operating system expects the init
+process to reap adopted children too.</p>
+<p>What if not? As long as a zombie is not removed from the system via a
+wait, it will consume a slot in the kernel process table, and if this
+table fills, it will not be possible to create further processes in the
+host system itself. Also, init system implemented wrong often leads to
+incorrect handling of processes and signals, and can result in problems
+such as containers which can&#8217;t be gracefully stopped, or leaking
+containers which should have been destroyed.</p>
+<p>More reading on a topic:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://medium.com/&#64;gchudnov/trapping-signals-in-docker-containers-7a57fdda7d86">https://medium.com/&#64;gchudnov/trapping-signals-in-docker-containers-7a57fdda7d86</a></li>
+<li><a class="reference external" href="https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/">https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/</a></li>
+</ul>
+<p>Upstart, Systemd, SysV usually are too heavy (overkill) to be used
+inside docker (+ not always easily possible). What are the options ?</p>
+</div>
+<div class="section" id="candidates-for-container-init-process">
+<h2>Candidates for container init process<a class="headerlink" href="#candidates-for-container-init-process" title="Permalink to this headline">¶</a></h2>
+<p>At a time of article writing, most often used init approaches were:</p>
+<div class="section" id="custom-written-init-script">
+<h3>Custom written init script<a class="headerlink" href="#custom-written-init-script" title="Permalink to this headline">¶</a></h3>
+<p>as per docker documentation,
+<a class="reference external" href="https://docs.docker.com/engine/admin/multi-service_container/">https://docs.docker.com/engine/admin/multi-service_container/</a> Take a
+look on a Proof-of-concept example of such script below</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
+
+# Start the first process
+./my_first_process -D
+status=$?
+if [ $status -ne 0 ]; then
+  echo &quot;Failed to start my_first_process: $status&quot;
+  exit $status
+fi
+
+# Start the second process
+./my_second_process -D
+status=$?
+if [ $status -ne 0 ]; then
+  echo &quot;Failed to start my_second_process: $status&quot;
+  exit $status
+fi
+
+# Naive check runs checks once a minute to see if either of the processes exited.
+# This illustrates part of the heavy lifting you need to do if you want to run
+# more than one service in a container. The container will exit with an error
+# if it detects that either of the processes has exited.
+# Otherwise it will loop forever, waking up every 60 seconds
+
+while /bin/true; do
+  ps aux |grep my_first_process |grep -q -v grep
+  PROCESS_1_STATUS=$?
+  ps aux |grep my_second_process |grep -q -v grep
+  PROCESS_2_STATUS=$?
+  # If the greps above find anything, they will exit with 0 status
+  # If they are not both 0, then something is wrong
+  if [ $PROCESS_1_STATUS -ne 0 -o $PROCESS_2_STATUS -ne 0 ]; then
+    echo &quot;One of the processes has already exited.&quot;
+    exit -1
+  fi
+  sleep 60
+done
+</pre></div>
+</div>
+<p>Will work, but really does not guarantee reaping... Let&#8217;s examine more
+robust alternatives.</p>
+</div>
+<div class="section" id="dumb-init">
+<h3>Dumb-init<a class="headerlink" href="#dumb-init" title="Permalink to this headline">¶</a></h3>
+<p>dumb-init is a simple process supervisor and init system designed to run
+as PID 1 inside minimal container environments (such as Docker). It is
+deployed as a small, statically-linked binary written in C.</p>
+<p>dumb-init enables you to simply prefix your command with dumb-init. It
+acts as PID 1 and immediately spawns your command as a child process,
+taking care to properly handle and forward signals as they are received.</p>
+<p>Project repo: <a class="reference external" href="https://github.com/Yelp/dumb-init">https://github.com/Yelp/dumb-init</a></p>
+</div>
+<div class="section" id="tini">
+<h3>Tini<a class="headerlink" href="#tini" title="Permalink to this headline">¶</a></h3>
+<p>Tini advertises itself as a tiny but valid init for containers.
+Promises: * protection from software that accidentally creates zombie
+processes * ensures the default signal handlers work for the software
+you run in your Docker image. * easy to inject: Docker images that work
+without Tini will work with Tini without any changes.</p>
+<p>Shipped as precompiled binary for hugh variety of platforms.</p>
+<p>Project repo: <a class="reference external" href="https://github.com/krallin/tini">https://github.com/krallin/tini</a></p>
+</div>
+<div class="section" id="runit">
+<h3>Runit<a class="headerlink" href="#runit" title="Permalink to this headline">¶</a></h3>
+<p>Runit is a cross-platform Unix init scheme with service supervision, a
+replacement for sysvinit, and other init schemes. It runs on GNU/Linux,
+BSD, can easily be adapted to other Unix operating systems. The program
+runit is intended to run as Unix process no 1, it is automatically
+started by the runit-init /sbin/init-replacement if this is started by
+the kernel.</p>
+<p>Project website: <a class="reference external" href="http://smarden.org/runit/">http://smarden.org/runit/</a></p>
+</div>
+<div class="section" id="s6">
+<h3>S6<a class="headerlink" href="#s6" title="Permalink to this headline">¶</a></h3>
+<p>S6 is project, actually sibling of the RUnit by
+<a class="reference external" href="http://skarnet.org/software/s6/overview.html">http://skarnet.org/software/s6/overview.html</a>. S6 contains collection of
+utilities revolving around process supervision and management, logging,
+and system initialization. More over, specifically for a docker exists
+helper project, so-called &#8220;s6-overlay&#8221;
+<a class="reference external" href="https://github.com/just-containers/s6-overlay">https://github.com/just-containers/s6-overlay</a></p>
+<p>S6 provides: * lightweight init process with support of initialization
+(cont-init.d), finalization (cont-finish.d) as well as fixing ownership
+permissions (fix-attrs.d). * The s6-overlay provides proper PID 1
+functionality inside docker container. Zombie processes will be properly
+cleaned up. * Support for multiple processes in a single container
+(&#8220;services&#8221;) * Usable with all base images - Ubuntu, CentOS, Fedora *
+Distributed as a single .tar.gz file, to keep your image&#8217;s number of
+layers small. * A whole set of utilities included in s6 and
+s6-portable-utils. They include handy and composable utilities. * Log
+rotating out-of-the-box through logutil-service which uses s6-log under
+the hood.</p>
+</div>
+<div class="section" id="my-init">
+<h3>My_Init<a class="headerlink" href="#my-init" title="Permalink to this headline">¶</a></h3>
+<p>Part of the Phusion baseimage project
+<a class="reference external" href="https://github.com/phusion/baseimage-docker">https://github.com/phusion/baseimage-docker</a>, which currently targets
+Ubuntu 16:04, Ubuntu 14:04 OS-es. Consists of custom written py file and
+wrapped optional runit.</p>
+<p>Provides * protection from software that accidentally creates zombie
+processes - reaping is implemented as a part of control script. * in
+addition supports startup files in init.d and rc.local directories. *
+supports additional optional services inside container via runit: cron,
+ssh * handles additional magic with environment</p>
+<p>Requires: python inside your container. In present form limited to
+Ubuntu base system only.</p>
+</div>
+<div class="section" id="supervisord">
+<h3>Supervisord ?<a class="headerlink" href="#supervisord" title="Permalink to this headline">¶</a></h3>
+<p>This is known process manager usually used with python applications. I
+often saw people trying to use it as init system. But: supervisor
+explicitly mentions that it is not meant to be run as your init process.
+If you have some subprocess fork itself off, it won’t be cleaned up by
+Supervisor. Thus you anyway would need to choose different init system.</p>
+<p>Good if you anyway used it with your application earlier.</p>
+</div>
+<div class="section" id="more">
+<h3>More ?<a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h3>
+<p>If you know more candidates, please comment.</p>
+</div>
+</div>
+<div class="section" id="candidates-for-running-multiple-services-inside-container">
+<h2>Candidates for running multiple services inside container.<a class="headerlink" href="#candidates-for-running-multiple-services-inside-container" title="Permalink to this headline">¶</a></h2>
+<p>From mentioned above and at the same time lightweight, worse to mention:</p>
+<div class="section" id="id1">
+<h3>SupervisorD<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Classic supervisor which does not even require root privileges. Ctl
+script that acts similar to systemd&#8217;s systemctl. Supports processes
+restarting, as well as event handlers based on shell protocols.</p>
+</div>
+<div class="section" id="id2">
+<h3>RUnit<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Runit ships with swiss-knife set of utilities, one of them is
+<code class="docutils literal"><span class="pre">runsvdir</span></code> (<a class="reference external" href="http://smarden.org/runit/runsvdir.8.html">http://smarden.org/runit/runsvdir.8.html</a>) It allows
+defining set of &#8220;service definitions&#8221; in some directory, and makes care
+on launching them at startup.</p>
+<p>Typical interaction examples:</p>
+<p><code class="docutils literal"><span class="pre">/usr/bin/sv</span> <span class="pre">status</span> <span class="pre">/etc/service/</span></code> - get status of services listed in
+configuration folder</p>
+<p><code class="docutils literal"><span class="pre">/usr/bin/sv</span> <span class="pre">-w</span> <span class="pre">10</span> <span class="pre">down</span> <span class="pre">/etc/service/*</span></code> - shutdown all services with
+timeout 10</p>
+</div>
+<div class="section" id="s6-in-scope-of-s6-overlay-project">
+<h3>S6 (in scope of S6-overlay project)<a class="headerlink" href="#s6-in-scope-of-s6-overlay-project" title="Permalink to this headline">¶</a></h3>
+<p>Unlike supervisor, s6 uses a folder structure to control services,
+similar to RUnit. S6-overlay requires them under /etc/services.d before
+running init (it then copies them over to /var/run/s6/services).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>services
+    └ nginx
+        └ run
+</pre></div>
+</div>
+<p>Now, each of those run files is an executable that s6 executes to start
+the process.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">e</span>
+<span class="n">exec</span> <span class="n">nginx</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<p>Services are controlled by s6-svc binary. It has number of options, but
+the main idea is that you give it the directory of the service. So for
+example, if I wanted to send SIGHUP to nginx, I would do s6-svc -h
+/var/run/s6/services/nginx. Note: that it’s /var/run and not
+/etc/services.d; This is hugh difference from RUnit. And lastly, the -h
+is for SIGHUP.</p>
+<p>s6-overlay comes with a number of built versions, so you can download
+the one that matches your Linux setup. If you want to use s6 directly,
+users of Alpine and a few other flavors of Linux can just install it
+from their package manager. We’re running Debian and there’s no PPA for
+it, so we would have to compile s6 on our own</p>
+</div>
+<div class="section" id="id3">
+<h3>More ?<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>If you know more candidates, please comment.</p>
+</div>
+</div>
+<div class="section" id="running-processes-as-a-different-user">
+<h2>Running processes as a different user<a class="headerlink" href="#running-processes-as-a-different-user" title="Permalink to this headline">¶</a></h2>
+<p>By default, Docker containers run as the root user. This is bad because:
+* Application might modify up things that it shouldn&#8217;t be * If
+application shares folder with base host, all created files will be
+owned by root * If container is compromised - well, still it is bad if
+they&#8217;re root.</p>
+<p>If you want to understand, how uid and gid work in Docker containers,
+take a look on that article:
+<a class="reference external" href="https://medium.com/&#64;mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf">https://medium.com/&#64;mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf</a></p>
+<p>What are the options:</p>
+<div class="section" id="docker-s-native">
+<h3>Docker&#8217;s native<a class="headerlink" href="#docker-s-native" title="Permalink to this headline">¶</a></h3>
+<p>Set on the level of Dockerfile</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Create an app user so our program doesn&#39;t run as root.</span>
+<span class="n">RUN</span> <span class="n">groupadd</span> <span class="o">-</span><span class="n">r</span> <span class="n">app</span> <span class="o">&amp;&amp;</span>\
+    <span class="n">useradd</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">g</span> <span class="n">app</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">app</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nologin</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;Docker image user&quot;</span> <span class="n">app</span>
+<span class="o">...</span>
+<span class="n">USER</span> <span class="n">app</span>
+</pre></div>
+</div>
+<p>or pass as the params on docker run</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">group</span><span class="o">-</span><span class="n">add</span> <span class="n">audio</span> <span class="o">--</span><span class="n">group</span><span class="o">-</span><span class="n">add</span> <span class="n">nogroup</span> <span class="o">--</span><span class="n">group</span><span class="o">-</span><span class="n">add</span> <span class="mi">777</span> <span class="n">busybox</span> <span class="nb">id</span>
+<span class="n">uid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="n">gid</span><span class="o">=</span><span class="mi">0</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="n">groups</span><span class="o">=</span><span class="mi">10</span><span class="p">(</span><span class="n">wheel</span><span class="p">),</span><span class="mi">29</span><span class="p">(</span><span class="n">audio</span><span class="p">),</span><span class="mi">99</span><span class="p">(</span><span class="n">nogroup</span><span class="p">),</span><span class="mi">777</span>
+</pre></div>
+</div>
+<p>Success scenario, but not always possible, if container communicates
+with the host.</p>
+</div>
+<div class="section" id="chpst">
+<h3>chpst<a class="headerlink" href="#chpst" title="Permalink to this headline">¶</a></h3>
+<p>This is utility which is shipped with RUnit
+(<a class="reference external" href="http://smarden.org/runit/chpst.8.html">http://smarden.org/runit/chpst.8.html</a>) - you can easily use it if you
+already have RUnit as part of your init system.</p>
+</div>
+<div class="section" id="phusion-s-setuser">
+<h3>Phusion&#8217;s setuser<a class="headerlink" href="#phusion-s-setuser" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">If you have chosen phusion image as a basis, you have a <code class="docutils literal"><span class="pre">setuser</span></code> in
+path</div>
+<div class="line"><a class="reference external" href="https://github.com/phusion/baseimage-docker/blob/master/image/bin/setuser">https://github.com/phusion/baseimage-docker/blob/master/image/bin/setuser</a></div>
+</div>
+</div>
+<div class="section" id="sudo">
+<h3>sudo<a class="headerlink" href="#sudo" title="Permalink to this headline">¶</a></h3>
+<p>Well, you can install sudo inside container. Some people do. But do you
+want?</p>
+</div>
+</div>
+</div>
+<div class="section" id="your-own-baseimage-built-with-ansible-container">
+<h1>Your own baseimage built with ansible-container<a class="headerlink" href="#your-own-baseimage-built-with-ansible-container" title="Permalink to this headline">¶</a></h1>
+<p>With information above you have already few ideas for constructing your
+base image.</p>
+<p>Sorry for repeating, but let me emphasize once more: if you want
+alternative to custom makefiles and tons of hard-to-read shell files,
+give a try to ansible-container. Ansible-container provides better
+alternative to the <code class="docutils literal"><span class="pre">command</span> <span class="pre">&amp;&amp;</span> <span class="pre">command</span> <span class="pre">&amp;&amp;</span> <span class="pre">command</span></code> (and so on) syntax
+you’ve been struggling with to build containers. Since Ansible is at the
+heart of Ansible Container, you can make container builds completely
+predictable and repeatable, and more over readable.</p>
+<p>I have to admit, that although it is already passed 0.9.1,
+ansible-container is still at it&#8217;s early ages with some cumbersome side
+effects from time to time
+(<a class="reference external" href="https://medium.com/&#64;V_Voronenko/evaluating-ansible-container-as-a-tool-for-custom-docker-containers-build-500a0395a4c8">https://medium.com/&#64;V_Voronenko/evaluating-ansible-container-as-a-tool-for-custom-docker-containers-build-500a0395a4c8</a>),
+but it really becomes more robust each minor release, thus if you try it
+now - your production will be ready for concept when it is released...</p>
+<p>Previously running ansible inside container required installing a lot of
+unnecessary packages, which was causing bigger image sizes.
+Ansible-cointainer introduced different approach: combination of
+conductor (managing container with ansible and necessary tools
+installed) and target container. This allows to keep target image size
+small and this approach will work on any base image, which allows
+ansible and python to be installed.</p>
+<p>Aim of the current proof of concept: build bootstrap role for building
+base application image, and thus simplify application play itself.</p>
+<p>We want: select preferred init system: tini, dumb-init or init approach
+by Phusion (phusion-init)</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;phusion-init&quot;</span> <span class="c1"># &quot;dumb-init&quot; &quot;tini-init&quot;</span>
+<span class="n">container_init_directory</span><span class="p">:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">my_init</span><span class="o">.</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>We want: have possibility to choose internal service layer: runit,
+supervisor or s6.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">container_svc</span><span class="p">:</span> <span class="s2">&quot;runit&quot;</span> <span class="c1"># &quot;supervisord&quot;</span>
+</pre></div>
+</div>
+<p>Following the Phusion&#8217;s base image concept, we want optional cron, sshd,
+and syslog services inside container.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">option_container_cron</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">option_container_sshd</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">option_container_syslog_ng</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>If we ever wanted ssh inside container, let&#8217;s provide keypair to trust.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="n">container_ssh_private_key</span><span class="p">:</span> <span class="s2">&quot;{{role_dir}}/files/keys/insecure_key&quot;</span>
+<span class="n">container_ssh_public_key</span><span class="p">:</span> <span class="s2">&quot;{{role_dir}}/files/keys/insecure_key.pub&quot;</span>
+</pre></div>
+</div>
+<p>Resulting play is compact and readable like your usual ansible play.</p>
+<div class="code yaml highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="n">tasks_system_services</span><span class="o">.</span><span class="n">yml</span>
+
+<span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="n">tasks_cron</span><span class="o">.</span><span class="n">yml</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">option_container_cron</span>
+
+<span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="n">tasks_sshd</span><span class="o">.</span><span class="n">yml</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">option_container_sshd</span>
+
+<span class="o">-</span> <span class="n">include</span><span class="p">:</span> <span class="n">tasks_syslog_ng</span><span class="o">.</span><span class="n">yml</span>
+  <span class="n">when</span><span class="p">:</span> <span class="n">option_container_syslog_ng</span>
+</pre></div>
+</div>
+<p>More over - we are not limited to some single approach - we are free to
+select init system and service system from list of supported. You can
+always add the new one.</p>
+<p>In order to provide some compatibility between systems, I usually</p>
+<ol class="loweralpha simple">
+<li>put services runners into /etc/service//run - this supports both
+running via shell, runit, s6. Supervisord might re-execute the same
+script.</li>
+<li>put image pre-initialization into /etc/myinit.d/*.sh</li>
+<li>always name entry point as docker-entrypoint.sh</li>
+<li>your role, thanks to ansible, migth detect and target multiple
+basesystems - thus you can choose, for example, often used Alpine or
+Jessie.</li>
+</ol>
+<p>Take a look on role example, that might be used to build such base
+image: <a class="reference external" href="https://github.com/softasap/sa-container-bootstrap">https://github.com/softasap/sa-container-bootstrap</a></p>
+<p>Typical ansible-container play used to build application image using
+your base play one might look as:</p>
+<div class="section" id="tini-init-system-based-with-supervisor-as-service-manager">
+<h2>tini init system based, with supervisor as service manager<a class="headerlink" href="#tini-init-system-based-with-supervisor-as-service-manager" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+<span class="n">settings</span><span class="p">:</span>
+  <span class="n">conductor_base</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+  <span class="n">volumes</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+
+<span class="n">services</span><span class="p">:</span>
+
+   <span class="n">tini</span><span class="o">-</span><span class="n">supervisord</span><span class="p">:</span>
+     <span class="n">from</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+     <span class="n">container_name</span><span class="p">:</span> <span class="n">api</span>
+     <span class="n">roles</span><span class="p">:</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-container-bootstrap&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;tini-init&quot;</span><span class="p">,</span>
+           <span class="n">container_svc</span><span class="p">:</span> <span class="s2">&quot;supervisord&quot;</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-nginx-container&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;tini-init&quot;</span><span class="p">,</span>
+           <span class="n">container_svc</span><span class="p">:</span> <span class="s2">&quot;supervisord&quot;</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;../custom-roles/app-nginx-stub-deploy&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;tini-init&quot;</span><span class="p">,</span>
+           <span class="n">container_svc</span><span class="p">:</span> <span class="s2">&quot;supervisord&quot;</span>
+         <span class="p">}</span>
+     <span class="n">expose</span><span class="p">:</span>
+       <span class="o">-</span> <span class="s1">&#39;8000&#39;</span>
+       <span class="o">-</span> <span class="s1">&#39;22&#39;</span>
+     <span class="n">volumes</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+     <span class="n">environment</span><span class="p">:</span>
+        <span class="n">IN_DOCKER</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="n">volumes</span><span class="p">:</span>
+  <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span>
+    <span class="n">docker</span><span class="p">:</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>tini init system based, with supervisor as service manager<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+<span class="n">settings</span><span class="p">:</span>
+  <span class="n">conductor_base</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+  <span class="n">volumes</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+
+<span class="n">services</span><span class="p">:</span>
+
+   <span class="n">dumb</span><span class="o">-</span><span class="n">runit</span><span class="p">:</span>
+     <span class="n">from</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+     <span class="n">container_name</span><span class="p">:</span> <span class="n">api</span>
+     <span class="n">roles</span><span class="p">:</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-container-bootstrap&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;dumb-init&quot;</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-nginx-container&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;dumb-init&quot;</span> <span class="c1"># optionally uses runit for services management and upstart.</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;../custom-roles/app-nginx-stub-deploy&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;dumb-init&quot;</span>
+         <span class="p">}</span>
+     <span class="n">expose</span><span class="p">:</span>
+       <span class="o">-</span> <span class="s1">&#39;8000&#39;</span>
+       <span class="o">-</span> <span class="s1">&#39;22&#39;</span>
+     <span class="n">volumes</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+     <span class="n">environment</span><span class="p">:</span>
+        <span class="n">IN_DOCKER</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="n">volumes</span><span class="p">:</span>
+  <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span>
+    <span class="n">docker</span><span class="p">:</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="close-to-phusion-s-base-image">
+<h2>Close to Phusion&#8217;s base image<a class="headerlink" href="#close-to-phusion-s-base-image" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span>
+<span class="n">settings</span><span class="p">:</span>
+  <span class="n">conductor_base</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+  <span class="n">volumes</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+
+<span class="n">services</span><span class="p">:</span>
+
+   <span class="n">phusion</span><span class="o">-</span><span class="n">runit</span><span class="p">:</span>
+     <span class="n">from</span><span class="p">:</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">16.04</span>
+     <span class="n">container_name</span><span class="p">:</span> <span class="n">api</span>
+     <span class="n">roles</span><span class="p">:</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-container-bootstrap&quot;</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;softasap.sa-nginx-container&quot;</span><span class="p">,</span>
+           <span class="n">container_init</span><span class="p">:</span> <span class="s2">&quot;phusion-init&quot;</span> <span class="c1"># uses runit for services management and upstart.</span>
+         <span class="p">}</span>
+       <span class="o">-</span> <span class="p">{</span>
+           <span class="n">role</span><span class="p">:</span> <span class="s2">&quot;../custom-roles/app-nginx-stub-deploy&quot;</span>
+         <span class="p">}</span>
+     <span class="n">expose</span><span class="p">:</span>
+       <span class="o">-</span> <span class="s1">&#39;8000&#39;</span>
+       <span class="o">-</span> <span class="s1">&#39;22&#39;</span>
+     <span class="n">volumes</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>   <span class="c1"># Used to copy static content between containers</span>
+     <span class="n">environment</span><span class="p">:</span>
+        <span class="n">IN_DOCKER</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="n">volumes</span><span class="p">:</span>
+  <span class="n">temp</span><span class="o">-</span><span class="n">space</span><span class="p">:</span>
+    <span class="n">docker</span><span class="p">:</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>More examples on
+<a class="reference external" href="https://github.com/Voronenko/devops-docker-baseimage-demo">https://github.com/Voronenko/devops-docker-baseimage-demo</a></p>
+</div>
+<div class="section" id="few-figures-on-produced-sizes">
+<h2>Few figures on produced sizes<a class="headerlink" href="#few-figures-on-produced-sizes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Base</span> <span class="n">system</span><span class="p">:</span>                               <span class="n">ubuntu</span> <span class="mf">16.04</span>
+<span class="n">Init</span> <span class="n">system</span><span class="p">:</span>                               <span class="n">phusion_init</span>
+<span class="n">Base</span> <span class="n">image</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">services</span><span class="p">:</span>              <span class="mi">268</span> <span class="n">MB</span> <span class="o">/</span> <span class="mi">101</span> <span class="n">MB</span> <span class="n">on</span> <span class="n">docker</span><span class="o">.</span><span class="n">hub</span>
+<span class="n">Base</span> <span class="n">image</span> <span class="k">with</span> <span class="n">demo</span> <span class="n">nginx</span> <span class="n">app</span> <span class="n">installed</span><span class="p">:</span>  <span class="mi">313</span> <span class="n">MB</span> <span class="o">/</span> <span class="mi">133</span> <span class="n">MB</span> <span class="n">on</span> <span class="n">docker</span> <span class="n">hub</span>
+
+<span class="n">phusion</span><span class="o">/</span><span class="n">baseimage</span><span class="p">:</span>                         <span class="mi">225</span> <span class="n">MB</span> <span class="o">/</span> <span class="mi">84</span> <span class="n">MB</span> <span class="n">on</span> <span class="n">docker</span> <span class="n">hub</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Ansible-container, once it reaches stable version hopefully this year,
+appears to be very promising tool for introducing complex docker based
+build pipelines. In addition, ansible community allows you to re-use
+number of available roles - that potentially can streamline your
+deployment implementation path.</p>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ansible-container.html">ansible-container</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (9)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2017.html">2017 (6)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-09-traefik.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Træfik — as an alternative reverse proxy to nginx for self hosted dockerized applications
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>
