@@ -110,3 +110,11 @@ li.ablog-cloud-2{font-size: 95%;}
 li.ablog-cloud-3{font-size: 110%;}
 li.ablog-cloud-4{font-size: 125%;}
 li.ablog-cloud-5{font-size: 140%;}
+
+.topmost_section {
+  padding-top: 80px
+}
+
+.text-gradient a {
+  color: white;
+}
