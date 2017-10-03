@@ -115,6 +115,18 @@ li.ablog-cloud-5{font-size: 140%;}
   padding-top: 80px
 }
 
-.text-gradient a {
+.text-gradient a.more {
   color: white;
+}
+
+
+.role_box .role_icon {
+  display: block;
+  font-size: 5em;
+  text-align: center;
+  text-decoration: none
+}
+
+.role_box .role_icon:hover {
+  text-decoration: none
 }
