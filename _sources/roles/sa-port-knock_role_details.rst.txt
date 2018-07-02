@@ -1,0 +1,121 @@
+.. title::  SOFTASAP | sa-port-knock
+.. _sa-port-knock-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-port-knock" class="anchor" href="#sa-port-knock" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-port-knock</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-port-knock"><img src="https://camo.githubusercontent.com/a79ed59b32dc3c2d81c8bd04f8bb75472b1c7946/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d706f72742d6b6e6f636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-port-knock.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Example of use: check box-example</p>
+    
+    <p>Configuration:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">custom_knock_default_props:</span>
+        - <span class="pl-ent">{regexp:</span> <span class="pl-s"><span class="pl-pds">"</span>^[#]?START_KNOCKD=*<span class="pl-pds">"</span></span><span class="pl-s">, line: "START_KNOCKD=1"}</span>
+        - <span class="pl-ent">{regexp:</span> <span class="pl-s"><span class="pl-pds">"</span>^[#]?KNOCKD_OPTS=*<span class="pl-pds">"</span></span><span class="pl-s">, line: '#KNOCKD_OPTS="-i eth1"'}</span>
+    
+    <span class="pl-ent">custom_knock_ports:</span>
+      - <span class="pl-s">{</span>
+        <span class="pl-ent">name:</span> <span class="pl-s"><span class="pl-pds">"</span>ssh<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+        <span class="pl-ent">sequence:</span> <span class="pl-s"><span class="pl-pds">"</span>15000, 16000, 17000<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+        <span class="pl-ent">seq_timeout:</span> <span class="pl-s">5,</span>
+        <span class="pl-ent">port:</span> <span class="pl-s">22,</span>
+        <span class="pl-ent">tcpflags:</span> <span class="pl-s">syn,</span>
+        <span class="pl-ent">cmd_timeout:</span> <span class="pl-c1">10</span>
+        }
+      - <span class="pl-s">{</span>
+        <span class="pl-ent">name:</span> <span class="pl-s"><span class="pl-pds">"</span>pptp<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+        <span class="pl-ent">sequence:</span> <span class="pl-s"><span class="pl-pds">"</span>15001, 16001, 17001<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+        <span class="pl-ent">seq_timeout:</span> <span class="pl-s">5,</span>
+        <span class="pl-ent">port:</span> <span class="pl-s">1723,</span>
+        <span class="pl-ent">tcpflags:</span> <span class="pl-s">syn,</span>
+        <span class="pl-ent">cmd_timeout:</span> <span class="pl-c1">1000</span>
+        }
+    </pre></div>
+    
+    <p>Simple:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-port-knock<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">knock_ports:</span> <span class="pl-s"><span class="pl-pds">"</span>{{custom_knock_ports}}<span class="pl-pds">"</span></span>
+    <span class="pl-s">       }</span>
+    </pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-port-knock<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">knock_ports:</span> <span class="pl-s"><span class="pl-pds">"</span>{{custom_knock_ports}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">knock_default_props:</span> <span class="pl-s"><span class="pl-pds">"</span>{{custom_knock_default_props}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">knock_firewall_type:</span> <span class="pl-s">ufw </span><span class="pl-c"># ufw | iptables,</span>
+             <span class="pl-ent">option_close_hardened_ports:</span> <span class="pl-c1">true</span><span class="pl-s">        </span>
+    <span class="pl-s">       }</span>
+    </pre></div>
+    
+    <h2><a id="user-content-client-usage" class="anchor" href="#client-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client usage</h2>
+    
+    <p>Usually I have few trusted networks, which I allow via dedicated rule using shell:</p>
+    
+    <div class="highlight highlight-source-shell"><pre>ufw allow from 192.168.0.234/24 to any port 22 proto tcp</pre></div>
+    
+    <p>or using sa-box-bootstrap role:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">ufw_rules_allow_from_hosts:</span>
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">port:</span> <span class="pl-s">22,</span>
+          <span class="pl-ent">proto:</span> <span class="pl-s">tcp,</span>
+          <span class="pl-ent">address:</span> <span class="pl-s">192.168.0.264</span>
+    <span class="pl-s">    }</span></pre></div>
+    
+    <p>Don't forget to disable your hardened port ,  like</p>
+    
+    <div class="highlight highlight-source-shell"><pre>ufw delete allow 22/tcp</pre></div>
+    
+    <p>or <code>option_close_hardened_ports</code> recipe setting</p>
+    
+    <p>Test setup:</p>
+    
+    <div class="highlight highlight-source-shell"><pre>➜  telnet  192.168.0.20 22
+    Trying 192.168.0.20...
+    
+    ➜  knock 192.168.0.20 15000, 16000, 17000
+    
+    ➜  telnet  192.168.0.20 22               
+    Trying 192.168.0.20...
+    Connected to 192.168.0.20.
+    Escape character is <span class="pl-s"><span class="pl-pds">'</span>^]<span class="pl-pds">'</span></span>.
+    SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.7
+    
+    ➜  ssh slavko@192.168.0.20
+    
+    Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-32-generic x86_64)
+    
+     <span class="pl-k">*</span> Documentation:  https://help.ubuntu.com/
+    
+    New release <span class="pl-s"><span class="pl-pds">'</span>16.04.1 LTS<span class="pl-pds">'</span></span> available.
+    Run <span class="pl-s"><span class="pl-pds">'</span>do-release-upgrade<span class="pl-pds">'</span></span> to upgrade to it.
+    
+    
+    </pre></div>
+    
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    
+    <p>Copyright - Vyacheslav Voronenko</p>
+    
+    <p>Code licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3 clause</a> or the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+    
+    <p>Subscribe for roles updates at <a href="https://www.facebook.com/SoftAsap/">FB</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

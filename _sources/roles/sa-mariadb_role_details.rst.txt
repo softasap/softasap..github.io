@@ -1,0 +1,42 @@
+.. title::  SOFTASAP | sa-mariadb
+.. _sa-mariadb-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-mariadb</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-mariadb"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-mariadb.svg?branch=master" /></a></p>
+    <p>MariaDB is dropin replacement for mysql with own features</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-mariadb&quot;
+          }
+    </code></pre>
+    
+    <p>Advanced:</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-mariadb&quot;,
+            mariadb_family: &quot;10.1&quot;,
+            mariadb_bind_to: 127.0.0.1,
+    
+            mysql_host: &quot;127.0.0.1&quot;,
+            mysql_root_user: root,
+            mysql_root_password: caspiwrocl,
+    
+            # For installation in VPC we really don't have brute force attacks
+            mycnf_extra_properties:
+               - {regexp: &quot;^#* *max_connect_errors&quot;, line: &quot;max_connect_errors = 4294967295&quot;, insertafter: '\[mysqld\]'}        
+          }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

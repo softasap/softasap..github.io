@@ -1,0 +1,44 @@
+.. title::  SOFTASAP | sa-vagrant
+.. _sa-vagrant-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-vagrant</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-vagrant"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-vagrant.svg?branch=master" /></a></p>
+    <p>Installs basic vagrant setup with necessary plugins</p>
+    <p>Example of use:</p>
+    <pre><code> - {
+         role: "sa-vagrant",
+         vagrant_version: 1.8.1,
+    
+         vagrant_plugins:
+           - vagrant-vbguest
+           - vagrant-hostsupdater
+           - vagrant-auto_network
+       }
+    </code></pre>
+    <p>There are tons of vagrant plugins. Some of them are quite handy.
+    Usually I am using three plugins with vagrant:</p>
+    <ul>
+    <li>vagrant-vbguest: Synhronizes guest additions versions inside image  with the master Oracle VirtualBox version. This helps to prevent random issues with shared folders.</li>
+    <li>vagrant-hostsupdater: Automatically updates host files with side dev aliases used. Important: this plugin will ask you for privileged access to write into /etc/hosts.  </li>
+    <li>vagrant-auto_network: This plugin registers an internal address range and assigns unique IP addresses for each successive request so that network configuration is entirely hands off. It's much lighter than running a DNS server and masks the underlying work of manually assigning addresses.</li>
+    </ul>
+    <p>With plugins above, my Vagrantfile usually contains: aliases for dev websites to be added to /etc/hosts + I prefer all Vagrant boxes to have the same IP address subnetwork.</p>
+    <p>config.vm.hostname = "www.local.dev"
+    config.hostsupdater.aliases = ["alias.local.dev", "alias2.local.dev"]
+    config.vm.network :private_network, :auto_network =&gt; true</p>
+    <h1>My favorite:  to stick to 33.* subnetwork</h1>
+    <p>AutoNetwork.default_pool = '192.168.33.0/24'</p>
+    <p>Vagrant in action:</p>
+    <p>https://github.com/Voronenko/lamp-box/</p>
+
+.. raw:: html
+
+    </div>

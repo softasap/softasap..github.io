@@ -1,0 +1,31 @@
+.. title::  SOFTASAP | sa-hashicorp-terraform
+.. _sa-hashicorp-terraform-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-hashicorp-vault</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-hashicorp-terraform"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-hashicorp-terraform.svg?branch=master" /></a></p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-hashicorp-terraform"
+          }</p>
+    <p>Advanced:</p>
+    <p>roles:
+        - {
+            role: "sa-hashicorp-terraform",
+            apps_dir: /opt,
+            terraform_version: 0.6.15,
+            terraform_platform: linuc
+          }</p>
+
+.. raw:: html
+
+    </div>

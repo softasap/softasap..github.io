@@ -1,0 +1,31 @@
+.. title::  SOFTASAP | sa-dev-webstorm
+.. _sa-dev-webstorm-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-dev-webstorm</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-dev-webstorm"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-dev-webstorm.svg?branch=master" /></a></p>
+    <p>Installs Jetbrains phpstorm</p>
+    <pre><code>- {
+        role: "sa-dev-webstorm",
+        option_install_java: true,
+        java_version: 7,
+        phpstorm_version: "2016.1.2b"
+      }
+    </code></pre>
+    <h1>Optionally install java</h1>
+    <p>option_install_java: false</p>
+    <h1>if install java, which version</h1>
+    <p>java_version: 7</p>
+    <h1>Supported phpstorm versions:</h1>
+    <p>webstorm_version" in [ "2016.1.2b", "11.0.4", "10.0.5", "9.0.4", "8.0.3", "8.0.6", "7.0.5", "6.0.3", "5.0.4", "4.0.3", "3.0.3", "2.1.5", "1.0.2" ]</p>
+
+.. raw:: html
+
+    </div>

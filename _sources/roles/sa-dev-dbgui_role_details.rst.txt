@@ -1,0 +1,18 @@
+.. title::  SOFTASAP | sa-dev-dbgui
+.. _sa-dev-dbgui-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-dev-dbgui</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-dev-dbgui"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-dev-dbgui.svg?branch=master" /></a></p>
+    <p>Installs popular db tools dbeawer and robomongo</p>
+
+.. raw:: html
+
+    </div>

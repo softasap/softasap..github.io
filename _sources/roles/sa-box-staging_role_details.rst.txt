@@ -1,0 +1,17 @@
+.. title::  SOFTASAP | sa-box-staging
+.. _sa-box-staging-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-box-staging</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-box-staging"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-box-staging.svg?branch=master" /></a></p>
+
+.. raw:: html
+
+    </div>

@@ -1,0 +1,207 @@
+.. title::  SOFTASAP | sa-prudentia
+.. _sa-prudentia-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-prudentia" class="anchor" href="#sa-prudentia" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-prudentia</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-prudentia"><img src="https://camo.githubusercontent.com/133f0f3e96878f939cc9ddae97e29ac52276c250/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d70727564656e7469612e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-prudentia.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Example of usage (all parameters are optional)</p>
+    
+    <p>Simple</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles:</span>
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-prudentia<span class="pl-pds">"</span></span>
+    <span class="pl-s">      }</span></pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles:</span>
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-prudentia<span class="pl-pds">"</span></span>
+    <span class="pl-s">      }</span></pre></div>
+    
+    <p><a href="https://pypi.python.org/pypi/prudentia">https://pypi.python.org/pypi/prudentia</a></p>
+    
+    <p>Prudentia is a Continuous Deployment toolkit written in Python.</p>
+    
+    <p>Mission</p>
+    
+    <p>Prudentia’s mission is to help you to get production (or any other environment) ready in minutes instead of days, by streamlining all the actions needed to provision your architectural components.</p>
+    
+    <p>Features</p>
+    
+    <p>Prudentia uses Ansible as its main automation system, so it easily understands Ansible playbooks. A playbook is one of the components needed to define a Prudentia Box.</p>
+    
+    <p>Prudentia currently offers:</p>
+    
+    <p>a CLI (supporting auto-completion) used to interactively define Boxes and run operations on them
+    Here-Document format to script Prudentia environments
+    provisioning of an existing server that can be accessed trough SSH
+    management of the lifecycle of a Box that has been created through Prudentia
+    creating Boxes using one of these providers:
+    Vagrant
+    DigitalOcean
+    local
+    ssh
+    Currently, all features work with Python 2.6+ and 3.2+.</p>
+    
+    <p>Prerequisites</p>
+    
+    <p>You need at minimum:</p>
+    
+    <p>Python 2.6 and pip
+    To install on a Linux distribution you need:</p>
+    
+    <p>libffi-dev
+    libssl-dev
+    python-dev
+    Installation</p>
+    
+    <p>To install Prudentia:</p>
+    
+    <pre><code>$ pip install prudentia
+    </code></pre>
+    
+    <p>It may be necessary to have root privileges, in which case:</p>
+    
+    <pre><code>$ sudo pip install prudentia
+    </code></pre>
+    
+    <p>To uninstall:</p>
+    
+    <pre><code>$ pip uninstall prudentia
+    </code></pre>
+    
+    <p>Box operations</p>
+    
+    <p>A Simple provider (e.g. Local provider or SSH provider) have the following operations available:</p>
+    
+    <pre><code>register: adds a new box definition to the registry
+    unregister: removes a box from the registry
+    reconfigure: changes the definition of an existing box
+    list: lists all boxes in the registry
+    set: defines or override an Ansible extra variable
+    unset: removes an Ansible extra variable
+    vars: loads Ansible extra variables from an external .yml or .json file (overriding existing ones)
+    envset: sets the value of an environment variable
+    provision: runs tasks defined in the playbook associated with a box
+    decrypt: sets the password used to decrypt Ansible vault files
+    verbose: sets Ansible verbosity, using a value between 0 and 4
+    facts: shows useful information about the box and accepts optional parameter to filter properties
+    </code></pre>
+    
+    <p>A Factory provider (e.g. Vagrant provider or DigitalOcean provider) extend simple provider and adds the ability to change the box life cycle:</p>
+    
+    <pre><code>create: instantiate a new instance based of the box definition
+    restart: reloads the instance
+    stop: shuts down the instance
+    destroy: kill the instance
+    phoenix: shortcut for stop -&gt; destroy -&gt; create -&gt; start -&gt; provision (citing phoenix server Martin Fowler’s article)
+    status: returns the status of the instance
+    </code></pre>
+    
+    <p>Usage</p>
+    
+    <p>CLI
+    We’ll show a usage example of the SSH provider bundled with Prudentia.</p>
+    
+    <p>Make sure you have a server that you can ssh into.</p>
+    
+    <pre><code>$ prudentia ssh
+    </code></pre>
+    
+    <p>Check what the Ssh provider can do using tab completion:</p>
+    
+    <pre><code>(Prudentia &gt; Ssh)
+    decrypt      EOF          help         list         provision    reconfigure  register     set          unregister   unset        vars
+    </code></pre>
+    
+    <p>Let’s start registering a new box:</p>
+    
+    <pre><code>(Prudentia &gt; Ssh) register
+    </code></pre>
+    
+    <p>Specify the playbook path:
+    Now Prudentia is asking for a playbook path, and this is actually an Ansible playbook.</p>
+    
+    <p>You can use one of the samples that you can find in the examples/boxes directory. For instance, the tasks.yml that will run some Ansible tasks that we’ve defined (those tasks are not that meaningful, but they are used as a sanity check in our tests).</p>
+    
+    <p>So let’s continue using the tasks.yml:</p>
+    
+    <pre><code>(Prudentia &gt; Ssh) register
+    Specify the playbook path: /path/to/prudentia/examples/boxes/tasks.yml
+    Specify the box name [default: tasks-host]:
+    Specify the instance address or inventory: ip.of.your.server
+    Specify the remote user [default: _your_user_]:
+    Specify the password for the remote user [default: ssh key]:
+    </code></pre>
+    
+    <p>Box example -&gt; (/path/to/prudentia/examples/boxes/tasks.yml, tasks-host, ip.of.your.server, <em>your_user</em>) added.
+    You will notice that, for some questions, Prudentia gives suggested answer within [ ]. For instance, the suggested Box name is tasks-host. If you like the suggestion, just press enter to choose it.</p>
+    
+    <p>So far we’ve registered a Prudentia Box that can be used to play around. If you want to check the definition again:</p>
+    
+    <pre><code>(Prudentia &gt; Ssh) list
+    example -&gt; (/path/to/prudentia/examples/boxes/tasks.yml, tasks-host, ip.of.your.server, _your_user_)
+    </code></pre>
+    
+    <p>Now that we have double-checked that our Box has been registered, we can provision it:</p>
+    
+    <pre><code>(Prudentia &gt; Ssh) provision example
+    
+    PLAY [tasks-host] ***************************************************************
+    
+    GATHERING FACTS ***************************************************************
+    ok: [tasks-host]
+    
+    TASK: [Uname] *****************************************************************
+    changed: [tasks-host] =&gt; {"changed": true, "cmd": ["uname", "-a"], "delta": "0:00:00.005527", "end": "2015-01-01 19:13:58.633534", "rc": 0, "start": "2015-01-01 19:13:58.628007", "stderr": "", "stdout": "Darwin tiziano-air 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64", "warnings": []}
+    
+    TASK: [Shuffle] ***************************************************************
+    ok: [tasks-host] =&gt; (item=2) =&gt; {
+        "item": 2,
+        "msg": "2"
+    }
+    ok: [tasks-host] =&gt; (item=4) =&gt; {
+        "item": 4,
+        "msg": "4"
+    }
+    ok: [tasks-host] =&gt; (item=1) =&gt; {
+        "item": 1,
+        "msg": "1"
+    }
+    ok: [tasks-host] =&gt; (item=5) =&gt; {
+        "item": 5,
+        "msg": "5"
+    }
+    ok: [tasks-host] =&gt; (item=3) =&gt; {
+        "item": 3,
+        "msg": "3"
+    }
+    
+    TASK: [No operation] **********************************************************
+    ok: [tasks-host] =&gt; {
+        "msg": "Task noop executed."
+    }
+    
+    PLAY RECAP ********************************************************************
+    tasks-host                  : ok=4    changed=1    unreachable=0    failed=0
+    
+    Play run took 0 minutes
+    </code></pre>
+    
+    <p>Now Prudentia has done the reasonable uninteresting uname, shuffling a list of ints and noop tasks on the remote machine.</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

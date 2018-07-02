@@ -1,0 +1,84 @@
+.. title::  SOFTASAP | sa-secure-audit-debsums
+.. _sa-secure-audit-debsums-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-secure-audit-debsums" class="anchor" href="#sa-secure-audit-debsums" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-secure-audit-debsums</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-secure-audit-debsums"><img src="https://camo.githubusercontent.com/3b05c15a5695cff78f3e2b793b12d811b32e5b6b/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d7365637572652d61756469742d64656273756d732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-secure-audit-debsums.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Example of use: check box-example</p>
+    
+    <p>Simple:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-secure-audit-debsums<span class="pl-pds">"</span></span>
+    <span class="pl-s">       }</span>
+    </pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-secure-audit-debsums<span class="pl-pds">"</span></span>
+    <span class="pl-s">       }</span>
+    
+    </pre></div>
+    
+    <p>Verify every installed package including configuration files.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -a
+    </pre></div>
+    
+    <p>Verify installed packages and report only errors</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -s
+    </pre></div>
+    
+    <p>Verify every installed package and report only changed files.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -c
+    </pre></div>
+    
+    <p>Verify every installed package including configuration files and report only changed files.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -ca
+    </pre></div>
+    
+    <p>Verify every installed package and report only changed configuration files.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -ce
+    </pre></div>
+    
+    <p>Verify specific package and its configuration files.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo debsums -a bash    
+    </pre></div>
+    
+    <p>Get a list of packages with missing or modified file.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>dpkg-query -S <span class="pl-s"><span class="pl-pds">$(</span>sudo debsums -c <span class="pl-k">2&gt;&amp;1</span> <span class="pl-k">|</span> sed -e <span class="pl-s"><span class="pl-pds">"</span>s/.*file \(.*\) (.*/\1/g<span class="pl-pds">"</span></span><span class="pl-pds">)</span></span> <span class="pl-k">|</span> cut -d: -f1 <span class="pl-k">|</span> sort -u
+    </pre></div>
+    
+    <p>Use generated list to reinstall group of packages.</p>
+    
+    <div class="highlight highlight-source-shell"><pre>sudo apt-get install --reinstall <span class="pl-s"><span class="pl-pds">$(</span>dpkg-query -S <span class="pl-s"><span class="pl-pds">$(</span>sudo debsums -c <span class="pl-k">2&gt;&amp;1</span> <span class="pl-k">|</span> sed -e <span class="pl-s"><span class="pl-pds">"</span>s/.*file \(.*\) (.*/\1/g<span class="pl-pds">"</span></span><span class="pl-pds">)</span></span> <span class="pl-k">|</span> cut -d: -f1 <span class="pl-k">|</span> sort -u<span class="pl-pds">)</span></span>
+    </pre></div>
+    
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    
+    <p>Code licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3 clause</a> or the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+    
+    <p>Subscribe for roles updates at <a href="https://www.facebook.com/SoftAsap/">FB</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

@@ -1,0 +1,30 @@
+.. title::  SOFTASAP | sa-chef-client
+.. _sa-chef-client-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-chef-client</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-chef-client"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-chef-client.svg?branch=master" /></a></p>
+    <p>Tests cover LTS releases only</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-chef-client"
+          }</p>
+    <p>Advanced:</p>
+    <p>roles:
+        - {
+            role: "sa-chef-client",
+            chef_client_version: "12.10.24"
+          }</p>
+
+.. raw:: html
+
+    </div>

@@ -1,0 +1,23 @@
+.. title::  SOFTASAP | sa-mongo-monitoring-agent
+.. _sa-mongo-monitoring-agent-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-mongo-monitoring-agent</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-mongo-monitoring-agent"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-mongo-monitoring-agent.svg?branch=master" /></a></p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-mongo-monitoring-agent",
+            mmsApiKey: "blablabla"
+          }</p>
+
+.. raw:: html
+
+    </div>

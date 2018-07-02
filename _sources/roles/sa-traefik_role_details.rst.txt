@@ -1,0 +1,103 @@
+.. title::  SOFTASAP | sa-traefik
+.. _sa-traefik-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-traefik" class="anchor" href="#sa-traefik" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-traefik</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-traefik"><img src="https://camo.githubusercontent.com/6bb12b137c08432d1abdcfa8cdc7c88f8b25d127/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d7472616566696b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-traefik.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Note: play relies on changes to be introduced in traefik since 1.4.0 ;
+    Previous traefik versions are supported via <code>option_confd_fallback</code> option</p>
+    <p>Example of use: check box-example</p>
+    <p>Simple:</p>
+    <div class="highlight highlight-source-yaml"><pre>...
+    
+    <span class="pl-ent">roles</span>:
+    
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-traefik<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">option_confd_fallback</span>: <span class="pl-c1">true</span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-traefik<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">option_confd_fallback</span>: <span class="pl-c1">true</span>
+    
+             <span class="pl-ent">traefik_install_dir</span>: <span class="pl-s">/opt/traefik,</span>
+             <span class="pl-ent">traefik_version</span>: <span class="pl-s"><span class="pl-pds">"</span>1.4.0-rc1<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+             <span class="pl-ent">traefik_settings</span>:
+               - <span class="pl-s">{</span>
+                 <span class="pl-ent">name</span>: <span class="pl-s"><span class="pl-pds">"</span>logLevel<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+                 <span class="pl-ent">value</span>: <span class="pl-s"><span class="pl-pds">"</span>DEBUG<span class="pl-pds">"</span></span>
+                 <span class="pl-s">}</span>
+               - <span class="pl-s">{</span>
+                 <span class="pl-ent">name</span>: <span class="pl-s"><span class="pl-pds">"</span>traefikLogsFile<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+                 <span class="pl-ent">value</span>: <span class="pl-s"><span class="pl-pds">"</span>/var/log/traefik.log<span class="pl-pds">"</span></span>
+                 <span class="pl-s">},</span>
+    
+             <span class="pl-ent">traefik_extra_settings</span>: <span class="pl-s">[]</span>
+    
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h2><a id="user-content-usage-notes" class="anchor" href="#usage-notes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage notes</h2>
+    <p>In difference from other <code>traefik</code> roles, using "naked" setup, you will not get UI.</p>
+    <p>Instead, we expect, that your server specific configuration will be placed into conf.d/ folder
+    on a later stages.</p>
+    <p>files under conf.d are either supposed to be handled natively by traefik (since 1.4.0, most likely),
+    or they will be merged into generated config in alphabetical order , if <code>option_confd_fallback</code> is set.</p>
+    <p>Typical example of the application specific configuration play is provided below.</p>
+    <pre><code>- name: Traefik | Configure default entry points
+      template: src="{{playbook_dir}}/templates/entrypoints.toml.j2" dest="/opt/traefik/conf.d/entrypoints.toml" owner="root" group="root" mode="0644"
+      become: yes
+      tags:
+        - traefik
+        - create
+    
+    - name: Traefik | Configure web administration backend
+      template: src="{{playbook_dir}}/templates/web_backend.toml.j2" dest="/opt/traefik/conf.d/web_backend.toml" owner="root" group="root" mode="0644"
+      become: yes
+      tags:
+        - traefik
+        - create
+    
+    - name: Traefik | Configure docker link
+      template: src="{{playbook_dir}}/templates/docker.toml.j2" dest="/opt/traefik/conf.d/docker.toml" owner="root" group="root" mode="0644"
+      become: yes
+      tags:
+        - traefik
+        - create
+    
+    
+    - name: Traefik | Restart if watching is not activated
+      service: name="traefik" state="restarted" enabled="yes"
+      become: yes
+      tags:
+        - traefik
+        - create
+    </code></pre>
+    <h2><a id="user-content-usage-with-ansible-galaxy-workflow" class="anchor" href="#usage-with-ansible-galaxy-workflow" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage with ansible galaxy workflow</h2>
+    <p>If you installed the sa-traefik  role using the command</p>
+    <p><code>ansible-galaxy install softasap.sa-traefik</code></p>
+    <p>the role will be available in the folder library/sa-traefik</p>
+    <p>Please adjust the path accordingly.</p>
+    <div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-traefik<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join Gitter channel at [Gitter] (<a href="https://gitter.im/softasap/">https://gitter.im/softasap/</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

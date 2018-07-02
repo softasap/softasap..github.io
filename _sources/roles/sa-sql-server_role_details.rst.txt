@@ -1,0 +1,71 @@
+.. title::  SOFTASAP | sa-sql-server
+.. _sa-sql-server-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-sql-server" class="anchor" href="#sa-sql-server" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-sql-server</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-sql-server"><img src="https://camo.githubusercontent.com/23fc77c89c30fc8696a8a7441699fa555b280794/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d73716c2d7365727665722e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-sql-server.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>This role installs SQL Server 2017 RC2 (or more recent) on Ubuntu 16.04.
+    Then you can connect with sqlcmd to create your first database and run queries.</p>
+    <p>Prerequisites</p>
+    <p>You must have a Ubuntu machine with at least 3.25 GB of memory. Additional MS requirements
+    might be checked here:  <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup#system">https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup#system</a></p>
+    <p>Simple</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-sql-server<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-c"><span class="pl-c">#</span> Password for the SA user (required)</span>
+            <span class="pl-ent">mssql_sa_password</span>: <span class="pl-s"><span class="pl-pds">"</span>YourStrong1Passw0rd<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+            <span class="pl-c"><span class="pl-c">#</span> Product ID of the version of SQL server you're installing</span>
+            <span class="pl-c"><span class="pl-c">#</span> Must be evaluation, developer, express, web, standard, enterprise, or your 25 digit product key</span>
+            <span class="pl-c"><span class="pl-c">#</span> Defaults to developer</span>
+            <span class="pl-ent">mssql_pid</span>: <span class="pl-s">developer</span>
+          <span class="pl-s">}</span></pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-sql-server<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+          <span class="pl-c"><span class="pl-c">#</span> Password for the SA user (required)</span>
+          <span class="pl-ent">mssql_sa_password</span>: <span class="pl-s"><span class="pl-pds">"</span>YourStrong1Passw0rd<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+          <span class="pl-c"><span class="pl-c">#</span> Product ID of the version of SQL server you're installing</span>
+          <span class="pl-c"><span class="pl-c">#</span> Must be evaluation, developer, express, web, standard, enterprise, or your 25 digit product key</span>
+          <span class="pl-c"><span class="pl-c">#</span> Defaults to developer</span>
+          <span class="pl-ent">mssql_pid</span>: <span class="pl-s">developer,</span>
+    
+          <span class="pl-c"><span class="pl-c">#</span> Install SQL Server Agent (recommended)</span>
+          <span class="pl-ent">option_sql_install_agent</span>: <span class="pl-s">true,</span>
+    
+          <span class="pl-c"><span class="pl-c">#</span> Install SQL Server Full Text Search (optional)</span>
+          <span class="pl-ent">option_sql_install_fulltext</span>: <span class="pl-s">false,</span>
+    
+          <span class="pl-c"><span class="pl-c">#</span> Create an additional user with sysadmin privileges (optional)</span>
+          <span class="pl-ent">option_sql_install_user</span>: <span class="pl-s">true,</span>
+          <span class="pl-ent">sql_install_user</span>: <span class="pl-s">user,</span>
+          <span class="pl-ent">sql_install_user_password</span>: <span class="pl-s"><span class="pl-pds">"</span>YourStrong1Passw0rd<span class="pl-pds">"</span></span>
+        <span class="pl-s">}</span></pre></div>
+    <h2><a id="user-content-usage-with-ansible-galaxy-workflow" class="anchor" href="#usage-with-ansible-galaxy-workflow" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage with ansible galaxy workflow</h2>
+    <p>If you installed the sa-sql-server  role using the command</p>
+    <p><code>ansible-galaxy install softasap.sa-sql-server</code></p>
+    <p>the role will be available in the folder library/sa-sql-server</p>
+    <p>Please adjust the path accordingly.</p>
+    <div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-sql-server<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join Gitter channel at [Gitter] (<a href="https://gitter.im/softasap/">https://gitter.im/softasap/</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

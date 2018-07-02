@@ -1,0 +1,40 @@
+.. title::  SOFTASAP | sa-graylog
+.. _sa-graylog-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-graylog</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-graylog"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-graylog.svg?branch=master" /></a></p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-graylog&quot;,
+            graylog_api_domain: &quot;graylog.example.com&quot;,
+            graylog_secret: Srq1IiuBwXrTwiw78dJBeLvWd4CbHYCOoO0NL4i74QWOImZqvbUzaD5PisTcP2aJ,
+            graylog_admin_password_sha256: daa35e4f1a0e43def76e13a948cbda05be2569901fa0c6d5d6342fb2bdc85028 #admin!
+          }
+    </code></pre>
+    
+    <p>Advanced:</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-graylog&quot;,
+            graylog_api_domain: &quot;graylog.example.com&quot;,
+            option_install_java: false,
+            option_install_elastic_search: false,
+            option_nginx_frontend: false,
+            java_version: 8,
+            graylog_api_domain: &quot;graylog.example.com&quot;,
+            graylog_secret: Srq1IiuBwXrTwiw78dJBeLvWd4CbHYCOoO0NL4i74QWOImZqvbUzaD5PisTcP2aJ,
+            graylog_admin_password_sha256: daa35e4f1a0e43def76e13a948cbda05be2569901fa0c6d5d6342fb2bdc85028 #admin!
+          }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

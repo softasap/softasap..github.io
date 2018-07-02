@@ -1,0 +1,89 @@
+.. title::  SOFTASAP | sa-postfix
+.. _sa-postfix-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-postfix" class="anchor" href="#sa-postfix" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-postfix</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-postfix"><img src="https://camo.githubusercontent.com/e7910e3aa476f10ed338956f445cd09652aa0108/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d706f73746669782e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-postfix.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Example of use: check box-example</p>
+    <p>Simple:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-postfix<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">postfix_hostname</span>: <span class="pl-s"><span class="pl-pds">"</span>appserver.example.com<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-postfix<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">postfix_hostname</span>: <span class="pl-s"><span class="pl-pds">"</span>appserver.example.com<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">postfix_properties</span>:
+               - <span class="pl-s">{regexp: "^myhostname =*", line: "myhostname = {{postfix_hostname}}"}</span>
+               - <span class="pl-s">{regexp: "^myorigin =*", line: "myorigin = $mydomain"}</span>
+               - <span class="pl-s">{regexp: "^relayhost =*", line: "relayhost ="}</span>
+               - <span class="pl-s">{regexp: "^inet_interfaces =*", line: "inet_interfaces = loopback-only"}</span>
+               - <span class="pl-s">{regexp: "^mydestination =*", line: "mydestination = loopback-only"}</span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h1><a id="user-content-misc-hints" class="anchor" href="#misc-hints" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc hints</h1>
+    <h2><a id="user-content-to-check-it-actually-sends---check" class="anchor" href="#to-check-it-actually-sends---check" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>To check, it actually sends - check</h2>
+    <div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>This is the body of the email<span class="pl-pds">"</span></span> <span class="pl-k">|</span> mail --debug-level 10 -s <span class="pl-s"><span class="pl-pds">"</span>This is the subject line<span class="pl-pds">"</span></span> your_email_address
+    </pre></div>
+    <p>And check in /var/log/mail.log. In 2016 with 98% mails will be rejected by +- known mail providers</p>
+    <p>Note, that by default you have major chances, that sent mail will finish it's line in SPAM.  Configuring your MTA &amp; DNS is out of scope for this role.</p>
+    <h2><a id="user-content-redirect-local-mail-to-external-email-address" class="anchor" href="#redirect-local-mail-to-external-email-address" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>redirect local mail to external email address</h2>
+    <div class="highlight highlight-source-shell"><pre>lmtp_host_lookup = native
+    smtp_host_lookup = native
+    virtual_alias_maps = hash:/etc/postfix/virtual</pre></div>
+    <p>in /etc/postfix/virtual configure redirection settings:</p>
+    <pre><code>root   youremail@gmail.com
+    munin  root
+    </code></pre>
+    <p>and apply the settings:</p>
+    <div class="highlight highlight-source-shell"><pre>postmap /etc/postfix/virtual
+    postfix reload</pre></div>
+    <p>be aware, that <em>all</em> mail for root will be forwarded.</p>
+    <h2><a id="user-content-rewriting-sender-domain" class="anchor" href="#rewriting-sender-domain" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rewriting sender domain</h2>
+    <p>in main.cf introduce</p>
+    <pre><code>sender_canonical_maps = hash:/etc/postfix/canonical
+    </code></pre>
+    <p>edit /etc/postfix/canonical to contain smth like</p>
+    <pre><code>root@example.com   no-reply@example.com
+    @local.example.com       @example.com
+    </code></pre>
+    <p>to apply the settings:</p>
+    <div class="highlight highlight-source-shell"><pre>postmap /etc/postfix/canonical
+    postfix reload
+    </pre></div>
+    <h2><a id="user-content-filtering-emails-you-want-to-receive" class="anchor" href="#filtering-emails-you-want-to-receive" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filtering emails you want to receive</h2>
+    <p>Once you're satisfied with the content filtering script:</p>
+    <p>Create a dedicated local user account called "postfixfilter". This user handles all potentially dangerous mail content - that is why it should be a separate account. Do not use "nobody", and most certainly do not use "root" or "postfix".</p>
+    <p>Create a directory /var/spool/filter that is accessible only to the "postfixfilter" user. This is where the content filtering script is supposed to store its temporary files.</p>
+    <p>Configure Postfix to deliver mail to the content filter with the pipe delivery agent</p>
+    <p>/etc/postfix/master.cf:</p>
+    <pre><code>  # =============================================================
+      # service type  private unpriv  chroot  wakeup  maxproc command
+      #               (yes)   (yes)   (yes)   (never) (100)
+      # =============================================================
+      filter    unix  -       n       n       -       10      pipe
+        flags=Rq user=postfixfilter null_sender=
+        argv=/path/to/script -f ${sender} -- ${recipient}
+    </code></pre>
+    <p>Possible options: transfer emails into syslog events or, saying , sentry calls</p>
+    <p>take a look on example in box-example/templates/content_filter.py.j2</p>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Copyright - Vyacheslav Voronenko</p>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

@@ -1,0 +1,19 @@
+.. title::  SOFTASAP | sa-uwsgi
+.. _sa-uwsgi-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-uwsgi</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-uwsgi"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-uwsgi.svg?branch=master" /></a></p>
+    <p>uwsgi in emperor mode.</p>
+    <p>Upstart supported: upstart, systemd, supervisord</p>
+
+.. raw:: html
+
+    </div>

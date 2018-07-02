@@ -1,0 +1,107 @@
+.. title::  SOFTASAP | sa-container-bootstrap
+.. _sa-container-bootstrap-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-container-bootstrap" class="anchor" href="#sa-container-bootstrap" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-container-bootstrap</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-container-bootstrap"><img src="https://camo.githubusercontent.com/13b0e3a2919a12261bf45725ff51b4a100098313/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d636f6e7461696e65722d626f6f7473747261702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-container-bootstrap.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Helper role to be executed with <code>ansible-container</code> aiming to pre-configure guest OS for better image
+    Ubuntu part is based on Phusion BaseImage idea. See original license.</p>
+    <p>Third party ideas and libraries used</p>
+    <ul>
+    <li><a href="https://github.com/renatosilva/easyoptions">https://github.com/renatosilva/easyoptions</a></li>
+    <li><a href="https://github.com/phusion/baseimage-docker">https://github.com/phusion/baseimage-docker</a></li>
+    </ul>
+    <h2><a id="user-content-vars" class="anchor" href="#vars" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vars</h2>
+    <p>Role can be configured using following parameters</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-c"><span class="pl-c">#</span> GENERAL CONFIGURATION</span>
+    
+    <span class="pl-c"><span class="pl-c">#</span> Desired init system:  phusion docker image compatible, using dumb-init</span>
+    <span class="pl-ent">container_init</span>: <span class="pl-s"><span class="pl-pds">"</span>phusion-init<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> "dumb-init" "tini-init"</span>
+    
+    <span class="pl-ent">container_svc</span>: <span class="pl-s"><span class="pl-pds">"</span>runit<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> "supervisord"</span>
+    
+    <span class="pl-c"><span class="pl-c">#</span> Directory where you can place executable files to be executed at startup</span>
+    <span class="pl-ent">container_init_directory</span>: <span class="pl-s">/etc/my_init.d</span>
+    
+    <span class="pl-c"><span class="pl-c">#</span> Install cron inside container (using runit service starter)</span>
+    <span class="pl-ent">option_container_cron</span>: <span class="pl-c1">true</span>
+    <span class="pl-c"><span class="pl-c">#</span> Install ssh service inside container (using runit service starter)</span>
+    <span class="pl-ent">option_container_sshd</span>: <span class="pl-c1">true</span>
+    <span class="pl-c"><span class="pl-c">#</span>... and enable service startup</span>
+    <span class="pl-ent">option_container_sshd_enabled</span>: <span class="pl-c1">true</span>
+    <span class="pl-c"><span class="pl-c">#</span>... using this key pair to connect inside instance:</span>
+    <span class="pl-ent">container_ssh_private_key</span>: <span class="pl-s"><span class="pl-pds">"</span>{{role_dir}}/files/keys/insecure_key<span class="pl-pds">"</span></span>
+    <span class="pl-ent">container_ssh_public_key</span>: <span class="pl-s"><span class="pl-pds">"</span>{{role_dir}}/files/keys/insecure_key.pub<span class="pl-pds">"</span></span>
+    <span class="pl-c"><span class="pl-c">#</span> Install syslog service inside container and redirect output to docker logs (using runit service starter)</span>
+    <span class="pl-ent">option_container_syslog_ng</span>: <span class="pl-c1">true</span>
+    
+    
+    <span class="pl-c"><span class="pl-c">#</span> phusion-init related configuration</span>
+    <span class="pl-c"><span class="pl-c">#</span> used by phusion-init, should point real installed python</span>
+    <span class="pl-ent">container_python_interpeter</span>: <span class="pl-s"><span class="pl-pds">"</span>/usr/bin/python3<span class="pl-pds">"</span></span>
+    
+    
+    <span class="pl-c"><span class="pl-c">#</span> dumb-init related configuration</span>
+    
+    <span class="pl-ent">dumb_init_version</span>: <span class="pl-s"><span class="pl-pds">"</span>1.2.0<span class="pl-pds">"</span></span></pre></div>
+    <h2><a id="user-content-more-insides-on-services" class="anchor" href="#more-insides-on-services" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More insides on services</h2>
+    <p>Container uses runit <a href="http://smarden.org/runit/">http://smarden.org/runit/</a> , which acts similar to classic upstart. It targets almost 100% of systems usually used as base for docker images.</p>
+    <p>Few examples on starting services with runit: place executable .runit files under <code>/etc/service/SERVICE_NAME/run</code></p>
+    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#!</span>/bin/sh</span>
+    <span class="pl-c1">set</span> -e
+    <span class="pl-c1">.</span> /etc/memcached.conf
+    <span class="pl-c1">exec</span> chpst -u memcache /usr/bin/memcached <span class="pl-smi">$MEMCACHED_OPTS</span> <span class="pl-k">&gt;&gt;</span>/var/log/memcached.log <span class="pl-k">2&gt;&amp;1</span></pre></div>
+    <pre><code>#!/bin/bash
+    set -e
+    exec nginx -c /etc/nginx/nginx.conf
+    </code></pre>
+    <pre><code>
+    #!/bin/sh
+    set -e
+    
+    RUNDIR=/var/run/redis
+    PIDFILE=$RUNDIR/redis.pid
+    
+    mkdir -p $RUNDIR
+    touch $PIDFILE
+    chown redis:redis $RUNDIR $PIDFILE
+    chmod 755 $RUNDIR
+    
+    exec chpst -u redis /usr/bin/redis-server /etc/redis/redis.conf
+    </code></pre>
+    <h2><a id="user-content-running-processes-on-startup" class="anchor" href="#running-processes-on-startup" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running processes on startup</h2>
+    <p>Placing sh files under <code>container_init_directory</code> ( default <code>/etc/my_init.d</code> ) will ensure that they are executed on startup.
+    If you decide to skip installation of the runit, this is the only way to get smth executed on boot.</p>
+    <h2><a id="user-content-additional-ways-of-setting-environment-inside-container" class="anchor" href="#additional-ways-of-setting-environment-inside-container" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Additional ways of setting environment inside container</h2>
+    <p>In addition to passing environment externally, you can put environment files under <code>/etc/container_environment</code> directory,
+    using following convention: file is named by the name of var you want to set, like ENVVARNAME and it's contents is value of the variable you want to set.</p>
+    <h2><a id="user-content-container-init-specifics" class="anchor" href="#container-init-specifics" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container init specifics</h2>
+    <p>As was mentioned, role supports three initialization options: <code>phusion-init</code>, <code>dumb-init</code>, <code>supervisor-init</code>.
+    While <code>phusion-init</code> provides the same approach as we see on Phusion docker image, <code>dumb-init</code> and <code>supervisor-init</code> can be used in simpler
+    services.</p>
+    <p><code>dumb-init</code> uses simpler init system: <a href="https://github.com/Yelp/dumb-init">https://github.com/Yelp/dumb-init</a></p>
+    <p><code>supervisor-init</code> known, but more heavy init system, often used with python projects.</p>
+    <h2><a id="user-content-code-in-action" class="anchor" href="#code-in-action" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code in action</h2>
+    <p>See box-example for the standalone working example. It will configure application
+    image that will display 'OK' on connect - check it out:</p>
+    <p><a href="http://play-with-docker.com?stack=https://raw.githubusercontent.com/softasap/sa-container-bootstrap/master/box-example/docker-compose-try.yml"><img src="https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png" alt="" style="max-width:100%;"></a></p>
+    <p>More temporary hints on ansible container troubleshouting, if any on <a href="https://gist.github.com/Voronenko/77fc4743ef7e70d74ee74b7ee62fd7e5">https://gist.github.com/Voronenko/77fc4743ef7e70d74ee74b7ee62fd7e5</a>  ()</p>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+    <p>Reach us:</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join gitter discussion channel at <a href="https://gitter.im/softasap">Gitter</a></p>
+    <p>Discover other roles at  <a href="http://www.softasap.com/roles/registry_generated.html">http://www.softasap.com/roles/registry_generated.html</a></p>
+    <p>visit our blog at <a href="http://www.softasap.com/blog/archive.html">http://www.softasap.com/blog/archive.html</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

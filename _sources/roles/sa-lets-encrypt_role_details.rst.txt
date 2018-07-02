@@ -1,0 +1,96 @@
+.. title::  SOFTASAP | sa-lets-encrypt
+.. _sa-lets-encrypt-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-lets-encrypt" class="anchor" href="#sa-lets-encrypt" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-lets-encrypt</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-lets-encrypt"><img src="https://camo.githubusercontent.com/b008b3a67a879b0ff9d98d45c7c55b1690268c19/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d6c6574732d656e63727970742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-lets-encrypt.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Is based on beautiful script <a href="https://github.com/lukas2511/letsencrypt.sh">https://github.com/lukas2511/letsencrypt.sh</a></p>
+    <p>Example of use:</p>
+    <pre>
+    - hosts: dev
+    
+      vars:
+        - root_dir: "{{playbook_dir}}"
+        - my_domains:
+          - {
+            names: "voronenko.net www.voronenko.net",
+            nginx_config: "/etc/nginx/sites-available/voronenko_net"
+            }
+    
+    
+      pre_tasks:
+        - debug: msg="Pre tasks section"
+    
+      roles:
+    
+        - {
+            role: "sa-lets-encrypt",
+            le_domains: "{{my_domains}}",
+            option_run_once: true,
+            option_setup_cron: true
+          }
+    
+    
+      tasks:
+        - debug: msg="Tasks section"
+    
+    </pre>
+    <p>Advanced example:</p>
+    <pre>
+    ---
+    - hosts: www
+      vars:
+        - root_dir: "{{playbook_dir}}"
+        - my_domains:
+          - {
+            names: "voronenko.net www.voronenko.net",
+            nginx_config: "/etc/nginx/sites-available/voronenko_net"
+            }
+    
+      pre_tasks:
+        - debug: msg="Pre tasks section"
+    
+      roles:
+    
+        - {
+            role: "sa-nginx"
+          }
+        - {
+            role: "sa-include",
+            include_file: "{{root_dir}}/demosite.yml"
+          }
+        - {
+            role: "sa-lets-encrypt",
+            le_domains: "{{my_domains}}",
+    #        le_ca: "https://acme-staging.api.letsencrypt.org/directory",
+            option_run_once: true,
+            option_setup_cron: true
+          }
+    
+    
+      tasks:
+        - debug: msg="Tasks section"
+    
+    </pre>
+    <p>See standalone example in box-example folder.</p>
+    <p><a href="https://camo.githubusercontent.com/dbd2a9194b1b793d41a510876154c0b9aaf97beb/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f312e706e67" target="_blank"><img src="https://camo.githubusercontent.com/dbd2a9194b1b793d41a510876154c0b9aaf97beb/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f312e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/1.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/704b29edc02247a7735c0de78f76c46853f86bcf/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f322e706e67" target="_blank"><img src="https://camo.githubusercontent.com/704b29edc02247a7735c0de78f76c46853f86bcf/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f322e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/2.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/61ac39afaa3170a4710fa9d8d9228411c2ca85f2/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f332e706e67" target="_blank"><img src="https://camo.githubusercontent.com/61ac39afaa3170a4710fa9d8d9228411c2ca85f2/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f332e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/3.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/303bef852a4cfd05c6be96e7df74ebf287d86b69/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f342e706e67" target="_blank"><img src="https://camo.githubusercontent.com/303bef852a4cfd05c6be96e7df74ebf287d86b69/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f342e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/4.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/7e8e9757f4444780f8bce51dc9ff562ed74fc658/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f352e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7e8e9757f4444780f8bce51dc9ff562ed74fc658/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f352e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/5.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/6dc1579760efea438efee5b83d7f1278c5221f28/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f362e706e67" target="_blank"><img src="https://camo.githubusercontent.com/6dc1579760efea438efee5b83d7f1278c5221f28/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f362e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/6.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/3cbdd16dc585a07755ad47f5d5de91e1e29dd5d6/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f372e706e67" target="_blank"><img src="https://camo.githubusercontent.com/3cbdd16dc585a07755ad47f5d5de91e1e29dd5d6/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f372e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/7.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/7be9bd9de1da6d5b4d32543f5593bc8cfab7c1c2/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f382e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7be9bd9de1da6d5b4d32543f5593bc8cfab7c1c2/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f382e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/8.png" style="max-width:100%;"></a></p>
+    <p><a href="https://camo.githubusercontent.com/8f2cc3f54b3e28a005960904364551d5fedc528b/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f392e706e67" target="_blank"><img src="https://camo.githubusercontent.com/8f2cc3f54b3e28a005960904364551d5fedc528b/68747470733a2f2f7261772e6769746875622e636f6d2f736f6674617361702f73612d6c6574732d656e63727970742f6d61737465722f626f782d6578616d706c652f646f63732f392e706e67" alt="" data-canonical-src="https://raw.github.com/softasap/sa-lets-encrypt/master/box-example/docs/9.png" style="max-width:100%;"></a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

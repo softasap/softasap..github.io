@@ -1,0 +1,27 @@
+.. title::  SOFTASAP | sa-dev-pgweb
+.. _sa-dev-pgweb-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-dev-pgweb" class="anchor" href="#sa-dev-pgweb" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-dev-pgweb</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-dev-pgweb"><img src="https://camo.githubusercontent.com/d81f9ca1e17ca14cfd5a9b6490f4e048e8353a28/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d6465762d70677765622e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-dev-pgweb.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Pgweb is a web-based database browser for PostgreSQL, written in Go and works on OSX, Linux and Windows machines. 
+    Main idea behind using Go for backend development is to utilize ability of the compiler to produce zero-dependency binaries for multiple platforms. 
+    Pgweb was created as an attempt to build very simple and portable application to work with local or remote PostgreSQL databases.</p>
+    
+    <p>To use:</p>
+    
+    <p>run /opt/pgweb/pgweb  , connect via port 8081</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

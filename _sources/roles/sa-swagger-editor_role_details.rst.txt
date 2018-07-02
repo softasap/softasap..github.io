@@ -1,0 +1,35 @@
+.. title::  SOFTASAP | sa-swagger-editor
+.. _sa-swagger-editor-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-swagger-editor</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-swagger-editor"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-swagger-editor.svg?branch=master" /></a></p>
+    <p>Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation and sandbox from a Swagger-compliant API. Because Swagger UI has no dependencies, you can host it in any server environment, or on your local machine
+    Swagger Editor - is a web based editor you can use to edit and preview service yml files</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-swagger-editor"
+          }</p>
+    <p>Advanced:</p>
+    <p>roles:
+        - {
+            role: "sa-swagger-editor",
+            install_dir: "/home/slavko/apps/swagger_editor",</p>
+    <pre><code>    option_install_nodejs: true,
+        nodejs_version: "4.x"
+    
+      }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

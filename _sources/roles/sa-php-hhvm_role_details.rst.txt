@@ -1,0 +1,17 @@
+.. title::  SOFTASAP | sa-php-hhvm
+.. _sa-php-hhvm-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-php-hhvm</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-php-hhvm"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-php-hhvm.svg?branch=master" /></a></p>
+
+.. raw:: html
+
+    </div>

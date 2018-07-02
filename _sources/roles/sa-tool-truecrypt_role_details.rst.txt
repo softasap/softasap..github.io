@@ -1,0 +1,25 @@
+.. title::  SOFTASAP | sa-tool-truecrypt
+.. _sa-tool-truecrypt-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-tool-truecrypt</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-tool-truecrypt"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-tool-truecrypt.svg?branch=master" /></a></p>
+    <p>Famous truecrypt legacy package. Consider veracrypt for newer deployments.</p>
+    <p>Simple usage:</p>
+    <pre><code>roles:
+         - {
+             role: &quot;sa-tool-truecrypt&quot;
+           }
+    
+    </code></pre>
+
+.. raw:: html
+
+    </div>

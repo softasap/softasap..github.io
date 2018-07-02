@@ -1,0 +1,599 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Provisioning solution to amazon ecs, part 2 - preparing needed dependencies</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom"
+})});
+</script>
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2018_03_02">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/services.html">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2018-01-03.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Provisioning solution to amazon ecs, part 1 - network infrastructure
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2018-03-03.html">
+    Provisioning solution to amazon ecs, part 3 - creating the cluster
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Mar 02, 2018
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>,
+      
+    
+      
+      <a href="tag/amazon.html">amazon</a>,
+      
+    
+      
+      <a href="tag/ecs.html">ecs</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="provisioning-solution-to-amazon-ecs-part-2-preparing-needed-dependencies">
+<h1>Provisioning solution to amazon ecs, part 2 - preparing needed dependencies<a class="headerlink" href="#provisioning-solution-to-amazon-ecs-part-2-preparing-needed-dependencies" title="Permalink to this headline">¶</a></h1>
+<p>In order to be ready to create our first cluster, we need to prepare some parameters in advance.
+Those are:</p>
+<ol class="loweralpha simple">
+<li>If you are going to use ssl , we need to note ssl certificate id (arn)</li>
+</ol>
+<p>project_ssl_certificate_arn: &#8220;arn:aws:acm:us-east-1:blablabla&#8221;</p>
+<ol class="loweralpha simple" start="2">
+<li>We need to chose operation system on instances which would power our cluster.</li>
+</ol>
+<p>At a moment, two most often used ones - are Amazon optimized image with agent,
+<a class="reference external" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html</a>  and CoreOS
+<a class="reference external" href="https://coreos.com/os/docs/latest/booting-on-ec2.html">https://coreos.com/os/docs/latest/booting-on-ec2.html</a> ;</p>
+<p>Usually I start with Amazon optimized, while project is under development, as it is easier
+to troubleshoot, and switch to CoreOS once project reaches production quality.</p>
+<p>Write down current AMI image id for your region at a moment.</p>
+<ol class="loweralpha simple" start="3">
+<li>We need to pre-create to roles in our account - ecsServiceRole and ecsInstanceRole</li>
+</ol>
+<p>ecsServiceRole_arn: &#8220;arn:aws:iam::blabla:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS&#8221;
+ecsInstanceRole_arn: &#8220;arn:aws:iam::blabla:instance-profile/ecsInstanceRole&#8221;</p>
+<p>Note: depending on exact architecture of the application, you might provide additional set,
+check out  <a class="reference external" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/IAM_policies.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/IAM_policies.html</a></p>
+<p>As service improves, requirements change from time to time, make sure to consult documentation.
+At a moment of article writing, ecsServiceRole policy for purposes of the demo can be described as</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ec2:AttachNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkInterfacePermission&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:DeleteNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:DeleteNetworkInterfacePermission&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:DetachNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:DeregisterInstancesFromLoadBalancer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:DeregisterTargets&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:RegisterInstancesWithLoadBalancer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:RegisterTargets&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and ecsInstanceRole role policy (referred also as  AmazonEC2ContainerServiceforEC2Role ) can be described as</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ecs:CreateCluster&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:DeregisterContainerInstance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:DiscoverPollEndpoint&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:Poll&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:RegisterContainerInstance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:StartTelemetrySession&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:UpdateContainerInstancesState&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:Submit*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:GetAuthorizationToken&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchCheckLayerAvailability&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:GetDownloadUrlForLayer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchGetImage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:PutLogEvents&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note: for any concrete case you should follow rule of less permissions given. I.e. your roles should cover only rights
+that are really needed for your application</p>
+<ol class="loweralpha simple" start="4">
+<li>Docker registry credentials</li>
+</ol>
+<p>You have also possibility since approx end of 2016 to host your docker images on a aws provided registry, or, you can
+use docker registry of your choice, for example, docker hub. Upon login token can be obtained from .docker/config.json</p>
+<p>Example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir -p .docker <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;.docker directory exists&quot;</span>
+<span class="nb">export</span> <span class="nv">DOCKER_CONFIG</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/.docker
+docker login --username<span class="o">=</span>dockerhub@login.dev --password<span class="o">=</span><span class="s1">&#39;YOURSECUREPASSWORD&#39;</span>
+cat .docker/config.json <span class="c1"># prove that the file contains credentials</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="5">
+<li>And of course infastructure variables in aws-us-east-1-VPC-vars.yml from the network step , see first part of the article, if you missed</li>
+</ol>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># {{ ansible_managed }}</span>
+<span class="c1"># This file was generated by ansible via __network_create.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_id</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span> <span class="nv">lookup(&#39;aws_vpc_id_from_name&#39;</span><span class="p p-Indicator">,</span> <span class="nv">aws_region</span><span class="p p-Indicator">,</span> <span class="nv">readable_env_name + &#39;-vpc-&#39; + aws_region)</span> <span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_vpc_privsubnet1 | default(aws_vpc_privsubnet1_runtime)</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_vpc_privsubnet2 | default(aws_vpc_privsubnet2_runtime)</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet1</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_vpc_pubsubnet1 | default(aws_vpc_pubsubnet1_runtime)</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet2</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_vpc_pubsubnet2 | default(aws_vpc_pubsubnet2_runtime)</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_sg_pub</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_sg_pub | default(lookup(&#39;aws_secgroup_ids_from_names&#39;</span><span class="p p-Indicator">,</span> <span class="nv">aws_region</span><span class="p p-Indicator">,</span> <span class="p p-Indicator">[</span><span class="nv">readable_env_name + &#39;-public-ELB&#39;</span><span class="p p-Indicator">]</span><span class="nv">))</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_sg_api</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_sg_api | default(lookup(&#39;aws_secgroup_ids_from_names&#39;</span><span class="p p-Indicator">,</span> <span class="nv">aws_region</span><span class="p p-Indicator">,</span> <span class="p p-Indicator">[</span><span class="nv">readable_env_name + &#39;-private-CLUSTER&#39;</span><span class="p p-Indicator">]</span><span class="nv">))</span><span class="p p-Indicator">}}</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_sg_priv</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{{</span><span class="nv">aws_sg_priv | default(lookup(&#39;aws_secgroup_ids_from_names&#39;</span><span class="p p-Indicator">,</span> <span class="nv">aws_region</span><span class="p p-Indicator">,</span> <span class="p p-Indicator">[</span><span class="nv">readable_env_name + &#39;-private-DATALAYER&#39;</span><span class="p p-Indicator">]</span><span class="nv">))</span><span class="p p-Indicator">}}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s summarize, what we have in hypothetical cluster_defaults.yml:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">project_ssl_certificate_arn</span><span class="p p-Indicator">:</span> <span class="s">&quot;arn:aws:acm:us-east-1:blablabla&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ecsServiceRole_arn</span><span class="p p-Indicator">:</span> <span class="s">&quot;arn:aws:iam::blabla:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">ecsInstanceRole_arn</span><span class="p p-Indicator">:</span> <span class="s">&quot;arn:aws:iam::blabla:instance-profile/ecsInstanceRole&quot;</span>
+
+
+<span class="c1"># https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html</span>
+<span class="l l-Scalar l-Scalar-Plain">ec2_basic</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span>
+ <span class="nv">image_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_basic_image_id</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;ami-ba722dc0&#39;)}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_type</span><span class="p p-Indicator">:</span> <span class="s">&quot;t2.micro&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_profile_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;ecsInstanceRole&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">assign_public_ip_address</span><span class="p p-Indicator">:</span> <span class="s">&quot;yes&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">vpc_subnet_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_vpc_pubsubnet1}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_sg_api}}&quot;</span> <span class="c1"># security</span>
+<span class="p p-Indicator">}</span>
+
+<span class="c1"># https://coreos.com/os/docs/latest/booting-on-ec2.html</span>
+<span class="l l-Scalar l-Scalar-Plain">ec2_coreos</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span>
+ <span class="nv">image_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_coreos_image_id</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;ami-e582d29f&#39;)}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_type</span><span class="p p-Indicator">:</span> <span class="s">&quot;t2.micro&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_profile_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;ecsInstanceRole&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">assign_public_ip_address</span><span class="p p-Indicator">:</span> <span class="s">&quot;yes&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">vpc_subnet_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_vpc_pubsubnet1}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_sg_api}}&quot;</span> <span class="c1"># security</span>
+<span class="p p-Indicator">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ec2</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_basic}}&quot;</span>  <span class="c1"># selected type</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ecs_engine_auth_data_token</span><span class="p p-Indicator">:</span> <span class="s">&quot;CENSORED_TOKEN&quot;</span>  <span class="c1"># todo: SET IT FROM SECURE VARS , cat ~/.docker/config.json</span>
+<span class="l l-Scalar l-Scalar-Plain">ecs_engine_auth_data_email</span><span class="p p-Indicator">:</span> <span class="s">&quot;CENSORED_LOGIN&quot;</span>  <span class="c1"># todo:  SET IT FROM SECURE VARS</span>
+</pre></div>
+</div>
+<p>That&#8217;s all, we are ready for the next step</p>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/amazon.html">amazon</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ansible-container.html">ansible-container</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ecs.html">ecs</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (12)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2018.html">2018 (3)</a></li>
+    
+  
+    
+    <li><a href="2017.html">2017 (6)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2018-01-03.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Provisioning solution to amazon ecs, part 1 - network infrastructure
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2018-03-03.html">
+    Provisioning solution to amazon ecs, part 3 - creating the cluster
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+.. title::  SOFTASAP | sa-box-bootstrap
+.. _sa-box-bootstrap-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><p><a href="https://travis-ci.org/softasap/sa-box-bootstrap"><img src="https://camo.githubusercontent.com/1e477acc321fa17401566037bb1b4fbebe057aa5/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d626f782d626f6f7473747261702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-box-bootstrap.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Example of usage:</p>
+    <p>Simple</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_user}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_authorized_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_authorized_keys}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">timezone</span>: <span class="pl-s"><span class="pl-pds">"</span>Europe/Kiev<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    
+    </pre></div>
+    <p>Advanced</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">vars</span>:
+        - <span class="pl-ent">root_dir</span>: <span class="pl-s">..</span>
+    
+        - <span class="pl-ent">jenkins_user</span>: <span class="pl-s">jenkins</span>
+          <span class="pl-ent">jenkins_authorized_keys</span>:
+            - <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/vyacheslav1.pub<span class="pl-pds">"</span></span>
+            - <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/vyacheslav2.pub<span class="pl-pds">"</span></span>
+            - <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/vyacheslav3.pub<span class="pl-pds">"</span></span>
+            - <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/vyacheslav4.pub<span class="pl-pds">"</span></span>
+        - <span class="pl-ent">timezone</span>: <span class="pl-s"><span class="pl-pds">"</span>Europe/Kiev<span class="pl-pds">"</span></span>
+    
+      <span class="pl-ent">pre_tasks</span>:
+        - <span class="pl-ent">debug</span>: <span class="pl-s">msg="Pre tasks section"</span>
+    
+      <span class="pl-ent">roles</span>:
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_user}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_key</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/jenkins_rsa<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_pub_key</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/jenkins_rsa.pub<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_authorized_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_authorized_keys}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+             <span class="pl-ent">timezone</span>: <span class="pl-s"><span class="pl-pds">"</span>Europe/Kiev<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+             <span class="pl-ent">option_copy_initial_authorized_keys</span>: <span class="pl-s">true,</span>
+             <span class="pl-ent">option_enforce_ssh_keys_login</span>: <span class="pl-s">true,</span>
+             <span class="pl-ent">option_file2ban</span>: <span class="pl-s">true,</span>
+             <span class="pl-ent">option_ufw</span>: <span class="pl-s">true,</span>
+             <span class="pl-ent">option_monit</span>: <span class="pl-c1">true</span>
+    
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Important: if you would not specify <code>deploy_user_sudo_password</code> parameter, the created deployment user will be allowed to execute sudo w/o password confirmation.
+    While in some cases it is ok, having additional level of security is never bad, thus:</p>
+    <p>Deployment user requesting a sudo password</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">vars</span>:
+        - <span class="pl-ent">user_authorized_keys</span>:
+            - <span class="pl-s"><span class="pl-pds">"</span>~/.ssh/id_rsa.pub<span class="pl-pds">"</span></span>
+        - <span class="pl-ent">user_sudo_pass</span>: <span class="pl-s"><span class="pl-pds">"</span>secret<span class="pl-pds">"</span></span>
+    
+      <span class="pl-ent">roles</span>:
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>slavko<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_authorized_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{user_authorized_keys}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_sudo_password</span>: <span class="pl-s"><span class="pl-pds">"</span>{{user_sudo_pass | password_hash('sha512')}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">option_enforce_ssh_keys_login</span>: <span class="pl-s">yes</span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>If you have deployment user which requires entering sudo password, you need to provide it via <code>ansible_become_password</code> parameter.</p>
+    <pre><code>
+    register
+    $BOX_PLAYBOOK
+    $BOX_NAME
+    $BOX_ADDRESS
+    $BOX_USER
+    $BOX_PWD
+    
+    verbose 4
+    set box_address $BOX_ADDRESS
+    set ansible_become_password secret
+    
+    provision $BOX_NAME
+    
+    
+    </code></pre>
+    <h1><a id="user-content-prepare-your-box-for-deployment" class="anchor" href="#prepare-your-box-for-deployment" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prepare your box for deployment</h1>
+    <h1><a id="user-content-background" class="anchor" href="#background" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background</h1>
+    <p>Nowadays deployments moved from bare metal servers to a quickly started virtual machines,
+    like the one provided by Amazon, Digital Ocean, OpenStack based providers.
+    Thus no longer configuration of the box requires manual administration steps.
+    One of the options is ready to use pre-configured box images.  Another approach is to
+    start from initial system restart and provision it according to project needs with some provisioner like
+    Ansible, Chef or Puppet.</p>
+    <p>The first step to proceed with custom provisioning - is to perform basic box securing,
+    as in some cases you are given with freshly installed box with the root password.s</p>
+    <p>Let me share with you quick recipe on initial box securing , which should be good for most of web deployments.</p>
+    <h2><a id="user-content-challenges-to-address" class="anchor" href="#challenges-to-address" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Challenges to address</h2>
+    <p>At the end of the article we should be able secure  ubuntu 14.04 LTS virtual server</p>
+    <ul>
+    <li>configure firewall, allow only 22, 443 and 80 in.</li>
+    <li>register your public key(s) for deploy user</li>
+    <li>secure ssh to allow only authorization by keys.</li>
+    <li>put automatic process in play to ban open ssh port lovers from the  internet.</li>
+    </ul>
+    <h1><a id="user-content-bootstrap-box-role" class="anchor" href="#bootstrap-box-role" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bootstrap box role</h1>
+    <p>Ansible comes with a nice concept of reusing deployment snippets, called roles. So let's take a look,
+    what <em>sa-box-bootstrap</em> role does:</p>
+    <h2><a id="user-content-configuration-options" class="anchor" href="#configuration-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration options</h2>
+    <p>Following variables might be overwritten:</p>
+    <ul>
+    <li>root_dir  - required, <a href="https://github.com/Voronenko/ansible-developer_recipes">Ansible developer recipes</a> repository</li>
+    <li>option_enforce_ssh_keys_login (true|false) - whenever to enforce ssh security</li>
+    <li>ufw_rules_default - default firewall policy. In most cases is not touched</li>
+    <li>ufw_rules_allow - set of inbound rules to be configured</li>
+    <li>sshd_config_lines - needed changes in SSHD config to secure the box.</li>
+    <li>option_file2ban - when true, file2ban package will additionally introduced</li>
+    <li>whitelistedips - set of ips that are considered safe - your office gateway, build server etc; To prevent you being accidentaly blocked</li>
+    </ul>
+    <h2><a id="user-content-step-1--put-firewall-on" class="anchor" href="#step-1--put-firewall-on" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 1 : Put firewall on</h2>
+    <p>1-st step install and configure ufw firewall:</p>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-ent">include</span>: <span class="pl-s"><span class="pl-pds">"</span>{{root_dir}}/tasks_ufw.yml<span class="pl-pds">"</span></span></pre></div>
+    <p>by default, following firewall rules apply (outgoing any, http https &amp; ssh are allowed inside):</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">ufw_rules_default</span>:
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">policy</span>: <span class="pl-s">deny,</span>
+          <span class="pl-ent">direction</span>: <span class="pl-s">incoming</span>
+        <span class="pl-s">}</span>
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">policy</span>: <span class="pl-s">allow,</span>
+          <span class="pl-ent">direction</span>: <span class="pl-s">outgoing</span>
+        <span class="pl-s">}</span>
+    
+    <span class="pl-ent">ufw_rules_allow</span>:
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">port</span>: <span class="pl-s">80,</span>
+          <span class="pl-ent">proto</span>: <span class="pl-s">tcp</span>
+         <span class="pl-s">}</span>
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">port</span>: <span class="pl-s">443,</span>
+          <span class="pl-ent">proto</span>: <span class="pl-s">tcp</span>
+        <span class="pl-s">}</span>
+      - <span class="pl-s">{</span>
+          <span class="pl-ent">port</span>: <span class="pl-s">22,</span>
+          <span class="pl-ent">proto</span>: <span class="pl-s">tcp</span>
+         <span class="pl-s">}</span></pre></div>
+    <p>You can override these variables to match your needs.</p>
+    <h2><a id="user-content-step-2-create-deploy-user" class="anchor" href="#step-2-create-deploy-user" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2: Create deploy user</h2>
+    <p>If you intend to work &amp; provision this box, most likely you don't want to do it under the root.
+    Thus, second step is - create deploy user, authorized by set of provided ssh keys, allowed to become sudoer w/o password (base requirement for automated provisioning)</p>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-ent">include</span>: <span class="pl-s"><span class="pl-pds">"</span>{{root_dir}}/use/__create_deploy_user.yml user={{deploy_user}} group={{deploy_user}} home=/home/{{deploy_user}}<span class="pl-pds">"</span></span>
+      <span class="pl-ent">when</span>: <span class="pl-s">deploy_user is defined</span>
+    
+    - <span class="pl-ent">name</span>: <span class="pl-s">SSH | Authorize keys</span>
+      <span class="pl-ent">authorized_key</span>: <span class="pl-s">user={{deploy_user}} key="{{ lookup('file', item) }}"</span>
+      <span class="pl-ent">when</span>: <span class="pl-s">deploy_user_keys is defined</span>
+      <span class="pl-ent">with_items</span>: <span class="pl-s"><span class="pl-pds">"</span>{{deploy_user_keys}}<span class="pl-pds">"</span></span>
+      <span class="pl-ent">sudo</span>: <span class="pl-s">yes</span></pre></div>
+    <p>You might define the user in your playbook, for example, in this way:</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">jenkins_user</span>: <span class="pl-s">jenkins</span>
+    <span class="pl-ent">jenkins_authorized_keys</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/components/files/ssh/vyacheslav.pub<span class="pl-pds">"</span></span></pre></div>
+    <p>and later pass this as a parameters to role:</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">roles</span>:
+       - <span class="pl-s">{</span>
+           <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+           <span class="pl-ent">root_dir</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/public/ansible_developer_recipes<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+           <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_user}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+           <span class="pl-ent">deploy_user_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_authorized_keys}}<span class="pl-pds">"</span></span>
+         <span class="pl-s">}</span></pre></div>
+    <h2><a id="user-content-step-3-secure-ssh-optional" class="anchor" href="#step-3-secure-ssh-optional" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 3: Secure SSH (optional)</h2>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-ent">name</span>: <span class="pl-s">SSH | Enforce SSH keys security</span>
+      <span class="pl-ent">lineinfile</span>: <span class="pl-s">dest=/etc/ssh/sshd_config regexp="{{item.regexp}}" line="{{item.line}}"</span>
+      <span class="pl-ent">with_items</span>: <span class="pl-s"><span class="pl-pds">"</span>{{sshd_config_lines}}<span class="pl-pds">"</span></span>
+      <span class="pl-ent">when</span>: <span class="pl-s">option_enforce_ssh_keys_login</span>
+      <span class="pl-ent">become</span>: <span class="pl-s">yes</span>
+      <span class="pl-ent">tags</span>: <span class="pl-s">ssh</span></pre></div>
+    <p>If var <em>option_enforce_ssh_keys_login</em> is set to true, sshd config is modified according to
+    sshd_config_lines rules.  By default, it is using v2 protocol, prohibiting root login,
+    prohibiting password authenticaton.</p>
+    <h2><a id="user-content-step-4-ban-strange-persons-guessing-your-ssh-user-access" class="anchor" href="#step-4-ban-strange-persons-guessing-your-ssh-user-access" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 4: Ban strange persons guessing your ssh user access</h2>
+    <p>If var option_file2ban is set to true. Special tool file2ban is installed.
+    It will watch out for failure ssh logging attempts and ban out intruders.
+    To prevent yourself from being accidentally blocked, good idea to whitelist your ips, both single IPs and network masks are supported, for example:</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">whitelistedips</span>:
+     - <span class="pl-s">127.0.0.1</span>
+     - <span class="pl-s">127.0.0.1/8</span></pre></div>
+    <h1><a id="user-content-creating-your-own-box-bootstrap-project" class="anchor" href="#creating-your-own-box-bootstrap-project" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating your own box bootstrap project</h1>
+    <p>Let's prepare basic bootstrap project, that can be used in the future.
+    It includes following files:</p>
+    <ul>
+    <li><em>bootstrap.sh</em> - installs ansible alongside with dependences.</li>
+    <li><em>init.sh</em> - initializes</li>
+    <li><em>.projmodules</em> - fully compatible with .gitmodules git syntax,  specifies list of the dependencies
+    that will be used by the playbook.
+    In particular, it includes ansible- by default developer_recipes (repository with set of handy deployment recipes)
+    and ansible role called  <em>sa-box-bootstrap</em> responsible for box securing steps.</li>
+    </ul>
+    <pre><code>[submodule "public/ansible_developer_recipes"]
+    	path = public/ansible_developer_recipes
+    	url = git@github.com:Voronenko/ansible-developer_recipes.git
+    [submodule "roles/sa-box-bootstrap"]
+            path = roles/sa-box-bootstrap
+            url = git@github.com:softasap/sa-box-bootstrap.git
+    </code></pre>
+    <ul>
+    <li><em>hosts</em> - list here the initial box credentials, that were provided to you for the server</li>
+    </ul>
+    <pre><code>[bootstrap]
+    box_bootstrap ansible_ssh_host=192.168.0.17 ansible_ssh_user=your_user ansible_ssh_pass=your_password
+    </code></pre>
+    <ul>
+    <li><em>box_vars.yml</em> - set here specific environment overrides, like your preffered deploy user name and keys.</li>
+    <li><em>box_bootstrap.yml</em> - here you put your box provisioning steps. Box securing is only the first step.
+    In order, to override params for <em>sa-box-bootstrap</em> - pass the parameters like in example below.</li>
+    </ul>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-ent">hosts</span>: <span class="pl-s">all</span>
+    
+      <span class="pl-ent">vars_files</span>:
+        - <span class="pl-s">./box_vars.yml</span>
+      <span class="pl-ent">roles</span>:
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">root_dir</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/public/ansible_developer_recipes<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>{{my_deploy_user}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{my_deploy_authorized_keys}}<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h1><a id="user-content-code-in-action" class="anchor" href="#code-in-action" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code in action</h1>
+    <p>Code can be downloaded from repository <a href="https://github.com/Voronenko/devops-bootstrap-box-template">https://github.com/Voronenko/devops-bootstrap-box-template</a>
+    In order to use it - fork it, adjust parameters to your needs, and use.
+    Adjusting includes: creation of box_vars.yml file. You can override there any of mentioned above variables.
+    The minimal required set is deploy_user and your public keys.</p>
+    <pre><code>box_deploy_user: jenkins
+    box_deploy_authorized_keys:
+      - "{{playbook_dir}}/components/files/ssh/vyacheslav.pub"
+    </code></pre>
+    <p>Ensure, you have ansible (bootstrap.sh to install) and cloned roles directories (init.sh)
+    Than run setup.sh.  If everything is configured correctly, you will see smth like that:</p>
+    <pre><code>PLAY [all] ********************************************************************
+    
+    GATHERING FACTS ***************************************************************
+    ok: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Sets correctly hostname] ****************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | debug var="ufw_rules_allow"] ************************
+    ok: [box_bootstrap] =&gt; {
+        "var": {
+            "ufw_rules_allow": [
+                {
+                    "port": 80,
+                    "proto": "tcp"
+                },
+                {
+                    "port": 443,
+                    "proto": "tcp"
+                },
+                {
+                    "port": 22,
+                    "proto": "tcp"
+                }
+            ]
+        }
+    }
+    
+    TASK: [sa-box-bootstrap | UFW | Reset it] *************************************
+    ok: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | UFW | Configure incoming/outgoing defaults] *********
+    ok: [box_bootstrap] =&gt; (item={'policy': 'deny', 'direction': 'incoming'})
+    ok: [box_bootstrap] =&gt; (item={'policy': 'allow', 'direction': 'outgoing'})
+    
+    TASK: [sa-box-bootstrap | UFW | Configure rules to allow incoming traffic] ****
+    ok: [box_bootstrap] =&gt; (item={'port': 80, 'proto': 'tcp'})
+    ok: [box_bootstrap] =&gt; (item={'port': 443, 'proto': 'tcp'})
+    ok: [box_bootstrap] =&gt; (item={'port': 22, 'proto': 'tcp'})
+    
+    TASK: [sa-box-bootstrap | UFW | Configure rules to allow incoming traffic from specific hosts] ***
+    skipping: [box_bootstrap] =&gt; (item=ufw_rules_allow_from_hosts)
+    
+    TASK: [sa-box-bootstrap | UFW | Enable it] ************************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Monit | Check if is installed] **********************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Monit | libssl-dev dependency] **********************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Monit | Download] ***********************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Monit | Install] ************************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | debug msg="Creating deploy user {{my_deploy_user}}:{{my_deploy_user}} with home directory /home/{{my_deploy_user}}"] ***
+    ok: [box_bootstrap] =&gt; {
+        "msg": "Creating deploy user jenkins:jenkins with home directory /home/jenkins"
+    }
+    
+    TASK: [sa-box-bootstrap | Deploy User | Creating group] ***********************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Deploy User | Creating user] ************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Deploy User | Check key presence] *******************
+    ok: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Deploy User | Copy authorized_keys from {{ansible_user_id}}] ***
+    skipping: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Deploy User | Set permission on authorized_keys] ****
+    skipping: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Deploy User | Ensuring sudoers no pwd prompting] ****
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | SSH | Authorize keys] *******************************
+    changed: [box_bootstrap] =&gt; (item=/home/slavko/labs/devops-bootstrap-box-template/components/files/ssh/vyacheslav.pub)
+    
+    TASK: [sa-box-bootstrap | SSH | Enforce SSH keys security] ********************
+    ok: [box_bootstrap] =&gt; (item={'regexp': '^Protocol.*', 'line': 'Protocol 2'})
+    changed: [box_bootstrap] =&gt; (item={'regexp': '^PermitRootLogin.*', 'line': 'PermitRootLogin no'})
+    ok: [box_bootstrap] =&gt; (item={'regexp': '^RSAAuthentication.*', 'line': 'RSAAuthentication yes'})
+    ok: [box_bootstrap] =&gt; (item={'regexp': '^PubkeyAuthentication.*', 'line': 'PubkeyAuthentication yes'})
+    ok: [box_bootstrap] =&gt; (item={'regexp': '^ChallengeResponseAuthentication.*', 'line': 'ChallengeResponseAuthentication no'})
+    changed: [box_bootstrap] =&gt; (item={'regexp': '^PasswordAuthentication.*', 'line': 'PasswordAuthentication no'})
+    changed: [box_bootstrap] =&gt; (item={'regexp': '^MaxAuthTries.*', 'line': 'MaxAuthTries 3'})
+    
+    TASK: [sa-box-bootstrap | SSH | Restart SSHD] *********************************
+    changed: [box_bootstrap]
+    
+    TASK: [sa-box-bootstrap | Install base Ubuntu packages] ***********************
+    changed: [box_bootstrap] =&gt; (item=unzip,mc)
+    
+    PLAY RECAP ********************************************************************
+    box_bootstrap              : ok=21   changed=13   unreachable=0    failed=0   
+    </code></pre>
+    <p>Finally - you have the secured box, with the sudoer - deployed user you specified,
+    allowed to authorize only with keys you set. Root is not allowed to login. Only
+    some inbound ports are allowed according to your rules.</p>
+    <p>Check with NMap and try to login:</p>
+    <div class="highlight highlight-source-shell"><pre>ssh  192.168.0.17
+    Permission denied (publickey).
+    
+    ssh -ldeploy_user 192.168.0.17
+    Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-32-generic x86_64)
+    deploy_user@LABBOX17:<span class="pl-k">~</span>$
+    </pre></div>
+    <h1><a id="user-content-points-of-interest" class="anchor" href="#points-of-interest" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Points of interest</h1>
+    <p>You can reuse this playbook to create your own box bootstaping projects, and
+    reuse the role to configure your environments quicker in secure way with ansible</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

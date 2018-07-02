@@ -1,0 +1,351 @@
+.. title::  SOFTASAP | sa-box-jenkins
+.. _sa-box-jenkins-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-box-jenkins" class="anchor" href="#sa-box-jenkins" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-box-jenkins</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-box-jenkins"><img src="https://camo.githubusercontent.com/dd8518371775ed7b0d38336afae4e73ba5c4d08c/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d626f782d6a656e6b696e732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-box-jenkins.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Example of usage:</p>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-s">{</span>
+        <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-jenkins<span class="pl-pds">"</span></span>
+      <span class="pl-s">}</span></pre></div>
+    <h1><a id="user-content-dive-into-continious-integration-with-jenkins" class="anchor" href="#dive-into-continious-integration-with-jenkins" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dive into continious integration with Jenkins.</h1>
+    <h2><a id="user-content-background" class="anchor" href="#background" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background</h2>
+    <p>Nowadays continious integration is the important part of the agile software development life cycle.
+    There is a number of tools on the market: Atlassian Bamboo, Jenkins, Jetbrains TeamCity.
+    In my opinion Jenkins has the most optimal product community and set of really useful plugins
+    that suits most of your software projects:  you can  build software, deploy software,<br>
+    websites, portals to various places, including AWS, DigitalOcean, bare metal servers
+    or to run unit tests. It can be integrated with communication tools of your choice, like Slack, HipChat or
+    email.</p>
+    <p>If you haven't had a chance to try Jenkins earlier, feel free to use tutorial below to start.</p>
+    <h2><a id="user-content-manual-installation" class="anchor" href="#manual-installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manual installation</h2>
+    <p>In order to install Jenkins, we will need:</p>
+    <ul>
+    <li>Unix system.  I would recommend debian based, like ubuntu server LTS</li>
+    <li>Java runtime environment installed. I usually use Java 8</li>
+    <li>Get base Jenkins setup</li>
+    <li>Install necessary plugins</li>
+    <li>Put behind web server.</li>
+    </ul>
+    <h3><a id="user-content-install-java" class="anchor" href="#install-java" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install Java</h3>
+    <p>Easist way to install Java, is using apt-get package manager</p>
+    <pre><code>sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    </code></pre>
+    <p>Once you added ppa above, you can install java with the following command:</p>
+    <pre><code>sudo apt-get install oracle-java8-installer
+    </code></pre>
+    <h3><a id="user-content-get-base-jenkins-setup" class="anchor" href="#get-base-jenkins-setup" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get base Jenkins setup</h3>
+    <p>You will need to execut series of the commands, namely: add jenkins signing key,
+    register jenkins apt sources, update package lists, and install Jenkins package.</p>
+    <pre><code>wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+    sudo echo deb http://pkg.jenkins-ci.org/debian binary/ &gt; /etc/apt/sources.list.d/jenkins.list
+    sudo apt-get update
+    sudo apt-get install jenkins
+    </code></pre>
+    <p>By default, it will install base Jenkins setup, which is insecure. You will
+    need to go to the host were your Jenkins is installed, for example: <a href="http://jenkins-host:8080/">http://jenkins-host:8080/</a>.
+    Navigate to Manage Jenkins (on the left) and choose "Configure Global Security" item
+    on the page loaded.
+    <a href="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/enable_security.png" target="_blank"><img src="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/enable_security.png" alt="enable security" style="max-width:100%;"></a></p>
+    <p>Now look below on the Matrix based security (select it, if it is not selected previously),
+    and make sure Anonymous only has the Read right under the View group.
+    Click save at the bottom of the page. After the page load, you'll see a login form, simply ignore that,
+    go to the home page (like, for example, <a href="http://jenkins-host:8080/">http://jenkins-host:8080/</a>). You'll see this sign up form,
+    the first signed up account will be the administrator.</p>
+    <h3><a id="user-content-power-of-plugins" class="anchor" href="#power-of-plugins" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Power of plugins.</h3>
+    <p>Jenkins would not be so powerful without plugins. Usually I install next plugins by default:</p>
+    <ul>
+    <li>
+    <p>bitbucket
+    BitBucket plugin is designed to offer integration between BitBucket and Jenkins. BitBucket offer a Jenkins hook, but this one just trigger a build for a specific job on commit, nothing more. BitBucket plugin, like GitHub plugin already did, use the POST hook payload to check which job has to get triggered based on changed repository/branch.
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin</a></p>
+    </li>
+    <li>
+    <p>bitbucket-pullrequest-builder
+    This plugin builds pull requests from Bitbucket.org. Must have plugin, if you perfor QA deploy of each pull request submitted.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Bitbucket+pullrequest+builder+plugin">https://wiki.jenkins-ci.org/display/JENKINS/Bitbucket+pullrequest+builder+plugin</a></p>
+    </li>
+    <li>
+    <p>build-pipeline-plugin
+    This plugin provides a Build Pipeline View of upstream and downstream connected jobs that typically form a build pipeline.  In addition, it offers the ability to define manual triggers for jobs that require intervention prior to execution, e.g. an approval process outside of Jenkins. Provides nice visualization of the pathes &amp; flows.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin</a></p>
+    </li>
+    <li>
+    <p>copyartifact
+    Adds a build step to copy artifacts from another project. The plugin lets you specify which build to copy artifacts from (e.g. the last successful/stable build, by build number, or by a build parameter). You can also control the copying process by filtering the files being copied, specifying a destination directory within the target project, etc
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin</a></p>
+    </li>
+    <li>
+    <p>credentials
+    Adds a build step to copy artifacts from another project. The plugin lets you specify which build to copy artifacts from (e.g. the last successful/stable build, by build number, or by a build parameter). You can also control the copying process by filtering the files being copied, specifying a destination directory within the target project, etc
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin</a></p>
+    </li>
+    <li>
+    <p>delivery-pipeline-plugin
+    Visualisation of Delivery/Build Pipelines, renders pipelines based on upstream/downstream jobs. When using Jenkins as a build server it is now possible with the Delivery Pipeline Plugin to visualise one or more Delivery Pipelines in the same view even in full screen
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</a></p>
+    </li>
+    <li>
+    <p>environment-script
+    Environment Script Plugin allows you to have a script run after SCM checkout, before the build. If the script fails (exit code isn't zero), the build is marked as failed.
+    Any output on standard out is parsed as environment variables that are applied to the build. It supports "override syntax" to append paths to PATH-like variables
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin</a></p>
+    </li>
+    <li>
+    <p>git
+    Supports popular git version control system</p>
+    </li>
+    <li>
+    <p>ghprb
+    This plugin builds pull requests in github. Must have, if your software development life cycle includes deploying pull requests
+    to PR environment to test.
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin</a></p>
+    </li>
+    <li>
+    <p>greenballs The most funny plugin - changes Jenkins to use green balls instead of blue for successful builds
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a></p>
+    </li>
+    <li>
+    <p>hipchat
+    This plugin allows your team to setup build notifications to be sent to HipChat rooms.To enable notifications add "HipChat Notifications" as a post-build step.
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin</a></p>
+    </li>
+    <li>
+    <p>junit
+    Allows JUnit-format test results to be published. Note: number of tools, including Karma, PhpUNIT &amp; other tools allow to publish test results in a JUnit format. Thus this is must have plugin for unit test flows.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin</a></p>
+    </li>
+    <li>
+    <p>matrix-auth
+    Offers matrix-based security authorization strategies (global and per-project). Good, if you have shared build server across several teams,
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin</a></p>
+    </li>
+    <li>
+    <p>parameterized-trigger
+    This plugin lets you trigger new builds when your build has completed, with various ways of specifying parameters for the new build.
+    You can add multiple configurations: each has a list of projects to trigger, a condition for when to trigger them (based on the result of the current build), and a parameters section.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin</a></p>
+    </li>
+    <li>
+    <p>rebuild
+    Plays nice the with previous one: this plug-in allows the user to rebuild a parametrized build without entering the parameters again.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin</a></p>
+    </li>
+    <li>
+    <p>ssh You can use the SSH Plugin to run shell commands on a remote machine via ssh
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin">https://wiki.jenkins-ci.org/display/JENKINS/SSH+plugin</a></p>
+    </li>
+    <li>
+    <p>s3 allows uploading artifacts to S3 with multiple options.
+    Plugin page:  <a href="https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin</a></p>
+    </li>
+    <li>
+    <p>throttle-concurrents
+    This plugin allows for throttling the number of concurrent builds of a project running per node or globally.
+    Unfortunately, this is must have plugin for Node (0.10-0.12) projects with NPM  - two concurrent npm install will fail often.
+    Plugin page: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin</a></p>
+    </li>
+    </ul>
+    <p>Plugins are installed using Plugin manager on a Manage Jenkins Section.
+    <a href="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/plugins-manager.png" target="_blank"><img src="https://raw.githubusercontent.com/Voronenko/devops-jenkins-box-template/master/docs/plugins-manager.png" alt="Plugins manager" style="max-width:100%;"></a></p>
+    <h3><a id="user-content-put-behind-web-server" class="anchor" href="#put-behind-web-server" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Put behind web server</h3>
+    <p>Usually I hide Jenkins behind nginx. Typical configuration looks like the one below</p>
+    <pre><code>server {
+      listen 443 ssl;
+      server_name jenkins.vagrant.dev;
+    
+      ssl_certificate /etc/nginx/jenkins_selfsigned.crt;
+      ssl_certificate_key /etc/nginx/jenkins_selfsigned.key;
+    
+      location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_redirect off;
+    
+        proxy_connect_timeout 150;
+        proxy_send_timeout 100;
+        proxy_read_timeout 100;
+      }
+      ...
+    }
+    </code></pre>
+    <h2><a id="user-content-automated-installation" class="anchor" href="#automated-installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Automated installation</h2>
+    <p>Do I install Jenkins manually each time? Of course not, I do it often for my customers.
+    With ansible, and sa-box-jenkins role new Jenkins installation can be deployed while you drink the coffee.</p>
+    <p>Let's prepare basic bootstrap project, that can be used by you in the future.
+    It includes following files:</p>
+    <ul>
+    <li><em>bootstrap.sh</em> - installs ansible alongside with dependences.</li>
+    <li><em>init.sh</em> - initializes 3rd party dependencies</li>
+    <li><em>.projmodules</em> - fully compatible with .gitmodules git syntax,  specifies list of the dependencies
+    that will be used by the playbook.
+    In particular, it includes ansible- by default developer_recipes (repository with set of handy deployment recipes)
+    and ansible role called  <em>sa-box-bootstrap</em> responsible for box securing steps (assuming you plan to put Jenkins on a remote hosts).</li>
+    </ul>
+    <pre><code>[submodule "public/ansible_developer_recipes"]
+    	path = public/ansible_developer_recipes
+    	url = git@github.com:Voronenko/ansible-developer_recipes.git
+    [submodule "roles/sa-box-bootstrap"]
+            path = roles/sa-box-bootstrap
+            url = git@github.com:softasap/sa-box-bootstrap.git
+    [submodule "roles/sa-box-jenkins"]
+            path = roles/sa-box-jenkins
+            url = git@github.com:softasap/sa-box-jenkins.git
+    </code></pre>
+    <ul>
+    <li><em>hosts</em> - list here the initial box credentials, that were provided to you for the server. Note: jenkins-bootstrap assumes, you have the fresh box with the root access only. If your box already secured, adjust credentials appropriately</li>
+    </ul>
+    <p>UPDATE Sep 2016, ansible2 - now you need to split into to different inventory files, because different users are used:</p>
+    <p>hostsbootstrap:</p>
+    <pre><code>[jenkins-bootstrap]
+    jenkins_bootstrap ansible_ssh_host=192.168.0.17 ansible_ssh_user=yourrootuser ansible_ssh_pass=yourpassword
+    </code></pre>
+    <p>hosts:</p>
+    <pre><code>[jenkins]
+    jenkins ansible_ssh_host=192.168.0.17 ansible_ssh_user=jenkins
+    </code></pre>
+    <ul>
+    <li><em>jenkins_vars.yml</em> - set here specific environment overrides, like your preferred deploy user name and keys.</li>
+    <li><em>jenkins_bootstrap.yml</em> - First step - box securing. Creates jenkins user, and secures the box using sa-box-bootstrap role.
+    <a href="https://github.com/softasap/sa-box-bootstrap">See more details</a> about the sa-box-bootstrap role
+    In order, to override params for <em>sa-box-bootstrap</em> - pass the parameters like in example below.</li>
+    </ul>
+    <div class="highlight highlight-source-yaml"><pre>- <span class="pl-ent">hosts</span>: <span class="pl-s">all</span>
+    
+      <span class="pl-ent">vars_files</span>:
+        - <span class="pl-s">./jenkins_vars.yml</span>
+      <span class="pl-ent">roles</span>:
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-box-bootstrap<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">root_dir</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/public/ansible_developer_recipes<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_user}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">deploy_user_authorized_keys</span>: <span class="pl-s"><span class="pl-pds">"</span>{{jenkins_authorized_keys}}<span class="pl-pds">"</span></span>
+           <span class="pl-s">}&lt;/pre&gt;</span>
+    <span class="pl-s">- *jenkins.yml* provisioning script that configures jenkins with set of plugins and users.</span>
+    <span class="pl-s">- *jenkins_vars.yml* configuration options for jenkins deployment.</span>
+    <span class="pl-s">- *setup_jenkins.sh* shell script that invokes deployment in two steps: initial box bootstraping &amp; jenkins setup</span></pre></div>
+    <p>#!/bin/sh</p>
+    <p>ansible-playbook jenkins_bootstrap.yml --limit jenkins_bootstrap
+    ansible-playbook jenkins.yml --limit jenkins</p>
+    <pre><code>
+    
+    ## Configuration options for automated installation
+    You need to override:  
+    - jenkins_authorized_keys (this is list of the keys, that allow you to login to Jenkins box under jenkins)
+    - jenkins_domain - your agency domain
+    - jenkins_host - name of the jenkins host (Site will be binded to jenkins_host.jenkins_domain)
+    - jenkins_admin_password: SECURE PASSWORD
+    
+    YOu can override:
+    
+    </code></pre>
+    <ul>
+    <li>java_version - your Java choice (6,7,8 supported)</li>
+    </ul>
+    <p>jenkins_user: jenkins
+    jenkins_authorized_keys:</p>
+    <ul>
+    <li>"{{playbook_dir}}/components/files/ssh/vyacheslav.pub"</li>
+    </ul>
+    <p>jenkins_domain: "vagrant.dev"
+    jenkins_host: "jenkins"</p>
+    <p>jenkins_admin_password: Flvby</p>
+    <p>java_version: 8</p>
+    <pre><code>
+    -jenkins_users list of users with passwords to create.  Deploy is required users. Admin is precreated.
+    Admin is used to manage instance, deploy is used to access the artifacts via deployment scripts.
+    If you won't override passwords, default one will be used (per role), which is not the best, for public deployments.
+    </code></pre>
+    <p>jenkins_admin_password: Flvby
+    jenkins_users:</p>
+    <ul>
+    <li>{
+    name: "deploy",
+    password: "DeDeDeDeploy",
+    email: "no-reply@localhost"
+    }</li>
+    </ul>
+    <pre><code>
+    - jenkins_plugins Your choice of plugins to install. By default:
+    
+    </code></pre>
+    <p>jenkins_plugins:</p>
+    <ul>
+    <li>bitbucket # <a href="https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/BitBucket+Plugin</a></li>
+    <li>bitbucket-pullrequest-builder</li>
+    <li>blueocean # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Blue+Ocean+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Blue+Ocean+Plugin</a></li>
+    <li>copyartifact # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin</a></li>
+    <li>credentials # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin</a></li>
+    <li>environment-script # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin</a></li>
+    <li>git</li>
+    <li>ghprb # <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin</a></li>
+    <li>greenballs # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a></li>
+    <li>hipchat # <a href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin</a></li>
+    <li>junit # <a href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin</a></li>
+    <li>matrix-auth # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Authorization+Strategy+Plugin</a></li>
+    <li>matrix-project #<a href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin</a></li>
+    <li>parameterized-trigger #<a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin</a></li>
+    <li>rebuild # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin</a></li>
+    <li>ssh</li>
+    <li>slack # <a href="https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin</a></li>
+    <li>s3 # <a href="https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin</a></li>
+    <li>throttle-concurrents #<a href="https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Builds+Plugin</a></li>
+    </ul>
+    <pre><code>
+    ## Code in action
+    
+    Code can be downloaded from repository [https://github.com/Voronenko/devops-jenkins-box-template](https://github.com/Voronenko/devops-jenkins-box-template)
+    In order to use it - fork it, adjust parameters to your needs, and use.
+    
+    Running is as simple as
+    </code></pre>
+    <p>./setup_jenkins.sh</p>
+    <pre><code>
+    Welcome to the world of continious integration &amp; deployment.
+    
+    
+    
+    Usage with ansible galaxy workflow
+    ----------------------------------
+    
+    If you installed the sa-box-jenkins role using the command
+    
+    `
+       ansible-galaxy install softasap.sa-box-jenkins
+    `
+    
+    the role will be available in the folder library/softasap.sa-box-jenkins
+    Please adjust the path accordingly.
+    
+    ```YAML
+    
+         - {
+             role: "softasap.sa-box-jenkins"
+           }
+    
+    </code></pre>
+    <h1><a id="user-content-history-of-changes" class="anchor" href="#history-of-changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>History of changes</h1>
+    <p>1.2.0</p>
+    <p>UPD may 2017: Experimental support for CENTOS-7, and potentially other compatible distributions.</p>
+    <p>1.1.0</p>
+    <p>UPD sept 2016:  now installs Jenkins 2 by default. See <code>box-example</code> role folder to get example of standalone deployment script for your organization.</p>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join gitter discussion channel at <a href="https://gitter.im/softasap">Gitter</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

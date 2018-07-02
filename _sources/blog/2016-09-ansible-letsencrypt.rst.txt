@@ -1,0 +1,184 @@
+.. https://www.codementor.io/slavko/automating-ssl-encryption-for-your-servers-with-letsencrypt-and-ansible-vg7jyjot6
+
+.. post:: Sep 1, 2016
+   :tags: letsencrypt, ansible, deployment
+   :author: slavko
+   :category: from-oops-to-devops   
+
+Automating SSL Encryption for Your Servers with LetsEncrypt and Ansible
+=======================================================================
+
+`Let's Encrypt <http://www.letsencrypt.org/>`__ is probably one of the
+most well-known authority supplying free green seal certificates. In
+this article, I will share how I make use of ``letsencrypt`` as part of
+a server's provisioning process.
+
+I have tried out a wide range of clients for Let's Encrypt:
+certbot-auto, letsencrypt-cli, simple\_le, and few other from `Let's
+Encrypt <https://letsencrypt.org/docs/client-options/>`__'s client list.
+
+However, my number one choice, at least for now, is:
+https://github.com/lukas2511/letsencrypt.sh. If I were to describe tge
+client in a few words, it'd simply be: “it just works.”
+
+I use `Ansible <https://www.ansible.com/>`__ for my automation scenarios
+and have wrapped letsencrypt.sh into a role play at
+https://github.com/softasap/sa-lets-encrypt
+
+Here's an example of using existing installations, assuming you have
+existing website — you specify what domain names you plan to use and the
+path to the ``nginx config``:
+
+.. code:: bash
+
+        - hosts: dev
+
+          vars:
+            - root_dir: "{{playbook_dir}}"
+            - my_domains:
+              - {
+                names: "voronenko.net www.voronenko.net",
+                nginx_config: "/etc/nginx/sites-available/voronenko_net"
+                }
+
+          pre_tasks:
+            - debug: msg="Pre tasks section"
+
+          roles:
+
+            - {
+                role: "sa-lets-encrypt",
+                le_domains: "{{my_domains}}",
+                option_run_once: true,
+                option_setup_cron: true
+              }
+
+          tasks:
+            - debug: msg="Tasks section"
+
+This is longer example of a new installation — you install nginx,
+configure your website, and apply letsencrypt play.
+
+.. code:: bash
+
+        ---
+        - hosts: www
+          vars:
+            - root_dir: "{{playbook_dir}}"
+            - my_domains:
+              - {
+                names: "voronenko.net www.voronenko.net",
+                nginx_config: "/etc/nginx/sites-available/voronenko_net"
+                }
+
+          pre_tasks:
+            - debug: msg="Pre tasks section"
+
+          roles:
+
+            - {
+                role: "sa-nginx"
+              }
+            - {
+                role: "sa-include",
+                include_file: "{{root_dir}}/demosite.yml"
+              }
+            - {
+                role: "sa-lets-encrypt",
+                le_domains: "{{my_domains}}",
+        #        le_ca: "https://acme-staging.api.letsencrypt.org/directory",
+                option_run_once: true,
+                option_setup_cron: true
+              }
+
+          tasks:
+            - debug: msg="Tasks section"
+
+Refer to the standalone example in the
+`box-example <https://github.com/softasap/sa-lets-encrypt/tree/master/box-example>`__
+folder.
+
+Digital Ocean
+~~~~~~~~~~~~~
+
+Here's what the result will look like for an example in DigitalOcean —
+you get the clean OS:
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*MESReWaYed4kuLnT.
+   :alt: SSL encryption
+
+   SSL encryption
+
+Once the droplet is ready, configure the DNS for it.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*NNIM_Q_xIuuirGES.
+   :alt: SSL encryption
+
+   SSL encryption
+
+GoDaddy
+~~~~~~~
+
+See the example below for GoDaddy:
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*h-Imv-pbGM5PaHSj.
+   :alt: SSL encryption
+
+   SSL encryption
+
+Ping the host to ensure that the DNS was successfully propagated.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*93chM0U5Qb7TChzt.
+   :alt: SSL encryption
+
+   SSL encryption
+
+Adjust play to specify box address.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*cwFazsAiG96uatgs.
+   :alt:
+
+Wait for provisioning to complete.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*giD07irWcFUKgl9Y.
+   :alt: SSL encryption
+
+   SSL encryption
+
+How letsencrypt.sh works
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Take a look at how letsencrypt.sh works.
+
+It creates links to the current certificates so you can safely refer
+them from the ``nginx config``. Role installs cron job to ensure that
+the certificate is updated before it expires. However, you would need to
+reload your webserver in case the underlying certificate has been
+updated.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*DhOgRa9uiChoxAdj.
+   :alt: SSL encryption
+
+   SSL encryption
+
+Now you can safely refer to the SSL certificates in your web config.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*uCqhR_R-AVFovpFs.
+   :alt: ssl encryption
+
+   ssl encryption
+
+Check the Seal
+~~~~~~~~~~~~~~
+
+Last step — check for the green sealed certificate in the browser.
+
+.. figure:: https://cdn-images-1.medium.com/max/800/0*coS_FQsN5ROG2TyZ.
+   :alt: SSL encryption
+
+   SSL encryption
+
+That's it!
+
+If you're using other web servers, your PRs and comments are always
+welcomed.

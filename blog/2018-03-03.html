@@ -1,0 +1,541 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Provisioning solution to amazon ecs, part 3 - creating the cluster</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom"
+})});
+</script>
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2018_03_03">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/services.html">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2018-03-02.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Provisioning solution to amazon ecs, part 2 - preparing needed dependencies
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Mar 03, 2018
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>,
+      
+    
+      
+      <a href="tag/amazon.html">amazon</a>,
+      
+    
+      
+      <a href="tag/ecs.html">ecs</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="provisioning-solution-to-amazon-ecs-part-3-creating-the-cluster">
+<h1>Provisioning solution to amazon ecs, part 3 - creating the cluster<a class="headerlink" href="#provisioning-solution-to-amazon-ecs-part-3-creating-the-cluster" title="Permalink to this headline">¶</a></h1>
+<p>Short summary on a previous steps - we have created network infrastructure in VPC,
+created necessary IAM roles on AWS, and obtained access token for our docker hub to
+access private images. We have also created variables file where we have stored our findings.</p>
+<p>At that moment we need to introduce few facts: environment name (prod, staging, qa, etc),
+target region (shared with our network play that creates VPC), pem key to access instances if any,
+and naming pattern for the cluster name (prod-cluster, staging-cluster) and so on.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span> <span class="c1"># SET IT EXTERNALLY, desired environment name.</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_region</span><span class="p p-Indicator">:</span> <span class="s">&quot;us-east-1&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">ec2_key</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_region_key</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;DEVOPS_US_EAST_1&#39;)}}&quot;</span>  <span class="c1"># pem key used to login to the instances</span>
+<span class="l l-Scalar l-Scalar-Plain">ecs_cluster_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{env}}-cluster&quot;</span> <span class="c1"># desired cluster name pattern, ALLOWED TO BE SET EXTERNALLY</span>
+</pre></div>
+</div>
+<p>Cluster creation is qute simple</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ECS | Cluster creation</span>
+  <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ecs</span><span class="nv"> </span><span class="s">create-cluster</span><span class="nv"> </span><span class="s">--cluster-name</span><span class="nv"> </span><span class="s">{{ecs_cluster_name}}</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cluster_output</span>
+  <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT cluster - cluster_output.stdout|from_json</span>
+  <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">cluster</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">cluster_output.stdout|from_json</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create</span>
+
+      <span class="l l-Scalar l-Scalar-Plain"># &quot;cluster.cluster&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span>
+      <span class="c1">#     &quot;activeServicesCount&quot;: 0,</span>
+      <span class="c1">#     &quot;clusterArn&quot;: &quot;arn:aws:ecs:eu-west-1:blabla:cluster/test_cluster&quot;,</span>
+      <span class="c1">#     &quot;clusterName&quot;: &quot;test_cluster&quot;,</span>
+      <span class="c1">#     &quot;pendingTasksCount&quot;: 0,</span>
+      <span class="c1">#     &quot;registeredContainerInstancesCount&quot;: 0,</span>
+      <span class="c1">#     &quot;runningTasksCount&quot;: 0,</span>
+      <span class="c1">#     &quot;status&quot;: &quot;ACTIVE&quot;</span>
+      <span class="c1"># }</span>
+<span class="nv">- debug</span><span class="p p-Indicator">:</span> <span class="nv">var=cluster.cluster</span>
+  <span class="nv">tags</span><span class="p p-Indicator">:</span>
+    <span class="nv">- create</span>
+</pre></div>
+</div>
+<p>At that moment we already have cluster created.</p>
+<p>Now we need to create several instances to operate.</p>
+<p>Those instances are created using following pattern - we start specific AMI,
+with desired instance type (t2.micro is free tier), that instance should be granted
+with ecsInstanceRole.  Re:assign_public_ip_address - if you recall our network scheme,
+our api servers are supposed to be in a private network. Thus properly, that needs to be set to False,
++ you need bastion host configured. For purposes of the demo, or quick troubleshouting, you can
+still make them open to the world in a quite hakish workd.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ec2_basic</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span>
+ <span class="nv">image_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_basic_image_id</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;ami-ba722dc0&#39;)}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_type</span><span class="p p-Indicator">:</span> <span class="s">&quot;t2.micro&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">instance_profile_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;ecsInstanceRole&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">assign_public_ip_address</span><span class="p p-Indicator">:</span> <span class="s">&quot;yes&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">vpc_subnet_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_vpc_pubsubnet1}}&quot;</span><span class="p p-Indicator">,</span>
+ <span class="nv">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_sg_api}}&quot;</span> <span class="c1"># security</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s put them up, and wait for the initialization</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ec2</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">count</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{instance_count</span><span class="nv"> </span><span class="s">|</span><span class="nv">  </span><span class="s">default(1)}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">instance_type</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.instance_type}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">instance_profile_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.instance_profile_name}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">instance_tags</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ecs_cluster_name}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.image_id}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.group_id}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_region}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">key_name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{ec2_key}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">user_data</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;file&#39;,</span><span class="nv"> </span><span class="s">instance_config_path</span><span class="nv"> </span><span class="s">)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">wait</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="l l-Scalar l-Scalar-Plain">wait_timeout</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">500</span>
+    <span class="l l-Scalar l-Scalar-Plain">vpc_subnet_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.vpc_subnet_id}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">assign_public_ip</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.assign_public_ip_address}}&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;{{ec2}}&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">box_instances_raw</span>  <span class="c1">#box_instances</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">var=&quot;box_instances_raw&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">FACT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cluster_instances - box_instances_raw.results[0].instances</span>
+  <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">cluster_instances</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{box_instances_raw.results[0].instances}}&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">add_host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">name={{ item.public_ip }} groups={{group_cluster_instances}} =&quot;&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{cluster_instances}}&quot;</span>
+
+<span class="c1"># NOTE - IF INSTANCES ARE PRIVATE, CODE BELOW SHOULD BE COMMENTED OUT</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Wait for the cluster_instances ssh availability</span>
+  <span class="l l-Scalar l-Scalar-Plain">wait_for</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">host={{item.public_ip}} port=22 delay=40 timeout=320 state=started</span>
+  <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{cluster_instances}}&quot;</span>
+</pre></div>
+</div>
+<p>Note: if you have some external components, to be consumed by your application, like RDS database (Postgres, MySQL, etc),
+some caches like ElastiCache (Memcached, Redis) - it is good idea to create those</p>
+<p>Hurray, we now have cluster and corresponding ec2 instances workers. Those setup is ready for our first provision.</p>
+<p>BUT, before we do that let&#8217;s also draft steps to eliminate all the items we have created</p>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/amazon.html">amazon</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ansible-container.html">ansible-container</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ecs.html">ecs</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (12)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2018.html">2018 (3)</a></li>
+    
+  
+    
+    <li><a href="2017.html">2017 (6)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2018-03-02.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Provisioning solution to amazon ecs, part 2 - preparing needed dependencies
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

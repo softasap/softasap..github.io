@@ -54,6 +54,24 @@
 <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom"
+})});
+</script>
 </head>
 
 <body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_author_vyacheslav">
@@ -78,7 +96,7 @@ mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
                 </li>
                 <li><a href="/#devops">Devops recipes</a>
                 </li>
-                <li><a href="/#contact">Contact</a>
+                <li><a href="#contact">Contact</a>
                 </li>
                 <li><a href="/blog/archive.html">Blog</a>
                 </li>
@@ -103,6 +121,180 @@ mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
       
     </h1>
     
+    
+      <article class="post post__text">
+  <header class="post_header">
+    <h2 class="post_title">
+      <a href="../2018-03-03.html">Provisioning solution to amazon ecs, part 3 - creating the cluster</a>
+    </h2>
+    <div class="post_date">
+      <span class="post_date_day">03</span>
+      <span class="post_date_day_delim">/</span>
+      03/2018
+    </div>
+  </header>
+  <div class="post_content">
+    
+    <div><i class="fa-fw fa fa-tags"></i>
+        
+      
+        
+        <a href="../tag/rnd.html">rnd</a>,
+        
+      
+        
+        <a href="../tag/docker.html">docker</a>,
+        
+      
+        
+        <a href="../tag/ansible.html">ansible</a>,
+        
+      
+        
+        <a href="../tag/amazon.html">amazon</a>,
+        
+      
+        
+        <a href="../tag/ecs.html">ecs</a>
+        
+      </div>
+    
+    
+    <div><i class="fa-fw fa fa-folder-open"></i>
+      
+        
+        <a href="../category/from-oops-to-devops.html">from-oops-to-devops</a>
+        
+      </div>
+    
+    
+
+    
+
+    <p>Short summary on a previous steps - we have created network infrastructure in VPC,
+created necessary IAM roles on AWS, and obtained access token for our docker hub to
+access private images. We have also created variables file where we have stored our findings.</p>
+
+    <p class="read_more_container">
+      <a href="../2018-03-03.html" class="read_more">Read more ...</a>
+    </p>
+  </div>
+</article>
+    
+      <article class="post post__text">
+  <header class="post_header">
+    <h2 class="post_title">
+      <a href="../2018-03-02.html">Provisioning solution to amazon ecs, part 2 - preparing needed dependencies</a>
+    </h2>
+    <div class="post_date">
+      <span class="post_date_day">02</span>
+      <span class="post_date_day_delim">/</span>
+      03/2018
+    </div>
+  </header>
+  <div class="post_content">
+    
+    <div><i class="fa-fw fa fa-tags"></i>
+        
+      
+        
+        <a href="../tag/rnd.html">rnd</a>,
+        
+      
+        
+        <a href="../tag/docker.html">docker</a>,
+        
+      
+        
+        <a href="../tag/ansible.html">ansible</a>,
+        
+      
+        
+        <a href="../tag/amazon.html">amazon</a>,
+        
+      
+        
+        <a href="../tag/ecs.html">ecs</a>
+        
+      </div>
+    
+    
+    <div><i class="fa-fw fa fa-folder-open"></i>
+      
+        
+        <a href="../category/from-oops-to-devops.html">from-oops-to-devops</a>
+        
+      </div>
+    
+    
+
+    
+
+    <p>In order to be ready to create our first cluster, we need to prepare some parameters in advance.
+Those are:</p>
+
+    <p class="read_more_container">
+      <a href="../2018-03-02.html" class="read_more">Read more ...</a>
+    </p>
+  </div>
+</article>
+    
+      <article class="post post__text">
+  <header class="post_header">
+    <h2 class="post_title">
+      <a href="../2018-01-03.html">Provisioning solution to amazon ecs, part 1 - network infrastructure</a>
+    </h2>
+    <div class="post_date">
+      <span class="post_date_day">01</span>
+      <span class="post_date_day_delim">/</span>
+      03/2018
+    </div>
+  </header>
+  <div class="post_content">
+    
+    <div><i class="fa-fw fa fa-tags"></i>
+        
+      
+        
+        <a href="../tag/rnd.html">rnd</a>,
+        
+      
+        
+        <a href="../tag/docker.html">docker</a>,
+        
+      
+        
+        <a href="../tag/ansible.html">ansible</a>,
+        
+      
+        
+        <a href="../tag/amazon.html">amazon</a>,
+        
+      
+        
+        <a href="../tag/ecs.html">ecs</a>
+        
+      </div>
+    
+    
+    <div><i class="fa-fw fa fa-folder-open"></i>
+      
+        
+        <a href="../category/from-oops-to-devops.html">from-oops-to-devops</a>
+        
+      </div>
+    
+    
+
+    
+
+    <p>Let&#8217;s assume we want to deploy our solution to one of the docker friendly platforms available - Amazon ECS.</p>
+
+    <p class="read_more_container">
+      <a href="../2018-01-03.html" class="read_more">Read more ...</a>
+    </p>
+  </div>
+</article>
     
       <article class="post post__text">
   <header class="post_header">

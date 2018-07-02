@@ -1,0 +1,8 @@
+
+.. _about:
+
+About Editor
+============================
+
+The world wants to know more about you.
+

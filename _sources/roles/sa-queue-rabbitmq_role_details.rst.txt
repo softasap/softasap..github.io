@@ -1,0 +1,38 @@
+.. title::  SOFTASAP | sa-queue-rabbitmq
+.. _sa-queue-rabbitmq-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-queue-rabbitmq</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-queue-rabbitmq"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-queue-rabbitmq.svg?branch=master" /></a></p>
+    <p>rabbitmq_properties: list of regexes in form (regexp, line) to adjust conf  /etc/rabbitmq/rabbitmq.config file with necessary changes</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-queue-rabbitmq&quot;
+          }
+    </code></pre>
+    
+    <p>Advanced:</p>
+    <p>Watchout for commas in rabbitmq_properties !</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-queue-rabbitmq&quot;,
+            rabbitmq_version: 3.6.1  
+            rabbitmq_properties:
+              - {regexp: &quot;^%% {default_user, .*&quot;, line: &quot;{default_user,        &lt;&lt;&quot;guest&quot;&gt;&gt;}&quot;}
+              - {regexp: &quot;^%% {default_pass, .*&quot;, line: &quot;{default_pass,        &lt;&lt;&quot;guest&quot;&gt;&gt;},&quot;}
+    
+          }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

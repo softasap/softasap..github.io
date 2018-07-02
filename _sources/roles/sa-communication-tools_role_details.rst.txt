@@ -1,0 +1,43 @@
+.. title::  SOFTASAP | sa-communication-tools
+.. _sa-communication-tools-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-communication-tools" class="anchor" href="#sa-communication-tools" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-communication-tools</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-communication-tools"><img src="https://camo.githubusercontent.com/df87399967a6b2112b7ab5711834189c8550d527/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d636f6d6d756e69636174696f6e2d746f6f6c732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-communication-tools.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Installs popular communication tools hipchat (modern client - hipchat4), slack, viber, skype</p>
+    <p>Example of use:</p>
+    <pre>
+         - {
+             role: "sa-communication-tools",
+             skypeforlinux_version: 1.10.0.1,
+             option_skype: false,
+             option_skype_rec: false,
+             option_viber: true,
+             option_slack: true,
+             option_hipchat: false,
+             option_hipchat4: true,         
+             option_skype_linux: true,
+             option_telegram: true
+           }
+    
+    </pre>
+    <p>Note: re skypeforlinux_version  - existing repo holds only two recent versions, and now historic one. Also there is no "latest" deb to install most recent version only.
+    This would require you to check and set actual version for skypeforlinux_version</p>
+    <h1><a id="user-content-change-notes" class="anchor" href="#change-notes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change notes</h1>
+    <p>1.1.0 Introduced support for telegram and skype alpha for linux according to feature requests</p>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join gitter channel [Gitter] (<a href="https://gitter.im/softasap">https://gitter.im/softasap</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

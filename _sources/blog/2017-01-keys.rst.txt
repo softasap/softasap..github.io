@@ -1,0 +1,51 @@
+.. https://www.codementor.io/slavko/wrapping-lamp-project-into-vagrant-with-ansible-du107usin
+
+.. post:: Jan 4, 2017
+   :tags: tip, devops
+   :author: slavko
+   :category: field notes   
+
+Linux Quick Tip: Adding GitHub Keys as Authorized Keys
+======================================================
+
+Introduction
+------------
+
+As a software developer, I constantly work with a bunch of virtual
+environments used for testing.
+
+The first step I do —Switch from password ssh authorization to
+authorization by public key. Let me share with you a handy batch that
+will add all of your GitHub keys as authorized keys.
+
+Batch
+~~~~~
+
+.. code:: bash
+
+    USERNAME=yourgithubusername
+
+    mkdir -p ~/.ssh
+
+    if ! [[ -f ~/.ssh/authorized_keys ]]; then
+      echo "Creating new ~/.ssh/authorized_keys"
+      touch ~/.ssh/authorized_keys
+    fi
+
+    keys=`curl https://api.github.com/users/$USERNAME/keys | grep -o -E "ssh-\w+\s+[^\"]+"`
+
+    for key in $keys; do
+      echo $key
+      grep -q "$key" ~/.ssh/authorized_keys || echo "$key" &gt;&gt; ~/.ssh/authorized_keys
+    done
+
+Usage
+-----
+
+Usually I run it as
+
+.. code:: bash
+
+    curl -L http://bit.ly/easytoremembershortcut | bash -s
+
+This approach has already saved me a lot of time!

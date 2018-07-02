@@ -1,0 +1,81 @@
+.. title::  SOFTASAP | sa-smarthome-ivideon
+.. _sa-smarthome-ivideon-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-smarthome-ivideon" class="anchor" href="#sa-smarthome-ivideon" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-smarthome-ivideon</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-smarthome-ivideon"><img src="https://camo.githubusercontent.com/25707acf90a2d031144cfbd9443a77a92cab0196/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d736d617274686f6d652d69766964656f6e2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-smarthome-ivideon.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Example of usage (all parameters are optional)</p>
+    
+    <p>Simple</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles:</span>
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-smarthome-ivideon<span class="pl-pds">"</span></span>
+    <span class="pl-s">      }</span></pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles:</span>
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-smarthome-ivideon<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">ivideon_user:</span> <span class="pl-s"><span class="pl-pds">"</span>{{ansible_user_id}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">ivideon_mode:</span> <span class="pl-s">gui, </span><span class="pl-c"># headless | gui</span>
+    
+            <span class="pl-ent">ivideon_localview_password:</span> <span class="pl-s">password, </span><span class="pl-c"># set password for local view</span>
+    
+            <span class="pl-ent">ivideon_config_path:</span> <span class="pl-s"><span class="pl-pds">"</span>/home/{{ ivideon_user }}/.IvideonServer<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">ivideon_archieve_path:</span> <span class="pl-s"><span class="pl-pds">"</span>/home/{{ ivideon_user }}/.IvideonServer/archive<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">ivideon_log_path:</span> <span class="pl-s"><span class="pl-pds">"</span>/home/{{ ivideon_user }}/.IvideonServer<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+            <span class="pl-ent">ivideon_cameras:</span> <span class="pl-s">[],</span>
+    
+            <span class="pl-ent">option_ivideon_cloud:</span> <span class="pl-s">true,</span>
+            <span class="pl-ent">option_ivideon_cloud_registerserver:</span> <span class="pl-s">true,</span>
+    
+            <span class="pl-ent">ivideon_cloud_email:</span> <span class="pl-s">youremail@domain.com,</span>
+            <span class="pl-ent">ivideon_cloud_password_hash:</span> <span class="pl-s"><span class="pl-pds">"</span>somehashforyourcurrentpassword<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">ivideon_cloud_account_id:</span> <span class="pl-s">100000000000,</span>
+            <span class="pl-ent">ivideon_cloud_account_guid:</span> <span class="pl-s"><span class="pl-pds">"</span>{778dde95-0c53-4d5a-8101-8a9b5afe941e}<span class="pl-pds">"</span></span><span class="pl-s">, </span><span class="pl-c"># some guid associated with your server</span>
+            <span class="pl-ent">ivideon_cloud_servername:</span> <span class="pl-s"><span class="pl-pds">"</span>myserver<span class="pl-pds">"</span></span>
+    
+    <span class="pl-s">      }</span></pre></div>
+    
+    <h1></h1>
+    
+    <p>Для установки версии IvideonServer без графического интерфейса (для Linux-серверов) требуется установить отдельно пакет ivideon-server-headless или camera-server-headless:</p>
+    
+    <p>sudo apt-get install ivideon-server-headless</p>
+    
+    <p>Далее необходимо провести настройку сервера с графическим интерфейсом на отдельной машине, затем скопировать файл конфигурации сервера videoserverd.config в директорию /home/&lt;имя пользователя&gt;/.IvideonServer/videoserverd.config</p>
+    
+    <p>Если необходимо вести запись локального архива, то необходимо изменить путь к архиву в перенесенном файле конфигурации:</p>
+    
+    <p>"path" : "/home/&lt;имя пользователя&gt;/.IvideonServer/archive"</p>
+    
+    <p>Привязка сервера к аккаунту производится следующей командой:</p>
+    
+    <p>/opt/ivideon/ivideon-server/videoserver --config-filename=/path/to/videoserverd.config --attach --email="<a href="mailto:account@ivideon.com">account@ivideon.com</a>" --server-name="My First Server"</p>
+    
+    <p>Для автоматического запуска сервера при старте системы необходимо выполнить следующее:</p>
+    
+    <p>sudo /opt/ivideon/ivideon-server/init_ctl install &lt;имя пользователя&gt; &lt;путь к файлу конфигурации&gt;</p>
+    
+    <p>Для удаления его из автозапуска:
+    sudo /opt/ivideon/ivideon-server/init_ctl uninstall</p>
+    
+    <p>Для управления видеосервером необходимо использовать скрипт init.d:
+    /etc/init.d/videoserver </p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

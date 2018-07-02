@@ -1,0 +1,23 @@
+.. title::  SOFTASAP | sa-mongo-backup-agent
+.. _sa-mongo-backup-agent-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-mongo-backup-agent</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-mongo-backuo-agent"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-mongo-monitoring-agent.svg?branch=master" /></a></p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-mongo-backup-agent",
+            mmsApiKey: "blablabla"
+          }</p>
+
+.. raw:: html
+
+    </div>

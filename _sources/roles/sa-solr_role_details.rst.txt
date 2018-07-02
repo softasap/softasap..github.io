@@ -1,0 +1,51 @@
+.. title::  SOFTASAP | sa-solr
+.. _sa-solr-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-solr</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-solr"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-solr.svg?branch=master" /></a></p>
+    <p>Usage:</p>
+    <p>Simple:</p>
+    <pre><code>
+      roles:
+         - {
+             role: &quot;sa-solr&quot;,
+             option_install_java: true
+           }
+    
+    
+    </code></pre>
+    
+    <p>Full:</p>
+    <pre><code>
+      roles:
+         - {
+             role: &quot;sa-solr&quot;,
+             option_install_java: true,
+             java_version: 8,
+             solr_version: 6.2.0,
+    
+             solr_files_path: /var/solr,
+             solr_install_path: /opt,
+             solr_port: 8983,
+             solr_service: solr,
+             solr_user: solr
+    
+           }
+    
+    
+    </code></pre>
+    
+    <p>see box-example for standalone deployment demo</p>
+    <p>Upon deploy SOLR will be available at http://TARGETHOST:8983/solr/#/</p>
+
+.. raw:: html
+
+    </div>

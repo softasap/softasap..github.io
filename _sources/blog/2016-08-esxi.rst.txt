@@ -1,0 +1,85 @@
+.. https://www.codementor.io/slavko/secure-jumpbox-to-access-your-network-infrastructure-from-remote-locations-roupdmx24
+
+.. post:: Aug 28, 2016
+   :tags: esxi, tip
+   :author: slavko
+   :category: field notes   
+
+Enable virtualization inside ESXi virtual machine
+=================================================
+
+Introduction
+------------
+
+One day I got a task to implement a Vagrant-based scenario for my
+client. For quite a long time, I've been using free VMWare ESX-i
+hypervisor for my experiments, as it allows up to 4 virtual boxes to be
+run in parallel for my labs experience.
+
+The first issue I spotted, once I installed Oracle Virtual Box & Vagrant
+on my ESXi box, is its inability to start a Vagrant-controlled image due
+to the lack of virtualization support. There were no options to turn it
+on via the ESXi GUI client, so I have started to look for a solution
+
+Enabling the ssh access on your ESXi host
+-----------------------------------------
+
+Please follow the steps below in succession:
+
+a) Start the vSphere client
+
+b) Select ESXi's host configuration tab
+
+c) Select security profile from the list on a left
+
+d) Click properties on the upper right corner, and you will get the a
+   popup with all the services on this ESXi box. Select the SSH service
+   and press the Options button.
+
+e) Start the SSH service - you are now prepared for the most important
+   step
+
+Enabling VT-x / AMD-V virtualization inside ESXi virtual machine
+----------------------------------------------------------------
+
+The most tricky part. Make sure to check your steps
+
+a) Shutdown your virtual machine inside ESXi
+
+b) SSH to your ESXi:
+
+.. code:: bash
+
+    ssh -lroot your.esxi.box.address
+
+c) Run df - to locate the address of your mounted drive with VMs
+
+.. code:: bash
+
+     df
+    Filesystem        Bytes         Used    Available Use% Mounted on
+    VMFS-5     999922073600 539996717056 459925356544  54% /vmfs/volumes/WDC1TB
+
+d) Locate the location of your's vmx
+
+.. code:: bash
+
+    find / -name *.vmx | grep HUM
+    /vmfs/volumes/54183927-04f91918-a72a-6805ca147c55/W-NodeBox-HUM/W-NodeBox-HUM.vmx
+
+e) Put ``setting vhv.enable=TRUE`` at the bottom of your box's vmx file
+
+.. code:: bash
+
+     echo 'vhv.enable = "TRUE"' >> /vmfs/volumes/54183927-04f91918-a72a-6805ca147c55/W-NodeBox-HUM/
+    W-NodeBox-HUM.vmx
+
+You are done! Start your machine normally and enjoy the possibility to
+run vagrant&virtual-box controlled boxes inside your ESXi host.
+(Hopefully you need it as me just to test the vagrant setup)
+
+Points of Interest
+------------------
+
+This tip allows you to enable virtualization inside nested virtual
+machines under ESXi hypervisor.

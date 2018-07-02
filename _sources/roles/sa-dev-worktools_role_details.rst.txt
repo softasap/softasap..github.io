@@ -1,0 +1,39 @@
+.. title::  SOFTASAP | sa-dev-worktools
+.. _sa-dev-worktools-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-dev-worktools</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-dev-worktools"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-dev-worktools.svg?branch=master" /></a></p>
+    <p>Installs "basic developer notebook" based on default install of ubuntu 14.04 GUI.</p>
+    <p>In particular:</p>
+    <ul>
+    <li>removes unnecessary packages</li>
+    <li>installs console tools</li>
+    <li>optionally - installs virtualbox</li>
+    <li>optionally - installs vagrant</li>
+    </ul>
+    <p>Console tools installed:</p>
+    <ul>
+    <li>mc   </li>
+    <li>jq</li>
+    <li>gitflow</li>
+    <li>multitail</li>
+    <li>unzip</li>
+    <li>p7zip</li>
+    <li>terminator</li>
+    <li>sublimetext2</li>
+    <li>atom</li>
+    <li>zeal</li>
+    <li>googlechrome</li>
+    </ul>
+
+.. raw:: html
+
+    </div>

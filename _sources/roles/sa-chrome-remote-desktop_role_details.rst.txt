@@ -1,0 +1,18 @@
+.. title::  SOFTASAP | sa-chrome-remote-desktop
+.. _sa-chrome-remote-desktop-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-chrome-remote-desktop</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-chrome-remote-desktop"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-chrome-remote-desktop.svg?branch=master" /></a></p>
+    <p>Installs chrome remote desktop host on ubuntu based box</p>
+
+.. raw:: html
+
+    </div>

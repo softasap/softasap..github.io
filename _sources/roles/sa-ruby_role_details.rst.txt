@@ -1,0 +1,578 @@
+.. title::  SOFTASAP | sa-ruby
+.. _sa-ruby-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-ruby</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-ruby"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-ruby.svg?branch=master" /></a></p>
+    <ul>
+    <li>chruby</li>
+    <li>ruby-install</li>
+    <li>nginx + passenger</li>
+    <li>sample application</li>
+    </ul>
+    <h2>Requirements</h2>
+    <p>Ubuntu 14.04 LTS</p>
+    <h2>Role Variables</h2>
+    <p>rubies_location: /opt/rubies
+    chruby_version: 0.3.9
+    ruby_install_version: 0.6.0
+    ruby_version: 2.3.0</p>
+    <p>option_install_app: false
+    option_install_nginx_passenger: true
+    option_ruby_install_setsystem: true</p>
+    <p>app_short_name: app
+    app_env: production
+    app_repository: https://github.com/RailsApps/rails-devise.git
+    app_base_dir: /var/www
+    app_www_root: "{{app_base_dir}}/public"</p>
+    <p>app_directories:
+      - "{{app_base_dir}}"</p>
+    <h2>Example Playbook</h2>
+    <ul>
+    <li>hosts: www</li>
+    </ul>
+    <p>vars:
+        - root_dir: ..</p>
+    <p>pre_tasks:
+        - debug: msg="Pre tasks section"</p>
+    <p>roles:
+         - {
+             role: "sa-ruby",
+             ruby_install_setsystem: true,
+             ruby_version: 2.3.0,</p>
+    <pre><code>     option_install_sampleapp: false,
+         option_install_nginx_passenger: true
+       }
+    </code></pre>
+    <p>tasks:
+        - debug: msg="Tasks section"</p>
+    <h2>Introduction</h2>
+    <p>Novadays, you can get your own dedicated server up and running in a seconds. Once you get it up, do you really spent several hours to configure it for your application needs ?  Do you really want to repeat the same steps with each new server ?  In this article I will give you an idea on automated installation with Ansible, a Simple IT Automation toolkit and Ubuntu 14.04 LTS server as box OS.</p>
+    <h2>Background</h2>
+    <p>You would need basic understanding of ansible files syntax. if you did not play with Ansible yet, I would recommend to review some intro articles like <a href="http://docs.ansible.com/ansible/intro.html">http://docs.ansible.com/ansible/intro.html</a> or perhaps one of the slideshares like <a href="http://www.slideshare.net/robertreiz/ansible-40167296">http://www.slideshare.net/robertreiz/ansible-40167296</a>?</p>
+    <h2>Cooking</h2>
+    <p>We would need to deploy following components:   Ruby, Web server with Passenger, your application itself. For purposes of the demo, we will install well known starter Devise <a href="https://github.com/RailsApps/rails-devise.git">https://github.com/RailsApps/rails-devise.git</a></p>
+    <h3>Ruby switcher chruby</h3>
+    <p>I used to choose RMV previously, but recently I am a fan of <strong>chruby</strong> - it is lightweight, quick to understand and just works - avaiable at Github <a href="https://github.com/postmodern/chruby">https://github.com/postmodern/chruby</a></p>
+    <p>Upon studiing installation instructions, we automate manual installation steps with Ansible, and get a bonus: reusable recipe to install the ch_ruby.</p>
+    <hr />
+    <ul>
+    <li>
+    <p>name: Ruby | Check if chruby is present
+        shell: test -x /usr/local/bin/chruby-exec
+        when: ansible_system == "Linux"
+        ignore_errors: yes
+        register: chruby_present
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Download chruby distribution
+        get_url: url="http://github.com/postmodern/chruby/archive/v{{ chruby_version }}.tar.gz"
+                 dest="/tmp/chruby-{{ chruby_version }}.tar.gz"
+        when: chruby_present|failed
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | unpack chruby
+        command: tar xf "/tmp/chruby-{{ chruby_version }}.tar.gz"
+                 chdir="/tmp"
+        when: chruby_present|failed
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | chruby install target
+        command: make install
+                 chdir="/tmp/chruby-{{ chruby_version }}"
+        become: yes
+        when: chruby_present|failed
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | autoload script
+        template: src="{{role_dir}}/templates/ch_ruby.sh.j2" dest=/etc/profile.d/chruby.sh
+        become: yes
+        tags: ruby</p>
+    </li>
+    </ul>
+    <h3>Ruby install</h3>
+    <p><strong>Ruby-install</strong> is the second toolkit from the same author.  At present moment, this approach is #1 choice for me when I need to install specific Ruby version. Tool is available at Github under address <a href="https://github.com/postmodern/ruby-install">https://github.com/postmodern/ruby-install</a></p>
+    <p>Once we study ruby-install setup notes,  we can automate this steps with series of ansible steps:</p>
+    <hr />
+    <ul>
+    <li>
+    <p>name: Ruby | Check if ruby install is present
+        shell: test -x /usr/local/bin/ruby-install
+        when: ansible_system == "Linux"
+        ignore_errors: yes
+        register: rubyinstall_present
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Ruby install | package dependencies
+        apt: pkg={{ item }} state=present force="yes"  update_cache="yes"
+        when: ansible_system == "Linux"
+        with_items:</p>
+    <ul>
+    <li>build-essential</li>
+    <li>libffi-dev</li>
+    <li>libgdbm-dev</li>
+    <li>libncurses5-dev</li>
+    <li>libreadline-dev</li>
+    <li>libreadline6-dev</li>
+    <li>libtinfo-dev</li>
+    <li>libyaml-dev
+    become: yes
+    tags: ruby</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Ruby | Download rubyinstall
+        get_url: url=http://github.com/postmodern/ruby-install/archive/v{{ ruby_install_version }}.tar.gz
+               dest=/tmp/ruby-install-{{ ruby_install_version }}.tar.gz
+        when: rubyinstall_present | failed
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Unpack ruby-install
+        command: tar xf /tmp/ruby-install-{{ ruby_install_version }}.tar.gz
+                 chdir=/tmp
+        when: rubyinstall_present | failed
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Run ruby-install install target
+        command: make install
+               chdir=/tmp/ruby-install-{{ ruby_install_version }}
+        when: rubyinstall_present | failed
+        become: yes
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Download list of rubies available
+        command: ruby-install
+        when: rubyinstall_present | failed
+        become: yes
+        tags: ruby</p>
+    </li>
+    </ul>
+    <h3>Ruby</h3>
+    <p>Now it is time to install Ruby.  Small comment here: if you deploy saying on shared server, you most likely would like to have an ability to have multiple ruby versions and switch between them. From other hand, if you deploy your application to the dedicated host - usually I also replace default system ruby with the same ruby version.</p>
+    <p>With tools above, ruby installation recipe is compact &amp; clear:</p>
+    <hr />
+    <ul>
+    <li>
+    <p>name: Ruby | Find out if ruby_version is already installed
+        stat: path={{rubies_location}}/ruby-{{ruby_version}}
+        register: ruby_version_present
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>name: Ruby | Install ruby_version if necessary
+        command: '/usr/local/bin/ruby-install ruby {{ruby_version}}'
+        when: not ruby_version_present.stat.exists
+        become: yes
+        tags: ruby</p>
+    </li>
+    <li>
+    <p>debug: var="ruby_install_setsystem"</p>
+    </li>
+    <li>
+    <p>name: Ruby | Update SYSTEM ruby_version if necessary
+        command: '/usr/local/bin/ruby-install --system ruby {{ruby_version}}'
+        when: option_ruby_install_setsystem
+        become: yes
+        tags: ruby</p>
+    </li>
+    </ul>
+    <h3>Webserver &amp; passenger</h3>
+    <p>Thanks to Phusion Passenger team, they did a great job to provide pre-built binaries for most of the popular platforms and configurations at <a href="https://oss-binaries.phusionpassenger.com/">https://oss-binaries.phusionpassenger.com/</a>. This allows us to skip steps of compiling phusion passengers from source, recomplining  webserver, etc  &amp; use pre-built binary instead.</p>
+    <p>Historically, I prefer Nginx over classic Apache, thus we will install pre-build Nginx with passenger:</p>
+    <hr />
+    <ul>
+    <li>
+    <p>name: Nginx | Check if is present
+        command: test -x /usr/sbin/nginx
+        when: ansible_os_family == "Debian"
+        ignore_errors: yes
+        register: nginx_present
+        tags: nginx</p>
+    </li>
+    <li>
+    <p>name: Passenger | Add GPG key to apt keyring
+        apt_key: keyserver=keyserver.ubuntu.com id=561F9B9CAC40B2F7
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags: passenger
+        become: yes</p>
+    </li>
+    <li>
+    <p>name: Passenger | Install needed packages
+        apt: state=present pkg="{{item}}"
+        with_items:</p>
+    <ul>
+    <li>apt-transport-https</li>
+    <li>ca-certificates
+    when: ansible_os_family == "Debian" and nginx_present|failed
+    become: yes
+    tags: passenger</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Passenger | Add nginx extras repository
+        apt_repository: repo="deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main" state=present
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags: passenger
+        become: yes</p>
+    </li>
+    <li>
+    <p>name: Ruby | Install Nginx extra and Phusion Passenger
+        apt: state=present update_cache=yes pkg="{{item}}"
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        with_items:</p>
+    <ul>
+    <li>nginx-extras</li>
+    <li>passenger
+    become: yes
+    tags: passenger</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Create sites available/enabled directories
+        file: path={{item}} state=directory mode=0755
+        with_items:</p>
+    <ul>
+    <li>/etc/nginx/sites-available</li>
+    <li>/etc/nginx/sites-enabled
+    when: ansible_os_family == "Debian" and nginx_present|failed
+    tags:</li>
+    <li>nginx</li>
+    <li>passenger
+    become: yes</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Configure include sites-enabled
+        lineinfile: dest=/etc/nginx/nginx.conf regexp=".<em>sites-enabled.</em>" line="    include /etc/nginx/sites-enabled/*;" insertbefore="}" state=present
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger
+    when: ansible_os_family == "Debian" and nginx_present|failed
+    become: yes</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Disable default site
+        file: path=/etc/nginx/sites-enabled/default state=absent
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger
+    when: ansible_os_family == "Debian" and nginx_present|failed
+    become: yes</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Uncomment server_names_hash_bucket_size
+        lineinfile: dest=/etc/nginx/nginx.conf regexp="^(\s<em>)#\s</em>server_names_hash_bucket_size" line="\1server_names_hash_bucket_size 64;" backrefs=yes
+        become: yes
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Set ruby to system one
+        lineinfile: dest=/etc/nginx/nginx.conf regexp="^(\s<em>)#\s</em>passenger_ruby" line="passenger_ruby /usr/local/bin/ruby;" backrefs=yes
+        become: yes
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Set ruby to system one
+        lineinfile: dest=/etc/nginx/nginx.conf regexp="^(\s<em>)#\s</em>passenger_root" line="passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;" backrefs=yes
+        become: yes
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: Nginx | Reload
+        service: name=nginx state=reloaded
+        when: ansible_os_family == "Debian" and nginx_present|failed
+        tags:</p>
+    <ul>
+    <li>nginx</li>
+    <li>passenger
+    become: yes</li>
+    </ul>
+    </li>
+    </ul>
+    <p>Several comments to installation script above, which might require changes in your own scenarios:</p>
+    <p>1) Task named "Create sites available/enabled directories" &amp; the next one - it actually implements Apache like "sites-available / sites-enabled" folder structure for VHosts configs. If you prefer default setup - comment this out.</p>
+    <p>2) Specifiing ruby location to passenger with</p>
+    <p>lineinfile: dest=/etc/nginx/nginx.conf regexp="^(\s<em>)#\s</em>passenger_ruby" line="passenger_ruby /usr/local/bin/ruby;" backrefs=yes</p>
+    <p>As you see, replacement above assumes that system ruby is used. You might want to specifiy different ruby path here.</p>
+    <p>Goal of these two tasks is to take nginx.conf &amp; set two parameters: passenger_root and passenger_ruby as per original instuctions in above comment.</p>
+    <pre><code>    ##
+        # Uncomment it if you installed passenger or passenger-enterprise
+        ##
+    </code></pre>
+    <p>passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+    passenger_ruby /usr/local/bin/ruby;</p>
+    <p>How to validate that you've installed nginx with passenger right ?</p>
+    <p>Execute these commands and validate the setup:</p>
+    <p>sudo /usr/bin/passenger-config validate-install
+    What would you like to validate?
+    Use  to select.
+    If the menu doesn't display correctly, press '!'</p>
+    <p>‣ ⬢  Passenger itself
+       ⬡  Apache</p>
+    <hr />
+    <ul>
+    <li>Checking whether this Passenger install is in PATH... ✓</li>
+    <li>Checking whether there are no other Passenger installations... ✓</li>
+    </ul>
+    <p>Everything looks good. :-)</p>
+    <p>and /usr/sbin/passenger-memory-stats - you should see both - Nginx &amp; passenger processes.</p>
+    <p>sudo /usr/sbin/passenger-memory-stats
+    Version: 5.0.26
+    Date   : 2016-03-18 11:17:57 +0200
+    ------------- Apache processes -------------
+    *** WARNING: The Apache executable cannot be found.
+    Please set the APXS2 environment variable to your 'apxs2' executable's filename, or set the HTTPD environment variable to your 'httpd' or 'apache2' executable's filename.</p>
+    <p>--------- Nginx processes ----------
+    PID   PPID  VMSize    Private  Name
+    ------------------------------------
+    8768  9991  138.1 MB  1.1 MB   nginx: worker process
+    8769  9991  137.8 MB  0.9 MB   nginx: worker process
+    8770  9991  137.8 MB  0.9 MB   nginx: worker process
+    8771  9991  137.8 MB  0.9 MB   nginx: worker process
+    9991  1     137.8 MB  0.9 MB   nginx: master process /usr/sbin/nginx</p>
+    <h3>Processes: 5</h3>
+    <h3>Total private dirty RSS: 4.68 MB</h3>
+    <p>---- Passenger processes -----
+    PID   VMSize    Private  Name
+    ------------------------------
+    8742  436.3 MB  1.0 MB   Passenger watchdog
+    8745  982.9 MB  2.0 MB   Passenger core
+    8756  444.5 MB  1.1 MB   Passenger ust-router
+    8806  387.1 MB  69.3 MB  Passenger RubyApp: /var/www/public (production)</p>
+    <h3>Processes: 4</h3>
+    <h3>Total private dirty RSS: 73.47 MB</h3>
+    <p>slavko@ERM:/etc/nginx$</p>
+    <h2>Application setup itself</h2>
+    <p>Let's define application parameters: in particular: required OS packages to build gems, app secret - to hash the passwords, application environment parameters, database connection details.</p>
+    <p>app_dependencies:
+        - libsqlite3-dev
+        - libmysqlclient-dev
+        - libpq-dev
+        - git
+        - nodejs
+        - npm</p>
+    <p>app_short_name: app
+      app_env: production
+      app_domain: domain.local
+      app_secret: 82d58d3dfb91238b495a311eb8539edf5064784f1d58994679db8363ec241c745bef0b446bfe44d66cbf91a2f4e497d8f6b1ef1656e3f405b0d263a9617ac75e
+      app_repository: https://github.com/RailsApps/rails-devise.git</p>
+    <h1>app_repository_keyname: id_rsa_app</h1>
+    <p>app_base_dir: /var/www
+      app_www_root: "{{app_base_dir}}/public"</p>
+    <p>app_env_vars:
+        - {name: SECRET_KEY_BASE, value: "{{app_secret}}" }
+        - {name: DATABASE_URL, value: "postgres://{{app_db_user}}:{{app_db_password}}@{{app_db_host}}/{{app_db_name}}"}
+        - {name: RAILS_ENV, value: "{{app_env}}" }
+        - {name: DOMAIN_NAME, value: "{{app_domain}}" }</p>
+    <p>app_db_host: localhost
+      app_db_user: app_user
+      app_db_password: app_password
+      app_db_name: app_database    </p>
+    <p>app_directories:
+        - "{{app_base_dir}}"</p>
+    <p>And application provisioning script itself, which goes into stages: OS packages dependencies, Gem dependencies (for devise it is sqlite3), checking out the source code,  patching Gem file so the ruby version matches the one installed on host + introducing production gems for uglifyjs (this is current app specifics), bundle install, patching database configuration, assets compilation, db migration, generating nginx site configuration, restarting the web server.</p>
+    <hr />
+    <ul>
+    <li>
+    <p>name: APP STUB | Dependencies
+        apt: pkg={{ item }} state=present force="yes"  update_cache="yes"
+        when: ansible_system == "Linux"
+        with_items: "{{app_dependencies}}"
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Install gem dependencies
+        shell: "gem install --no-rdoc --no-ri {{item}}"
+        with_items:</p>
+    <ul>
+    <li>sqlite3
+    become: yes
+    tags: app_stub</li>
+    </ul>
+    </li>
+    <li>
+    <p>name: APP STUB | Re-create base app directory
+        file: path={{app_base_dir}} state=absent
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Create directories
+        file: path={{item}} state=directory mode=0755 owner={{ansible_user_id}} group={{ansible_user_id}}
+        with_items: "{{app_directories}}"
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Checkout app without key
+        git: repo="{{app_repository}}" dest="{{app_base_dir}}" accept_hostkey="yes" force="yes"
+        when: app_repository_keyname is not defined
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Install global rails gem
+        shell: gem install --no-rdoc --no-ri rails
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Eliminate ruby req
+        lineinfile: dest="{{app_base_dir}}/Gemfile" regexp="^(\s<em>)</em>ruby" line="ruby '{{ruby_version}}'"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | gem therubyracer - uglifyjs
+        lineinfile: dest="{{app_base_dir}}/Gemfile" regexp="^(\s<em>)</em>gem 'therubyracer'" line="gem 'therubyracer', :platforms =&gt; :ruby" insertafter="^group :production do"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | gem execjs - uglifyjs
+        lineinfile: dest="{{app_base_dir}}/Gemfile" regexp="^(\s<em>)</em>gem 'execjs'" line="gem 'execjs'" insertafter="^group :production do"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | gem pg
+        lineinfile: dest="{{app_base_dir}}/Gemfile" regexp="^(\s<em>)</em>gem 'pg'" line="gem 'pg'" insertafter="^group :production do"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Run bundle install --path .bundle/gems --binstubs .bundle/bin
+        shell: bundle install  --path .bundle/gems --binstubs .bundle/bin
+        args:
+          chdir: "{{app_base_dir}}"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | database.yml
+        template: src="{{root_dir}}/templates/app/database.yml.j2" dest="{{app_base_dir}}/config/database.yml"
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Precompile assets
+        shell: bundle exec rake assets:precompile
+        args:
+          chdir: "{{app_base_dir}}"
+        environment:
+          RAILS_ENV: "{{app_env}}"
+          DATABASE_URL: "postgres://{{app_db_user}}:{{app_db_password}}@{{app_db_host}}/{{app_db_name}}"
+          SECRET_KEY_BASE: "{{app_secret}}"
+          DOMAIN_NAME: "{{app_domain}}"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | DB Migrate
+        shell: bundle exec rake db:migrate
+        args:
+          chdir: "{{app_base_dir}}"
+        environment:
+          RAILS_ENV: "{{app_env}}"
+          DATABASE_URL: "postgres://{{app_db_user}}:{{app_db_password}}@{{app_db_host}}/{{app_db_name}}"
+          SECRET_KEY_BASE: "{{app_secret}}"
+          DOMAIN_NAME: "{{app_domain}}"
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: APP STUB | Nginx conf
+        template: src="{{root_dir}}/templates/nginx_app.conf.j2" dest="/etc/nginx/sites-enabled/{{app_short_name}}.conf"
+        become: yes
+        tags: app_stub</p>
+    </li>
+    <li>
+    <p>name: Nginx | Reload
+        service: name=nginx state=reloaded
+        become: yes
+        tags: app_stub</p>
+    </li>
+    </ul>
+    <p>In particular, we patch database config/database.yml with real connection details</p>
+    <h1>On Heroku and other platform providers, you may have a full connection URL</h1>
+    <h1>available as an environment variable. For example:</h1>
+    <h1></h1>
+    <h1>DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"</h1>
+    <h1></h1>
+    <h1>You can use this database configuration with:</h1>
+    <h1></h1>
+    <p>production:
+         url: &lt;%= ENV['DATABASE_URL'] %&gt;</p>
+    <p>and we patch Nginx app site config to provide app environment variables to ruby app with passenger_env_var instructions.</p>
+    <p>server {
+      listen 80 default_server;
+      passenger_enabled on;</p>
+    <p _="%" endfor="endfor">{% for envvar in app_env_vars %}
+      passenger_env_var {{ envvar.name }} "{{ envvar.value }}";</p>
+    <p>passenger_app_env {{app_env}};
+      root {{app_www_root}};
+    }</p>
+    <h2>Running the code</h2>
+    <p>Let's execute provisioning &amp; test it, for purposes of the demo - we will use local postgres as a DB</p>
+    <hr />
+    <ul>
+    <li>hosts: www</li>
+    </ul>
+    <p>vars:
+        - root_dir: ..</p>
+    <p>roles:
+         - {
+             role: "sa-postgres",
+             option_create_app_user: true
+           }
+         - {
+             role: "sa-ruby",
+             ruby_install_setsystem: true,
+             ruby_version: 2.3.0,</p>
+    <pre><code>     option_install_sampleapp: true,
+         option_install_nginx_passenger: true
+       }
+    </code></pre>
+    <p>Once application provisioning process is over:</p>
+    <p>TASK: [sa-ruby | Nginx | Reload] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>****
+    changed: [192.168.0.17] =&gt; {"changed": true, "name": "nginx", "state": "started"}</p>
+    <p>PLAY RECAP <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>
+    192.168.0.17               : ok=55   changed=46   unreachable=0    failed=0   </p>
+    <p>Play run took 23 minutes</p>
+    <p>So, depending on network speed, you have your application installed.</p>
+    <p>Let's check by ip address:</p>
+    <p><img alt="Deployed application" src="https://raw.githubusercontent.com/Voronenko/devops-ruby-app-demo/master/docs/app_deployed.png" /></p>
+    <h2>Points of Interest</h2>
+    <p>Now you aware of another way to deploy your ruby applications.</p>
+    <p>Demo deployment script is available at <a href="https://github.com/Voronenko/devops-ruby-app-demo">https://github.com/Voronenko/devops-ruby-app-demo</a> , recipes packed as ansible reusable role available at <a href="https://github.com/softasap/sa-ruby">https://github.com/softasap/sa-ruby</a></p>
+
+.. raw:: html
+
+    </div>

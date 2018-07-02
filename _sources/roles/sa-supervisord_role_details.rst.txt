@@ -1,0 +1,45 @@
+.. title::  SOFTASAP | sa-supervisord
+.. _sa-supervisord-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-supervisord</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-supervisord"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-supervisord.svg?branch=master" /></a></p>
+    <p>Usage example:</p>
+    <pre><code>
+    ---
+    - hosts: www
+    
+      vars:
+        - root_dir: ..
+    
+    
+      pre_tasks:
+        - debug: msg=&quot;Pre tasks section&quot;
+    
+      roles:
+         - {
+             role: &quot;sa-supervisord&quot;
+           }
+    
+    
+      tasks:
+    
+        - debug: msg=&quot;Tasks section&quot;
+    
+    
+    </code></pre>
+    
+    <p>Supervisor: A Process Control System</p>
+    <p>Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems.</p>
+    <p>It shares some of the same goals of programs like launchd, daemontools, and runit. Unlike some of these programs, it is not meant to be run as a substitute for init as “process id 1”. Instead it is meant to be used to control processes related to a project or a customer, and is meant to start like any other program at boot time.</p>
+
+.. raw:: html
+
+    </div>

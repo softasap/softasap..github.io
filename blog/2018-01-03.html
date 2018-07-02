@@ -1,0 +1,932 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>Provisioning solution to amazon ecs, part 1 - network infrastructure</title>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap and Font Awesome css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+<link href=".././_static/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme stylesheet -->
+<link href=".././_static/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+<!-- owl carousel css -->
+
+<link href=".././_static/css/owl.carousel.css" rel="stylesheet">
+<link href=".././_static/css/owl.theme.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/animate.css" rel="stylesheet">
+
+<!-- CSS Animations -->
+<link href=".././_static/css/custom.css" rel="stylesheet">
+
+<!-- Mordernizr -->
+<script src=".././_static/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Responsivity for older IE -->
+<!--[if lt IE 9]>
+<script src=".././_static/js/respond.min.js"></script>
+<![endif]-->
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom"
+})});
+</script>
+</head>
+
+<body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2018_01_03">
+
+    <!-- *** NAVBAR *** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/services.html">Services</a>
+                </li>
+                <li><a href="/#devops">Devops recipes</a>
+                </li>
+                <li><a href="#contact">Contact</a>
+                </li>
+                <li><a href="/blog/archive.html">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</div>
+<!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+      <div class="mb20 block-text">
+        
+
+
+<div class="section section__top">
+<div class="row">
+  <div class="col-sm-1 mb20">
+  </div>
+  <div class="col-sm-8 mb20">
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-09-sa-container-bootstrap.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Using ansible-container to build your next application base image
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2018-03-02.html">
+    Provisioning solution to amazon ecs, part 2 - preparing needed dependencies
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+  </div>
+  <div class="col-sm-3 mb20">
+  </div>
+</div>
+<div class="row">
+<div class="col-sm-1 mb20">
+</div>
+<div class="col-sm-8 mb20">
+  
+
+    
+
+    <div>
+  
+  <i class="fa fa-calendar"></i>
+    Mar 01, 2018
+  
+</div>
+
+  
+
+  
+
+  
+  <span><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/from-oops-to-devops.html">from-oops-to-devops</a>
+      
+    </span>
+  
+
+  
+  <span><i class="fa-fw fa fa-tags"></i>
+      
+    
+      
+      <a href="tag/rnd.html">rnd</a>,
+      
+    
+      
+      <a href="tag/docker.html">docker</a>,
+      
+    
+      
+      <a href="tag/ansible.html">ansible</a>,
+      
+    
+      
+      <a href="tag/amazon.html">amazon</a>,
+      
+    
+      
+      <a href="tag/ecs.html">ecs</a>
+      
+    </span>
+  
+  
+
+  <div class="section" id="provisioning-solution-to-amazon-ecs-part-1-network-infrastructure">
+<h1>Provisioning solution to amazon ecs, part 1 - network infrastructure<a class="headerlink" href="#provisioning-solution-to-amazon-ecs-part-1-network-infrastructure" title="Permalink to this headline">¶</a></h1>
+<p>Let&#8217;s assume we want to deploy our solution to one of the docker friendly platforms available - Amazon ECS.</p>
+<p>First step we need is to model and create our network infrastructure.</p>
+<p>So initially, we might come with two layer architecture, where we have public web frontend in the public network,
+and we have our api application instances, usually hidden in the private network.</p>
+<p>With ECS role of the public frontend end point will play elastic load balancer.</p>
+<div><img height="732" src="../_images/nwdiag-8cf3eccdd0765a8858d3ac3c6a9a63ea1f83fcb9.png" width="912" /></div><p>Let&#8217;s describe plan above for AWS VPC with Ansible</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">vpc_cidr_block</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.0.0/16</span>
+<span class="l l-Scalar l-Scalar-Plain">vpc_subnets</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cidr</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.0.0/20</span>
+    <span class="l l-Scalar l-Scalar-Plain">az</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_region}}{{vpc_availability_zone_t1}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource_tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span><span class="s">&quot;Name&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-sb-pub-{{aws_region}}-{{vpc_availability_zone_t1}}&quot;</span><span class="p p-Indicator">,</span>  <span class="s">&quot;Environment&quot;</span><span class="p p-Indicator">:</span><span class="s">&quot;{{readable_env_name}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Tier&quot;</span> <span class="p p-Indicator">:</span> <span class="s">&quot;1&quot;</span> <span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cidr</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.16.0/20</span>
+    <span class="l l-Scalar l-Scalar-Plain">az</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_region}}{{vpc_availability_zone_t2}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource_tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="s">&quot;Name&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-sb-pub-{{aws_region}}-{{vpc_availability_zone_t2}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Environment&quot;</span><span class="p p-Indicator">:</span><span class="s">&quot;{{readable_env_name}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Tier&quot;</span> <span class="p p-Indicator">:</span> <span class="s">&quot;1&quot;</span> <span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cidr</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.32.0/20</span>
+    <span class="l l-Scalar l-Scalar-Plain">az</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_region}}{{vpc_availability_zone_t1}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource_tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span><span class="s">&quot;Name&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-sb-priv-{{aws_region}}-{{vpc_availability_zone_t1}}&quot;</span><span class="p p-Indicator">,</span>  <span class="s">&quot;Environment&quot;</span><span class="p p-Indicator">:</span><span class="s">&quot;{{readable_env_name}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Tier&quot;</span> <span class="p p-Indicator">:</span> <span class="s">&quot;2&quot;</span> <span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cidr</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.48.0/20</span>
+    <span class="l l-Scalar l-Scalar-Plain">az</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{aws_region}}{{vpc_availability_zone_t2}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">resource_tags</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span> <span class="s">&quot;Name&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-sb-priv-{{aws_region}}-{{vpc_availability_zone_t2}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Environment&quot;</span><span class="p p-Indicator">:</span><span class="s">&quot;{{readable_env_name}}&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;Tier&quot;</span> <span class="p p-Indicator">:</span> <span class="s">&quot;2&quot;</span> <span class="p p-Indicator">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vpc_internet_gateway</span><span class="p p-Indicator">:</span> <span class="s">&quot;yes&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">vpc_route_tables_public</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">subnets</span><span class="p p-Indicator">:</span>
+       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">10.0.0.0/20</span>
+       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">10.0.16.0/20</span>
+      <span class="l l-Scalar l-Scalar-Plain">routes</span><span class="p p-Indicator">:</span>
+       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dest</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+         <span class="l l-Scalar l-Scalar-Plain">gw</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">igw</span>
+</pre></div>
+</div>
+<p>Let us now plan security in our VPC</p>
+<p>Bastion: So we anyway need way to troubleshoot the application instances, that&#8217;s why we reserve possibility to setup bastion hosts.</p>
+<p>Elb: For public frontend - we want it to serve on http and https, like typical webserver.</p>
+<p>Cluster: let assume, we have some web process serving at 3000 and api serving at 8000 on our instances.</p>
+<p>Datalayer: specific to your application, but generally we have memcached/redis , mysql/postgres components here, with appropriate ports allowed.</p>
+<p class="plantuml">
+<img src="../_images/plantuml-5ccd17e7a5755ab8e94eba9a39864f1ba7cddc3f.png" alt="title security groups - possible organization
+
+package &quot;{{readable_env_name}}-public-BASTION&quot; {
+
+class BASTION {
++22 ssh
+}
+
+}
+
+package &quot;{{readable_env_name}}-public-ELB&quot; {
+
+class WEBLB {
++80 http
++443 https
+}
+
+class APILB {
++80 http
++443 https
+}
+
+}
+
+
+package &quot;{{readable_env_name}}-private-CLUSTER&quot; {
+
+class ECS_INSTANCE {
++22 ssh
++8000 ecs api-service
++3000 ecs web-service
+}
+
+}
+
+
+package &quot;{{readable_env_name}}-private-DATALAYER&quot; {
+
+class CACHE {
++6379 redis
+}
+
+}
+
+
+
+BASTION  -down-|&gt;  ECS_INSTANCE: ssh
+
+WEBLB  -down-|&gt;  ECS_INSTANCE: web-service:3000
+
+APILB  -down-|&gt;  ECS_INSTANCE: api-service:8000
+
+
+ECS_INSTANCE -down-|&gt;  CACHE: redis:6379
+
+
+&#64;enduml" />
+</p>
+<p>Let&#8217;s model for ansible.</p>
+<p>Note: few versions behind it was possible to address not
+yet created security groups by name, but since ansible 2.4 (?) it is no longer
+possible, thus we need to split into separate steps.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">vpc_security_groups_elb</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-public-ELB&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">desc</span><span class="p p-Indicator">:</span> <span class="s">&quot;public</span><span class="nv"> </span><span class="s">access&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+        <span class="l l-Scalar l-Scalar-Plain">cidr_ip</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8888</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8888</span>
+        <span class="l l-Scalar l-Scalar-Plain">cidr_ip</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vpc_cidr_block</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">443</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">443</span>
+        <span class="l l-Scalar l-Scalar-Plain">cidr_ip</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vpc_security_groups_bastion</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-public-BASTION&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">desc</span><span class="p p-Indicator">:</span> <span class="s">&quot;allow</span><span class="nv"> </span><span class="s">ssh</span><span class="nv"> </span><span class="s">jump</span><span class="nv"> </span><span class="s">box</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">internal</span><span class="nv"> </span><span class="s">resources&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+        <span class="l l-Scalar l-Scalar-Plain">cidr_ip</span><span class="p p-Indicator">:</span> <span class="s">&quot;95.69.193.134/32&quot;</span> <span class="c1">#Vyacheslav</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vpc_security_groups_cluster</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-private-CLUSTER&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">desc</span><span class="p p-Indicator">:</span> <span class="s">&quot;ECS</span><span class="nv"> </span><span class="s">Cluster&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-BASTION\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3000</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-ELB\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8000</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8000</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-ELB\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8200</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8200</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-ELB\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">icmp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">-1</span> <span class="c1"># icmp type, -1 = any type</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">-1</span> <span class="c1"># icmp subtype, -1 = any subtype</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-BASTION\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">vpc_security_groups_datalayer</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{readable_env_name}}-private-DATALAYER&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">desc</span><span class="p p-Indicator">:</span> <span class="s">&quot;Private</span><span class="nv"> </span><span class="s">mongo</span><span class="nv"> </span><span class="s">ports&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-private-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27017</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-private-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27018</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-private-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">27019</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-private-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">28017</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">28017</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-private-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proto</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">icmp</span>
+        <span class="l l-Scalar l-Scalar-Plain">from_port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">-1</span> <span class="c1"># icmp type, -1 = any type</span>
+        <span class="l l-Scalar l-Scalar-Plain">to_port</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">-1</span> <span class="c1"># icmp subtype, -1 = any subtype</span>
+        <span class="l l-Scalar l-Scalar-Plain">group_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;aws_secgroup_id_by_name&#39;,</span><span class="nv"> </span><span class="s">aws_region,</span><span class="nv"> </span><span class="s">\&quot;{0}-public-CLUSTER\&quot;.format(readable_env_name))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>Our resulting play:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+  <span class="c1"># IF YOU PROVIDE PRECONFIGURED NETWORK INFRASTRUCTURE PARAMETERS, MAKE SURE YOU DEFINED THEM ALL</span>
+  <span class="c1"># IF ANY OF THESE VARIABLES ARE NOT SYNCHRONIZED OR NOT DEFINED - YOU WILL BE IN TROUBLE FOR FURTHER ACTIONS</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">assert</span><span class="p p-Indicator">:</span>
+     <span class="l l-Scalar l-Scalar-Plain">that</span><span class="p p-Indicator">:</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_region</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_vpc_pubsubnet1</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_vpc_pubsubnet2</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_vpc_privsubnet1</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_vpc_privsubnet2</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_sg_pub</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_sg_priv</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_sg_api</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;vpc_availability_zone_t1</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;vpc_availability_zone_t2</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">assert</span><span class="p p-Indicator">:</span>
+     <span class="l l-Scalar l-Scalar-Plain">that</span><span class="p p-Indicator">:</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws_region</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;vpc_availability_zone_t1</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;vpc_availability_zone_t2</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create the VPC</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_vpc</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">state</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+      <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">aws_region</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">resource_tags</span><span class="p p-Indicator">:</span>
+          <span class="l l-Scalar l-Scalar-Plain">Environment</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">readable_env_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+          <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">readable_env_name</span><span class="nv"> </span><span class="s">}}-vpc-{{aws_region}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">cidr_block</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vpc_cidr_block</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">subnets</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vpc_subnets</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">dns_support</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="l l-Scalar l-Scalar-Plain">dns_hostnames</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="l l-Scalar l-Scalar-Plain">internet_gateway</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vpc_internet_gateway|string</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">route_tables</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">vpc_route_tables_public</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">wait</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vpc</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+  <span class="c1"># - set_fact:</span>
+  <span class="c1">#     vpc: &quot;{{ vpc_output.stdout|from_json }}&quot;</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">var=vpc</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Creating security groups (elb)</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_group</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.name}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.desc}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">vpc_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc.vpc_id}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">aws_region</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.rules}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc_security_groups_elb}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Creating security groups (bastion)</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_group</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.name}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.desc}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">vpc_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc.vpc_id}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">aws_region</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.rules}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc_security_groups_bastion}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Creating security groups (cluster)</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_group</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.name}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.desc}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">vpc_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc.vpc_id}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">aws_region</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.rules}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc_security_groups_cluster}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Creating security groups (datalayer)</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_group</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.name}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.desc}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">vpc_id</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc.vpc_id}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">region</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">aws_region</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item.rules}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{vpc_security_groups_datalayer}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id_runtime={{ lookup(&#39;aws_vpc_id_from_name&#39;, aws_region, readable_env_name + &#39;-vpc-&#39; + aws_region) }}</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1_runtime={{ lookup(&#39;aws_subnet_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-sb-priv-&#39; + aws_region + &#39;-&#39; + vpc_availability_zone_t1]) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2_runtime={{ lookup(&#39;aws_subnet_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-sb-priv-&#39; + aws_region + &#39;-&#39; + vpc_availability_zone_t2]) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet1_runtime={{ lookup(&#39;aws_subnet_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-sb-pub-&#39; + aws_region + &#39;-&#39; + vpc_availability_zone_t1]) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet2_runtime={{ lookup(&#39;aws_subnet_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-sb-pub-&#39; + aws_region + &#39;-&#39; + vpc_availability_zone_t2]) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet2 is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | allocate a new elastic IP without associating it to anything - 1</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_eip</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in_vpc=yes reuse_existing_ip_allowed=yes state=present region=&quot;{{aws_region}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">eip_1</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | allocate a new elastic IP without associating it to anything - 2</span>
+    <span class="l l-Scalar l-Scalar-Plain">ec2_eip</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">in_vpc=yes reuse_existing_ip_allowed=yes state=present region=&quot;{{aws_region}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">eip_2</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1_allocation={{ lookup(&#39;aws_ec2_allocation_id_from_eip&#39;, aws_region, eip_1.public_ip) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create NAT instance for subnet 1</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-nat-gateway</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--subnet-id</span><span class="nv"> </span><span class="s">{{aws_vpc_pubsubnet1_runtime}}</span><span class="nv"> </span><span class="s">--allocation-id</span><span class="nv"> </span><span class="s">{{aws_vpc_privsubnet1_allocation}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nat_instance1_raw</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT nat_instance1_json</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">nat_instance1_json</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nat_instance1_raw.stdout|from_json</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT nat_instance1</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">nat_instance1</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nat_instance1_json.NatGateway.NatGatewayId</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT aws_vpc_privsubnet2_allocation</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2_allocation={{ lookup(&#39;aws_ec2_allocation_id_from_eip&#39;, aws_region, eip_2.public_ip) }}</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create NAT instance for subnet 2</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-nat-gateway</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--subnet-id</span><span class="nv"> </span><span class="s">{{aws_vpc_pubsubnet2_runtime}}</span><span class="nv"> </span><span class="s">--allocation-id</span><span class="nv"> </span><span class="s">{{aws_vpc_privsubnet2_allocation}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nat_instance2_raw</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT nat_instance2_json</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">nat_instance2_json</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nat_instance2_raw.stdout|from_json</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT nat_instance2</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">nat_instance2</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nat_instance2_json.NatGateway.NatGatewayId</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;Give a chance to NAT gatewates to initialize before we create routing records. In other case we fail.&quot;</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pause</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">seconds=45</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create new route table for the private subnet 1</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-route-table</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--vpc-id</span><span class="nv"> </span><span class="s">{{aws_vpc_id_runtime}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">routetable_private_1_raw</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT routetable_private_1_json</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">routetable_private_1_json</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">routetable_private_1_raw.stdout|from_json</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT routetable_private_1</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">routetable_private_1</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">routetable_private_1_json.RouteTable.RouteTableId</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Associate route table with private subnet 1</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">associate-route-table</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--route-table-id</span><span class="nv"> </span><span class="s">{{routetable_private_1}}</span><span class="nv"> </span><span class="s">--subnet-id</span><span class="nv"> </span><span class="s">{{aws_vpc_privsubnet1_runtime}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create NAT route record for  private subnet 1</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-route</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--route-table-id</span><span class="nv"> </span><span class="s">{{routetable_private_1}}</span><span class="nv"> </span><span class="s">--destination-cidr-block</span><span class="nv"> </span><span class="s">&#39;0.0.0.0/0&#39;</span><span class="nv"> </span><span class="s">--nat-gateway-id</span><span class="nv"> </span><span class="s">{{nat_instance1}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create new route table for the private subnet 2</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-route-table</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--vpc-id</span><span class="nv"> </span><span class="s">{{aws_vpc_id_runtime}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">routetable_private_2_raw</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT  routetable_private_2_json</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">routetable_private_2_json</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">routetable_private_2_raw.stdout|from_json</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FACT  routetable_private_2</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">routetable_private_2</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">routetable_private_2_json.RouteTable.RouteTableId</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Associate route table with private subnet 2</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">associate-route-table</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--route-table-id</span><span class="nv"> </span><span class="s">{{routetable_private_2}}</span><span class="nv"> </span><span class="s">--subnet-id</span><span class="nv"> </span><span class="s">{{aws_vpc_privsubnet2_runtime}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">NETWORK | Create NAT route record for  private subnet 2</span>
+    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;aws</span><span class="nv"> </span><span class="s">ec2</span><span class="nv"> </span><span class="s">create-route</span><span class="nv"> </span><span class="s">--region</span><span class="nv"> </span><span class="s">{{aws_region}}</span><span class="nv"> </span><span class="s">--route-table-id</span><span class="nv"> </span><span class="s">{{routetable_private_2}}</span><span class="nv"> </span><span class="s">--destination-cidr-block</span><span class="nv"> </span><span class="s">&#39;0.0.0.0/0&#39;</span><span class="nv"> </span><span class="s">--nat-gateway-id</span><span class="nv"> </span><span class="s">{{nat_instance2}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;Looks like your VPC, subnetworks and security groups were already configured previously. Check environment yml config for details.&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_vpc_id :{{ lookup(&#39;aws_vpc_id_from_name&#39;, aws_region, readable_env_name + &#39;-vpc-&#39; + aws_region) }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_id is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_vpc_privsubnet1 :{{ aws_vpc_privsubnet1_runtime }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_vpc_privsubnet2 :{{ aws_vpc_privsubnet2_runtime }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_vpc_pubsubnet1 :{{ aws_vpc_pubsubnet1_runtime }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet1 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_vpc_pubsubnet2 :{{ aws_vpc_pubsubnet2_runtime }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet2 is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_sg_pub :{{ lookup(&#39;aws_secgroup_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-public-ELB&#39;]) }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_sg_pub is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_sg_api :{{ lookup(&#39;aws_secgroup_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-private-CLUSTER&#39;]) }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_sg_api is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;aws_sg_priv :{{ lookup(&#39;aws_secgroup_ids_from_names&#39;, aws_region, [readable_env_name + &#39;-private-MONGO&#39;]) }}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_sg_priv is not defined</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">src=&quot;{{root_dir}}/templates/aws-region-env.yml.j2&quot; dest=&quot;{{root_dir}}/boxes/aws-{{aws_region}}-{{env}}-vars.yml&quot;</span>
+
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fail</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;If you just created VPC, time to stop and create environment file aws-REGION-ENV-vars.yml and store parameters listed above. For next run We need two of them:&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{item}}</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">defined&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2</span>
+</pre></div>
+</div>
+<p>Let&#8217;s try in the action:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">root_dir</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">playbook_dir</span><span class="nv"> </span><span class="s">}}/../&quot;</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">vars_files</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./common_vars.yml</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./common_infrastructure_vars.yml</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">pre_tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Include AWS related vars</span>
+      <span class="l l-Scalar l-Scalar-Plain">include_vars</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">with_first_found</span><span class="p p-Indicator">:</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws-{{aws_region}}-{{env}}-vars.yml&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws-{{aws_region}}-vars.yml&quot;</span>
+       <span class="p p-Indicator">-</span> <span class="s">&quot;aws-default-vars.yml&quot;</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">include</span><span class="p p-Indicator">:</span> <span class="s">&#39;{{root_dir}}/components/__network_create.yml&#39;</span>
+</pre></div>
+</div>
+<p>For demonstration purposes only, let&#8217;s take a quick look on ansible job log</p>
+<img alt="../_images/01-networkcreate-ansible.png" src="../_images/01-networkcreate-ansible.png" />
+<img alt="../_images/02-networkcreate-ansible.png" src="../_images/02-networkcreate-ansible.png" />
+<p>and checkout on AWS created in result:</p>
+<p>subnets,</p>
+<img alt="../_images/03-vpc-subnets.png" src="../_images/03-vpc-subnets.png" />
+<p>route tables,</p>
+<img alt="../_images/04-vpc-routetables.png" src="../_images/04-vpc-routetables.png" />
+<p>internet gateway,</p>
+<img alt="../_images/05-internet-gateway.png" src="../_images/05-internet-gateway.png" />
+<p>security groups,</p>
+<img alt="../_images/06-securitygroups.png" src="../_images/06-securitygroups.png" />
+<p>it seems everything is ready for the next step.</p>
+<p>Summary: as output of that play, we have fully configured VPC on a AWS &amp;
+resulting variable list, that will be used on a subsequent step</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="c1"># Ansible managed</span>
+<span class="c1"># This file was generated by ansible via __network_create.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vpc-7b899e03</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet1</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subnet-523f0919</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_privsubnet2</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subnet-e3315cbe</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet1</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subnet-374b7d7c</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_vpc_pubsubnet2</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subnet-e23855bf</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_sg_pub</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sg-bf6778cb</span>
+<span class="l l-Scalar l-Scalar-Plain">aws_sg_api</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sg-00677874</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+</div>
+
+</div>
+<div class="col-sm-3 mb20">
+  
+  <h3><a href="tag.html">Tags</a></h3>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/amazon.html">amazon</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
+        <a href="tag/ansible.html">ansible</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ansible-container.html">ansible-container</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/aws.html">aws</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/cloud.html">cloud</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/continuous-delivery.html">continuous-delivery</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/deployment.html">deployment</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/development.html">development</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-4">
+        <a href="tag/devops.html">devops</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ecs.html">ecs</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/esxi.html">esxi</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/java.html">java</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jenkins.html">jenkins</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/jumpbox.html">jumpbox</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/lamp.html">lamp</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/letsencrypt.html">letsencrypt</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/process.html">process</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/rnd.html">rnd</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/ruby.html">ruby</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/tip.html">tip</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vagrant.html">vagrant</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/vpc.html">vpc</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
+        <a href="tag/workplace.html">workplace</a></li>
+      
+    
+  </ul>
+
+
+  
+  <h3><a href="category.html">Categories</a></h3>
+  <ul class="ablog-categories">
+  
+    
+    <li><a href="category/field-notes.html">field notes (4)</a></li>
+    
+  
+    
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (12)</a></li>
+    
+  
+    
+    <li><a href="category/knowledge-sharing.html">knowledge sharing (3)</a></li>
+    
+  
+  </ul>
+
+
+  
+  <h3><a href="archive.html">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="2018.html">2018 (3)</a></li>
+    
+  
+    
+    <li><a href="2017.html">2017 (6)</a></li>
+    
+  
+    
+    <li><a href="2016.html">2016 (10)</a></li>
+    
+  
+  </ul>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <div class="section">
+    <div class="row">
+      <div class="col-sm-1 mb20">
+      </div>
+      <div class="col-sm-8 mb20">
+        
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  
+  <a href="2017-09-sa-container-bootstrap.html">
+    <i class="fa fa-arrow-circle-left"></i>
+    Using ansible-container to build your next application base image
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  
+  <a href="2018-03-02.html">
+    Provisioning solution to amazon ecs, part 2 - preparing needed dependencies
+    <i class="fa fa-arrow-circle-right"></i>
+  </a>
+  </span>
+  
+</div>
+
+      </div>
+      <div class="col-sm-3 mb20">
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+
+      </div>
+
+    </div>
+    <!-- /#all -->
+
+<!-- #### JAVASCRIPT FILES ### -->
+
+<!-- js base -->
+<script src=".././_static/js/jquery-1.11.0.min.js"></script>
+<script src=".././_static/js/bootstrap.min.js"></script>
+
+
+<!-- for demo purpose -->
+<script src=".././_static/js/jquery.cookie.js"></script>
+
+<!-- waypoints for scroll spy -->
+<script src=".././_static/js/waypoints.min.js"></script>
+
+<!-- masonry layout -->
+<script src=".././_static/js/masonry.pkgd.min.js"></script>
+
+<!-- owl carousel -->
+<script src=".././_static/js/owl.carousel.min.js"></script>
+
+
+<!-- jQuery scroll to -->
+<script src=".././_static/js/jquery.scrollTo.min.js"></script>
+
+<!-- main js file -->
+<script src=".././_static/js/front.js"></script>
+
+
+</body>
+
+</html>

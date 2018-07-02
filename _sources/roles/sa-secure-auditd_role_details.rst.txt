@@ -1,0 +1,346 @@
+.. title::  SOFTASAP | sa-secure-auditd
+.. _sa-secure-auditd-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-secure-auditd" class="anchor" href="#sa-secure-auditd" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-secure-auditd</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-secure-auditd"><img src="https://camo.githubusercontent.com/7952a705c8961d6081d7390aaf7d168e7b28823e/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d7365637572652d6175646974642e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-secure-auditd.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Example of use: check box-example</p>
+    <p>Simple:</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">custom_auditd_log_group</span>: <span class="pl-s">syslog </span><span class="pl-c"><span class="pl-c">#</span> default root, change to other user if you plan to log messages</span>
+    
+    <span class="pl-ent">custom_auditd_props</span>:
+        - <span class="pl-s">{regexp: "^log_group =*", line: "log_group = {{auditd_log_group}}"}</span>
+    
+    <span class="pl-ent">custom_auditd_rules</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>-D<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> clean rules</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-b 320<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> no of bufs for messages</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-f 1<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> on failure 0 nothing, 1 dmesg, 2 kernel panic</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-a exit,always -S unlink -S rmdir<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> notify unlink rmdir</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-w /etc/group -p wa<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> group modification</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-w /etc/passwd -p wa<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> passwords modification</span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-w /etc/shadow -p wa<span class="pl-pds">"</span></span>
+      - <span class="pl-s"><span class="pl-pds">"</span>-w /etc/sudoers -p wa<span class="pl-pds">"</span></span>  
+      - <span class="pl-s"><span class="pl-pds">"</span>-e 2<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> prevent further changes to config</span>
+    </pre></div>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-secure-auditd<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-secure-auditd<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">auditd_conf_props</span>: <span class="pl-s"><span class="pl-pds">"</span>{{custom_auditd_props}}<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">auditd_log_group</span>: <span class="pl-s">custom_auditd_log_group  </span>
+           <span class="pl-s">}</span>
+    
+    </pre></div>
+    <p>Hint: viewing auditd reports</p>
+    <div class="highlight highlight-source-shell"><pre>$ sudo journalctl --boot _TRANSPORT=audit
+    -- Logs begin at Thu 2016-01-05 09:20:01 CET. --
+    Jan 05 09:47:24 arsenic audit[3028]: USER_END pid=3028 uid=0 auid=1000 ses=3 subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 msg=<span class="pl-s"><span class="pl-pds">'</span>op=PAM:session_close grantors=pam_keyinit,pam_limits,pam_keyinit,pam_limits,pam_systemd,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/4 res=success<span class="pl-pds">'</span></span>
+    ...</pre></div>
+    <p>Or, perhaps</p>
+    <div class="highlight highlight-source-shell"><pre>sudo journalctl -af _TRANSPORT=audit</pre></div>
+    <h2><a id="user-content-stig-enterprise-level-auditing-setup" class="anchor" href="#stig-enterprise-level-auditing-setup" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STIG: Enterprise level auditing setup</h2>
+    <p>Example of full audit.rules that correspond to
+    <a href="https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/">https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/</a></p>
+    <pre><code>## RHEL 6 Security Technical Implementation Guide
+    
+    ## Remove any existing rules
+    -D
+    
+    ## Buffer Size
+    -b 8192
+    
+    ## Failure Mode
+    -f 2
+    
+    ## Audit the audit logs
+    -w /var/log/audit/ -k auditlog
+    
+    ## Auditd configuration
+    -w /etc/audit/ -p wa -k auditconfig
+    -w /etc/libaudit.conf -p wa -k auditconfig
+    -w /etc/audisp/ -p wa -k audispconfig
+    
+    ## Monitor for use of audit management tools
+    -w /sbin/auditctl -p x -k audittools
+    -w /sbin/auditd -p x -k audittools
+    
+    ## Monitor AppArmor configuration changes
+    -w /etc/apparmor/ -p wa -k apparmor
+    -w /etc/apparmor.d/ -p wa -k apparmor
+    
+    ## Monitor usage of AppArmor tools
+    -w /sbin/apparmor_parser -p x -k apparmor_tools
+    -w /usr/sbin/aa-complain -p x -k apparmor_tools
+    -w /usr/sbin/aa-disable -p x -k apparmor_tools
+    -w /usr/sbin/aa-enforce -p x -k apparmor_tools
+    
+    ## Monitor Systemd configuration changes
+    -w /etc/systemd/ -p wa -k systemd
+    -w /lib/systemd/ -p wa -k systemd
+    
+    ## Monitor usage of systemd tools
+    -w /bin/systemctl -p x -k systemd_tools
+    -w /bin/journalctl -p x -k systemd_tools
+    
+    ## Special files
+    -a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles
+    
+    ## Mount operations
+    -a always,exit -F arch=b64 -S mount -S umount2 -k mount
+    
+    ## Changes to the time
+    -a always,exit -F arch=b64 -S adjtimex -S settimeofday -S clock_settime -k time
+    
+    ## Cron configuration &amp; scheduled jobs
+    -w /etc/cron.allow -p wa -k cron
+    -w /etc/cron.deny -p wa -k cron
+    -w /etc/cron.d/ -p wa -k cron
+    -w /etc/cron.daily/ -p wa -k cron
+    -w /etc/cron.hourly/ -p wa -k cron
+    -w /etc/cron.monthly/ -p wa -k cron
+    -w /etc/cron.weekly/ -p wa -k cron
+    -w /etc/crontab -p wa -k cron
+    -w /var/spool/cron/crontabs/ -k cron
+    
+    ## User, group, password databases
+    -w /etc/group -p wa -k etcgroup
+    -w /etc/passwd -p wa -k etcpasswd
+    -w /etc/gshadow -k etcgroup
+    -w /etc/shadow -k etcpasswd
+    -w /etc/security/opasswd -k opasswd
+    
+    ## Monitor usage of passwd
+    -w /usr/bin/passwd -p x -k passwd_modification
+    
+    ## Monitor for use of tools to change group identifiers
+    -w /usr/sbin/groupadd -p x -k group_modification
+    -w /usr/sbin/groupmod -p x -k group_modification
+    -w /usr/sbin/addgroup -p x -k group_modification
+    -w /usr/sbin/useradd -p x -k user_modification
+    -w /usr/sbin/usermod -p x -k user_modification
+    -w /usr/sbin/adduser -p x -k user_modification
+    
+    ## Monitor module tools
+    -w /sbin/insmod -p x -k modules
+    -w /sbin/rmmod -p x -k modules
+    -w /sbin/modprobe -p x -k modules
+    
+    ## Login configuration and information
+    -w /etc/login.defs -p wa -k login
+    -w /etc/securetty -p wa -k login
+    -w /var/log/faillog -p wa -k login
+    -w /var/log/lastlog -p wa -k login
+    -w /var/log/tallylog -p wa -k login
+    
+    ## Network configuration
+    -w /etc/hosts -p wa -k hosts
+    -w /etc/network/ -p wa -k network
+    
+    ## System startup scripts
+    -w /etc/inittab -p wa -k init
+    -w /etc/init.d/ -p wa -k init
+    -w /etc/init/ -p wa -k init
+    
+    ## Library search paths
+    -w /etc/ld.so.conf -p wa -k libpath
+    
+    ## Local time zone
+    -w /etc/localtime -p wa -k localtime
+    
+    ## Time zone configuration
+    -w /etc/timezone -p wa -k timezone
+    
+    ## Kernel parameters
+    -w /etc/sysctl.conf -p wa -k sysctl
+    
+    ## Modprobe configuration
+    -w /etc/modprobe.conf -p wa -k modprobe
+    -w /etc/modprobe.d/ -p wa -k modprobe
+    -w /etc/modules -p wa -k modprobe
+    
+    # Module manipulations.
+    -a always,exit -F arch=b64 -S init_module -S delete_module -k modules
+    
+    ## PAM configuration
+    -w /etc/pam.d/ -p wa -k pam
+    -w /etc/security/limits.conf -p wa -k pam
+    -w /etc/security/pam_env.conf -p wa -k pam
+    -w /etc/security/namespace.conf -p wa -k pam
+    -w /etc/security/namespace.init -p wa -k pam
+    
+    ## Postfix configuration
+    -w /etc/aliases -p wa -k mail
+    -w /etc/postfix/ -p wa -k mail
+    
+    ## SSH configuration
+    -w /etc/ssh/sshd_config -k sshd
+    
+    ## Changes to hostname
+    -a exit,always -F arch=b64 -S sethostname -k hostname
+    
+    ## Changes to issue
+    -w /etc/issue -p wa -k etcissue
+    -w /etc/issue.net -p wa -k etcissue
+    
+    ## Capture all failures to access on critical elements
+    -a exit,always -F arch=b64 -S open -F dir=/etc -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/bin -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/sbin -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/usr/bin -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/usr/sbin -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/var -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/home -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/root -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/srv -F success=0 -k unauthedfileaccess
+    -a exit,always -F arch=b64 -S open -F dir=/tmp -F success=0 -k unauthedfileaccess
+    
+    ## Monitor for use of process ID change (switching accounts) applications
+    -w /bin/su -p x -k priv_esc
+    -w /usr/bin/sudo -p x -k priv_esc
+    -w /etc/sudoers -p rw -k priv_esc
+    
+    ## Monitor usage of commands to change power state
+    -w /sbin/shutdown -p x -k power
+    -w /sbin/poweroff -p x -k power
+    -w /sbin/reboot -p x -k power
+    -w /sbin/halt -p x -k power
+    
+    ## Monitor admins accessing user files.
+    -a always,exit -F dir=/home/ -F uid=0 -C auid!=obj_uid -k admin_user_home
+    
+    ## Monitor changes and executions in /tmp and /var/tmp.
+    -w /tmp/ -p wxa -k tmp
+    -w /var/tmp/ -p wxa -k tmp
+    
+    ## Make the configuration immutable
+    -e 2
+    </code></pre>
+    <h2><a id="user-content-few-words-about-tooling-you-will-use" class="anchor" href="#few-words-about-tooling-you-will-use" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Few words about tooling you will use</h2>
+    <p>Kernel:</p>
+    <p>audit: hooks into the kernel to capture events and deliver them to auditd
+    Binaries:</p>
+    <p>auditd: daemon to capture events and store them (log file)
+    auditctl: client tool to configure auditd
+    audispd: daemon to multiplex events
+    aureport: reporting tool which reads from log file (auditd.log)
+    ausearch: event viewer (auditd.log)
+    autrace: using audit component in kernel to trace binaries
+    aulast: similar to last, but instaed using audit framework
+    aulastlog: similar to lastlog, also using audit framework instead
+    ausyscall: map syscall ID and name
+    auvirt: displaying audit information regarding virtual machines
+    Files:</p>
+    <p>audit.rules: used by auditctl to read what rules need to be used
+    auditd.conf: configuration file of auditd</p>
+    <h2><a id="user-content-strategy-excluding-events" class="anchor" href="#strategy-excluding-events" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strategy: Excluding Events</h2>
+    <p>The challenge with logging events, is to ensure that you log all important events, while avoiding logging the unneeded ones.</p>
+    <p>Logging large no of events might be not efficient and affect the performance of the Linux kernel.</p>
+    <p>To enhance the logging, we first need to determine what events often show up.</p>
+    <p>by executable</p>
+    <div class="highlight highlight-source-shell"><pre>aureport -ts today -i -x --summary
+    
+    Executable Summary Report
+    =================================
+    total  file
+    =================================
+    1698  /bin/su
+    760  /usr/sbin/cron
+    87  /lib/systemd/systemd
+    75  /usr/sbin/sshd
+    41  /sbin/xtables-multi
+    30  /usr/bin/sudo
+    2  /lib/systemd/systemd-update-utmp
+    </pre></div>
+    <p>by syscall</p>
+    <div class="highlight highlight-source-shell"><pre>aureport -ts today -i -s --summary
+    Syscall Summary Report
+    ==========================
+    total  syscall
+    ==========================
+    2482  setsockopt</pre></div>
+    <p>by event</p>
+    <div class="highlight highlight-source-shell"><pre>aureport -ts today -i -e --summary
+    
+    Event Summary Report
+    ======================
+    total  <span class="pl-c1">type</span>
+    ======================
+    23036  USER_START
+    22965  CRED_DISP
+    22965  USER_END
+    22952  CRED_ACQ
+    22948  USER_ACCT
+    14767  USER_AUTH
+    8113  LOGIN
+    2482  NETFILTER_CFG
+    2404  USER_ERR
+    1756  USER_LOGIN
+    360  SERVICE_START
+    300  SERVICE_STOP
+    88  USER_CMD
+    87  CRED_REFR
+    27  ANOM_ABEND
+    6  SYSTEM_RUNLEVEL
+    6  DAEMON_START
+    6  DAEMON_END
+    3  SYSTEM_SHUTDOWN
+    
+    Possible Audit Record Types:  https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sec-Audit_Record_Types.html
+    
+    Ignoring events
+    ---------------
+    Now we have idea, what <span class="pl-c1">type</span> of messages we have on our system, we can filter out not needed events.
+    For that we have to make a rule, which matches and states the exclude of <span class="pl-c1">exit</span> statement.
+    
+    Note: The <span class="pl-c1">exit</span> statement is used together with syscalls, <span class="pl-k">for</span> others we use exclude.
+    
+    <span class="pl-c"><span class="pl-c">#</span>## Filter by message type</span>
+    
+    For example disabling all “CWD” (current working directory), we can use a rule like this:
+    </pre></div>
+    <p>-a exclude,always -F msgtype=CWD</p>
+    <pre><code>
+    ausearch tool will help you on examining
+    
+    </code></pre>
+    <p>sudo ausearch -ts today -m CRED_ACQ</p>
+    <pre><code>
+    ### Filter by multiple rules
+    
+    Filter by multiple rules
+    
+    We can combine multiple rules together, by using multiple -F parameters.
+    Up to 64 fields are parsed. -F expressions are concatenated via logical AND statement,
+    i.e. all fields have to be true, to trigger the action of the audit rule set.
+    
+    </code></pre>
+    <p>-a exit,never -F arch=b32 -S fork -F success=0 -F path=/usr/lib/vmware-tools -F subj_type=initrc_t -F exit=-2
+    -a exit,never -F arch=b64 -S fork -F success=0 -F path=/usr/lib/vmware-tools -F subj_type=initrc_t -F exit=-2</p>
+    <pre><code>
+    
+    
+    
+    Copyright and license
+    ---------------------
+    
+    Code licensed under the [BSD 3 clause] (https://opensource.org/licenses/BSD-3-Clause) or the [MIT License] (http://opensource.org/licenses/MIT).
+    
+    Subscribe for roles updates at [FB] (https://www.facebook.com/SoftAsap/)
+    </code></pre>
+    </article></div>
+
+.. raw:: html
+
+    </div>

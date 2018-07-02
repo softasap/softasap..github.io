@@ -1,0 +1,31 @@
+.. title::  SOFTASAP | sa-queue-beanstalkd
+.. _sa-queue-beanstalkd-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-queue-beanstalkd</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-queue-beanstalkd"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-queue-beanstalkd.svg?branch=master" /></a></p>
+    <p>beanstalkd_properties: list of regexes in form (regexp, line) to adjust /etc/default/beanstalkd with necessary changes</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-queue-beanstalkd"
+          }</p>
+    <p>Advanced:</p>
+    <p>roles:
+        - {
+            role: "sa-queue-beanstalkd",
+            beanstalkd_properties:
+              - {regexp: "^#START=.*", line: "START=yes"}
+          }</p>
+
+.. raw:: html
+
+    </div>

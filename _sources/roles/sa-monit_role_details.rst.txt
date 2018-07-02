@@ -1,0 +1,34 @@
+.. title::  SOFTASAP | sa-monit
+.. _sa-monit-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-monit</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-monit"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-monit.svg?branch=master" /></a></p>
+    <p>Important: for ubuntu 14.04 the latest possible version is 5.14 due to libssl-dev dependency.</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-monit&quot;
+          }
+    </code></pre>
+    
+    <p>Advanced:</p>
+    <pre><code>  roles:
+        - {
+            role: &quot;sa-monit&quot;,
+            monit_presets: [&quot;basic&quot;, &quot;basic_nginx&quot;, &quot;elasticsearch&quot;],
+            monit_version: &quot;5.14-2&quot;, #  FOR 16.04 &quot;5.19.0-1&quot;
+            monit_gui_user: admin,
+            monit_gui_password: xeR5hSdSQcCnFVLV8PLy
+          }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

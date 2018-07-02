@@ -1,0 +1,33 @@
+.. title::  SOFTASAP | sa-swagger-ui
+.. _sa-swagger-ui-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-swagger-ui</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-swagger-ui"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-swagger-ui.svg?branch=master" /></a></p>
+    <p>Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation and sandbox from a Swagger-compliant API. Because Swagger UI has no dependencies, you can host it in any server environment, or on your local machine</p>
+    <p>Example of usage (all parameters are optional)</p>
+    <p>Simple</p>
+    <p>roles:
+        - {
+            role: "sa-swagger-ui"
+          }</p>
+    <p>Advanced:</p>
+    <p>roles:
+        - {
+            role: "sa-swagger-ui",
+            option_install_nodejs: true,
+            swaggerui_version: 2.1.4,
+            install_dir: /var/www/swagger,
+            nodejs_version: "4.x"
+          }</p>
+
+.. raw:: html
+
+    </div>

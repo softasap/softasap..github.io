@@ -1,0 +1,63 @@
+.. title::  SOFTASAP | sa-fail2ban
+.. _sa-fail2ban-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-file2ban" class="anchor" href="#sa-file2ban" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-file2ban</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-file2ban"><img src="https://camo.githubusercontent.com/4fc5354022ce281882fe0b8400a2c28b585a3900/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d66696c653262616e2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-file2ban.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured. Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).
+    Fail2Ban is able to reduce the rate of incorrect authentications attempts however it cannot eliminate the risk that weak authentication presents. Configure services to use only two factor or public/private authentication mechanisms if you really want to protect services.</p>
+    <p>Example of use: check box-example</p>
+    <p>Simple:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-fileban<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">my_file2ban_action</span>: <span class="pl-s"><span class="pl-pds">"</span>hostsdeny[file=/etc/hosts.deny]<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">#</span> ufw</span>
+    <span class="pl-ent">my_file2ban_ban_time</span>: <span class="pl-c1">900</span> <span class="pl-c"><span class="pl-c">#</span> 15 min per SMIG recommendations</span>
+    
+    <span class="pl-ent">my_file2ban_jaillocal_template</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/templates/fail2ban.jail.local.j2<span class="pl-pds">"</span></span>
+    
+    <span class="pl-ent">my_whitelisted_boxes</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>sshd:	192.168.0.10<span class="pl-pds">"</span></span>
+      - <span class="pl-s"><span class="pl-pds">"</span>sshd:	192.168.0.<span class="pl-pds">"</span></span>
+      - <span class="pl-s"><span class="pl-pds">"</span>sshd:	192.168.0.0/255.255.255.0<span class="pl-pds">"</span></span>
+    </pre></div>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-file2ban<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">file2ban_action</span>: <span class="pl-s"><span class="pl-pds">"</span>ufw<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">file2ban_ban_time</span>: <span class="pl-c1">900</span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>If you have some own jail.local plans that need to target more than just default sshd, you may
+    pass it as <code>file2ban_jaillocal_template</code> or completely skip by setting to False</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-file2ban<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">file2ban_jaillocal_template</span>: <span class="pl-s"><span class="pl-pds">"</span>{{playbook_dir}}/templates/fail2ban.jail.local.j2<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>If you have chosen to use hosts.deny, you may want too whitelist your known control hosts</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-file2ban<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">file2ban_whitelisted_hosts</span>: <span class="pl-s"><span class="pl-pds">"</span>{{my_whitelisted_boxes}}<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

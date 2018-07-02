@@ -1,0 +1,34 @@
+.. title::  SOFTASAP | sa-brackets-io
+.. _sa-brackets-io-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-brackets-io</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-brackets-io"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-brackets-io.svg?branch=master" /></a></p>
+    <p>Example of use:</p>
+    <ul>
+    <li>hosts: dev</li>
+    </ul>
+    <p>vars:
+        - root_dir: "{{playbook_dir}}/../"</p>
+    <p>pre_tasks:
+        - debug: msg="Pre tasks section"</p>
+    <p>roles:</p>
+    <pre><code>- {
+        role: "sa-brackets-io"
+      }
+    </code></pre>
+    <p>tasks:
+        - debug: msg="Tasks section"</p>
+    <p>Possible overrides:</p>
+    <p>brackets_io_version: X.X  - defaults to 1.6</p>
+
+.. raw:: html
+
+    </div>

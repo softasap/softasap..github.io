@@ -1,0 +1,250 @@
+.. https://www.codementor.io/slavko/configuring-development-environment-ansible-ubuntu-14-04-du107nl5e
+
+.. post:: Oct 9, 2016
+   :tags: workplace, devops, tip
+   :author: slavko
+   :category: field notes   
+
+Getting a Development Environment Set Up Before You Finish Your Coffee
+======================================================================
+
+
+Introduction
+------------
+
+As a contractor - software developer, I remaster my work environment
+often, depending on the project requirements. Also, depending on the
+NDA, sometimes I work remotely on the boxes provided by my client. All
+in all, it is important for me to get a typical set of work tools
+quickly. So, let me share here how I get my new environment up and
+running while I am drinking coffee.
+
+Background
+----------
+
+This article demonstrates an approach for unattended environment
+configuration with Ansible. Why Ansible? Because it has no dependencies
+except Python, which by default is installed on the box. List of
+available software recipes:
+
+Databases
+~~~~~~~~~
+
+-  `MySQL: <https://www.mysql.com/>`__ MySQL Community database server
+-  `MongoDB: <https://www.mongodb.org/>`__ Popular NoSQL database
+
+Database tools
+~~~~~~~~~~~~~~
+
+-  `DBeawer: <http://dbeaver.jkiss.org/>`__ Great GUI tool to work with
+   MySQL, Postgres and bunch or another DBs
+-  `Robomongo: <http://robomongo.org/>`__ Awesome free gui client for
+   MongoDB
+-  `Common schema: <https://github.com/shlomi-noach/common_schema>`__
+   DBA's framework for MySQL
+
+Development
+~~~~~~~~~~~
+
+-  [Python] Includes the most recent packet manager - pip installation
+   and update
+-  [Java] Installs java runtime environment 6,7, or 8 on the box
+-  [NodeJS] Installs nodeJS 0.10 or 0.12 with set of most popular tools,
+   including grunt, gulp, bower, npm
+-  [PHP] Installs PHP for apache or nginx as Fast-CGI
+
+Documentation tools
+~~~~~~~~~~~~~~~~~~~
+
+*Tools to ensure your project documentation does not get lost:*
+
+-  `Apiary <http://apiary.io>`__: Markdown-based grammar to describe
+   your REST API
+-  `Aglio <https://github.com/danielgtaylor/aglio>`__ Custom renderer
+   for apiary-based syntax for REST API - zero dependency on apiary
+   itself
+-  `PlantUML <http://plantuml.com/>`__ - Plain text grammar to describe
+   project UML diagrams
+-  `Bizagi
+   modeler <http://www.bizagi.com/en/products/bpm-suite/modeler>`__
+   Bizagi modeler - BMPN2.0-compatible tool for drowing business flow
+   diagrams (Windows only)
+-  `Gliffy <https://www.gliffy.com/go/commerce/index>`__ an HTML5-based
+   online diagramming tool with BMPN 2.0 support
+
+Virtualization
+~~~~~~~~~~~~~~
+
+-  `Docker <https://www.docker.com/>`__ Necessary docker components to
+   build and run docker containers locally
+-  `Oracle Virtual Box <https://www.virtualbox.org/>`__ Free
+   virtualization environment for Linux
+-  `Vagrant <https://www.vagrantup.com/>`__ Create and configure
+   lightweight, reproducible, and portable development environments
+-  `ESXi client
+   tools <https://www.vmware.com/products/vsphere-hypervisor>`__ When I
+   work under ESXi - provides better experience
+
+Webservers
+~~~~~~~~~~
+
+-  `Apache <http://www.apache.org/>`__ Classic WebServer (recipe
+   supports both prefork and worker models)
+-  `Nginx <http://nginx.org/>`__ Compact effective webserver for
+   highload
+
+Workplace handy tools
+~~~~~~~~~~~~~~~~~~~~~
+
+-  `Midnight Commander <https://www.midnight-commander.org/>`__ visual
+   folder structure browsing
+-  `Git-Flow <https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/>`__
+   Git-Flow - +- successful git branching model
+-  open in terminal action "open in terminal" for Nautilus
+-  unzip unzip
+-  `p7zip <http://p7zip.sourceforge.net/>`__ p7zip
+-  `terminator <https://apps.ubuntu.com/cat/applications/precise/terminator/>`__
+   terminator
+-  `sublime <http://www.sublimetext.com/2>`__ sublime text 2
+-  `atom <https://atom.io/>`__ github's atom editor
+-  `zeal <https://zealdocs.org/>`__ Zeal offline documentation browser
+-  `chrome <https://www.google.com/chrome/>`__ Google chrome stable
+-  `d.pr <http://droplr.com/apps>`__ Cross platform online screenshot
+   capture client
+-  `Shutter <http://shutter-project.org/>`__ Unix only screenshot
+   capture
+-  `PHPStorm <https://www.jetbrains.com/phpstorm/>`__ Jetbrains IDE for
+   PHP
+-  `PyCharm <https://www.jetbrains.com/pycharm>`__ Jetbrains IDE for
+   Python
+-  `Rubymine <https://www.jetbrains.com/ruby/>`__ Jetbrains IDE for Ruby
+-  `Idea <https://www.jetbrains.com/idea/>`__ Jetbrains IDE for Java
+
+Collaboration
+~~~~~~~~~~~~~
+
+-  `HipChat <https://www.hipchat.com/downloads>`__ Crossplatform
+   atlassian HipChat
+-  `Slack <https://slack.com/downloads>`__ Crossplatform slack client
+-  `Speak.io <http://speak.io/>`__ custom video/screen/sound
+   communication for teams. Free unlimited trial period.
+-  `Teamviewer <https://www.teamviewer.com/en/index.aspx>`__ Most known
+   tool for screen sharing and remote control
+-  `Appear.in <http://appear.in/>`__ Client-less online multiplatform
+   WebRTC collaboration tool with screen sharing support
+
+Using the code
+--------------
+
+Installation is done through these simple steps:
+
+-  Get your brand-new ubuntu 14.04 LTS
+-  Install git, curl: ``sudo apt-get install curl git``
+-  Clone repository:
+   ``git clone git@github.com:Voronenko/ansible-developer_recipes.git``
+-  Copy ``local.yml.template`` to ``local.yml``
+-  Uncomment portions of software you want to install + adjust variables
+   if needed
+-  Run\ ``local.sh`` to provision your box.
+
+Bundled recipes:
+~~~~~~~~~~~~~~~~
+
+::
+
+    #     - include: tasks_cleanupubuntu.yml                   # removes games, lens, etc
+    #     - include: tasks_python.yml                          # basic updates to py & pip
+    #     - include: tasks_worktools.yml                       # swiss knife for desktop utilities
+
+    #     - include: tasks_mongodb_3.yml                       # mongodb 3.0
+    #     - include: tasks_mysql.yml                           # MYSQL 5.5
+    #     - include: tasks_percona_toolkit.yml                 # percona tools for mysql
+
+
+    #     - include: tasks_nginx.yml                           # nginx
+    #     - include: tasks_apache.yml                          # apache prefork|worker
+
+    #     - include: tasks_nodejs.yml                          # node 0.10.* 0.12.*
+    #     - include: tasks_java.yml                            # java 6-7-8
+    #     - include: tasks_php_apache.yml                      # php 5.5 for apache
+
+    #     - include: tasks_jetbrains_phpstorm.yml              # PHP IDE
+    #     - include: tasks_jetbrains_pycharm_community.yml     # PY IDE
+    #     - include: tasks_jetbrains_rubymine.yml              # RUBY IDE
+    #     - include: tasks_jetbrains_intellij_community.yml    # JAVA IDE
+
+    #     - include: tasks_robomongo.yml                       # mongo GUI tool
+    #     - include: tasks_dbeawer.yml                         # mysql | postgre GUI tool
+
+    #     - include: tasks_docker.yml                          # docker
+
+    #     - include: tasks_oracle_virtualbox.yml               # Oracle Virtual Box
+    #     - include: tasks_vagrant.yml                         # Vagrant
+
+
+    #     - include: tools/tasks_expect.yml                    # expect tool
+    #     - include: tools/tasks_plantuml.yml                  # plant uml
+    #     - include: tools/tasks_toggle.yml                    # toggle time tracker
+    #     - include: tools/tasks_dpr.yml                       # d.pr screenshoting tool
+
+    #     VMWARE
+    #     - include: vmware/tasks_vmware_tools.yml             # ESX vmware tools
+
+    #    DEVELOPMENT
+    #     - include: tools/tasks_mailhog.yml                    # Web and API based SMTP testing
+
+Optional recipes for local or vagrant based LAMP debugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_php_webgrind.yml"         # Webgrind
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_phpmyadmin.yml"           # PhpMyAdmin
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_php_xdebug.yml"           # XDebug extension
+
+    # db import script, python venv init scripts
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_write_tools.yml"
+
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_import_mysqldb_databag.yml"
+    # (re)imports databases from db folder
+
+    # - include: "{{root_dir}}/vagrant/tasks_vagrant_apache2_devsites.yml"
+    # register apache websites on vagrant
+
+Software versions
+~~~~~~~~~~~~~~~~~
+
+::
+
+    apps_dir: "/home/YOURUSER/apps"
+    mysql_root_user: root
+    mysql_root_password: devroot
+    apache_mode: worker # use prefork or worker variables
+    dbeawer_version: 3.4.5
+    intellij_version: 14.1.4
+    java_version: 8
+    mailhog_version: 0.1.6
+    mongo_version: 3
+    nodejs_version: "0.12" # 0.10 0.12
+    oracle_vbox_version: 4.3
+    phpstorm_version: 10.0 # | 9.0.2 | 8.0.3 | 8.0.1 | 7.1.4 | 6.0.3 | 5.0.4
+    php_xdebug_version: 2.2.4
+    pycharm_version: 4.5.4
+    robomongo_version: 0.8.5
+    rubymine_version: 7.1.4
+    vagrant_version: 1.7.4
+
+    php_family: default # 5.4 | 5.5 | 5.6 | default
+    hypervisor: esx
+
+If you want to apply a similar set of recipes for your virtual machine -
+you might be interested in the example LAMP box at
+`https://github.com/voronenko
+/lamp-box <https://github.com/voronenko%20/lamp-box>`__
+
+Points of Interest
+------------------
+
+I'm looking for forks and pull requests! Feel free to let me know if
+there are some similar projects that will allow one to configure Mac box
+in a similar way. Hope you find this developer box configuration useful.

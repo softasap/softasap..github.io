@@ -1,0 +1,29 @@
+.. title::  SOFTASAP | sa-go
+.. _sa-go-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-go</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-go"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-go.svg?branch=master" /></a></p>
+    <p>Installs basic go language setup</p>
+    <p>Example of use:</p>
+    <pre><code> - {
+         role: "sa-go"
+       }
+    </code></pre>
+    <p>Advanced:</p>
+    <pre><code> - {
+         role: "sa-go",
+         go_version: 1.6 
+       }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

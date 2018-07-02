@@ -54,6 +54,24 @@
 <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "position": "bottom"
+})});
+</script>
 </head>
 
 <body data-spy="scroll" data-target="#navigation" data-offset="120" class="__blog_2017_01_keys">
@@ -78,7 +96,7 @@ mixpanel.init("d8c471ba307480a6d444f5a567340548");</script><!-- end Mixpanel -->
                 </li>
                 <li><a href="/#devops">Devops recipes</a>
                 </li>
-                <li><a href="/#contact">Contact</a>
+                <li><a href="#contact">Contact</a>
                 </li>
                 <li><a href="/blog/archive.html">Blog</a>
                 </li>
@@ -220,7 +238,12 @@ done
   <ul class="ablog-cloud">
     
       
-      <li class="ablog-cloud ablog-cloud-3">
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/amazon.html">amazon</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-5">
         <a href="tag/ansible.html">ansible</a></li>
       
     
@@ -255,13 +278,18 @@ done
       
     
       
-      <li class="ablog-cloud ablog-cloud-5">
+      <li class="ablog-cloud ablog-cloud-4">
         <a href="tag/devops.html">devops</a></li>
       
     
       
-      <li class="ablog-cloud ablog-cloud-2">
+      <li class="ablog-cloud ablog-cloud-3">
         <a href="tag/docker.html">docker</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="tag/ecs.html">ecs</a></li>
       
     
       
@@ -300,7 +328,7 @@ done
       
     
       
-      <li class="ablog-cloud ablog-cloud-2">
+      <li class="ablog-cloud ablog-cloud-3">
         <a href="tag/rnd.html">rnd</a></li>
       
     
@@ -341,7 +369,7 @@ done
     
   
     
-    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (9)</a></li>
+    <li><a href="category/from-oops-to-devops.html">from-oops-to-devops (12)</a></li>
     
   
     
@@ -354,6 +382,10 @@ done
   
   <h3><a href="archive.html">Archives</a></h3>
   <ul>
+  
+    
+    <li><a href="2018.html">2018 (3)</a></li>
+    
   
     
     <li><a href="2017.html">2017 (6)</a></li>

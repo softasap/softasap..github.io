@@ -1,0 +1,47 @@
+.. title::  SOFTASAP | sa-d
+.. _sa-d-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-d" class="anchor" href="#sa-d" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-d</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-d"><img src="https://camo.githubusercontent.com/ea3ceeb59f3e7fcd814e4d91bc4570337226a12a/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d642e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-d.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>The D programming language is an object-oriented, imperative, multi-paradigm system programming language created by Walter Bright of Digital Mars and released in 2001. Bright was joined in the design and development effort in 2007 by Andrei Alexandrescu. Though it originated as a re-engineering of C++, D is a distinct language, having redesigned some core C++ features while also taking inspiration from other languages, notably Java, Python, Ruby, C#, and Eiffel.
+    D's design goals attempt to combine the performance and safety of compiled languages with the expressive power of modern dynamic languages. Idiomatic D code is commonly as fast as equivalent C++ code, while being shorter[citation needed] and memory-safe.[9]
+    Type inference, automatic memory management and syntactic sugar for common types allow faster development, while bounds checking, design by contract features and a concurrency-aware type system help reduce the occurrence of bugs.[10]</p>
+    
+    <p>Example of use: check box-example</p>
+    
+    <p>Simple:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-d<span class="pl-pds">"</span></span>
+    <span class="pl-s">       }</span>
+    </pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role:</span> <span class="pl-s"><span class="pl-pds">"</span>sa-d<span class="pl-pds">"</span></span>
+    <span class="pl-s">       }</span>
+    </pre></div>
+    
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    
+    <p>Code licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3 clause</a> or the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+    
+    <p>Subscribe for roles updates at <a href="https://www.facebook.com/SoftAsap/">FB</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

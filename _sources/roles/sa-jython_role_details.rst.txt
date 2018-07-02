@@ -1,0 +1,33 @@
+.. title::  SOFTASAP | sa-jython
+.. _sa-jython-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-jython</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-jython"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-jython.svg?branch=master" /></a></p>
+    <p>optionally installs oracle java 6-7-8 controlled by java_version variable</p>
+    <p>Usage example:</p>
+    <p>Simple:</p>
+    <pre><code> - {
+         role: "sa-jython",
+         jython_version: "2.7.0"
+       }
+    </code></pre>
+    <p>Advanced:</p>
+    <pre><code> - {
+         role: "sa-jython",
+         jython_version: "2.7.0",
+         option_install_java: true,
+         java_version: 7
+       }
+    </code></pre>
+
+.. raw:: html
+
+    </div>

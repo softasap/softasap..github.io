@@ -1,0 +1,25 @@
+.. title::  SOFTASAP | sa-tool-veracrypt
+.. _sa-tool-veracrypt-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-tool-veracrypt</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-tool-veracrypt"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-tool-veracrypt.svg?branch=master" /></a></p>
+    <p>Famous truecrypt fork, backward compatible (i.e. can open and maintain truecrypt volume)</p>
+    <p>Simple usage:</p>
+    <pre><code>roles:
+         - {
+             role: &quot;sa-tool-veracrypt&quot;
+           }
+    
+    </code></pre>
+
+.. raw:: html
+
+    </div>

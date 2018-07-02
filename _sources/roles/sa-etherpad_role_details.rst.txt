@@ -1,0 +1,55 @@
+.. title::  SOFTASAP | sa-etherpad
+.. _sa-etherpad-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-etherpad" class="anchor" href="#sa-etherpad" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-etherpad</h1>
+    
+    <p><a href="https://travis-ci.org/softasap/sa-etherpad"><img src="https://camo.githubusercontent.com/7a21e4251dd0831f935ac7b5890840742f66f222/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d65746865727061642e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-etherpad.svg?branch=master" style="max-width:100%;"></a></p>
+    
+    <p>Example of usage (all parameters are optional)</p>
+    
+    <p>Simple</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-etherpad<span class="pl-pds">"</span></span>
+          <span class="pl-s">}</span></pre></div>
+    
+    <p>Advanced:</p>
+    
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+        - <span class="pl-s">{</span>
+            <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-etherpad<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+            <span class="pl-ent">deploy_user</span>: <span class="pl-s"><span class="pl-pds">"</span>etherpad<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+            <span class="pl-ent">options_create_etherpad_user</span>: <span class="pl-s">true,</span>
+            <span class="pl-ent">option_nodejs_install_with_nvm</span>: <span class="pl-s">true,</span>
+    
+            <span class="pl-ent">etherpad_install_dir</span>: <span class="pl-s">/opt/etherpad,</span>
+    
+            <span class="pl-ent">nvm_version</span>: <span class="pl-s">0.31.1,</span>
+            <span class="pl-ent">nodejs_version</span>: <span class="pl-s"><span class="pl-pds">"</span>6.9.2<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+            <span class="pl-ent">option_nodejs_link_globally</span>: <span class="pl-s">false,</span>
+            <span class="pl-ent">option_integrate_w_bash</span>: <span class="pl-s">false,</span>
+            <span class="pl-ent">option_integrate_w_zsh</span>: <span class="pl-c1">false</span>
+          <span class="pl-s">}</span>
+    </pre></div>
+    
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    
+    <p>Code licensed under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3 clause</a> or the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+    
+    <p>Subscribe for roles updates at <a href="https://www.facebook.com/SoftAsap/">FB</a></p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

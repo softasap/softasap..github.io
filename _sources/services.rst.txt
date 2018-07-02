@@ -1,0 +1,183 @@
+.. title::  Services | SOFTASAP | Custom devops solutions
+
+.. _services:
+
+.. raw:: html
+
+  <div class="section text-gray text-center" id="services" data-animate="fadeInUp">
+
+      <div class="container">
+          <div class="col-md-12 topmost_section">
+
+              <div class="mb20">
+                  <h2 class="title" data-animate="fadeInUp">Services</h2>
+              </div>
+
+              <div class="testimonials">
+                <div class="item">
+                  <div class="testimonial mb20">
+                          <div class="text">
+                          <p>
+                          Per our past experience on previous projects, we can speeding up your teams to go further by
+                          suggesting right applicable procedures and practices.
+                          </p>
+
+                          <p>
+                          During our cooperation,  we work with your teams to bring new knowledge and experience allowing you to
+                          execute more project work efficiently.
+                          </p>
+
+                          <p>
+                          Packages include:
+
+                          <b>Continuous Delivery package</b>, <b>DevOps package</b>, <b>Project Management with Eastern-european teams</b> package.
+                          Note: Eastern-European here, and further means software teams from Ukraine, Belarus, or Russia.
+                          </p>
+                          </div>
+                          <div class="bottom">
+                              <div class="icon"><i class="fa fa-quote-left"></i>
+                              </div>
+                              <div class="name-picture">
+                                <a name="practices_suggestion" href="#">Practices suggestion</a>
+                              </div>
+                          </div>
+                  </div>
+                </div>
+              </div> <!-- /testimonials -->
+
+              <div class="testimonials">
+                <div class="item">
+                  <div class="testimonial mb20">
+                          <div class="text">
+                          <p>
+
+                          Being technologists, with software development agency knowledge and experience, including
+                          outsourcing experience with eastern software development companies we can provide a cost
+                          effective “CTO on demand” style service which allows you to ensure right direction for your development.
+
+                          </p>
+
+                          <p>
+                          At earlier stages, we can provide help with feasibility scans as well as identify risks and suggest ideas on
+                          resolving issues. Right procedures at the project start might help to keep project under the control during
+                          it's lifecycle.
+                          </p>
+
+                          <p>
+                          Packages include: <b>Virtual Representative - Technologist</b>
+                          </p>
+                          </div>
+                          <div class="bottom">
+                              <div class="icon"><i class="fa fa-quote-left"></i>
+                              </div>
+                              <div class="name-picture">
+                                <a name="virtual_cto" href="#">Virtual Customer Representative / Technologist - Cost effective technology leadership</a>
+                              </div>
+                          </div>
+                  </div>
+                </div>
+              </div> <!-- /testimonials -->
+
+              <div class="testimonials">
+                <div class="item">
+                  <div class="testimonial mb20">
+                          <div class="text">
+                          <p>
+
+                          Having practical experience with project management, we analyze and suggest techniques through which you can
+                          improve the way your teams deliver, by looking both at architecture and component make-up of your software platforms
+                          and project management processes. We have technical PMP certified specialists on a board,
+                          thus we help you gain insight into the areas where architecture, and teams capabilities diverge, and try to improve that.
+
+                          </p>
+
+                          <p>
+                          We review and analyse your management and development teams, their approach, and build together with you a strategy
+                          for increasing your operations efficiency.
+                          </p>
+
+                          <p>
+                          Packages include: <b>Project management advisory</b>.
+                          The earlier stage project is on , the better chances for successfull corrections.
+                          </p>
+                          </div>
+                          <div class="bottom">
+                              <div class="icon"><i class="fa fa-quote-left"></i>
+                              </div>
+                              <div class="name-picture">
+                                <a name="project_management" href="#">Project management</a>
+                              </div>
+                          </div>
+                  </div>
+                </div>
+              </div> <!-- /testimonials -->
+
+
+              <div class="testimonials">
+                <div class="item">
+                  <div class="testimonial mb20">
+                          <div class="text">
+                          <p>
+
+                          We are mostly working with startups. Startups do not use waterfall approach. In better case, they use Agile approaches or
+                          at least some aspects of agility. This means that you can not use fixed price models with your development team, which is
+                          usual root cause for budget questions during sprint planning.
+
+                          </p>
+
+                          <p>
+                          We can help your company to improve your Agile processes, understanding and performance.
+                          Outcomes help to break down barriers to interacting with remote agile teams, especially from eastern regions, like Ukraine one.
+                          </p>
+
+                          <p>
+                          Packages include: <b>Agile advisory</b>.
+                          </p>
+                          </div>
+                          <div class="bottom">
+                              <div class="icon"><i class="fa fa-quote-left"></i>
+                              </div>
+                              <div class="name-picture">
+                                <a name="agile_review" href="#">Agile Processes Review</a>
+                              </div>
+                          </div>
+                  </div>
+                </div>
+              </div> <!-- /testimonials -->
+
+
+              <div class="testimonials">
+                <div class="item">
+                  <div class="testimonial mb20">
+                          <div class="text">
+                          <p>
+
+                          We can help you to define right DevOps approach for your project, and help you build and implement effectively your
+                          DevOps processes.
+
+                          </p>
+
+                          <p>
+                          We usually provide Ansible based delivery pipelines, but not limited to single toolset.
+                          Toolset is chosen depending on customer's delivery specifics.
+                          </p>
+
+                          <p>
+                          Packages include: <b>Devops Setup</b>.
+                          </p>
+                          </div>
+                          <div class="bottom">
+                              <div class="icon"><i class="fa fa-quote-left"></i>
+                              </div>
+                              <div class="name-picture">
+                                <a name="devops_review" href="#">Devops Processes Review</a>
+                              </div>
+                          </div>
+                  </div>
+                </div>
+              </div> <!-- /testimonials -->
+
+
+          </div>
+      </div>
+  </div>

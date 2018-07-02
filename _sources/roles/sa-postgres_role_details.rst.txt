@@ -1,0 +1,96 @@
+.. title::  SOFTASAP | sa-postgres
+.. _sa-postgres-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-postgres" class="anchor" href="#sa-postgres" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SA-POSTGRES</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-postgres"><img src="https://camo.githubusercontent.com/8f022373eaf07a501c69156d8645d941f52d66e5/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d706f7374677265732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-postgres.svg?branch=master" style="max-width:100%;"></a></p>
+    <p>Possible overrides:</p>
+    <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">option_create_app_user</span>: <span class="pl-c1">false</span>
+    
+      <span class="pl-ent">postgresql_version</span>: <span class="pl-c1">9.4</span>
+    
+      <span class="pl-ent">postgresql_listen_addresses</span>: <span class="pl-s">localhost  </span><span class="pl-c"><span class="pl-c">#</span> * for any address</span>
+    
+      <span class="pl-ent">postgresql_port</span>: <span class="pl-c1">5432</span>
+    
+      <span class="pl-c"><span class="pl-c">#</span> Set remotely to allow listening</span>
+      <span class="pl-c"><span class="pl-c">#</span>postgres_app_network: "192.168.0.1/32"</span>
+      <span class="pl-c"><span class="pl-c">#</span>postgres_app_network_regex: "192\.168\.0\.1\/32"</span>
+    
+      <span class="pl-c"><span class="pl-c">#</span> Set remotely to allow listening</span>
+      <span class="pl-c"><span class="pl-c">#</span>postgres_dev_network: "192.168.0.1/32"</span>
+      <span class="pl-c"><span class="pl-c">#</span>postgres_dev_network_regex: "192\.168\.0\.1\/32"</span>
+    
+      <span class="pl-ent">db_host</span>: <span class="pl-s">localhost</span>
+      <span class="pl-ent">db_user</span>: <span class="pl-s">app_user</span>
+      <span class="pl-ent">db_password</span>: <span class="pl-s">app_password</span>
+      <span class="pl-ent">db_name</span>: <span class="pl-s">app_database</span>
+    </pre></div>
+    <p>Example of use: <a href="https://github.com/Voronenko/devops-ruby-app-demo">https://github.com/Voronenko/devops-ruby-app-demo</a></p>
+    <p>Simple:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-postgres<span class="pl-pds">"</span></span>
+           <span class="pl-s">}</span>
+    </pre></div>
+    <p>Advanced:</p>
+    <div class="highlight highlight-source-yaml"><pre>
+         - <span class="pl-s">{</span>
+             <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-postgres<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             
+             <span class="pl-ent">postgresql_listen_addresses</span>: <span class="pl-s">127.0.0.1,</span>
+             
+             <span class="pl-ent">db_host</span>: <span class="pl-s">localhost,</span>
+             <span class="pl-ent">db_user</span>: <span class="pl-s">app_user,</span>
+             <span class="pl-ent">db_password</span>: <span class="pl-s">app_password,</span>
+             <span class="pl-ent">db_name</span>: <span class="pl-s">app_database,         </span>
+             
+             <span class="pl-ent">postgres_app_network</span>: <span class="pl-s"><span class="pl-pds">"</span>192.168.0.1/32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">postgres_app_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-ii">\/</span>32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    
+    
+             <span class="pl-ent">postgres_dev_network</span>: <span class="pl-s"><span class="pl-pds">"</span>192.168.0.1/32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+             <span class="pl-ent">postgres_dev_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-ii">\/</span>32<span class="pl-pds">"</span></span>
+    
+           <span class="pl-s">}</span>
+    </pre></div>
+    <h1><a id="user-content-misc-hints" class="anchor" href="#misc-hints" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc hints</h1>
+    <p>If you ever wanted to connect remotely using user postgres, you need first to set password for it:</p>
+    <pre><code>sudo -u postgres psql postgres
+    
+    # \password postgres
+    
+    Enter new password:
+    </code></pre>
+    <p>In psql usual commands:</p>
+    <pre><code>
+    \l show databases
+    
+    </code></pre>
+    <p>Importing database from sql file</p>
+    <p>Importing DB</p>
+    <pre><code>psql -d demo_test -f demo.sql
+    </code></pre>
+    <p>Generate pgsql schema diagram with schemacrawler  <a href="http://sualeh.github.io/SchemaCrawler/">http://sualeh.github.io/SchemaCrawler/</a></p>
+    <pre><code>
+    schemacrawler -server=postgresql -database=demo_test -user=postgres -password=postgres -infolevel=maximum -command=graph -outputformat=pdf -outputfile=database-diagram.pdf
+    
+    </code></pre>
+    <p>Generate pgsql schema diagram portal with schemaspy <a href="http://schemaspy.sourceforge.net/">http://schemaspy.sourceforge.net/</a></p>
+    <pre><code>schemaspy -t pgsql -db demo_test -host localhost -port 5432 -s public -u postgres -p postgres  -o output
+    </code></pre>
+    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    </article></div>
+
+.. raw:: html
+
+    </div>

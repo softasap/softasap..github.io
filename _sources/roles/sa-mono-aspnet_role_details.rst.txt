@@ -1,0 +1,23 @@
+.. title::  SOFTASAP | sa-mono-aspnet
+.. _sa-mono-aspnet-docs:
+
+.. raw:: html
+
+    <div class="block-text block-padded">
+
+:ref:`Back to roles list <roles-list>`
+
+.. raw:: html
+
+    <h1>sa-mono-aspnet</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-mono-aspnet"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-mono-aspnet.svg?branch=master" /></a></p>
+    <p>Installs recent asp.net stack for linux</p>
+    <p>Example of use:</p>
+    <pre><code> - {
+         role: "sa-mono-aspnet"
+       }
+    </code></pre>
+
+.. raw:: html
+
+    </div>
