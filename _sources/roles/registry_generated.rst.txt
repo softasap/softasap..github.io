@@ -26,13 +26,13 @@ Number of "sa-" roles for ansible: 171
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-acme-sh <https://www.github.com/softasap/sa-acme-sh>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-acme-sh.svg?branch=master
 
 .. raw:: html
 
@@ -46,7 +46,7 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-acme-sh <https://travis-ci.org/softasap/sa-acme-sh>`_
 
 .. raw:: html
 
@@ -58,13 +58,13 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-ansible-ara <https://www.github.com/softasap/sa-ansible-ara>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-ansible-ara.svg?branch=master
 
 .. raw:: html
 
@@ -78,7 +78,7 @@ ara - execution stats for ansible
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-ansible-ara <https://travis-ci.org/softasap/sa-ansible-ara>`_
 
 .. raw:: html
 
@@ -90,13 +90,13 @@ ara - execution stats for ansible
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-apache <https://www.github.com/softasap/sa-apache>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-apache.svg?branch=master
 
 .. raw:: html
 
@@ -110,7 +110,7 @@ Installs apache and enables set of modules.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-apache <https://travis-ci.org/softasap/sa-apache>`_
 
 .. raw:: html
 
@@ -122,13 +122,13 @@ Installs apache and enables set of modules.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-atom <https://www.github.com/softasap/sa-atom>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-atom.svg?branch=master
 
 .. raw:: html
 
@@ -142,7 +142,7 @@ Code editor by github, recipe includes base package install + set of plugins of 
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-atom <https://travis-ci.org/softasap/sa-atom>`_
 
 .. raw:: html
 
@@ -154,13 +154,13 @@ Code editor by github, recipe includes base package install + set of plugins of 
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-auto-ssh <https://www.github.com/softasap/sa-auto-ssh>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-auto-ssh.svg?branch=master
 
 .. raw:: html
 
@@ -174,7 +174,7 @@ autossh - persistent ssh tunnels between servers
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-auto-ssh <https://travis-ci.org/softasap/sa-auto-ssh>`_
 
 .. raw:: html
 
@@ -186,13 +186,13 @@ autossh - persistent ssh tunnels between servers
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-bamboo <https://www.github.com/softasap/sa-bamboo>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-bamboo.svg?branch=master
 
 .. raw:: html
 
@@ -206,7 +206,7 @@ Basic role for atlassian bamboo build server installation
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-bamboo <https://travis-ci.org/softasap/sa-bamboo>`_
 
 .. raw:: html
 
@@ -218,13 +218,13 @@ Basic role for atlassian bamboo build server installation
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-awx <https://www.github.com/softasap/sa-box-awx>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-awx.svg?branch=master
 
 .. raw:: html
 
@@ -238,7 +238,7 @@ awx - opensource ansible tower project
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-awx <https://travis-ci.org/softasap/sa-box-awx>`_
 
 .. raw:: html
 
@@ -250,13 +250,13 @@ awx - opensource ansible tower project
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-bootstrap <https://www.github.com/softasap/sa-box-bootstrap>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-bootstrap.svg?branch=master
 
 .. raw:: html
 
@@ -270,7 +270,7 @@ Role to perform basic securing of fresh instance for further automated deploy
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-bootstrap <https://travis-ci.org/softasap/sa-box-bootstrap>`_
 
 .. raw:: html
 
@@ -282,13 +282,13 @@ Role to perform basic securing of fresh instance for further automated deploy
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-bootstrap-win <https://www.github.com/softasap/sa-box-bootstrap-win>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-bootstrap-win.svg?branch=master
 
 .. raw:: html
 
@@ -302,7 +302,7 @@ Role to perform basic windows server preparing for further provisioning
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-bootstrap-win <https://travis-ci.org/softasap/sa-box-bootstrap-win>`_
 
 .. raw:: html
 
@@ -314,13 +314,13 @@ Role to perform basic windows server preparing for further provisioning
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-jenkins <https://www.github.com/softasap/sa-box-jenkins>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-jenkins.svg?branch=master
 
 .. raw:: html
 
@@ -334,7 +334,7 @@ Ready to use Jenkins with set of optional bundled plugins. Backup/restore on a b
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-jenkins <https://travis-ci.org/softasap/sa-box-jenkins>`_
 
 .. raw:: html
 
@@ -346,13 +346,13 @@ Ready to use Jenkins with set of optional bundled plugins. Backup/restore on a b
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-staging <https://www.github.com/softasap/sa-box-staging>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-staging.svg?branch=master
 
 .. raw:: html
 
@@ -366,7 +366,7 @@ installs mailhog and webmin
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-staging <https://travis-ci.org/softasap/sa-box-staging>`_
 
 .. raw:: html
 
@@ -378,13 +378,13 @@ installs mailhog and webmin
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-box-vestacp <https://www.github.com/softasap/sa-box-vestacp>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-box-vestacp.svg?branch=master
 
 .. raw:: html
 
@@ -398,7 +398,7 @@ Installs opensource vestacp control panel
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-box-vestacp <https://travis-ci.org/softasap/sa-box-vestacp>`_
 
 .. raw:: html
 
@@ -410,13 +410,13 @@ Installs opensource vestacp control panel
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-brackets-io <https://www.github.com/softasap/sa-brackets-io>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-brackets-io.svg?branch=master
 
 .. raw:: html
 
@@ -430,7 +430,7 @@ Editor from Adobe. Sometimes used as an alternative to Atom.IO, sublime or light
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-brackets-io <https://travis-ci.org/softasap/sa-brackets-io>`_
 
 .. raw:: html
 
@@ -442,13 +442,13 @@ Editor from Adobe. Sometimes used as an alternative to Atom.IO, sublime or light
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-cadvisor <https://www.github.com/softasap/sa-cadvisor>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-cadvisor.svg?branch=master
 
 .. raw:: html
 
@@ -462,7 +462,7 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-cadvisor <https://travis-ci.org/softasap/sa-cadvisor>`_
 
 .. raw:: html
 
@@ -474,13 +474,13 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-chatops-errbot <https://www.github.com/softasap/sa-chatops-errbot>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-chatops-errbot.svg?branch=master
 
 .. raw:: html
 
@@ -494,7 +494,7 @@ installs Oracle Java 6-7-8 on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-chatops-errbot <https://travis-ci.org/softasap/sa-chatops-errbot>`_
 
 .. raw:: html
 
@@ -506,13 +506,13 @@ installs Oracle Java 6-7-8 on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-chef-client <https://www.github.com/softasap/sa-chef-client>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-chef-client.svg?branch=master
 
 .. raw:: html
 
@@ -526,7 +526,7 @@ OpsCode chef client install for infrastructure setup with Chef Server
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-chef-client <https://travis-ci.org/softasap/sa-chef-client>`_
 
 .. raw:: html
 
@@ -538,13 +538,13 @@ OpsCode chef client install for infrastructure setup with Chef Server
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-chef-sdk <https://www.github.com/softasap/sa-chef-sdk>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-chef-sdk.svg?branch=master
 
 .. raw:: html
 
@@ -558,7 +558,7 @@ Installs chefdk for developing chef cookbooks locally
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-chef-sdk <https://travis-ci.org/softasap/sa-chef-sdk>`_
 
 .. raw:: html
 
@@ -570,13 +570,13 @@ Installs chefdk for developing chef cookbooks locally
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-chrome-remote-desktop <https://www.github.com/softasap/sa-chrome-remote-desktop>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-chrome-remote-desktop.svg?branch=master
 
 .. raw:: html
 
@@ -590,7 +590,7 @@ chrome-remote-desktop host- Chrome Remote Desktop allows you to securely access 
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-chrome-remote-desktop <https://travis-ci.org/softasap/sa-chrome-remote-desktop>`_
 
 .. raw:: html
 
@@ -602,13 +602,13 @@ chrome-remote-desktop host- Chrome Remote Desktop allows you to securely access 
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-ci-e2e-headless <https://www.github.com/softasap/sa-ci-e2e-headless>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-ci-e2e-headless.svg?branch=master
 
 .. raw:: html
 
@@ -622,7 +622,7 @@ selenium, protractor, browsers with headless support
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-ci-e2e-headless <https://travis-ci.org/softasap/sa-ci-e2e-headless>`_
 
 .. raw:: html
 
@@ -634,13 +634,13 @@ selenium, protractor, browsers with headless support
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-cockpit <https://www.github.com/softasap/sa-cockpit>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-cockpit.svg?branch=master
 
 .. raw:: html
 
@@ -654,7 +654,7 @@ Microsoft cross-platform code editor (sublime or atom like)
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-cockpit <https://travis-ci.org/softasap/sa-cockpit>`_
 
 .. raw:: html
 
@@ -666,13 +666,13 @@ Microsoft cross-platform code editor (sublime or atom like)
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-communication-tools <https://www.github.com/softasap/sa-communication-tools>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-communication-tools.svg?branch=master
 
 .. raw:: html
 
@@ -686,7 +686,7 @@ installs popular communication tools like viber, slack, hipchat, skype
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-communication-tools <https://travis-ci.org/softasap/sa-communication-tools>`_
 
 .. raw:: html
 
@@ -698,13 +698,13 @@ installs popular communication tools like viber, slack, hipchat, skype
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-container-bootstrap <https://www.github.com/softasap/sa-container-bootstrap>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-container-bootstrap.svg?branch=master
 
 .. raw:: html
 
@@ -718,7 +718,7 @@ Experimental "base image" role for ansible-container based projects. Phusion bas
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-container-bootstrap <https://travis-ci.org/softasap/sa-container-bootstrap>`_
 
 .. raw:: html
 
@@ -730,13 +730,13 @@ Experimental "base image" role for ansible-container based projects. Phusion bas
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-d <https://www.github.com/softasap/sa-d>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-d.svg?branch=master
 
 .. raw:: html
 
@@ -750,7 +750,7 @@ installs D - a systems programming language with C-like syntax and static typing
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-d <https://travis-ci.org/softasap/sa-d>`_
 
 .. raw:: html
 
@@ -762,13 +762,13 @@ installs D - a systems programming language with C-like syntax and static typing
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-deepgraph <https://www.github.com/softasap/sa-deepgraph>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-deepgraph.svg?branch=master
 
 .. raw:: html
 
@@ -782,7 +782,7 @@ installs deepgraph newtwork toolkit
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-deepgraph <https://travis-ci.org/softasap/sa-deepgraph>`_
 
 .. raw:: html
 
@@ -794,13 +794,13 @@ installs deepgraph newtwork toolkit
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dehydrated <https://www.github.com/softasap/sa-dehydrated>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dehydrated.svg?branch=master
 
 .. raw:: html
 
@@ -814,7 +814,7 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dehydrated <https://travis-ci.org/softasap/sa-dehydrated>`_
 
 .. raw:: html
 
@@ -826,13 +826,13 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-denyhosts <https://www.github.com/softasap/sa-denyhosts>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-denyhosts.svg?branch=master
 
 .. raw:: html
 
@@ -846,7 +846,7 @@ denyhosts - python script to block hosts trying to get unauthorized ssh access
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-denyhosts <https://travis-ci.org/softasap/sa-denyhosts>`_
 
 .. raw:: html
 
@@ -858,13 +858,13 @@ denyhosts - python script to block hosts trying to get unauthorized ssh access
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-dbgui <https://www.github.com/softasap/sa-dev-dbgui>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-dbgui.svg?branch=master
 
 .. raw:: html
 
@@ -878,7 +878,7 @@ installs popular opensource db clients - dbeawer and robomongo
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-dbgui <https://travis-ci.org/softasap/sa-dev-dbgui>`_
 
 .. raw:: html
 
@@ -890,13 +890,13 @@ installs popular opensource db clients - dbeawer and robomongo
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-intellij <https://www.github.com/softasap/sa-dev-intellij>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-intellij.svg?branch=master
 
 .. raw:: html
 
@@ -910,7 +910,7 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-intellij <https://travis-ci.org/softasap/sa-dev-intellij>`_
 
 .. raw:: html
 
@@ -922,13 +922,13 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-percona-toolkit <https://www.github.com/softasap/sa-dev-percona-toolkit>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-percona-toolkit.svg?branch=master
 
 .. raw:: html
 
@@ -942,7 +942,7 @@ collection of advanced open source command-line tools, developed and used by the
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-percona-toolkit <https://travis-ci.org/softasap/sa-dev-percona-toolkit>`_
 
 .. raw:: html
 
@@ -954,13 +954,13 @@ collection of advanced open source command-line tools, developed and used by the
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-pgweb <https://www.github.com/softasap/sa-dev-pgweb>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-pgweb.svg?branch=master
 
 .. raw:: html
 
@@ -974,7 +974,7 @@ pgweb - Web-based PostgreSQL database browser written in Go.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-pgweb <https://travis-ci.org/softasap/sa-dev-pgweb>`_
 
 .. raw:: html
 
@@ -986,13 +986,13 @@ pgweb - Web-based PostgreSQL database browser written in Go.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-phpstorm <https://www.github.com/softasap/sa-dev-phpstorm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-phpstorm.svg?branch=master
 
 .. raw:: html
 
@@ -1006,7 +1006,7 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-phpstorm <https://travis-ci.org/softasap/sa-dev-phpstorm>`_
 
 .. raw:: html
 
@@ -1018,13 +1018,13 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-pycharm <https://www.github.com/softasap/sa-dev-pycharm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-pycharm.svg?branch=master
 
 .. raw:: html
 
@@ -1038,7 +1038,7 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-pycharm <https://travis-ci.org/softasap/sa-dev-pycharm>`_
 
 .. raw:: html
 
@@ -1050,13 +1050,13 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-rubymine <https://www.github.com/softasap/sa-dev-rubymine>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-rubymine.svg?branch=master
 
 .. raw:: html
 
@@ -1070,7 +1070,7 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-rubymine <https://travis-ci.org/softasap/sa-dev-rubymine>`_
 
 .. raw:: html
 
@@ -1082,13 +1082,13 @@ installs Oracle Java 6-7-8 + PHPSTORM  on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-webstorm <https://www.github.com/softasap/sa-dev-webstorm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-webstorm.svg?branch=master
 
 .. raw:: html
 
@@ -1102,7 +1102,7 @@ installs Oracle Java 6-7-8 + WEBSTORM  on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-webstorm <https://travis-ci.org/softasap/sa-dev-webstorm>`_
 
 .. raw:: html
 
@@ -1114,13 +1114,13 @@ installs Oracle Java 6-7-8 + WEBSTORM  on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-dev-worktools <https://www.github.com/softasap/sa-dev-worktools>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-dev-worktools.svg?branch=master
 
 .. raw:: html
 
@@ -1134,7 +1134,7 @@ Cleanups default ubuntu 14.04 install - recipe for visual ubuntu boxes used for 
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-dev-worktools <https://travis-ci.org/softasap/sa-dev-worktools>`_
 
 .. raw:: html
 
@@ -1146,13 +1146,13 @@ Cleanups default ubuntu 14.04 install - recipe for visual ubuntu boxes used for 
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-docker <https://www.github.com/softasap/sa-docker>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-docker.svg?branch=master
 
 .. raw:: html
 
@@ -1166,7 +1166,7 @@ docker with optional docker-compose
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-docker <https://travis-ci.org/softasap/sa-docker>`_
 
 .. raw:: html
 
@@ -1178,13 +1178,13 @@ docker with optional docker-compose
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-docker-gc <https://www.github.com/softasap/sa-docker-gc>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-docker-gc.svg?branch=master
 
 .. raw:: html
 
@@ -1198,7 +1198,7 @@ spotify docker-gc -garbage collector for docker
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-docker-gc <https://travis-ci.org/softasap/sa-docker-gc>`_
 
 .. raw:: html
 
@@ -1210,13 +1210,13 @@ spotify docker-gc -garbage collector for docker
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-docker-kitematic <https://www.github.com/softasap/sa-docker-kitematic>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-docker-kitematic.svg?branch=master
 
 .. raw:: html
 
@@ -1230,7 +1230,7 @@ docker kitematic GUI management tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-docker-kitematic <https://travis-ci.org/softasap/sa-docker-kitematic>`_
 
 .. raw:: html
 
@@ -1242,13 +1242,13 @@ docker kitematic GUI management tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-docker-machine <https://www.github.com/softasap/sa-docker-machine>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-docker-machine.svg?branch=master
 
 .. raw:: html
 
@@ -1262,7 +1262,7 @@ docker-machine tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-docker-machine <https://travis-ci.org/softasap/sa-docker-machine>`_
 
 .. raw:: html
 
@@ -1274,13 +1274,13 @@ docker-machine tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-docker-projectatomic <https://www.github.com/softasap/sa-docker-projectatomic>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-docker-projectatomic.svg?branch=master
 
 .. raw:: html
 
@@ -1294,7 +1294,7 @@ projectatomic tools - skopeo, atomic_cli, kompose, buildah
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-docker-projectatomic <https://travis-ci.org/softasap/sa-docker-projectatomic>`_
 
 .. raw:: html
 
@@ -1306,13 +1306,13 @@ projectatomic tools - skopeo, atomic_cli, kompose, buildah
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-doxygen <https://www.github.com/softasap/sa-doxygen>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-doxygen.svg?branch=master
 
 .. raw:: html
 
@@ -1326,7 +1326,7 @@ installs doxygen documentation tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-doxygen <https://travis-ci.org/softasap/sa-doxygen>`_
 
 .. raw:: html
 
@@ -1338,13 +1338,13 @@ installs doxygen documentation tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-epel <https://www.github.com/softasap/sa-epel>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-epel.svg?branch=master
 
 .. raw:: html
 
@@ -1358,7 +1358,7 @@ Helper role to install epel on redhat based systems
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-epel <https://travis-ci.org/softasap/sa-epel>`_
 
 .. raw:: html
 
@@ -1370,13 +1370,13 @@ Helper role to install epel on redhat based systems
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-erlang-elixir <https://www.github.com/softasap/sa-erlang-elixir>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-erlang-elixir.svg?branch=master
 
 .. raw:: html
 
@@ -1390,7 +1390,7 @@ Erlang is a general-purpose programming language and runtime environment. Elixir
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-erlang-elixir <https://travis-ci.org/softasap/sa-erlang-elixir>`_
 
 .. raw:: html
 
@@ -1402,13 +1402,13 @@ Erlang is a general-purpose programming language and runtime environment. Elixir
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-etherpad <https://www.github.com/softasap/sa-etherpad>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-etherpad.svg?branch=master
 
 .. raw:: html
 
@@ -1422,7 +1422,7 @@ etherpad - collaboration tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-etherpad <https://travis-ci.org/softasap/sa-etherpad>`_
 
 .. raw:: html
 
@@ -1434,13 +1434,13 @@ etherpad - collaboration tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-fail2ban <https://www.github.com/softasap/sa-fail2ban>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-fail2ban.svg?branch=master
 
 .. raw:: html
 
@@ -1454,7 +1454,7 @@ file2ban - automated way to detect intrusion attempts and ban access to host for
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-fail2ban <https://travis-ci.org/softasap/sa-fail2ban>`_
 
 .. raw:: html
 
@@ -1466,13 +1466,13 @@ file2ban - automated way to detect intrusion attempts and ban access to host for
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-ftp <https://www.github.com/softasap/sa-ftp>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-ftp.svg?branch=master
 
 .. raw:: html
 
@@ -1486,7 +1486,7 @@ your description
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-ftp <https://travis-ci.org/softasap/sa-ftp>`_
 
 .. raw:: html
 
@@ -1498,13 +1498,13 @@ your description
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-git <https://www.github.com/softasap/sa-git>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-git.svg?branch=master
 
 .. raw:: html
 
@@ -1518,7 +1518,7 @@ most recent git using PPA.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-git <https://travis-ci.org/softasap/sa-git>`_
 
 .. raw:: html
 
@@ -1530,13 +1530,13 @@ most recent git using PPA.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-gitlab-ce <https://www.github.com/softasap/sa-gitlab-ce>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-gitlab-ce.svg?branch=master
 
 .. raw:: html
 
@@ -1550,7 +1550,7 @@ installs standalone gitlab according to manual steps
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-gitlab-ce <https://travis-ci.org/softasap/sa-gitlab-ce>`_
 
 .. raw:: html
 
@@ -1562,13 +1562,13 @@ installs standalone gitlab according to manual steps
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-gitlab-runner <https://www.github.com/softasap/sa-gitlab-runner>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-gitlab-runner.svg?branch=master
 
 .. raw:: html
 
@@ -1582,7 +1582,7 @@ Gitlab Runner
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-gitlab-runner <https://travis-ci.org/softasap/sa-gitlab-runner>`_
 
 .. raw:: html
 
@@ -1594,13 +1594,13 @@ Gitlab Runner
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-gitlab-runner-win <https://www.github.com/softasap/sa-gitlab-runner-win>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-gitlab-runner-win.svg?branch=master
 
 .. raw:: html
 
@@ -1614,7 +1614,7 @@ Installs gitlab runner for windows
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-gitlab-runner-win <https://travis-ci.org/softasap/sa-gitlab-runner-win>`_
 
 .. raw:: html
 
@@ -1626,13 +1626,13 @@ Installs gitlab runner for windows
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-glibc-layer-container <https://www.github.com/softasap/sa-glibc-layer-container>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-glibc-layer-container.svg?branch=master
 
 .. raw:: html
 
@@ -1646,7 +1646,7 @@ glibc alpine container layer
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-glibc-layer-container <https://travis-ci.org/softasap/sa-glibc-layer-container>`_
 
 .. raw:: html
 
@@ -1658,13 +1658,13 @@ glibc alpine container layer
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-gluster-fs <https://www.github.com/softasap/sa-gluster-fs>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-gluster-fs.svg?branch=master
 
 .. raw:: html
 
@@ -1678,7 +1678,7 @@ GlusterFS is a scalable network filesystem
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-gluster-fs <https://travis-ci.org/softasap/sa-gluster-fs>`_
 
 .. raw:: html
 
@@ -1690,13 +1690,13 @@ GlusterFS is a scalable network filesystem
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-go <https://www.github.com/softasap/sa-go>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-go.svg?branch=master
 
 .. raw:: html
 
@@ -1710,7 +1710,7 @@ go language by google
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-go <https://travis-ci.org/softasap/sa-go>`_
 
 .. raw:: html
 
@@ -1722,13 +1722,13 @@ go language by google
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-gogs <https://www.github.com/softasap/sa-gogs>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-gogs.svg?branch=master
 
 .. raw:: html
 
@@ -1742,7 +1742,7 @@ gogs - a painless self-hosted Git service.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-gogs <https://travis-ci.org/softasap/sa-gogs>`_
 
 .. raw:: html
 
@@ -1754,13 +1754,13 @@ gogs - a painless self-hosted Git service.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-grafana <https://www.github.com/softasap/sa-grafana>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-grafana.svg?branch=master
 
 .. raw:: html
 
@@ -1774,7 +1774,7 @@ opensource timeseries visualisation tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-grafana <https://travis-ci.org/softasap/sa-grafana>`_
 
 .. raw:: html
 
@@ -1786,13 +1786,13 @@ opensource timeseries visualisation tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-graylog <https://www.github.com/softasap/sa-graylog>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-graylog.svg?branch=master
 
 .. raw:: html
 
@@ -1806,7 +1806,7 @@ opensource logentries like centralized log collecting system
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-graylog <https://travis-ci.org/softasap/sa-graylog>`_
 
 .. raw:: html
 
@@ -1818,13 +1818,13 @@ opensource logentries like centralized log collecting system
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-grub <https://www.github.com/softasap/sa-grub>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-grub.svg?branch=master
 
 .. raw:: html
 
@@ -1838,7 +1838,7 @@ grub - utility role to pin kernel version
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-grub <https://travis-ci.org/softasap/sa-grub>`_
 
 .. raw:: html
 
@@ -1850,13 +1850,13 @@ grub - utility role to pin kernel version
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-hashicorp-consul <https://www.github.com/softasap/sa-hashicorp-consul>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-hashicorp-consul.svg?branch=master
 
 .. raw:: html
 
@@ -1870,7 +1870,7 @@ hashicorp consul binaries
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-hashicorp-consul <https://travis-ci.org/softasap/sa-hashicorp-consul>`_
 
 .. raw:: html
 
@@ -1882,13 +1882,13 @@ hashicorp consul binaries
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-hashicorp-terraform <https://www.github.com/softasap/sa-hashicorp-terraform>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-hashicorp-terraform.svg?branch=master
 
 .. raw:: html
 
@@ -1902,7 +1902,7 @@ hashicorp terraform binaries
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-hashicorp-terraform <https://travis-ci.org/softasap/sa-hashicorp-terraform>`_
 
 .. raw:: html
 
@@ -1914,13 +1914,13 @@ hashicorp terraform binaries
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-hashicorp-vault <https://www.github.com/softasap/sa-hashicorp-vault>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-hashicorp-vault.svg?branch=master
 
 .. raw:: html
 
@@ -1934,7 +1934,7 @@ Basic role for installing hashicorp vault
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-hashicorp-vault <https://travis-ci.org/softasap/sa-hashicorp-vault>`_
 
 .. raw:: html
 
@@ -1946,13 +1946,13 @@ Basic role for installing hashicorp vault
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-hashicorp-vault-ui <https://www.github.com/softasap/sa-hashicorp-vault-ui>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-hashicorp-vault-ui.svg?branch=master
 
 .. raw:: html
 
@@ -1966,7 +1966,7 @@ Basic role for installing hashicorp vault ui
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-hashicorp-vault-ui <https://travis-ci.org/softasap/sa-hashicorp-vault-ui>`_
 
 .. raw:: html
 
@@ -1978,13 +1978,13 @@ Basic role for installing hashicorp vault ui
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-helper-web-deploy <https://www.github.com/softasap/sa-helper-web-deploy>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-helper-web-deploy.svg?branch=master
 
 .. raw:: html
 
@@ -1998,7 +1998,7 @@ Basic role for installing hashicorp vault ui
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-helper-web-deploy <https://travis-ci.org/softasap/sa-helper-web-deploy>`_
 
 .. raw:: html
 
@@ -2010,13 +2010,13 @@ Basic role for installing hashicorp vault ui
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-include <https://www.github.com/softasap/sa-include>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-include.svg?branch=master
 
 .. raw:: html
 
@@ -2030,7 +2030,7 @@ internal role allows including your code blocks between roles
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-include <https://travis-ci.org/softasap/sa-include>`_
 
 .. raw:: html
 
@@ -2042,13 +2042,13 @@ internal role allows including your code blocks between roles
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-influxdb <https://www.github.com/softasap/sa-influxdb>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-influxdb.svg?branch=master
 
 .. raw:: html
 
@@ -2062,7 +2062,7 @@ influxdb installation
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-influxdb <https://travis-ci.org/softasap/sa-influxdb>`_
 
 .. raw:: html
 
@@ -2074,13 +2074,13 @@ influxdb installation
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-java <https://www.github.com/softasap/sa-java>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-java.svg?branch=master
 
 .. raw:: html
 
@@ -2094,7 +2094,7 @@ installs Oracle Java 6-7-8 on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-java <https://travis-ci.org/softasap/sa-java>`_
 
 .. raw:: html
 
@@ -2106,13 +2106,13 @@ installs Oracle Java 6-7-8 on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-java-corretto <https://www.github.com/softasap/sa-java-corretto>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-java-corretto.svg?branch=master
 
 .. raw:: html
 
@@ -2126,7 +2126,7 @@ installs Amazon Corretto Java 8
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-java-corretto <https://travis-ci.org/softasap/sa-java-corretto>`_
 
 .. raw:: html
 
@@ -2138,13 +2138,13 @@ installs Amazon Corretto Java 8
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-java-gradle <https://www.github.com/softasap/sa-java-gradle>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-java-gradle.svg?branch=master
 
 .. raw:: html
 
@@ -2158,7 +2158,7 @@ gradle - java build tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-java-gradle <https://travis-ci.org/softasap/sa-java-gradle>`_
 
 .. raw:: html
 
@@ -2170,13 +2170,13 @@ gradle - java build tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-java-sbt <https://www.github.com/softasap/sa-java-sbt>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-java-sbt.svg?branch=master
 
 .. raw:: html
 
@@ -2190,7 +2190,7 @@ installs sbt - java build tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-java-sbt <https://travis-ci.org/softasap/sa-java-sbt>`_
 
 .. raw:: html
 
@@ -2202,13 +2202,13 @@ installs sbt - java build tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-jenkins-swarm-runner <https://www.github.com/softasap/sa-jenkins-swarm-runner>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-jenkins-swarm-runner.svg?branch=master
 
 .. raw:: html
 
@@ -2222,7 +2222,7 @@ installs jenkins runner using  swarm client
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-jenkins-swarm-runner <https://travis-ci.org/softasap/sa-jenkins-swarm-runner>`_
 
 .. raw:: html
 
@@ -2234,13 +2234,13 @@ installs jenkins runner using  swarm client
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-jupyterhub <https://www.github.com/softasap/sa-jupyterhub>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-jupyterhub.svg?branch=master
 
 .. raw:: html
 
@@ -2254,7 +2254,7 @@ jupyter hub
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-jupyterhub <https://travis-ci.org/softasap/sa-jupyterhub>`_
 
 .. raw:: html
 
@@ -2266,13 +2266,13 @@ jupyter hub
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-jython <https://www.github.com/softasap/sa-jython>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-jython.svg?branch=master
 
 .. raw:: html
 
@@ -2286,7 +2286,7 @@ installs python implementation for jython
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-jython <https://travis-ci.org/softasap/sa-jython>`_
 
 .. raw:: html
 
@@ -2298,13 +2298,13 @@ installs python implementation for jython
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-kong <https://www.github.com/softasap/sa-kong>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-kong.svg?branch=master
 
 .. raw:: html
 
@@ -2318,7 +2318,7 @@ kong
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-kong <https://travis-ci.org/softasap/sa-kong>`_
 
 .. raw:: html
 
@@ -2330,13 +2330,13 @@ kong
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-kong-container <https://www.github.com/softasap/sa-kong-container>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-kong-container.svg?branch=master
 
 .. raw:: html
 
@@ -2350,7 +2350,7 @@ kong app server docker container
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-kong-container <https://travis-ci.org/softasap/sa-kong-container>`_
 
 .. raw:: html
 
@@ -2362,13 +2362,13 @@ kong app server docker container
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-lamp <https://www.github.com/softasap/sa-lamp>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-lamp.svg?branch=master
 
 .. raw:: html
 
@@ -2382,7 +2382,7 @@ installs classic lamp (mysql apache (worker|prefork) php on ubuntu 14.04 LTS, 16
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-lamp <https://travis-ci.org/softasap/sa-lamp>`_
 
 .. raw:: html
 
@@ -2394,13 +2394,13 @@ installs classic lamp (mysql apache (worker|prefork) php on ubuntu 14.04 LTS, 16
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-lamp-metrics <https://www.github.com/softasap/sa-lamp-metrics>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-lamp-metrics.svg?branch=master
 
 .. raw:: html
 
@@ -2414,7 +2414,7 @@ installs codemetrics tools for lamp project - phpcs, phpmd, phploc, phpdox
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-lamp-metrics <https://travis-ci.org/softasap/sa-lamp-metrics>`_
 
 .. raw:: html
 
@@ -2426,13 +2426,13 @@ installs codemetrics tools for lamp project - phpcs, phpmd, phploc, phpdox
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-lets-encrypt <https://www.github.com/softasap/sa-lets-encrypt>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-lets-encrypt.svg?branch=master
 
 .. raw:: html
 
@@ -2446,7 +2446,7 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-lets-encrypt <https://travis-ci.org/softasap/sa-lets-encrypt>`_
 
 .. raw:: html
 
@@ -2458,13 +2458,13 @@ Helper role to link lets encrypt https certificates to your nginx sites
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-lighttable <https://www.github.com/softasap/sa-lighttable>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-lighttable.svg?branch=master
 
 .. raw:: html
 
@@ -2478,7 +2478,7 @@ Light Table Editor. Sometimes used as an alternative to Atom.IO, sublime or brac
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-lighttable <https://travis-ci.org/softasap/sa-lighttable>`_
 
 .. raw:: html
 
@@ -2490,13 +2490,13 @@ Light Table Editor. Sometimes used as an alternative to Atom.IO, sublime or brac
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-lighttpd <https://www.github.com/softasap/sa-lighttpd>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-lighttpd.svg?branch=master
 
 .. raw:: html
 
@@ -2510,7 +2510,7 @@ lighttpd web server
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-lighttpd <https://travis-ci.org/softasap/sa-lighttpd>`_
 
 .. raw:: html
 
@@ -2522,13 +2522,13 @@ lighttpd web server
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-logstash <https://www.github.com/softasap/sa-logstash>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-logstash.svg?branch=master
 
 .. raw:: html
 
@@ -2542,7 +2542,7 @@ logstash - logs transforming and forwarding tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-logstash <https://travis-ci.org/softasap/sa-logstash>`_
 
 .. raw:: html
 
@@ -2554,13 +2554,13 @@ logstash - logs transforming and forwarding tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-logwatch <https://www.github.com/softasap/sa-logwatch>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-logwatch.svg?branch=master
 
 .. raw:: html
 
@@ -2574,7 +2574,7 @@ installs logwatch - centralized syslog implementation.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-logwatch <https://travis-ci.org/softasap/sa-logwatch>`_
 
 .. raw:: html
 
@@ -2586,13 +2586,13 @@ installs logwatch - centralized syslog implementation.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mailhog <https://www.github.com/softasap/sa-mailhog>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mailhog.svg?branch=master
 
 .. raw:: html
 
@@ -2606,7 +2606,7 @@ installs mailhog - mail debugger via web and api
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mailhog <https://travis-ci.org/softasap/sa-mailhog>`_
 
 .. raw:: html
 
@@ -2618,13 +2618,13 @@ installs mailhog - mail debugger via web and api
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mariadb <https://www.github.com/softasap/sa-mariadb>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mariadb.svg?branch=master
 
 .. raw:: html
 
@@ -2638,7 +2638,7 @@ Alternative fork to mysql with it's own specifics and database engines
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mariadb <https://travis-ci.org/softasap/sa-mariadb>`_
 
 .. raw:: html
 
@@ -2650,13 +2650,13 @@ Alternative fork to mysql with it's own specifics and database engines
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-maven <https://www.github.com/softasap/sa-maven>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-maven.svg?branch=master
 
 .. raw:: html
 
@@ -2670,7 +2670,7 @@ Apache maven build tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-maven <https://travis-ci.org/softasap/sa-maven>`_
 
 .. raw:: html
 
@@ -2682,13 +2682,13 @@ Apache maven build tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-memcached <https://www.github.com/softasap/sa-memcached>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-memcached.svg?branch=master
 
 .. raw:: html
 
@@ -2702,7 +2702,7 @@ Memcached is a distributed, high-performance, in-memory caching system that is p
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-memcached <https://travis-ci.org/softasap/sa-memcached>`_
 
 .. raw:: html
 
@@ -2714,13 +2714,13 @@ Memcached is a distributed, high-performance, in-memory caching system that is p
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-minio <https://www.github.com/softasap/sa-minio>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-minio.svg?branch=master
 
 .. raw:: html
 
@@ -2734,7 +2734,7 @@ installs minio.io - Minio is a distributed object storage server built for cloud
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-minio <https://travis-ci.org/softasap/sa-minio>`_
 
 .. raw:: html
 
@@ -2746,13 +2746,13 @@ installs minio.io - Minio is a distributed object storage server built for cloud
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-minishift <https://www.github.com/softasap/sa-minishift>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-minishift.svg?branch=master
 
 .. raw:: html
 
@@ -2766,7 +2766,7 @@ Single node openshift origin cluster using minishift tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-minishift <https://travis-ci.org/softasap/sa-minishift>`_
 
 .. raw:: html
 
@@ -2778,13 +2778,13 @@ Single node openshift origin cluster using minishift tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mongo <https://www.github.com/softasap/sa-mongo>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mongo.svg?branch=master
 
 .. raw:: html
 
@@ -2798,7 +2798,7 @@ installs MongoDB 2.4 2.6, 3.4, 3.6 on ubuntu based box
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mongo <https://travis-ci.org/softasap/sa-mongo>`_
 
 .. raw:: html
 
@@ -2810,13 +2810,13 @@ installs MongoDB 2.4 2.6, 3.4, 3.6 on ubuntu based box
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mongo-backup-agent <https://www.github.com/softasap/sa-mongo-backup-agent>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mongo-backup-agent.svg?branch=master
 
 .. raw:: html
 
@@ -2830,7 +2830,7 @@ Basic role for installing MMS backup agent
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mongo-backup-agent <https://travis-ci.org/softasap/sa-mongo-backup-agent>`_
 
 .. raw:: html
 
@@ -2842,13 +2842,13 @@ Basic role for installing MMS backup agent
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mongo-monitoring-agent <https://www.github.com/softasap/sa-mongo-monitoring-agent>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mongo-monitoring-agent.svg?branch=master
 
 .. raw:: html
 
@@ -2862,7 +2862,7 @@ Basic role for installing MMS monitoring agent
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mongo-monitoring-agent <https://travis-ci.org/softasap/sa-mongo-monitoring-agent>`_
 
 .. raw:: html
 
@@ -2874,13 +2874,13 @@ Basic role for installing MMS monitoring agent
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mongo-percona <https://www.github.com/softasap/sa-mongo-percona>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mongo-percona.svg?branch=master
 
 .. raw:: html
 
@@ -2894,7 +2894,7 @@ installs percona Server for MongoDB
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mongo-percona <https://travis-ci.org/softasap/sa-mongo-percona>`_
 
 .. raw:: html
 
@@ -2906,13 +2906,13 @@ installs percona Server for MongoDB
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-monit <https://www.github.com/softasap/sa-monit>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-monit.svg?branch=master
 
 .. raw:: html
 
@@ -2926,7 +2926,7 @@ pro-active single host monitoring using mmonit
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-monit <https://travis-ci.org/softasap/sa-monit>`_
 
 .. raw:: html
 
@@ -2938,13 +2938,13 @@ pro-active single host monitoring using mmonit
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mono-aspnet <https://www.github.com/softasap/sa-mono-aspnet>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mono-aspnet.svg?branch=master
 
 .. raw:: html
 
@@ -2958,7 +2958,7 @@ installs modern asp.net stack on Ubuntu trusty
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mono-aspnet <https://travis-ci.org/softasap/sa-mono-aspnet>`_
 
 .. raw:: html
 
@@ -2970,13 +2970,13 @@ installs modern asp.net stack on Ubuntu trusty
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-munin <https://www.github.com/softasap/sa-munin>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-munin.svg?branch=master
 
 .. raw:: html
 
@@ -2990,7 +2990,7 @@ Munin is a networked resource monitoring tool that can help analyze resource tre
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-munin <https://travis-ci.org/softasap/sa-munin>`_
 
 .. raw:: html
 
@@ -3002,13 +3002,13 @@ Munin is a networked resource monitoring tool that can help analyze resource tre
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mysql <https://www.github.com/softasap/sa-mysql>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mysql.svg?branch=master
 
 .. raw:: html
 
@@ -3022,7 +3022,7 @@ Alternative fork to mysql with it's own specifics and database engines
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mysql <https://travis-ci.org/softasap/sa-mysql>`_
 
 .. raw:: html
 
@@ -3034,13 +3034,13 @@ Alternative fork to mysql with it's own specifics and database engines
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-mysql-galera <https://www.github.com/softasap/sa-mysql-galera>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-mysql-galera.svg?branch=master
 
 .. raw:: html
 
@@ -3054,7 +3054,7 @@ Alternative fork to mysql with it's own specifics and database engines
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-mysql-galera <https://travis-ci.org/softasap/sa-mysql-galera>`_
 
 .. raw:: html
 
@@ -3066,13 +3066,13 @@ Alternative fork to mysql with it's own specifics and database engines
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-neo4j <https://www.github.com/softasap/sa-neo4j>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-neo4j.svg?branch=master
 
 .. raw:: html
 
@@ -3086,7 +3086,7 @@ installs basic neo4j DB setup
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-neo4j <https://travis-ci.org/softasap/sa-neo4j>`_
 
 .. raw:: html
 
@@ -3098,13 +3098,13 @@ installs basic neo4j DB setup
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-netdata <https://www.github.com/softasap/sa-netdata>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-netdata.svg?branch=master
 
 .. raw:: html
 
@@ -3118,7 +3118,7 @@ installs netdata realtime monitoring
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-netdata <https://travis-ci.org/softasap/sa-netdata>`_
 
 .. raw:: html
 
@@ -3130,13 +3130,13 @@ installs netdata realtime monitoring
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-nginx <https://www.github.com/softasap/sa-nginx>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-nginx.svg?branch=master
 
 .. raw:: html
 
@@ -3150,7 +3150,7 @@ Basic role for nginx based deployments
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-nginx <https://travis-ci.org/softasap/sa-nginx>`_
 
 .. raw:: html
 
@@ -3162,13 +3162,13 @@ Basic role for nginx based deployments
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-nginx-compile-module <https://www.github.com/softasap/sa-nginx-compile-module>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-nginx-compile-module.svg?branch=master
 
 .. raw:: html
 
@@ -3182,7 +3182,7 @@ helper role to compile dynamic modules for nginx
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-nginx-compile-module <https://travis-ci.org/softasap/sa-nginx-compile-module>`_
 
 .. raw:: html
 
@@ -3194,13 +3194,13 @@ helper role to compile dynamic modules for nginx
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-nginx-container <https://www.github.com/softasap/sa-nginx-container>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-nginx-container.svg?branch=master
 
 .. raw:: html
 
@@ -3214,7 +3214,7 @@ Experimental nginx container
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-nginx-container <https://travis-ci.org/softasap/sa-nginx-container>`_
 
 .. raw:: html
 
@@ -3226,13 +3226,13 @@ Experimental nginx container
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-node <https://www.github.com/softasap/sa-node>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-node.svg?branch=master
 
 .. raw:: html
 
@@ -3246,7 +3246,7 @@ nodejs from debsource repo
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-node <https://travis-ci.org/softasap/sa-node>`_
 
 .. raw:: html
 
@@ -3258,13 +3258,13 @@ nodejs from debsource repo
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-node-nvm <https://www.github.com/softasap/sa-node-nvm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-node-nvm.svg?branch=master
 
 .. raw:: html
 
@@ -3278,7 +3278,7 @@ Node Version Manager (nvm) - tool that allows to install and use multiple node v
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-node-nvm <https://travis-ci.org/softasap/sa-node-nvm>`_
 
 .. raw:: html
 
@@ -3290,13 +3290,13 @@ Node Version Manager (nvm) - tool that allows to install and use multiple node v
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-osquery <https://www.github.com/softasap/sa-osquery>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-osquery.svg?branch=master
 
 .. raw:: html
 
@@ -3310,7 +3310,7 @@ installs osquery - osquery is an operating system instrumentation framework for 
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-osquery <https://travis-ci.org/softasap/sa-osquery>`_
 
 .. raw:: html
 
@@ -3322,13 +3322,13 @@ installs osquery - osquery is an operating system instrumentation framework for 
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-percona-pmm-client <https://www.github.com/softasap/sa-percona-pmm-client>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-percona-pmm-client.svg?branch=master
 
 .. raw:: html
 
@@ -3342,7 +3342,7 @@ Percona Client package for Percona Monitoring and Management toolkit
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-percona-pmm-client <https://travis-ci.org/softasap/sa-percona-pmm-client>`_
 
 .. raw:: html
 
@@ -3354,13 +3354,13 @@ Percona Client package for Percona Monitoring and Management toolkit
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-php-apache <https://www.github.com/softasap/sa-php-apache>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-php-apache.svg?branch=master
 
 .. raw:: html
 
@@ -3374,7 +3374,7 @@ standalone role for php installation in apache module mode
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-php-apache <https://travis-ci.org/softasap/sa-php-apache>`_
 
 .. raw:: html
 
@@ -3386,13 +3386,13 @@ standalone role for php installation in apache module mode
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-php-container <https://www.github.com/softasap/sa-php-container>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-php-container.svg?branch=master
 
 .. raw:: html
 
@@ -3406,7 +3406,7 @@ Experimental alpine 3.3 based php 5 fpm container
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-php-container <https://travis-ci.org/softasap/sa-php-container>`_
 
 .. raw:: html
 
@@ -3418,13 +3418,13 @@ Experimental alpine 3.3 based php 5 fpm container
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-php-fpm <https://www.github.com/softasap/sa-php-fpm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-php-fpm.svg?branch=master
 
 .. raw:: html
 
@@ -3438,7 +3438,7 @@ standalone role for php installation in fastcgi mode
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-php-fpm <https://travis-ci.org/softasap/sa-php-fpm>`_
 
 .. raw:: html
 
@@ -3450,13 +3450,13 @@ standalone role for php installation in fastcgi mode
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-php-hhvm <https://www.github.com/softasap/sa-php-hhvm>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-php-hhvm.svg?branch=master
 
 .. raw:: html
 
@@ -3470,7 +3470,7 @@ installs facebook's hhvm on ubuntu
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-php-hhvm <https://travis-ci.org/softasap/sa-php-hhvm>`_
 
 .. raw:: html
 
@@ -3482,13 +3482,13 @@ installs facebook's hhvm on ubuntu
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-php-pharables <https://www.github.com/softasap/sa-php-pharables>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-php-pharables.svg?branch=master
 
 .. raw:: html
 
@@ -3502,7 +3502,7 @@ helper role for global php pchar installations
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-php-pharables <https://travis-ci.org/softasap/sa-php-pharables>`_
 
 .. raw:: html
 
@@ -3514,13 +3514,13 @@ helper role for global php pchar installations
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-pm2 <https://www.github.com/softasap/sa-pm2>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-pm2.svg?branch=master
 
 .. raw:: html
 
@@ -3534,7 +3534,7 @@ Production process manager for Node.js apps with a built-in load balancer
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-pm2 <https://travis-ci.org/softasap/sa-pm2>`_
 
 .. raw:: html
 
@@ -3546,13 +3546,13 @@ Production process manager for Node.js apps with a built-in load balancer
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-port-knock <https://www.github.com/softasap/sa-port-knock>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-port-knock.svg?branch=master
 
 .. raw:: html
 
@@ -3566,7 +3566,7 @@ port knocking box securing using knockd
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-port-knock <https://travis-ci.org/softasap/sa-port-knock>`_
 
 .. raw:: html
 
@@ -3578,13 +3578,13 @@ port knocking box securing using knockd
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-postfix <https://www.github.com/softasap/sa-postfix>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-postfix.svg?branch=master
 
 .. raw:: html
 
@@ -3598,7 +3598,7 @@ postfix mail server defaulted to send-only mode
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-postfix <https://travis-ci.org/softasap/sa-postfix>`_
 
 .. raw:: html
 
@@ -3610,13 +3610,13 @@ postfix mail server defaulted to send-only mode
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-postgres <https://www.github.com/softasap/sa-postgres>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-postgres.svg?branch=master
 
 .. raw:: html
 
@@ -3630,7 +3630,7 @@ Installs postgresql, optionally patches listen address and trusted networks. Pos
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-postgres <https://travis-ci.org/softasap/sa-postgres>`_
 
 .. raw:: html
 
@@ -3642,13 +3642,13 @@ Installs postgresql, optionally patches listen address and trusted networks. Pos
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-postgres-workplace <https://www.github.com/softasap/sa-postgres-workplace>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-postgres-workplace.svg?branch=master
 
 .. raw:: html
 
@@ -3662,7 +3662,7 @@ postgresql console helpers
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-postgres-workplace <https://travis-ci.org/softasap/sa-postgres-workplace>`_
 
 .. raw:: html
 
@@ -3674,13 +3674,13 @@ postgresql console helpers
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-powershell <https://www.github.com/softasap/sa-powershell>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-powershell.svg?branch=master
 
 .. raw:: html
 
@@ -3694,7 +3694,7 @@ your description
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-powershell <https://travis-ci.org/softasap/sa-powershell>`_
 
 .. raw:: html
 
@@ -3706,13 +3706,13 @@ your description
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-prometheus <https://www.github.com/softasap/sa-prometheus>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-prometheus.svg?branch=master
 
 .. raw:: html
 
@@ -3726,7 +3726,7 @@ opensource prometheus monitoring system
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-prometheus <https://travis-ci.org/softasap/sa-prometheus>`_
 
 .. raw:: html
 
@@ -3738,13 +3738,13 @@ opensource prometheus monitoring system
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-prometheus-alertmanager <https://www.github.com/softasap/sa-prometheus-alertmanager>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-prometheus-alertmanager.svg?branch=master
 
 .. raw:: html
 
@@ -3758,7 +3758,7 @@ prometheus alert manager
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-prometheus-alertmanager <https://travis-ci.org/softasap/sa-prometheus-alertmanager>`_
 
 .. raw:: html
 
@@ -3770,13 +3770,13 @@ prometheus alert manager
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-prometheus-exporters <https://www.github.com/softasap/sa-prometheus-exporters>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-prometheus-exporters.svg?branch=master
 
 .. raw:: html
 
@@ -3790,7 +3790,7 @@ helper role that allows to install set of predefined prometheus exporters
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-prometheus-exporters <https://travis-ci.org/softasap/sa-prometheus-exporters>`_
 
 .. raw:: html
 
@@ -3802,13 +3802,13 @@ helper role that allows to install set of predefined prometheus exporters
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-prudentia <https://www.github.com/softasap/sa-prudentia>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-prudentia.svg?branch=master
 
 .. raw:: html
 
@@ -3822,7 +3822,7 @@ Prudentia is a Continuous Deployment toolkit written in Python. Prudentia uses A
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-prudentia <https://travis-ci.org/softasap/sa-prudentia>`_
 
 .. raw:: html
 
@@ -3834,13 +3834,13 @@ Prudentia is a Continuous Deployment toolkit written in Python. Prudentia uses A
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-publishing-kindlegen <https://www.github.com/softasap/sa-publishing-kindlegen>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-publishing-kindlegen.svg?branch=master
 
 .. raw:: html
 
@@ -3854,7 +3854,7 @@ kindlegen mobi publishing tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-publishing-kindlegen <https://travis-ci.org/softasap/sa-publishing-kindlegen>`_
 
 .. raw:: html
 
@@ -3866,13 +3866,13 @@ kindlegen mobi publishing tool
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-python <https://www.github.com/softasap/sa-python>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-python.svg?branch=master
 
 .. raw:: html
 
@@ -3886,7 +3886,7 @@ installs most recent pip + list of optional packages
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-python <https://travis-ci.org/softasap/sa-python>`_
 
 .. raw:: html
 
@@ -3898,13 +3898,13 @@ installs most recent pip + list of optional packages
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-python3 <https://www.github.com/softasap/sa-python3>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-python3.svg?branch=master
 
 .. raw:: html
 
@@ -3918,7 +3918,7 @@ installs python3 from source using specific version
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-python3 <https://travis-ci.org/softasap/sa-python3>`_
 
 .. raw:: html
 
@@ -3930,13 +3930,13 @@ installs python3 from source using specific version
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-python-anaconda <https://www.github.com/softasap/sa-python-anaconda>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-python-anaconda.svg?branch=master
 
 .. raw:: html
 
@@ -3950,7 +3950,7 @@ anaconda favor of python for data operations
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-python-anaconda <https://travis-ci.org/softasap/sa-python-anaconda>`_
 
 .. raw:: html
 
@@ -3962,13 +3962,13 @@ anaconda favor of python for data operations
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-python-minimal <https://www.github.com/softasap/sa-python-minimal>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-python-minimal.svg?branch=master
 
 .. raw:: html
 
@@ -3982,7 +3982,7 @@ installs minimal python 2.7 in order to allow ansible to operate on empty xenial
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-python-minimal <https://travis-ci.org/softasap/sa-python-minimal>`_
 
 .. raw:: html
 
@@ -3994,13 +3994,13 @@ installs minimal python 2.7 in order to allow ansible to operate on empty xenial
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-queue-beanstalkd <https://www.github.com/softasap/sa-queue-beanstalkd>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-queue-beanstalkd.svg?branch=master
 
 .. raw:: html
 
@@ -4014,7 +4014,7 @@ Beanstalk is a simple, fast work queue. Its interface is generic, but was origin
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-queue-beanstalkd <https://travis-ci.org/softasap/sa-queue-beanstalkd>`_
 
 .. raw:: html
 
@@ -4026,13 +4026,13 @@ Beanstalk is a simple, fast work queue. Its interface is generic, but was origin
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-queue-rabbitmq <https://www.github.com/softasap/sa-queue-rabbitmq>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-queue-rabbitmq.svg?branch=master
 
 .. raw:: html
 
@@ -4046,7 +4046,7 @@ RabbitMQ is a messaging broker - an intermediary for messaging. It gives your ap
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-queue-rabbitmq <https://travis-ci.org/softasap/sa-queue-rabbitmq>`_
 
 .. raw:: html
 
@@ -4058,13 +4058,13 @@ RabbitMQ is a messaging broker - an intermediary for messaging. It gives your ap
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-redis <https://www.github.com/softasap/sa-redis>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-redis.svg?branch=master
 
 .. raw:: html
 
@@ -4078,7 +4078,7 @@ installs basic redis. Redis is an open source (BSD licensed), in-memory data str
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-redis <https://travis-ci.org/softasap/sa-redis>`_
 
 .. raw:: html
 
@@ -4090,13 +4090,13 @@ installs basic redis. Redis is an open source (BSD licensed), in-memory data str
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-rethinkdb <https://www.github.com/softasap/sa-rethinkdb>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-rethinkdb.svg?branch=master
 
 .. raw:: html
 
@@ -4110,7 +4110,7 @@ installs rethinkdb nosql database
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-rethinkdb <https://travis-ci.org/softasap/sa-rethinkdb>`_
 
 .. raw:: html
 
@@ -4122,13 +4122,13 @@ installs rethinkdb nosql database
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-rkt <https://www.github.com/softasap/sa-rkt>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-rkt.svg?branch=master
 
 .. raw:: html
 
@@ -4142,7 +4142,7 @@ rkt is a pod-native container engine for Linux. It is composable, secure, and bu
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-rkt <https://travis-ci.org/softasap/sa-rkt>`_
 
 .. raw:: html
 
@@ -4154,13 +4154,13 @@ rkt is a pod-native container engine for Linux. It is composable, secure, and bu
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-ruby <https://www.github.com/softasap/sa-ruby>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-ruby.svg?branch=master
 
 .. raw:: html
 
@@ -4174,7 +4174,7 @@ chruby, ruby-install, nginx + passenger, sample application
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-ruby <https://travis-ci.org/softasap/sa-ruby>`_
 
 .. raw:: html
 
@@ -4186,13 +4186,13 @@ chruby, ruby-install, nginx + passenger, sample application
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-s3cmd <https://www.github.com/softasap/sa-s3cmd>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-s3cmd.svg?branch=master
 
 .. raw:: html
 
@@ -4206,7 +4206,7 @@ installs popular opensource db clients - dbeawer and robomongo
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-s3cmd <https://travis-ci.org/softasap/sa-s3cmd>`_
 
 .. raw:: html
 
@@ -4218,13 +4218,13 @@ installs popular opensource db clients - dbeawer and robomongo
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-saslauthd <https://www.github.com/softasap/sa-saslauthd>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-saslauthd.svg?branch=master
 
 .. raw:: html
 
@@ -4238,7 +4238,7 @@ installs saslauth utility
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-saslauthd <https://travis-ci.org/softasap/sa-saslauthd>`_
 
 .. raw:: html
 
@@ -4250,13 +4250,13 @@ installs saslauth utility
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-secure-auditd <https://www.github.com/softasap/sa-secure-auditd>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-secure-auditd.svg?branch=master
 
 .. raw:: html
 
@@ -4270,7 +4270,7 @@ installs auditd daemon
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-secure-auditd <https://travis-ci.org/softasap/sa-secure-auditd>`_
 
 .. raw:: html
 
@@ -4282,13 +4282,13 @@ installs auditd daemon
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-secure-audit-debsums <https://www.github.com/softasap/sa-secure-audit-debsums>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-secure-audit-debsums.svg?branch=master
 
 .. raw:: html
 
@@ -4302,7 +4302,7 @@ installs debsums checksum utility
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-secure-audit-debsums <https://travis-ci.org/softasap/sa-secure-audit-debsums>`_
 
 .. raw:: html
 
@@ -4314,13 +4314,13 @@ installs debsums checksum utility
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-secure-audit-lynis <https://www.github.com/softasap/sa-secure-audit-lynis>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-secure-audit-lynis.svg?branch=master
 
 .. raw:: html
 
@@ -4334,7 +4334,7 @@ installs lynis system security audit utility
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-secure-audit-lynis <https://travis-ci.org/softasap/sa-secure-audit-lynis>`_
 
 .. raw:: html
 
@@ -4346,13 +4346,13 @@ installs lynis system security audit utility
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-secure-audit-rkhunter <https://www.github.com/softasap/sa-secure-audit-rkhunter>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-secure-audit-rkhunter.svg?branch=master
 
 .. raw:: html
 
@@ -4366,7 +4366,7 @@ installs rkhunter anti rootkit utility
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-secure-audit-rkhunter <https://travis-ci.org/softasap/sa-secure-audit-rkhunter>`_
 
 .. raw:: html
 
@@ -4378,13 +4378,13 @@ installs rkhunter anti rootkit utility
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-secure-automatic-updates <https://www.github.com/softasap/sa-secure-automatic-updates>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-secure-automatic-updates.svg?branch=master
 
 .. raw:: html
 
@@ -4398,7 +4398,7 @@ applies automatic security updates installation on Ubuntu LTS
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-secure-automatic-updates <https://travis-ci.org/softasap/sa-secure-automatic-updates>`_
 
 .. raw:: html
 
@@ -4410,13 +4410,13 @@ applies automatic security updates installation on Ubuntu LTS
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-sentry <https://www.github.com/softasap/sa-sentry>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-sentry.svg?branch=master
 
 .. raw:: html
 
@@ -4430,7 +4430,7 @@ Sentry’s real-time error tracking gives you insight into production deployment
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-sentry <https://travis-ci.org/softasap/sa-sentry>`_
 
 .. raw:: html
 
@@ -4442,13 +4442,13 @@ Sentry’s real-time error tracking gives you insight into production deployment
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-smarthome-ivideon <https://www.github.com/softasap/sa-smarthome-ivideon>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-smarthome-ivideon.svg?branch=master
 
 .. raw:: html
 
@@ -4462,7 +4462,7 @@ A cloud-based video surveillance solution fo the home.
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-smarthome-ivideon <https://travis-ci.org/softasap/sa-smarthome-ivideon>`_
 
 .. raw:: html
 
@@ -4474,13 +4474,13 @@ A cloud-based video surveillance solution fo the home.
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-solr <https://www.github.com/softasap/sa-solr>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-solr.svg?branch=master
 
 .. raw:: html
 
@@ -4494,7 +4494,7 @@ Basic role for installing solr on ubuntu using install_solr_service.sh wizard
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-solr <https://travis-ci.org/softasap/sa-solr>`_
 
 .. raw:: html
 
@@ -4506,13 +4506,13 @@ Basic role for installing solr on ubuntu using install_solr_service.sh wizard
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-sonatype-nexus <https://www.github.com/softasap/sa-sonatype-nexus>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-sonatype-nexus.svg?branch=master
 
 .. raw:: html
 
@@ -4526,7 +4526,7 @@ Free artifactory for most of the popular formats
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-sonatype-nexus <https://travis-ci.org/softasap/sa-sonatype-nexus>`_
 
 .. raw:: html
 
@@ -4538,13 +4538,13 @@ Free artifactory for most of the popular formats
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-sql-server <https://www.github.com/softasap/sa-sql-server>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-sql-server.svg?branch=master
 
 .. raw:: html
 
@@ -4558,7 +4558,7 @@ microsoft sql server on ubuntu
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-sql-server <https://travis-ci.org/softasap/sa-sql-server>`_
 
 .. raw:: html
 
@@ -4570,13 +4570,13 @@ microsoft sql server on ubuntu
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-statping <https://www.github.com/softasap/sa-statping>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-statping.svg?branch=master
 
 .. raw:: html
 
@@ -4590,7 +4590,7 @@ Lightweight monitoring for pet projects with status page
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-statping <https://travis-ci.org/softasap/sa-statping>`_
 
 .. raw:: html
 
@@ -4602,13 +4602,13 @@ Lightweight monitoring for pet projects with status page
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-supervisord <https://www.github.com/softasap/sa-supervisord>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-supervisord.svg?branch=master
 
 .. raw:: html
 
@@ -4622,7 +4622,7 @@ supervisor process manager
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-supervisord <https://travis-ci.org/softasap/sa-supervisord>`_
 
 .. raw:: html
 
@@ -4634,13 +4634,13 @@ supervisor process manager
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-swagger-editor <https://www.github.com/softasap/sa-swagger-editor>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-swagger-editor.svg?branch=master
 
 .. raw:: html
 
@@ -4654,7 +4654,7 @@ Swagger Editor for Swagger is a dependency-free collection of HTML, Javascript, 
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-swagger-editor <https://travis-ci.org/softasap/sa-swagger-editor>`_
 
 .. raw:: html
 
@@ -4666,13 +4666,13 @@ Swagger Editor for Swagger is a dependency-free collection of HTML, Javascript, 
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-swagger-ui <https://www.github.com/softasap/sa-swagger-ui>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-swagger-ui.svg?branch=master
 
 .. raw:: html
 
@@ -4686,7 +4686,7 @@ Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets t
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-swagger-ui <https://travis-ci.org/softasap/sa-swagger-ui>`_
 
 .. raw:: html
 
@@ -4698,13 +4698,13 @@ Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets t
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-system-settings <https://www.github.com/softasap/sa-system-settings>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-system-settings.svg?branch=master
 
 .. raw:: html
 
@@ -4718,7 +4718,7 @@ initial configuration for the remote box (currently via sys_ctl)
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-system-settings <https://travis-ci.org/softasap/sa-system-settings>`_
 
 .. raw:: html
 
@@ -4730,13 +4730,13 @@ initial configuration for the remote box (currently via sys_ctl)
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tarsnap <https://www.github.com/softasap/sa-tarsnap>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tarsnap.svg?branch=master
 
 .. raw:: html
 
@@ -4750,7 +4750,7 @@ Tarsnap is a secure online backup service for UNIX-like operating systems, inclu
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tarsnap <https://travis-ci.org/softasap/sa-tarsnap>`_
 
 .. raw:: html
 
@@ -4762,13 +4762,13 @@ Tarsnap is a secure online backup service for UNIX-like operating systems, inclu
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-teamcity <https://www.github.com/softasap/sa-teamcity>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-teamcity.svg?branch=master
 
 .. raw:: html
 
@@ -4782,7 +4782,7 @@ Installs teamcity, continious integration server from Jetbrains
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-teamcity <https://travis-ci.org/softasap/sa-teamcity>`_
 
 .. raw:: html
 
@@ -4794,13 +4794,13 @@ Installs teamcity, continious integration server from Jetbrains
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tomcat <https://www.github.com/softasap/sa-tomcat>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tomcat.svg?branch=master
 
 .. raw:: html
 
@@ -4814,7 +4814,7 @@ Basic role for installing tomcat 7-8 on ubuntu with apt
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tomcat <https://travis-ci.org/softasap/sa-tomcat>`_
 
 .. raw:: html
 
@@ -4826,13 +4826,13 @@ Basic role for installing tomcat 7-8 on ubuntu with apt
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tool-plantuml <https://www.github.com/softasap/sa-tool-plantuml>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tool-plantuml.svg?branch=master
 
 .. raw:: html
 
@@ -4846,7 +4846,7 @@ your description
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tool-plantuml <https://travis-ci.org/softasap/sa-tool-plantuml>`_
 
 .. raw:: html
 
@@ -4858,13 +4858,13 @@ your description
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tool-syncthing <https://www.github.com/softasap/sa-tool-syncthing>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tool-syncthing.svg?branch=master
 
 .. raw:: html
 
@@ -4878,7 +4878,7 @@ syncthing - distributed file synchronization
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tool-syncthing <https://travis-ci.org/softasap/sa-tool-syncthing>`_
 
 .. raw:: html
 
@@ -4890,13 +4890,13 @@ syncthing - distributed file synchronization
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tool-truecrypt <https://www.github.com/softasap/sa-tool-truecrypt>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tool-truecrypt.svg?branch=master
 
 .. raw:: html
 
@@ -4910,7 +4910,7 @@ Truecrypt - legacy package for older deployments. Consider Veracrypt for newer o
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tool-truecrypt <https://travis-ci.org/softasap/sa-tool-truecrypt>`_
 
 .. raw:: html
 
@@ -4922,13 +4922,13 @@ Truecrypt - legacy package for older deployments. Consider Veracrypt for newer o
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-tool-veracrypt <https://www.github.com/softasap/sa-tool-veracrypt>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-tool-veracrypt.svg?branch=master
 
 .. raw:: html
 
@@ -4942,7 +4942,7 @@ Veracrypt - fork of the truecrypt under active development. Backward compatible
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-tool-veracrypt <https://travis-ci.org/softasap/sa-tool-veracrypt>`_
 
 .. raw:: html
 
@@ -4954,13 +4954,13 @@ Veracrypt - fork of the truecrypt under active development. Backward compatible
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-traefik <https://www.github.com/softasap/sa-traefik>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-traefik.svg?branch=master
 
 .. raw:: html
 
@@ -4974,7 +4974,7 @@ traefik - HTTP reverse proxy and load balancer made to deploy microservices
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-traefik <https://travis-ci.org/softasap/sa-traefik>`_
 
 .. raw:: html
 
@@ -4986,13 +4986,13 @@ traefik - HTTP reverse proxy and load balancer made to deploy microservices
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-utility-rsyslog-sentry-bridge <https://www.github.com/softasap/sa-utility-rsyslog-sentry-bridge>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-utility-rsyslog-sentry-bridge.svg?branch=master
 
 .. raw:: html
 
@@ -5006,7 +5006,7 @@ this utility package allows to forward syslog messages to sentry
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-utility-rsyslog-sentry-bridge <https://travis-ci.org/softasap/sa-utility-rsyslog-sentry-bridge>`_
 
 .. raw:: html
 
@@ -5018,13 +5018,13 @@ this utility package allows to forward syslog messages to sentry
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-uwsgi <https://www.github.com/softasap/sa-uwsgi>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-uwsgi.svg?branch=master
 
 .. raw:: html
 
@@ -5038,7 +5038,7 @@ uWSGI application server container
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-uwsgi <https://travis-ci.org/softasap/sa-uwsgi>`_
 
 .. raw:: html
 
@@ -5050,13 +5050,13 @@ uWSGI application server container
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-uwsgi-container <https://www.github.com/softasap/sa-uwsgi-container>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-uwsgi-container.svg?branch=master
 
 .. raw:: html
 
@@ -5070,7 +5070,7 @@ Experimental uwsgi container
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-uwsgi-container <https://travis-ci.org/softasap/sa-uwsgi-container>`_
 
 .. raw:: html
 
@@ -5082,13 +5082,13 @@ Experimental uwsgi container
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vagrant <https://www.github.com/softasap/sa-vagrant>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vagrant.svg?branch=master
 
 .. raw:: html
 
@@ -5102,7 +5102,7 @@ Vagrant enables users to create and configure lightweight, reproducible, and por
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vagrant <https://travis-ci.org/softasap/sa-vagrant>`_
 
 .. raw:: html
 
@@ -5114,13 +5114,13 @@ Vagrant enables users to create and configure lightweight, reproducible, and por
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-visual-studio-code <https://www.github.com/softasap/sa-visual-studio-code>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-visual-studio-code.svg?branch=master
 
 .. raw:: html
 
@@ -5134,7 +5134,7 @@ Microsoft cross-platform code editor (sublime or atom like)
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-visual-studio-code <https://travis-ci.org/softasap/sa-visual-studio-code>`_
 
 .. raw:: html
 
@@ -5146,13 +5146,13 @@ Microsoft cross-platform code editor (sublime or atom like)
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vnc-remote-desktop <https://www.github.com/softasap/sa-vnc-remote-desktop>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vnc-remote-desktop.svg?branch=master
 
 .. raw:: html
 
@@ -5166,7 +5166,7 @@ installs, and configures for auto ran x11vnc remote desktop
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vnc-remote-desktop <https://travis-ci.org/softasap/sa-vnc-remote-desktop>`_
 
 .. raw:: html
 
@@ -5178,13 +5178,13 @@ installs, and configures for auto ran x11vnc remote desktop
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vpn-openvpn <https://www.github.com/softasap/sa-vpn-openvpn>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vpn-openvpn.svg?branch=master
 
 .. raw:: html
 
@@ -5198,7 +5198,7 @@ classic openvpn vpn
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vpn-openvpn <https://travis-ci.org/softasap/sa-vpn-openvpn>`_
 
 .. raw:: html
 
@@ -5210,13 +5210,13 @@ classic openvpn vpn
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vpn-pptp <https://www.github.com/softasap/sa-vpn-pptp>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vpn-pptp.svg?branch=master
 
 .. raw:: html
 
@@ -5230,7 +5230,7 @@ classic pptp vpn
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vpn-pptp <https://travis-ci.org/softasap/sa-vpn-pptp>`_
 
 .. raw:: html
 
@@ -5242,13 +5242,13 @@ classic pptp vpn
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vpn-pptp-client <https://www.github.com/softasap/sa-vpn-pptp-client>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vpn-pptp-client.svg?branch=master
 
 .. raw:: html
 
@@ -5262,7 +5262,7 @@ Allows to inject control unit to smarthome local network via PPP to receive broa
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vpn-pptp-client <https://travis-ci.org/softasap/sa-vpn-pptp-client>`_
 
 .. raw:: html
 
@@ -5274,13 +5274,13 @@ Allows to inject control unit to smarthome local network via PPP to receive broa
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vpn-pritunl <https://www.github.com/softasap/sa-vpn-pritunl>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vpn-pritunl.svg?branch=master
 
 .. raw:: html
 
@@ -5294,7 +5294,7 @@ installs pritunl - openvpn compatible vpn with mongo based gui
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vpn-pritunl <https://travis-ci.org/softasap/sa-vpn-pritunl>`_
 
 .. raw:: html
 
@@ -5306,13 +5306,13 @@ installs pritunl - openvpn compatible vpn with mongo based gui
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-vpn-softether <https://www.github.com/softasap/sa-vpn-softether>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-vpn-softether.svg?branch=master
 
 .. raw:: html
 
@@ -5326,7 +5326,7 @@ softether multi protocol vpn
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-vpn-softether <https://travis-ci.org/softasap/sa-vpn-softether>`_
 
 .. raw:: html
 
@@ -5338,13 +5338,13 @@ softether multi protocol vpn
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-watchman <https://www.github.com/softasap/sa-watchman>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-watchman.svg?branch=master
 
 .. raw:: html
 
@@ -5358,7 +5358,7 @@ Watchman Watchman exists to watch files and record when they change. It can also
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-watchman <https://travis-ci.org/softasap/sa-watchman>`_
 
 .. raw:: html
 
@@ -5370,13 +5370,13 @@ Watchman Watchman exists to watch files and record when they change. It can also
 
   <tr><td>
 
-` <https://www.github.com/softasap/>`_
+`sa-xl-deploy <https://www.github.com/softasap/sa-xl-deploy>`_
 
 .. raw:: html
 
     </td><td>
 
-.. image:: https://travis-ci.org/softasap/.svg?branch=master
+.. image:: https://travis-ci.org/softasap/sa-xl-deploy.svg?branch=master
 
 .. raw:: html
 
@@ -5390,7 +5390,7 @@ installs xl-deploy proprietary tool
 
     </td><td>
 
-`Travis tests for  <https://travis-ci.org/softasap/>`_
+`Travis tests for sa-xl-deploy <https://travis-ci.org/softasap/sa-xl-deploy>`_
 
 .. raw:: html
 
@@ -5746,4 +5746,4 @@ installs xl-deploy proprietary tool
 
 
 
-This page was generated on Tuesday 26 Mar 2019 at 10:48 EET.
+This page was generated on Tuesday 26 Mar 2019 at 11:28 EET.

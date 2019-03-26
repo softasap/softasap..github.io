@@ -993,4 +993,5 @@
 
    about.rst
    services.rst
+   contacts.rst
    roles/registry_generated.rst
