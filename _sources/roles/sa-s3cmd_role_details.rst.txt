@@ -9,14 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-s3cmd</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-s3cmd"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-s3cmd.svg?branch=master" /></a></p>
-    <p>Installs popular s3cmd via pypi (up-to-date version) rather than via apt (outdated 1.1 for ubuntu now).
-    Optionally installs &amp; upgrades pip if you don't have one</p>
-    <p>Variables to override:</p>
-    <p>option_install_pip: true|false</p>
-    <p>optionally you can pin s3cmd version itself by specifiing s3cmd_version
-    s3cmd_version: 1.6.1</p>
+    <p>
 
 .. raw:: html
 

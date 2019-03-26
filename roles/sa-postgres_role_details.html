@@ -21,7 +21,7 @@
   <title>SOFTASAP | sa-postgres</title>
   
 
-  <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
 
 <!-- Bootstrap and Font Awesome css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,6 +72,9 @@ window.cookieconsent.initialise({
   "position": "bottom"
 })});
 </script>
+<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+
 </head>
 
 <body data-spy="scroll" data-target="#navigation" data-offset="120" class="__roles_sa_postgres_role_details">
@@ -86,7 +89,7 @@ window.cookieconsent.initialise({
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a robust way</a>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
         </div>
 
         <div class="navbar-collapse collapse" id="navigation">
@@ -96,7 +99,7 @@ window.cookieconsent.initialise({
                 </li>
                 <li><a href="/#devops">Devops recipes</a>
                 </li>
-                <li><a href="#contact">Contact</a>
+                <li><a href="/contacts.html">Contact</a>
                 </li>
                 <li><a href="/blog/archive.html">Blog</a>
                 </li>
@@ -115,8 +118,8 @@ window.cookieconsent.initialise({
 
 
 <div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
-<div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-postgres" class="anchor" href="#sa-postgres" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SA-POSTGRES</h1>
-<p><a href="https://travis-ci.org/softasap/sa-postgres"><img src="https://camo.githubusercontent.com/8f022373eaf07a501c69156d8645d941f52d66e5/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d706f7374677265732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-postgres.svg?branch=master" style="max-width:100%;"></a></p>
+<div id="readme" class="announce instapaper_body md" data-path="README.md"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-postgres" class="anchor" aria-hidden="true" href="#sa-postgres"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SA-POSTGRES</h1>
+<p><a href="https://travis-ci.org/softasap/sa-postgres" rel="nofollow"><img src="https://camo.githubusercontent.com/8f022373eaf07a501c69156d8645d941f52d66e5/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d706f7374677265732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-postgres.svg?branch=master" style="max-width:100%;"></a></p>
 <p>Possible overrides:</p>
 <div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">option_create_app_user</span>: <span class="pl-c1">false</span>
 
@@ -159,15 +162,15 @@ window.cookieconsent.initialise({
          <span class="pl-ent">db_name</span>: <span class="pl-s">app_database,         </span>
 
          <span class="pl-ent">postgres_app_network</span>: <span class="pl-s"><span class="pl-pds">"</span>192.168.0.1/32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
-         <span class="pl-ent">postgres_app_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-ii">\/</span>32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+         <span class="pl-ent">postgres_app_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-cce">\/</span>32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
 
 
          <span class="pl-ent">postgres_dev_network</span>: <span class="pl-s"><span class="pl-pds">"</span>192.168.0.1/32<span class="pl-pds">"</span></span><span class="pl-s">,</span>
-         <span class="pl-ent">postgres_dev_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-ii">\/</span>32<span class="pl-pds">"</span></span>
+         <span class="pl-ent">postgres_dev_network_regex</span>: <span class="pl-s"><span class="pl-pds">"</span>192<span class="pl-ii">\.</span>168<span class="pl-ii">\.</span>0<span class="pl-ii">\.</span>1<span class="pl-cce">\/</span>32<span class="pl-pds">"</span></span>
 
        <span class="pl-s">}</span>
 </pre></div>
-<h1><a id="user-content-misc-hints" class="anchor" href="#misc-hints" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc hints</h1>
+<h1><a id="user-content-misc-hints" class="anchor" aria-hidden="true" href="#misc-hints"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc hints</h1>
 <p>If you ever wanted to connect remotely using user postgres, you need first to set password for it:</p>
 <pre><code>sudo -u postgres psql postgres
 
@@ -184,17 +187,30 @@ Enter new password:
 <p>Importing DB</p>
 <pre><code>psql -d demo_test -f demo.sql
 </code></pre>
-<p>Generate pgsql schema diagram with schemacrawler  <a href="http://sualeh.github.io/SchemaCrawler/">http://sualeh.github.io/SchemaCrawler/</a></p>
+<p>Generate pgsql schema diagram with schemacrawler  <a href="http://sualeh.github.io/SchemaCrawler/" rel="nofollow">http://sualeh.github.io/SchemaCrawler/</a></p>
 <pre><code>
 schemacrawler -server=postgresql -database=demo_test -user=postgres -password=postgres -infolevel=maximum -command=graph -outputformat=pdf -outputfile=database-diagram.pdf
 
 </code></pre>
-<p>Generate pgsql schema diagram portal with schemaspy <a href="http://schemaspy.sourceforge.net/">http://schemaspy.sourceforge.net/</a></p>
+<p>Generate pgsql schema diagram portal with schemaspy <a href="http://schemaspy.sourceforge.net/" rel="nofollow">http://schemaspy.sourceforge.net/</a></p>
 <pre><code>schemaspy -t pgsql -db demo_test -host localhost -port 5432 -s public -u postgres -p postgres  -o output
 </code></pre>
-<h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
-<p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
-<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+<h2><a id="user-content-usage-with-ansible-galaxy-workflow" class="anchor" aria-hidden="true" href="#usage-with-ansible-galaxy-workflow"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>usage with ansible-galaxy workflow</h2>
+<p>If you installed the <code>sa-postgres</code> role using the command</p>
+<p><code>ansible-galaxy install softasap.sa-postgres</code></p>
+<p>the role will be available in the folder <code>library/softasap.sa-postgres</code>
+Please adjust the path accordingly.</p>
+<div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+         <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-postgres<span class="pl-pds">"</span></span>
+       <span class="pl-s">}</span>
+</pre></div>
+<h2><a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+<p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+<p>Reach us:</p>
+<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
+<p>Join gitter discussion channel at <a href="https://gitter.im/softasap" rel="nofollow">Gitter</a></p>
+<p>Discover other roles at  <a href="http://www.softasap.com/roles/registry_generated.html" rel="nofollow">http://www.softasap.com/roles/registry_generated.html</a></p>
+<p>visit our blog at <a href="http://www.softasap.com/blog/archive.html" rel="nofollow">http://www.softasap.com/blog/archive.html</a></p>
 </article></div></div>
 
 

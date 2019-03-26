@@ -4,7 +4,7 @@
 Ansible Roles
 =============
 
-Number of "sa-" roles for ansible: 130
+Number of "sa-" roles for ansible: 171
 
 
 .. raw:: html
@@ -19,6 +19,70 @@ Number of "sa-" roles for ansible: 130
               </tr>
           </thead>
           <tbody>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-acme-sh <https://www.github.com/softasap/sa-acme-sh>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-acme-sh.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Helper role to link lets encrypt https certificates to your nginx sites
+
+:ref:`See docs <sa_acme_sh-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-acme-sh <https://travis-ci.org/softasap/sa-acme-sh>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-ansible-ara <https://www.github.com/softasap/sa-ansible-ara>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-ansible-ara.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+ara - execution stats for ansible
+
+:ref:`See docs <sa-ansible-ara-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-ansible-ara <https://travis-ci.org/softasap/sa-ansible-ara>`_
+
+.. raw:: html
+
+  </td></tr>
 
 
 
@@ -122,6 +186,70 @@ autossh - persistent ssh tunnels between servers
 
   <tr><td>
 
+`sa-bamboo <https://www.github.com/softasap/sa-bamboo>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-bamboo.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Basic role for atlassian bamboo build server installation
+
+:ref:`See docs <sa-bamboo-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-bamboo <https://travis-ci.org/softasap/sa-bamboo>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-box-awx <https://www.github.com/softasap/sa-box-awx>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-box-awx.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+awx - opensource ansible tower project
+
+:ref:`See docs <sa_box_awx-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-box-awx <https://travis-ci.org/softasap/sa-box-awx>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-box-bootstrap <https://www.github.com/softasap/sa-box-bootstrap>`_
 
 .. raw:: html
@@ -143,6 +271,38 @@ Role to perform basic securing of fresh instance for further automated deploy
     </td><td>
 
 `Travis tests for sa-box-bootstrap <https://travis-ci.org/softasap/sa-box-bootstrap>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-box-bootstrap-win <https://www.github.com/softasap/sa-box-bootstrap-win>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-box-bootstrap-win.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Role to perform basic windows server preparing for further provisioning
+
+:ref:`See docs <sa-box-bootstrap-win-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-box-bootstrap-win <https://travis-ci.org/softasap/sa-box-bootstrap-win>`_
 
 .. raw:: html
 
@@ -218,6 +378,38 @@ installs mailhog and webmin
 
   <tr><td>
 
+`sa-box-vestacp <https://www.github.com/softasap/sa-box-vestacp>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-box-vestacp.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Installs opensource vestacp control panel
+
+:ref:`See docs <sa_box_vestacp-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-box-vestacp <https://travis-ci.org/softasap/sa-box-vestacp>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-brackets-io <https://www.github.com/softasap/sa-brackets-io>`_
 
 .. raw:: html
@@ -239,6 +431,70 @@ Editor from Adobe. Sometimes used as an alternative to Atom.IO, sublime or light
     </td><td>
 
 `Travis tests for sa-brackets-io <https://travis-ci.org/softasap/sa-brackets-io>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-cadvisor <https://www.github.com/softasap/sa-cadvisor>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-cadvisor.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running co
+
+:ref:`See docs <sa-cadvisor-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-cadvisor <https://travis-ci.org/softasap/sa-cadvisor>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-chatops-errbot <https://www.github.com/softasap/sa-chatops-errbot>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-chatops-errbot.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs Oracle Java 6-7-8 on ubuntu based box
+
+:ref:`See docs <sa_chatops_errbot-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-chatops-errbot <https://travis-ci.org/softasap/sa-chatops-errbot>`_
 
 .. raw:: html
 
@@ -922,6 +1178,38 @@ docker with optional docker-compose
 
   <tr><td>
 
+`sa-docker-gc <https://www.github.com/softasap/sa-docker-gc>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-docker-gc.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+spotify docker-gc -garbage collector for docker
+
+:ref:`See docs <sa-docker-gc-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-docker-gc <https://travis-ci.org/softasap/sa-docker-gc>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-docker-kitematic <https://www.github.com/softasap/sa-docker-kitematic>`_
 
 .. raw:: html
@@ -986,6 +1274,38 @@ docker-machine tool
 
   <tr><td>
 
+`sa-docker-projectatomic <https://www.github.com/softasap/sa-docker-projectatomic>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-docker-projectatomic.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+projectatomic tools - skopeo, atomic_cli, kompose, buildah
+
+:ref:`See docs <sa-docker-projectatomic-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-docker-projectatomic <https://travis-ci.org/softasap/sa-docker-projectatomic>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-doxygen <https://www.github.com/softasap/sa-doxygen>`_
 
 .. raw:: html
@@ -1007,6 +1327,38 @@ installs doxygen documentation tool
     </td><td>
 
 `Travis tests for sa-doxygen <https://travis-ci.org/softasap/sa-doxygen>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-epel <https://www.github.com/softasap/sa-epel>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-epel.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Helper role to install epel on redhat based systems
+
+:ref:`See docs <sa_epel-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-epel <https://travis-ci.org/softasap/sa-epel>`_
 
 .. raw:: html
 
@@ -1158,7 +1510,7 @@ your description
 
     </td><td>
 
-helps you to install recent version of Git core software on your Ubuntu 16.04 LTS, 15.10, 15.04, 14.10, 14.04 LTS & 12.04 LTS systems using PPA.
+most recent git using PPA.
 
 :ref:`See docs <sa-git-docs>`
 
@@ -1199,6 +1551,102 @@ installs standalone gitlab according to manual steps
     </td><td>
 
 `Travis tests for sa-gitlab-ce <https://travis-ci.org/softasap/sa-gitlab-ce>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-gitlab-runner <https://www.github.com/softasap/sa-gitlab-runner>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-gitlab-runner.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Gitlab Runner
+
+:ref:`See docs <sa_gitlab_runner-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-gitlab-runner <https://travis-ci.org/softasap/sa-gitlab-runner>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-gitlab-runner-win <https://www.github.com/softasap/sa-gitlab-runner-win>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-gitlab-runner-win.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Installs gitlab runner for windows
+
+:ref:`See docs <sa_gitlab_runner_win-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-gitlab-runner-win <https://travis-ci.org/softasap/sa-gitlab-runner-win>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-glibc-layer-container <https://www.github.com/softasap/sa-glibc-layer-container>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-glibc-layer-container.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+glibc alpine container layer
+
+:ref:`See docs <sa-glibc-layer-container-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-glibc-layer-container <https://travis-ci.org/softasap/sa-glibc-layer-container>`_
 
 .. raw:: html
 
@@ -1498,6 +1946,38 @@ Basic role for installing hashicorp vault
 
   <tr><td>
 
+`sa-hashicorp-vault-ui <https://www.github.com/softasap/sa-hashicorp-vault-ui>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-hashicorp-vault-ui.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Basic role for installing hashicorp vault ui
+
+:ref:`See docs <sa-hashicorp-vault-ui-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-hashicorp-vault-ui <https://travis-ci.org/softasap/sa-hashicorp-vault-ui>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-helper-web-deploy <https://www.github.com/softasap/sa-helper-web-deploy>`_
 
 .. raw:: html
@@ -1626,6 +2106,38 @@ installs Oracle Java 6-7-8 on ubuntu based box
 
   <tr><td>
 
+`sa-java-corretto <https://www.github.com/softasap/sa-java-corretto>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-java-corretto.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs Amazon Corretto Java 8
+
+:ref:`See docs <sa_java_corretto-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-java-corretto <https://travis-ci.org/softasap/sa-java-corretto>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-java-gradle <https://www.github.com/softasap/sa-java-gradle>`_
 
 .. raw:: html
@@ -1658,6 +2170,102 @@ gradle - java build tool
 
   <tr><td>
 
+`sa-java-sbt <https://www.github.com/softasap/sa-java-sbt>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-java-sbt.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs sbt - java build tool
+
+:ref:`See docs <sa-java-sbt-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-java-sbt <https://travis-ci.org/softasap/sa-java-sbt>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-jenkins-swarm-runner <https://www.github.com/softasap/sa-jenkins-swarm-runner>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-jenkins-swarm-runner.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs jenkins runner using  swarm client
+
+:ref:`See docs <sa_jenkins_swarm_runner-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-jenkins-swarm-runner <https://travis-ci.org/softasap/sa-jenkins-swarm-runner>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-jupyterhub <https://www.github.com/softasap/sa-jupyterhub>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-jupyterhub.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+jupyter hub
+
+:ref:`See docs <sa-jupyterhub-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-jupyterhub <https://travis-ci.org/softasap/sa-jupyterhub>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-jython <https://www.github.com/softasap/sa-jython>`_
 
 .. raw:: html
@@ -1679,6 +2287,70 @@ installs python implementation for jython
     </td><td>
 
 `Travis tests for sa-jython <https://travis-ci.org/softasap/sa-jython>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-kong <https://www.github.com/softasap/sa-kong>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-kong.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+kong
+
+:ref:`See docs <sa-kong-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-kong <https://travis-ci.org/softasap/sa-kong>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-kong-container <https://www.github.com/softasap/sa-kong-container>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-kong-container.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+kong app server docker container
+
+:ref:`See docs <sa-kong-container-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-kong-container <https://travis-ci.org/softasap/sa-kong-container>`_
 
 .. raw:: html
 
@@ -1818,6 +2490,70 @@ Light Table Editor. Sometimes used as an alternative to Atom.IO, sublime or brac
 
   <tr><td>
 
+`sa-lighttpd <https://www.github.com/softasap/sa-lighttpd>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-lighttpd.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+lighttpd web server
+
+:ref:`See docs <sa_lighttpd-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-lighttpd <https://travis-ci.org/softasap/sa-lighttpd>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-logstash <https://www.github.com/softasap/sa-logstash>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-logstash.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+logstash - logs transforming and forwarding tool
+
+:ref:`See docs <sa-logstash-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-logstash <https://travis-ci.org/softasap/sa-logstash>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-logwatch <https://www.github.com/softasap/sa-logwatch>`_
 
 .. raw:: html
@@ -1903,6 +2639,38 @@ Alternative fork to mysql with it's own specifics and database engines
     </td><td>
 
 `Travis tests for sa-mariadb <https://travis-ci.org/softasap/sa-mariadb>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-maven <https://www.github.com/softasap/sa-maven>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-maven.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Apache maven build tool
+
+:ref:`See docs <sa-maven-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-maven <https://travis-ci.org/softasap/sa-maven>`_
 
 .. raw:: html
 
@@ -2022,7 +2790,7 @@ Single node openshift origin cluster using minishift tool
 
     </td><td>
 
-installs MongoDB 2.4 2.6 or 3.* on ubuntu based box
+installs MongoDB 2.4 2.6, 3.4, 3.6 on ubuntu based box
 
 :ref:`See docs <sa-mongo-docs>`
 
@@ -2266,6 +3034,38 @@ Alternative fork to mysql with it's own specifics and database engines
 
   <tr><td>
 
+`sa-mysql-galera <https://www.github.com/softasap/sa-mysql-galera>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-mysql-galera.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Alternative fork to mysql with it's own specifics and database engines
+
+:ref:`See docs <sa_mysql_galera-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-mysql-galera <https://travis-ci.org/softasap/sa-mysql-galera>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-neo4j <https://www.github.com/softasap/sa-neo4j>`_
 
 .. raw:: html
@@ -2438,7 +3238,7 @@ Experimental nginx container
 
     </td><td>
 
-nodejs 0.10, 0.12
+nodejs from debsource repo
 
 :ref:`See docs <sa-node-docs>`
 
@@ -2554,6 +3354,38 @@ Percona Client package for Percona Monitoring and Management toolkit
 
   <tr><td>
 
+`sa-php-apache <https://www.github.com/softasap/sa-php-apache>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-php-apache.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+standalone role for php installation in apache module mode
+
+:ref:`See docs <sa_php_apache-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-php-apache <https://travis-ci.org/softasap/sa-php-apache>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-php-container <https://www.github.com/softasap/sa-php-container>`_
 
 .. raw:: html
@@ -2586,6 +3418,38 @@ Experimental alpine 3.3 based php 5 fpm container
 
   <tr><td>
 
+`sa-php-fpm <https://www.github.com/softasap/sa-php-fpm>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-php-fpm.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+standalone role for php installation in fastcgi mode
+
+:ref:`See docs <sa-php-fpm-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-php-fpm <https://travis-ci.org/softasap/sa-php-fpm>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-php-hhvm <https://www.github.com/softasap/sa-php-hhvm>`_
 
 .. raw:: html
@@ -2607,6 +3471,38 @@ installs facebook's hhvm on ubuntu
     </td><td>
 
 `Travis tests for sa-php-hhvm <https://travis-ci.org/softasap/sa-php-hhvm>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-php-pharables <https://www.github.com/softasap/sa-php-pharables>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-php-pharables.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+helper role for global php pchar installations
+
+:ref:`See docs <sa-php-pharables-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-php-pharables <https://travis-ci.org/softasap/sa-php-pharables>`_
 
 .. raw:: html
 
@@ -2746,6 +3642,38 @@ Installs postgresql, optionally patches listen address and trusted networks. Pos
 
   <tr><td>
 
+`sa-postgres-workplace <https://www.github.com/softasap/sa-postgres-workplace>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-postgres-workplace.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+postgresql console helpers
+
+:ref:`See docs <sa-postgres-workplace-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-postgres-workplace <https://travis-ci.org/softasap/sa-postgres-workplace>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-powershell <https://www.github.com/softasap/sa-powershell>`_
 
 .. raw:: html
@@ -2799,6 +3727,70 @@ opensource prometheus monitoring system
     </td><td>
 
 `Travis tests for sa-prometheus <https://travis-ci.org/softasap/sa-prometheus>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-prometheus-alertmanager <https://www.github.com/softasap/sa-prometheus-alertmanager>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-prometheus-alertmanager.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+prometheus alert manager
+
+:ref:`See docs <sa-prometheus-alertmanager-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-prometheus-alertmanager <https://travis-ci.org/softasap/sa-prometheus-alertmanager>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-prometheus-exporters <https://www.github.com/softasap/sa-prometheus-exporters>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-prometheus-exporters.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+helper role that allows to install set of predefined prometheus exporters
+
+:ref:`See docs <sa-prometheus-exporters-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-prometheus-exporters <https://travis-ci.org/softasap/sa-prometheus-exporters>`_
 
 .. raw:: html
 
@@ -2895,6 +3887,70 @@ installs most recent pip + list of optional packages
     </td><td>
 
 `Travis tests for sa-python <https://travis-ci.org/softasap/sa-python>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-python3 <https://www.github.com/softasap/sa-python3>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-python3.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs python3 from source using specific version
+
+:ref:`See docs <sa-python3-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-python3 <https://travis-ci.org/softasap/sa-python3>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-python-anaconda <https://www.github.com/softasap/sa-python-anaconda>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-python-anaconda.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+anaconda favor of python for data operations
+
+:ref:`See docs <sa-python-anaconda-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-python-anaconda <https://travis-ci.org/softasap/sa-python-anaconda>`_
 
 .. raw:: html
 
@@ -3450,6 +4506,38 @@ Basic role for installing solr on ubuntu using install_solr_service.sh wizard
 
   <tr><td>
 
+`sa-sonatype-nexus <https://www.github.com/softasap/sa-sonatype-nexus>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-sonatype-nexus.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Free artifactory for most of the popular formats
+
+:ref:`See docs <sa-sonatype-nexus-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-sonatype-nexus <https://travis-ci.org/softasap/sa-sonatype-nexus>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-sql-server <https://www.github.com/softasap/sa-sql-server>`_
 
 .. raw:: html
@@ -3482,6 +4570,38 @@ microsoft sql server on ubuntu
 
   <tr><td>
 
+`sa-statping <https://www.github.com/softasap/sa-statping>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-statping.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Lightweight monitoring for pet projects with status page
+
+:ref:`See docs <sa_statping-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-statping <https://travis-ci.org/softasap/sa-statping>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-supervisord <https://www.github.com/softasap/sa-supervisord>`_
 
 .. raw:: html
@@ -3494,7 +4614,7 @@ microsoft sql server on ubuntu
 
     </td><td>
 
-supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems.
+supervisor process manager
 
 :ref:`See docs <sa-supervisord-docs>`
 
@@ -3695,6 +4815,38 @@ Basic role for installing tomcat 7-8 on ubuntu with apt
     </td><td>
 
 `Travis tests for sa-tomcat <https://travis-ci.org/softasap/sa-tomcat>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-tool-plantuml <https://www.github.com/softasap/sa-tool-plantuml>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-tool-plantuml.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+your description
+
+:ref:`See docs <sa-tool-plantuml-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-tool-plantuml <https://travis-ci.org/softasap/sa-tool-plantuml>`_
 
 .. raw:: html
 
@@ -4090,6 +5242,70 @@ classic pptp vpn
 
   <tr><td>
 
+`sa-vpn-pptp-client <https://www.github.com/softasap/sa-vpn-pptp-client>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-vpn-pptp-client.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+Allows to inject control unit to smarthome local network via PPP to receive broadcasts from hardware units.
+
+:ref:`See docs <sa-vpn-pptp-client-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-vpn-pptp-client <https://travis-ci.org/softasap/sa-vpn-pptp-client>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
+`sa-vpn-pritunl <https://www.github.com/softasap/sa-vpn-pritunl>`_
+
+.. raw:: html
+
+    </td><td>
+
+.. image:: https://travis-ci.org/softasap/sa-vpn-pritunl.svg?branch=master
+
+.. raw:: html
+
+    </td><td>
+
+installs pritunl - openvpn compatible vpn with mongo based gui
+
+:ref:`See docs <sa-vpn-pritunl-docs>`
+
+.. raw:: html
+
+    </td><td>
+
+`Travis tests for sa-vpn-pritunl <https://travis-ci.org/softasap/sa-vpn-pritunl>`_
+
+.. raw:: html
+
+  </td></tr>
+
+
+
+.. raw:: html
+
+  <tr><td>
+
 `sa-vpn-softether <https://www.github.com/softasap/sa-vpn-softether>`_
 
 .. raw:: html
@@ -4192,19 +5408,35 @@ installs xl-deploy proprietary tool
 .. toctree::
    :hidden:
 
+   sa_acme_sh_role_details.rst
+
+   sa-ansible-ara_role_details.rst
+
    sa-apache_role_details.rst
 
    sa-atom_role_details.rst
 
    sa-auto-ssh_role_details.rst
 
+   sa-bamboo_role_details.rst
+
+   sa_box_awx_role_details.rst
+
    sa-box-bootstrap_role_details.rst
+
+   sa-box-bootstrap-win_role_details.rst
 
    sa-box-jenkins_role_details.rst
 
    sa-box-staging_role_details.rst
 
+   sa_box_vestacp_role_details.rst
+
    sa-brackets-io_role_details.rst
+
+   sa-cadvisor_role_details.rst
+
+   sa_chatops_errbot_role_details.rst
 
    sa-chef-client_role_details.rst
 
@@ -4248,11 +5480,17 @@ installs xl-deploy proprietary tool
 
    sa-docker_role_details.rst
 
+   sa-docker-gc_role_details.rst
+
    sa-docker-kitematic_role_details.rst
 
    sa-docker-machine_role_details.rst
 
+   sa-docker-projectatomic_role_details.rst
+
    sa-doxygen_role_details.rst
+
+   sa_epel_role_details.rst
 
    sa-erlang-elixir_role_details.rst
 
@@ -4265,6 +5503,12 @@ installs xl-deploy proprietary tool
    sa-git_role_details.rst
 
    sa-gitlab-ce_role_details.rst
+
+   sa_gitlab_runner_role_details.rst
+
+   sa_gitlab_runner_win_role_details.rst
+
+   sa-glibc-layer-container_role_details.rst
 
    sa-gluster-fs_role_details.rst
 
@@ -4284,6 +5528,8 @@ installs xl-deploy proprietary tool
 
    sa-hashicorp-vault_role_details.rst
 
+   sa-hashicorp-vault-ui_role_details.rst
+
    sa-helper-web-deploy_role_details.rst
 
    sa-include_role_details.rst
@@ -4292,9 +5538,21 @@ installs xl-deploy proprietary tool
 
    sa-java_role_details.rst
 
+   sa_java_corretto_role_details.rst
+
    sa-java-gradle_role_details.rst
 
+   sa-java-sbt_role_details.rst
+
+   sa_jenkins_swarm_runner_role_details.rst
+
+   sa-jupyterhub_role_details.rst
+
    sa-jython_role_details.rst
+
+   sa-kong_role_details.rst
+
+   sa-kong-container_role_details.rst
 
    sa-lamp_role_details.rst
 
@@ -4304,11 +5562,17 @@ installs xl-deploy proprietary tool
 
    sa-lighttable_role_details.rst
 
+   sa_lighttpd_role_details.rst
+
+   sa-logstash_role_details.rst
+
    sa-logwatch_role_details.rst
 
    sa-mailhog_role_details.rst
 
    sa-mariadb_role_details.rst
+
+   sa-maven_role_details.rst
 
    sa-memcached_role_details.rst
 
@@ -4332,6 +5596,8 @@ installs xl-deploy proprietary tool
 
    sa-mysql_role_details.rst
 
+   sa_mysql_galera_role_details.rst
+
    sa-neo4j_role_details.rst
 
    sa-netdata_role_details.rst
@@ -4350,9 +5616,15 @@ installs xl-deploy proprietary tool
 
    sa-percona-pmm-client_role_details.rst
 
+   sa_php_apache_role_details.rst
+
    sa-php-container_role_details.rst
 
+   sa-php-fpm_role_details.rst
+
    sa-php-hhvm_role_details.rst
+
+   sa-php-pharables_role_details.rst
 
    sa-pm2_role_details.rst
 
@@ -4362,15 +5634,25 @@ installs xl-deploy proprietary tool
 
    sa-postgres_role_details.rst
 
+   sa-postgres-workplace_role_details.rst
+
    sa-powershell_role_details.rst
 
    sa-prometheus_role_details.rst
+
+   sa-prometheus-alertmanager_role_details.rst
+
+   sa-prometheus-exporters_role_details.rst
 
    sa-prudentia_role_details.rst
 
    sa-publishing-kindlegen_role_details.rst
 
    sa-python_role_details.rst
+
+   sa-python3_role_details.rst
+
+   sa-python-anaconda_role_details.rst
 
    sa-python-minimal_role_details.rst
 
@@ -4406,7 +5688,11 @@ installs xl-deploy proprietary tool
 
    sa-solr_role_details.rst
 
+   sa-sonatype-nexus_role_details.rst
+
    sa-sql-server_role_details.rst
+
+   sa_statping_role_details.rst
 
    sa-supervisord_role_details.rst
 
@@ -4421,6 +5707,8 @@ installs xl-deploy proprietary tool
    sa-teamcity_role_details.rst
 
    sa-tomcat_role_details.rst
+
+   sa-tool-plantuml_role_details.rst
 
    sa-tool-syncthing_role_details.rst
 
@@ -4446,6 +5734,10 @@ installs xl-deploy proprietary tool
 
    sa-vpn-pptp_role_details.rst
 
+   sa-vpn-pptp-client_role_details.rst
+
+   sa-vpn-pritunl_role_details.rst
+
    sa-vpn-softether_role_details.rst
 
    sa-watchman_role_details.rst
@@ -4454,4 +5746,4 @@ installs xl-deploy proprietary tool
 
 
 
-This page was generated on Monday 02 Jul 2018 at 17:53 EEST.
+This page was generated on Tuesday 26 Mar 2019 at 11:41 EET.

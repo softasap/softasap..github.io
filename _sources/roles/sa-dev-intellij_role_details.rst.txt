@@ -9,9 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-dev-intellij</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-dev-intellij"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-dev-intellij.svg?branch=master" /></a></p>
-    <p>Installs Jetbrains Intellij Community edition</p>
+    <p>
 
 .. raw:: html
 

@@ -9,8 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-box-staging</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-box-staging"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-box-staging.svg?branch=master" /></a></p>
+    <p>
 
 .. raw:: html
 

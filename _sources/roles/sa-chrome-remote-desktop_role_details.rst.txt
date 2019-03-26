@@ -9,9 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-chrome-remote-desktop</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-chrome-remote-desktop"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-chrome-remote-desktop.svg?branch=master" /></a></p>
-    <p>Installs chrome remote desktop host on ubuntu based box</p>
+    <p>
 
 .. raw:: html
 

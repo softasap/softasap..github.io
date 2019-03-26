@@ -21,7 +21,7 @@
   <title>SOFTASAP | sa-grafana</title>
   
 
-  <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
 
 <!-- Bootstrap and Font Awesome css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,6 +72,9 @@ window.cookieconsent.initialise({
   "position": "bottom"
 })});
 </script>
+<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+
 </head>
 
 <body data-spy="scroll" data-target="#navigation" data-offset="120" class="__roles_sa_grafana_role_details">
@@ -86,7 +89,7 @@ window.cookieconsent.initialise({
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a robust way</a>
+            <a class="navbar-brand scrollTo" href="/#intro">Get your software deployed in a quick and robust way</a>
         </div>
 
         <div class="navbar-collapse collapse" id="navigation">
@@ -96,7 +99,7 @@ window.cookieconsent.initialise({
                 </li>
                 <li><a href="/#devops">Devops recipes</a>
                 </li>
-                <li><a href="#contact">Contact</a>
+                <li><a href="/contacts.html">Contact</a>
                 </li>
                 <li><a href="/blog/archive.html">Blog</a>
                 </li>
@@ -116,107 +119,121 @@ window.cookieconsent.initialise({
 
 <div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
 <h1>sa-grafana</h1>
-<p><a href="https://travis-ci.org/softasap/sa-grafana"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-grafana.svg?branch=master" /></a></p>
-<h1>Usage:</h1>
+<p><a href="https://travis-ci.org/softasap/sa-grafana" rel="nofollow"><img src="https://camo.githubusercontent.com/5029f1a4f7c938cff1c7d5516e47cb7be47dacf5/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d67726166616e612e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-grafana.svg?branch=master" style="max-width:100%;"></a></p>
+<h2>Usage:</h2>
 <p>Simple:</p>
-<pre><code>
-- {
-    role: &quot;sa-grafana&quot;,
-    grafana_admin_user: grafana,
-    grafana_admin_password: GrAfAnA!
+<div class="highlight highlight-source-yaml"><pre>- <span class="pl-s">{</span>
+    <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-grafana<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+    <span class="pl-ent">grafana_admin_user</span>: <span class="pl-s">grafana,</span>
+    <span class="pl-ent">grafana_admin_password</span>: <span class="pl-s">GrAfAnA!,</span>
+    <span class="pl-ent">option_grafana_tools</span>: <span class="pl-c1">true</span>
 
-  }
+  <span class="pl-s">}</span>
 
-
-</code></pre>
-
+</pre></div>
 <p>Advanced:</p>
-<pre><code>
-vars:
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">vars</span>:
 
-  grafana_custom_properties:
-    - {regexp: &quot;^;allow_sign_up =(.*)&quot;, line: &quot;allow_sign_up=false&quot;}
-
-
-roles:
-  - {
-      role: &quot;sa-grafana&quot;,
-      grafana_admin_user: grafana,
-      grafana_admin_password: GrAfAnA!,
-
-      grafana_properties: &quot;{{grafana_custom_properties}}&quot;
-
-    }
+  <span class="pl-ent">grafana_custom_properties</span>:
+    - <span class="pl-s">{regexp: "^;allow_sign_up =(.*)", line: "allow_sign_up=false"}</span>
 
 
+<span class="pl-ent">roles</span>:
+  - <span class="pl-s">{</span>
+      <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-grafana<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+      <span class="pl-ent">grafana_admin_user</span>: <span class="pl-s">grafana,</span>
+      <span class="pl-ent">grafana_admin_password</span>: <span class="pl-s">GrAfAnA!,</span>
+
+      <span class="pl-ent">option_grafana_tools</span>: <span class="pl-c1">true</span>
+      <span class="pl-ent">grafana_tools_dir</span>: <span class="pl-s">/opt/grafana_tools,</span>
+
+
+      <span class="pl-ent">grafana_properties</span>: <span class="pl-s"><span class="pl-pds">"</span>{{grafana_custom_properties}}<span class="pl-pds">"</span></span>
+
+    <span class="pl-s">}</span>
+
+</pre></div>
+<h2>Wrapping into subfolder:</h2>
+<pre><code>  location /grafana/ {
+
+    proxy_set_header        Host $host;
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+
+    proxy_pass          http://localhost:3000;
+    proxy_read_timeout  90;
+
+    rewrite  ^/grafana/(.*)  /$1 break;
+  }
 </code></pre>
-
-<h1>Installing on Debian / Ubuntu</h1>
-<h1>Install Stable</h1>
-<pre><code>$ wget https://grafanarel.s3.amazonaws.com/builds/grafana_3.1.1-1470047149_amd64.deb
+<h2>Installing on Debian / Ubuntu</h2>
+<h2>Install Stable</h2>
+<div class="highlight highlight-source-shell"><pre>$ wget https://grafanarel.s3.amazonaws.com/builds/grafana_3.1.1-1470047149_amd64.deb
 $ sudo apt-get install -y adduser libfontconfig
-$ sudo dpkg -i grafana_3.1.1-1470047149_amd64.deb
-</code></pre>
-
-<h1>APT Repository</h1>
+$ sudo dpkg -i grafana_3.1.1-1470047149_amd64.deb</pre></div>
+<h2>APT Repository</h2>
 <p>Add the following line to your /etc/apt/sources.list file.</p>
-<pre><code>deb https://packagecloud.io/grafana/stable/debian/ wheezy main
-</code></pre>
-
+<div class="highlight highlight-source-shell"><pre>deb https://packagecloud.io/grafana/stable/debian/ wheezy main</pre></div>
 <p>Use the above line even if you are on Ubuntu or another Debian version. There is also a testing repository if you want beta or release candidates.</p>
-<pre><code>deb https://packagecloud.io/grafana/testing/debian/ wheezy main
-</code></pre>
-
+<div class="highlight highlight-source-shell"><pre>deb https://packagecloud.io/grafana/testing/debian/ wheezy main</pre></div>
 <p>Then add the Package Cloud key. This allows you to install signed packages.</p>
-<pre><code>$ curl https://packagecloud.io/gpg.key | sudo apt-key add -
-</code></pre>
-
+<div class="highlight highlight-source-shell"><pre>$ curl https://packagecloud.io/gpg.key <span class="pl-k">|</span> sudo apt-key add -</pre></div>
 <p>Update your Apt repositories and install Grafana</p>
-<pre><code>$ sudo apt-get update
-$ sudo apt-get install grafana
-</code></pre>
-
+<div class="highlight highlight-source-shell"><pre>$ sudo apt-get update
+$ sudo apt-get install grafana</pre></div>
 <p>On some older versions of Ubuntu and Debian you may need to install the apt-transport-https package which is needed to fetch packages over HTTPS.</p>
-<pre><code>$ sudo apt-get install -y apt-transport-https
-</code></pre>
-
-<h1>Package details</h1>
-<p>Installs binary to /usr/sbin/grafana-server
-Installs Init.d script to /etc/init.d/grafana-server
-Creates default file (environment vars) to /etc/default/grafana-server
-Installs configuration file to /etc/grafana/grafana.ini
-Installs systemd service (if systemd is available) name grafana-server.service
-The default configuration sets the log file at /var/log/grafana/grafana.log
-The default configuration specifies an sqlite3 db at /var/lib/grafana/grafana.db
-Start the server (init.d service)
+<div class="highlight highlight-source-shell"><pre>$ sudo apt-get install -y apt-transport-https</pre></div>
+<h2>Package details</h2>
+<p>Installs binary to /usr/sbin/grafana-server<br>
+Installs Init.d script to /etc/init.d/grafana-server<br>
+Creates default file (environment vars) to /etc/default/grafana-server<br>
+Installs configuration file to /etc/grafana/grafana.ini<br>
+Installs systemd service (if systemd is available) name grafana-server.service<br>
+The default configuration sets the log file at /var/log/grafana/grafana.log<br>
+The default configuration specifies an sqlite3 db at /var/lib/grafana/grafana.db<br>
+Start the server (init.d service)<br>
 Start Grafana by running:</p>
-<pre><code>$ sudo service grafana-server start
-</code></pre>
-
+<div class="highlight highlight-source-shell"><pre>$ sudo service grafana-server start</pre></div>
 <p>This will start the grafana-server process as the grafana user, which was created during the package installation. The default HTTP port is 3000 and default user and group is admin.</p>
 <p>To configure the Grafana server to start at boot time:</p>
-<pre><code>$ sudo update-rc.d grafana-server defaults 95 10
-</code></pre>
-
-<h1>Start the server (via systemd)</h1>
+<div class="highlight highlight-source-shell"><pre>$ sudo update-rc.d grafana-server defaults 95 10</pre></div>
+<h2>Start the server (via systemd)</h2>
 <p>To start the service using systemd:</p>
-<pre><code>$ systemctl daemon-reload
+<div class="highlight highlight-source-shell"><pre>$ systemctl daemon-reload
 $ systemctl start grafana-server
-$ systemctl status grafana-server
-</code></pre>
-
+$ systemctl status grafana-server</pre></div>
 <p>Enable the systemd service so that Grafana starts at boot.</p>
-<pre><code>sudo systemctl enable grafana-server.service
-</code></pre>
-
-<h1>Environment file</h1>
+<div class="highlight highlight-source-shell"><pre>sudo systemctl <span class="pl-c1">enable</span> grafana-server.service</pre></div>
+<h2>Environment file</h2>
 <p>The systemd service file and init.d script both use the file located at /etc/default/grafana-server for environment variables used when starting the back-end. Here you can override log directory, data directory and other variables.</p>
-<h1>Logging</h1>
+<h2>Logging</h2>
 <p>By default Grafana will log to /var/log/grafana</p>
-<h1>Database</h1>
+<h2>Database</h2>
 <p>The default configuration specifies a sqlite3 database located at /var/lib/grafana/grafana.db. Please backup this database before upgrades. You can also use MySQL or Postgres as the Grafana database, as detailed on the configuration page.</p>
-<h1>Configuration</h1>
-<p>The configuration file is located at /etc/grafana/grafana.ini. Go the Configuration page for details on all those options.</p></div>
+<h2>Configuration</h2>
+<p>The configuration file is located at /etc/grafana/grafana.ini. Go the Configuration page for details on all those options.</p>
+<h2>Ideas for dashboards:</h2>
+<p>MYSQL:   <a href="https://github.com/percona/grafana-dashboards">https://github.com/percona/grafana-dashboards</a></p>
+<h2>Ideas for Tools</h2>
+<p>SHELL: <a href="https://github.com/hagen1778/grafana-import-export">https://github.com/hagen1778/grafana-import-export</a><br>
+PYTHON: <a href="https://github.com/m110/grafcli">https://github.com/m110/grafcli</a></p>
+<h2>Usage with ansible galaxy workflow</h2>
+<p>If you installed the <code>sa-prometheus-exporters</code> role using the command</p>
+<p><code>ansible-galaxy install softasap.sa-prometheus-exporters</code></p>
+<p>the role will be available in the folder <code>library/softasap.sa-prometheus-exporters</code><br>
+Please adjust the path accordingly.</p>
+<div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+         <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-nginx<span class="pl-pds">"</span></span>
+       <span class="pl-s">}</span>
+</pre></div>
+<h2>Copyright and license</h2>
+<p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+<p>Reach us:</p>
+<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
+<p>Join gitter discussion channel at <a href="https://gitter.im/softasap" rel="nofollow">Gitter</a></p>
+<p>Discover other roles at  <a href="http://www.softasap.com/roles/registry_generated.html" rel="nofollow">http://www.softasap.com/roles/registry_generated.html</a></p>
+<p>visit our blog at <a href="http://www.softasap.com/blog/archive.html" rel="nofollow">http://www.softasap.com/blog/archive.html</a></p></div>
 
 
 

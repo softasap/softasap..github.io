@@ -9,26 +9,27 @@
 
 .. raw:: html
 
-    <h1>sa-swagger-editor</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-swagger-editor"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-swagger-editor.svg?branch=master" /></a></p>
+    <div id="readme" class="announce instapaper_body md" data-path="README.md"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-swagger-editor" class="anchor" aria-hidden="true" href="#sa-swagger-editor"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-swagger-editor</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-swagger-editor" rel="nofollow"><img src="https://camo.githubusercontent.com/ab1257dd45c64e2ef8115a96259ffbb8a68c8342/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d737761676765722d656469746f722e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-swagger-editor.svg?branch=master" style="max-width:100%;"></a></p>
     <p>Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation and sandbox from a Swagger-compliant API. Because Swagger UI has no dependencies, you can host it in any server environment, or on your local machine
     Swagger Editor - is a web based editor you can use to edit and preview service yml files</p>
     <p>Example of usage (all parameters are optional)</p>
     <p>Simple</p>
     <p>roles:
-        - {
-            role: "sa-swagger-editor"
-          }</p>
+    - {
+    role: "sa-swagger-editor"
+    }</p>
     <p>Advanced:</p>
     <p>roles:
-        - {
-            role: "sa-swagger-editor",
-            install_dir: "/home/slavko/apps/swagger_editor",</p>
+    - {
+    role: "sa-swagger-editor",
+    install_dir: "/home/slavko/apps/swagger_editor",</p>
     <pre><code>    option_install_nodejs: true,
         nodejs_version: "4.x"
     
       }
     </code></pre>
+    </article></div>
 
 .. raw:: html
 
