@@ -51,7 +51,7 @@
 
                         <p class="lead">Would you like to know more or just discuss something?</p>
 
-                        <p><a href="#contact" class="btn btn-default btn-lg">Contact Us</a>
+                        <p><a href="#contact" onclick="Calendly.showPopupWidget('https://calendly.com/voronenko/30min');return false;" class="btn btn-default btn-lg">Contact Us</a>
                         </p>
 
                     </div>
