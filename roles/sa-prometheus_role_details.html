@@ -115,55 +115,68 @@ window.cookieconsent.initialise({
 
 
 <div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
-<div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-prometheus" class="anchor" href="#sa-prometheus" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-prometheus</h1>
-
-<p><a href="https://travis-ci.org/softasap/sa-prometheus"><img src="https://camo.githubusercontent.com/65147f17e74185cc591734e7a3330b38e93283c3/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d70726f6d6574686575732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-prometheus.svg?branch=master" style="max-width:100%;"></a></p>
-
-<h1><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage:</h1>
-
+<h1>sa-prometheus</h1>
+<p><a href="https://travis-ci.org/softasap/sa-prometheus" rel="nofollow"><img src="https://camo.githubusercontent.com/65147f17e74185cc591734e7a3330b38e93283c3/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d70726f6d6574686575732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-prometheus.svg?branch=master" style="max-width:100%;"></a></p>
+<p>#Usage:</p>
 <p>Simple:</p>
+<div class="highlight highlight-source-yaml"><pre>- <span class="pl-s">{</span>
+    <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-prometheus<span class="pl-pds">"</span></span>
+  <span class="pl-s">}</span>
 
-<pre><code>
-- {
-    role: "sa-prometheus"
-  }
-
-
-</code></pre>
-
+</pre></div>
 <p>Advanced:</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">vars</span>:
 
-<pre><code>
-vars:
-
-  some_custom_properties:
-    - {regexp: "^;allow_sign_up =(.*)", line: "allow_sign_up=false"}
+  <span class="pl-ent">some_custom_properties</span>:
+    - <span class="pl-s">{regexp: "^;allow_sign_up =(.*)", line: "allow_sign_up=false"}</span>
 
 
-roles:
-  - {
-      role: "sa-prometheus"
-    }
+<span class="pl-ent">roles</span>:
+  - <span class="pl-s">{</span>
+      <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-prometheus<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+
+      <span class="pl-ent">option_install_go</span>: <span class="pl-s">true,</span>
+      <span class="pl-ent">go_version</span>: <span class="pl-s">1.6,</span>
 
 
-</code></pre>
+      <span class="pl-ent">prometheus_user</span>:   <span class="pl-s">prometheus,</span>
+      <span class="pl-ent">prometheus_group</span>:  <span class="pl-s">prometheus,</span>
 
-<p>Best cookied with Grafana (example included in box example , see related article on  <a href="https://www.digitalocean.com/community/tutorials/how-to-add-a-prometheus-dashboard-to-grafana">https://www.digitalocean.com/community/tutorials/how-to-add-a-prometheus-dashboard-to-grafana</a>)</p>
+      <span class="pl-ent">prometheus_base_dir</span>: <span class="pl-s">/opt/prometheus,</span>
+      <span class="pl-ent">prometheus_data_dir</span>: <span class="pl-s"><span class="pl-pds">"</span>{{ prometheus_base_dir }}/data<span class="pl-pds">"</span></span><span class="pl-s">,</span>
 
-<p><a href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_011.png" target="_blank"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_011.png" alt="alt tag" style="max-width:100%;"></a></p>
+      <span class="pl-ent">prometheus_version</span>:                 <span class="pl-s">2.0.0,</span>
+      <span class="pl-ent">prometheus_node_exporter_version</span>:   <span class="pl-s">0.15.2,</span>
+      <span class="pl-ent">prometheus_alertmanager_version</span>:    <span class="pl-s">0.11.0,</span>
 
-<p><a href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_012.png" target="_blank"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_012.png" alt="alt tag" style="max-width:100%;"></a></p>
+      <span class="pl-ent">prometheus_config_path</span>:          <span class="pl-s">/etc/prometheus</span>
+    <span class="pl-s">}</span>
 
-<p><a href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_013.png" target="_blank"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_013.png" alt="alt tag" style="max-width:100%;"></a></p>
-
-<p><a href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_014.png" target="_blank"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_014.png" alt="alt tag" style="max-width:100%;"></a></p>
-
+</pre></div>
+<p>Best cookied with Grafana (example included in box example , see related article on  <a href="https://www.digitalocean.com/community/tutorials/how-to-add-a-prometheus-dashboard-to-grafana" rel="nofollow">https://www.digitalocean.com/community/tutorials/how-to-add-a-prometheus-dashboard-to-grafana</a>)</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_011.png"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_011.png" alt="alt tag" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_012.png"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_012.png" alt="alt tag" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_013.png"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_013.png" alt="alt tag" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_014.png"><img src="https://raw.githubusercontent.com/softasap/sa-prometheus/master/box-example/docs/Selection_014.png" alt="alt tag" style="max-width:100%;"></a></p>
 <p>Further reading:</p>
-
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-1">https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-1</a></p>
-
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-2">https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-2</a></p>
-</article></div></div>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-1" rel="nofollow">https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-1</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-2" rel="nofollow">https://www.digitalocean.com/community/tutorials/how-to-query-prometheus-on-ubuntu-14-04-part-2</a></p>
+<h2>usage with ansible-galaxy workflow</h2>
+<p>If you installed the <code>sa-prometheus</code> role using the command</p>
+<p><code>ansible-galaxy install softasap.sa-prometheus</code></p>
+<p>the role will be available in the folder <code>library/softasap.sa-prometheus</code><br>
+Please adjust the path accordingly.</p>
+<div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+         <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-prometheus<span class="pl-pds">"</span></span>
+       <span class="pl-s">}</span>
+</pre></div>
+<h2>Copyright and license</h2>
+<p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+<p>Reach us:</p>
+<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
+<p>Join gitter discussion channel at <a href="https://gitter.im/softasap" rel="nofollow">Gitter</a></p>
+<p>Discover other roles at  <a href="http://www.softasap.com/roles/registry_generated.html" rel="nofollow">http://www.softasap.com/roles/registry_generated.html</a></p>
+<p>visit our blog at <a href="http://www.softasap.com/blog/archive.html" rel="nofollow">http://www.softasap.com/blog/archive.html</a></p></div>
 
 
 

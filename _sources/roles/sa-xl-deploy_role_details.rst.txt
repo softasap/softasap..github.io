@@ -9,8 +9,8 @@
 
 .. raw:: html
 
-    <div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-xl-deploy" class="anchor" href="#sa-xl-deploy" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-xl-deploy</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-xl-deploy"><img src="https://camo.githubusercontent.com/6850cced9888ec3a8c9dfb9e5f0d152b034426cb/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d786c2d6465706c6f792e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-xl-deploy.svg?branch=master" style="max-width:100%;"></a></p>
+    <div id="readme" class="announce instapaper_body md" data-path="README.md"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-xl-deploy" class="anchor" aria-hidden="true" href="#sa-xl-deploy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-xl-deploy</h1>
+    <p><a href="https://travis-ci.org/softasap/sa-xl-deploy" rel="nofollow"><img src="https://camo.githubusercontent.com/6850cced9888ec3a8c9dfb9e5f0d152b034426cb/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d786c2d6465706c6f792e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-xl-deploy.svg?branch=master" style="max-width:100%;"></a></p>
     <p>XL Deploy is the only application release automation solution that is agentless across all target platforms.
     Connect to Windows and Unix target systems using proven, industry-standard remote protocols;
     no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.</p>
@@ -33,9 +33,13 @@
            <span class="pl-s">}</span>
     
     </pre></div>
-    <h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
-    <p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
-    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+    <h2><a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+    <p>Code is dual licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) and the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>). Choose the one that suits you best.</p>
+    <p>Reach us:</p>
+    <p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
+    <p>Join gitter discussion channel at <a href="https://gitter.im/softasap" rel="nofollow">Gitter</a></p>
+    <p>Discover other roles at  <a href="http://www.softasap.com/roles/registry_generated.html" rel="nofollow">http://www.softasap.com/roles/registry_generated.html</a></p>
+    <p>visit our blog at <a href="http://www.softasap.com/blog/archive.html" rel="nofollow">http://www.softasap.com/blog/archive.html</a></p>
     </article></div>
 
 .. raw:: html

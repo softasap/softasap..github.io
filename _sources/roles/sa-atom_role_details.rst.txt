@@ -9,16 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-atom</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-atom"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-atom.svg?branch=master" /></a></p>
-    <p>Possible overrides: enumerate desired packages of your choice in atom_packages variable</p>
-    <p>atom_packages: ["angularjs","atom-css-comb", "meteor-api", "emmet", "file-icons", "tag"]</p>
-    <p>Example of use: <a href="https://github.com/Voronenko/devops-ruby-app-demo">https://github.com/Voronenko/devops-ruby-app-demo</a></p>
-    <pre><code> - {
-         role: "sa-atom",
-         atom_packages: ["angularjs","atom-css-comb", "meteor-api", "emmet", "file-icons", "tag"] 
-       }
-    </code></pre>
+    <p>
 
 .. raw:: html
 

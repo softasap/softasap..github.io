@@ -9,23 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-include</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-include"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-include.svg?branch=master" /></a></p>
-    <p>Usage example:</p>
-    <p>Simple:</p>
-    <pre><code> - {
-         role: "some role X"         
-       }
-    
-     - {
-         role: "sa-include",
-         include_file: "{{root_dir}}/tasks/your_tasks_in_the_middle.yml"
-       }
-    
-     - {
-         role: "some role Y" 
-       }
-    </code></pre>
+    <p>
 
 .. raw:: html
 

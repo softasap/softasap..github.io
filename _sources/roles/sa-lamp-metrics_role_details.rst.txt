@@ -9,23 +9,7 @@
 
 .. raw:: html
 
-    <h1>sa-lamp-metrics</h1>
-    <p><a href="https://travis-ci.org/softasap/sa-lamp-metrix"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-lamp-metrics.svg?branch=master" /></a></p>
-    <p>Installs </p>
-    <ul>
-    <li>
-    <p>phploc</p>
-    </li>
-    <li>
-    <p>phpcs</p>
-    </li>
-    <li>
-    <p>phpmd</p>
-    </li>
-    <li>
-    <p>phpdox</p>
-    </li>
-    </ul>
+    <p>
 
 .. raw:: html
 

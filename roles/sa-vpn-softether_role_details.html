@@ -115,8 +115,8 @@ window.cookieconsent.initialise({
 
 
 <div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
-<div class="announce instapaper_body md" data-path="README.md" id="readme"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-vpn-softether" class="anchor" href="#sa-vpn-softether" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-vpn-softether</h1>
-<p><a href="https://travis-ci.org/softasap/sa-vpn-softether"><img src="https://camo.githubusercontent.com/e0eb907a230d029252c5b2982b69d3f49c091bbc/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d76706e2d736f667465746865722e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-vpn-softether.svg?branch=master" style="max-width:100%;"></a></p>
+<div id="readme" class="announce instapaper_body md" data-path="README.md"><article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-sa-vpn-softether" class="anchor" aria-hidden="true" href="#sa-vpn-softether"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sa-vpn-softether</h1>
+<p><a href="https://travis-ci.org/softasap/sa-vpn-softether" rel="nofollow"><img src="https://camo.githubusercontent.com/e0eb907a230d029252c5b2982b69d3f49c091bbc/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d76706e2d736f667465746865722e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-vpn-softether.svg?branch=master" style="max-width:100%;"></a></p>
 <p>Example of use: check box-example</p>
 <p>Possible configuration:</p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">softether_option_securenat</span>: <span class="pl-c1">true</span>
@@ -216,7 +216,7 @@ window.cookieconsent.initialise({
 
          <span class="pl-c"><span class="pl-c">#</span> ============== OPENVPN ===================</span>
          <span class="pl-ent">softether_option_openvpn</span>: <span class="pl-s">true,</span>
-         <span class="pl-ent">softether_openvpn_port</span>: <span class="pl-s">1194,</span>
+         <span class="pl-ent">softether_openvpn_port</span>: <span class="pl-c1">1194,</span>
          <span class="pl-ent">softether_openvpn_config</span>: <span class="pl-s"><span class="pl-pds">"</span>{{softether_home}}/generated/openvpn_config.zip<span class="pl-pds">"</span></span><span class="pl-s">,</span>
          <span class="pl-c"><span class="pl-c">#</span> /============== OPENVPN ===================</span>
 
@@ -232,7 +232,7 @@ window.cookieconsent.initialise({
 <p>If you ever needed to setup vpnserver on your own on later stage:</p>
 <pre><code>  softether_init_script: scenarios/dummy
 </code></pre>
-<h2><a id="user-content-usage-with-ansible-galaxy-workflow" class="anchor" href="#usage-with-ansible-galaxy-workflow" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage with ansible galaxy workflow</h2>
+<h2><a id="user-content-usage-with-ansible-galaxy-workflow" class="anchor" aria-hidden="true" href="#usage-with-ansible-galaxy-workflow"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage with ansible galaxy workflow</h2>
 <p>If you installed the sa-vpn-softether role using the command</p>
 <p><code>ansible-galaxy install softasap.sa-vpn-softether</code></p>
 <p>the role will be available in the folder library/softasap.sa-vpn-softether
@@ -241,7 +241,7 @@ Please adjust the path accordingly.</p>
          <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-vpn-softether<span class="pl-pds">"</span></span>
        <span class="pl-s">}</span>
 </pre></div>
-<h1><a id="user-content-connecting-to-openvpn-from-client-box" class="anchor" href="#connecting-to-openvpn-from-client-box" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connecting to OpenVPN from client box</h1>
+<h1><a id="user-content-connecting-to-openvpn-from-client-box" class="anchor" aria-hidden="true" href="#connecting-to-openvpn-from-client-box"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connecting to OpenVPN from client box</h1>
 <p>If you executed last step of play, you have now cer file for ipsec + zip with openvpn configuration.</p>
 <p>Once unpacked, ensure you have GUI ready for openvpn. If menu "Import saved vpn configuration" missing, proceed with</p>
 <div class="highlight highlight-source-shell"><pre>sudo apt install network-manager-openvpn network-manager-openvpn-gnome network-manager-pptp network-manager-vpnc</pre></div>
@@ -251,7 +251,7 @@ Please adjust the path accordingly.</p>
 If you have only one hub created, than you can use only username.</p>
 <p>To troubleshoot you might use interactive session native ovpn client, like</p>
 <p><code>sudo openvpn --config my.ovpn</code></p>
-<h1><a id="user-content-connecting-to-openvpn-full-story" class="anchor" href="#connecting-to-openvpn-full-story" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connecting to OpenVPN full story</h1>
+<h1><a id="user-content-connecting-to-openvpn-full-story" class="anchor" aria-hidden="true" href="#connecting-to-openvpn-full-story"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connecting to OpenVPN full story</h1>
 <ol>
 <li>About Files</li>
 </ol>
@@ -322,9 +322,9 @@ the VPN Server configuration in advance. Do not confuse between TCP and UDP
 since they are not concerned mutually.</p>
 <p>You can also specify the proxy-server address if the connection should be
 relayed by the proxy-server. Specify it on the configuration file.</p>
-<h2><a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
-<p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>).</p>
-<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/">https://www.facebook.com/SoftAsap/</a>)</p>
+<h2><a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and license</h2>
+<p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>).</p>
+<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
 </article></div></div>
 
 

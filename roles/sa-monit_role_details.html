@@ -116,24 +116,38 @@ window.cookieconsent.initialise({
 
 <div class="block-text block-padded"><p><a class="reference internal" href="registry_generated.html#roles-list"><span class="std std-ref">Back to roles list</span></a></p>
 <h1>sa-monit</h1>
-<p><a href="https://travis-ci.org/softasap/sa-monit"><img alt="Build Status" src="https://travis-ci.org/softasap/sa-monit.svg?branch=master" /></a></p>
-<p>Important: for ubuntu 14.04 the latest possible version is 5.14 due to libssl-dev dependency.</p>
-<pre><code>  roles:
-    - {
-        role: &quot;sa-monit&quot;
-      }
-</code></pre>
-
+<p><a href="https://travis-ci.org/softasap/sa-monit" rel="nofollow"><img src="https://camo.githubusercontent.com/63923a0a8168f7130d3cb9240d8465d10898533b/68747470733a2f2f7472617669732d63692e6f72672f736f6674617361702f73612d6d6f6e69742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/softasap/sa-monit.svg?branch=master" style="max-width:100%;"></a><br>
+<a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://camo.githubusercontent.com/ac61f0fff7b21235dad9395df16ffd7a5ee55ced/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542532304c6963656e73652d627269676874677265656e2e737667" alt="License: MIT" data-canonical-src="https://img.shields.io/badge/license-MIT%20License-brightgreen.svg" style="max-width:100%;"></a></p>
+<p>Important: for ubuntu 14.04 the latest possible version is 5.14 due to libssl-dev dependency.<br>
+So only "default" version supported</p>
+<p>For more modern systems you can choose latest stable distribution, like  <code>5.25.2-1</code> at the time of release.<br>
+If "default" is too old for you.</p>
+<div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+    - <span class="pl-s">{</span>
+        <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-monit<span class="pl-pds">"</span></span>
+      <span class="pl-s">}</span></pre></div>
 <p>Advanced:</p>
-<pre><code>  roles:
-    - {
-        role: &quot;sa-monit&quot;,
-        monit_presets: [&quot;basic&quot;, &quot;basic_nginx&quot;, &quot;elasticsearch&quot;],
-        monit_version: &quot;5.14-2&quot;, #  FOR 16.04 &quot;5.19.0-1&quot;
-        monit_gui_user: admin,
-        monit_gui_password: xeR5hSdSQcCnFVLV8PLy
-      }
-</code></pre></div>
+<div class="highlight highlight-source-yaml"><pre>  <span class="pl-ent">roles</span>:
+    - <span class="pl-s">{</span>
+        <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>sa-monit<span class="pl-pds">"</span></span><span class="pl-s">,</span>
+        <span class="pl-ent">monit_presets</span>: <span class="pl-s">["basic", "basic_nginx", "elasticsearch"],</span>
+        <span class="pl-ent">monit_version</span>: <span class="pl-s"><span class="pl-pds">"</span>5.14-2<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-c">#</span>  FOR 16.04 "5.19.0-1"</span>
+        <span class="pl-ent">monit_gui_user</span>: <span class="pl-s">admin,</span>
+        <span class="pl-ent">monit_gui_password</span>: <span class="pl-s">xeR5hSdSQcCnFVLV8PLy</span>
+      <span class="pl-s">}</span></pre></div>
+<h2>Usage with ansible galaxy workflow</h2>
+<p>If you installed the sa-monit  role using the command</p>
+<p><code>ansible-galaxy install softasap.sa-monit</code></p>
+<p>the role will be available in the folder library/sa-dehydrated</p>
+<p>Please adjust the path accordingly.</p>
+<div class="highlight highlight-source-yaml"><pre>     - <span class="pl-s">{</span>
+         <span class="pl-ent">role</span>: <span class="pl-s"><span class="pl-pds">"</span>softasap.sa-monit<span class="pl-pds">"</span></span>
+       <span class="pl-s">}</span>
+</pre></div>
+<h2>Copyright and license</h2>
+<p>Code licensed under the [BSD 3 clause] (<a href="https://opensource.org/licenses/BSD-3-Clause" rel="nofollow">https://opensource.org/licenses/BSD-3-Clause</a>) or the [MIT License] (<a href="http://opensource.org/licenses/MIT" rel="nofollow">http://opensource.org/licenses/MIT</a>).</p>
+<p>Subscribe for roles updates at [FB] (<a href="https://www.facebook.com/SoftAsap/" rel="nofollow">https://www.facebook.com/SoftAsap/</a>)</p>
+<p>Join gitter discussion channel at <a href="https://gitter.im/softasap" rel="nofollow">Gitter</a></p></div>
 
 
 
